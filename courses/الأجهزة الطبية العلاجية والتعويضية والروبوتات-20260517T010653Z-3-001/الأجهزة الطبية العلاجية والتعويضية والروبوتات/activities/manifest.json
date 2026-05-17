@@ -1,0 +1,583 @@
+[
+  {
+    "name": "أجهزة_العلاج_الطبيعي_و_الوظيفي",
+    "items": [
+      {
+        "name": "إصلاح_الأعطال",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "المخطط_الصندوقي_للجهاز",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "كيفية_تتبع_الأعطال_واكتشافها_ونقاط_الفحص",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "كيفية_قراءة_مخطط_الدائرة_الإلكترونية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مبدأ_العمل_والأنواع",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مكونات_الجهاز",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "أنواع_أخرى_من_الأجهزة_والمعدات_العلاجية",
+    "items": [
+      {
+        "name": "أجهزة_القسطرة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الآلة_القلب-رئوية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الصمامات_والشرايين_الصناعية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "جهاز_الموجات_فوق_الصوتية_العلاجي",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "جهاز_جراحة_الدياثيرميا",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "جهاز_مضخة_حقن_الدواء",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مضخات_البالونات_داخل_الشرايين",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "منظمات_القلب",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "أهمية_الأجهزة_الذكية",
+    "items": [
+      {
+        "name": "التشخيص_الذكي",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التنبؤ_بتطور_المرض",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "العناية_الذكية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "المراقبة_الدائمة_للأمراض_المزمنة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "زيادة_فاعلية_الطاقم_الطبي",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مراقبة_المرضى_عن_بُعد",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "الأجهزة_التعويضية_والمساعدة_والأطراف_الصناعية",
+    "items": [
+      {
+        "name": "أهم_الأجزاء",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الأنواع",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التحكم",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الوظيفة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "ميكانيكية_الحركة",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "الأجهزة_الطبية_الذكية",
+    "items": [
+      {
+        "name": "الاستغلال_الذكي_للبيانات_الطبية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التحكم_الذكي",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التشخيص_الذكي",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التطبيقات_الحاسوبية_الطبية_الذكية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التفاعل_الذكي_بين_المريض_والجهاز",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التواصل_بين_الأجهزة_الطبية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الروبوتات_الطبية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "القرارات_الطبية_المعتمدة_على_الذكاء_الاصطناعي",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "المراقبة_الذكية_للمؤشرات_الحيوية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الملفات_الطبية_الذكية_والأنظمة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "نظم_إعادة_التأهيل_والعلاج_باستخدام_الذكاء_الاصطناعي",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "الأجهزة_الطبية_القابلة_للارتداء",
+    "items": [
+      {
+        "name": "التقييم_اللحظي_للوضع_الصحي_والمخاطر_الصحية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تقييم_الأداء_أثناء_الحركة_و_التمرينات_الرياضية",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "الذكاء_الاصطناعي",
+    "items": [
+      {
+        "name": "إنترنت_الأشياء",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التصنيف_الذكي",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التعرف",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التعلم_الآلي",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التنبؤ_الذكي",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "نظم_التعزيز",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "تطبيقات",
+    "items": [
+      {
+        "name": "الأطراف_الصناعية_الذكية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الضبط_الذكي_لمضخة_الأنسولين",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الكفاءة_الذكية_لجهاز_إنعاش_القلب_القابل_للزرع",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "ساعة_اليد_الطبية_الذكية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "متابعة_انتظام_جرعات_الدواء_عن_بُعد",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مراقبة_نبض_القلب_ومستوىات_الجلوكوز_عبر_تطبيق_الهاتف",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "جهاز_الإنعاش_القلبي",
+    "items": [
+      {
+        "name": "إصلاح_الأعطال",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "المخطط_الصندوقي_للجهاز",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "كيفية_تتبع_الأعطال_واكتشافها_ونقاط_الفحص",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "كيفية_قراءة_مخطط_الدائرة_الإلكترونية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مبدأ_العمل_والأنواع",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مكونات_الجهاز",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "جهاز_الحاضنة",
+    "items": [
+      {
+        "name": "إصلاح_الأعطال",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "المخطط_الصندوقي_للجهاز",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "كيفية_تتبع_الأعطال_واكتشافها_ونقاط_الفحص",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "كيفية_قراءة_مخطط_الدائرة_الإلكترونية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مبدأ_العمل_والأنواع",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مكونات_الجهاز",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "جهاز_الغسيل_الكلوي",
+    "items": [
+      {
+        "name": "إصلاح_الأعطال",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "المخطط_الصندوقي_للجهاز",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "كيفية_تتبع_الأعطال_واكتشافها_ونقاط_الفحص",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "كيفية_قراءة_مخطط_الدائرة_الإلكترونية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مبدأ_العمل_والأنواع",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مكونات_الجهاز",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "جهاز_الليزر",
+    "items": [
+      {
+        "name": "إصلاح_الأعطال",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "المخطط_الصندوقي_للجهاز",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "كيفية_تتبع_الأعطال_واكتشافها_ونقاط_الفحص",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "كيفية_قراءة_مخطط_الدائرة_الإلكترونية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مبدأ_العمل_والأنواع",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مكونات_الجهاز",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "معمارية_الأجهزة_الطبية_الذكية",
+    "items": [
+      {
+        "name": "بوابات_الفلترة_والمعالجة_ونقل_البيانات_من_الجهاز_إلى_التخزين_السحابي",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "بوابات_ضغط_البيانات_وإرسالها_إلى_الخادم_السحابي_IOT_بطريقة_فعالة_وآمنة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تطبيق_التحكم_في_المفعلاات_للأداء_الطبي_وحركة_الجهاز",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "محلل_البيانات_لإيجاد_أهم_المسارات_في_البيانات_والمساعدة_في_اتخاذ_القرار",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مركز_البيانات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مركز_البيانات_الهيكلية_الكبيرة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "معالجات_تدفق_البيانات_إلى_تطبيقات_التحكم_ومركز_البيانات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "وحدة_التعلم_الآلي_لتحديد_الأنماط_والنماذج_في_البيانات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "وحدة_منطق_البرنامج_لإتاحة_مراقبة_أداء_الجهاز",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "وحدة_واجهة_الأوامر_الخاصة_بالإدارة_لمتابعة_عدد_المستخدمين_وإدارة_النظام",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "وحدة_واجهة_الأوامر_الخاصة_بالطاقم_الطبي_والمريض_لضبط_أداء_الجهاز_والإنذارات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "وحدة_واجهة_الأوامر_الخاصة_بالمريض_لمتابعة_وضعه_الصحي_وتلقي_الإنذارات_على_جهاز_ها_778337b6",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  }
+]

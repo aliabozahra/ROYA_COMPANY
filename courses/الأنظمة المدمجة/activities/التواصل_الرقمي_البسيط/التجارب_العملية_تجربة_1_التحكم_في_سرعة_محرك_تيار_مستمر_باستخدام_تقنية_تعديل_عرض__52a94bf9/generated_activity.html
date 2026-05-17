@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تحدي ضبط أداء المحركات باستخدام PWM</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تحدي ضبط أداء المحركات باستخدام PWM</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يُقدم هذا النشاط بنهائية تفاعلية لتحدي تنافسي بين مجموعات المتدربين، يهدف المتدرب إلى ضبط إعدادات PWM وتحليل بيانات ADC لتحقيق أفضل أداء للمحرك.</p>
+        <ul class="obj-list"><li>يطبق مهارات ضبط PWM لتحسين كفاءة المحرك.</li><li>يراقب ويحلل بيانات ADC لتقييم أداء النظام.</li><li>يتعاون ضمن فريق ويشارك في صنع القرار تحت ضغط المنافسة.</li><li>يستجيب لتحديات الأداء ويعدل الإعدادات باستراتيجية مدروسة.</li><li>يطور مهارات التطبيق العملي والمراقبة الدقيقة في الوقت الفعلي.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">عملي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>لوحات Raspberry Pi Pico مع دوائر تشغيل المحرك</li><li>محركات تيار مستمر</li><li>مقاييس ADC مدمجة وبرمجيات مراقبة حية</li><li>عدادات زمنية وأجهزة قياس الجهد والتيار</li><li>برامج MicroPython لتعديل PWM والتحليل</li><li>لوحات تقييم الأداء ومساحات للتعاون الجماعي</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتعريف بالتحدي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يرحب المدرب بالمشاركين ويشرح فكرة التحدي التنافسي، موضحًا أهمية ضبط إعدادات PWM وقراءة ADC.</li><li>يتم تقسيم المتدربين إلى مجموعات مستقلة، مع تحديد أدوار مثل القائد، المبرمج، ومراقب الأداء.</li><li>يُعرض فيديو أو محاكاة قصيرة توضح الفرق بين إعدادات PWM المختلفة وتأثيرها مباشرة على أداء المحرك.</li><li>يشرح المدرب قواعد التحدي، مع التركيز على أهمية التعاون والتفكير الإستراتيجي.</li><li>تُوزع الأدوات ومعدات التجربة على كل فريق، ويتم التحقق من جاهزية الأجهزة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف وضبط إعدادات PWM الأساسية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تبدأ المجموعات بضبط إشارات PWM على أجهزة التحكم بـ Raspberry Pi Pico باستخدام كود MicroPython مُبسّط.</li><li>يقوم أعضاء الفريق بتجربة دوامات مختلفة للنبضة (Duty Cycle)، ويرصدون تأثيرها على سرعة المحرك عمليًا.</li><li>تُسجل القياسات الأولية لكفاءة المحرك وسرعته باستخدام ADC وأدوات القياس المرفقة.</li><li>يشارك كل فريق ملاحظاته وتجاربهم ضمن المجموعة لتبلور فهم عملي مشترك.</li><li>يُشجّع المدرب الفرق على تدوين ملاحظات عن التحديات التي ظهرت خلال عملية الضبط.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التطبيق العملي للتعديلات المتقدمة وتحليل ADC</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تُطلب من الفرق استخدام بيانات ADC لمراقبة أداء المحرك في الوقت الحقيقي مع تغيير الإعدادات.</li><li>يطبق كل فريق تعديلات ذكية على PWM بناءً على قراءة ADC لتحسين الاستقرار وزيادة كفاءة السرعة.</li><li>تُستخدم أدوات البرمجيات لتحليل بيانات ADC وإظهارها على شاشة، مما يساعد في تحديد نقاط الضعف أو الشذوذ.</li><li>يُجري الفرق اختبارات تحميل متغيرة (مثل وضع أوزان إضافية على المحرك) لقياس استجابة النظام.</li><li>يُدوّن كل فريق استراتيجياته وحلوله التي ساعدته في تحسين الأداء، مع تحضير عرض موجز.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التحدي التنافسي وتقييم النتائج</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>ينفذ الفرق تحدي ضبط PWM بحيث يحقق كل فريق أعلى أداء مستقر للمحرك تحت ظروف محاكاة مختلفة.</li><li>يتم تقييم أداء كل فريق بناءً على معايير مثل سرعة المحرك، استقراره، وفعالية استجابة نظام PWM لـ ADC.</li><li>يُجري المدرب جلسة أسئلة سريعة لتحفيز التفكير الإستراتيجي حول طرق الضبط والتحليل المستخدمة.</li><li>يقدم كل فريق عرضًا موجزًا يشرح فيه استراتيجياته ونتائج الأداء، مع مشاركة التحديات والتعلم.</li><li>يتم الإعلان عن الفريق الفائز ومناقشة العوامل التي ساهمت في نجاحه، مما يفتح نقاشًا لتحسين الأداء المستقبلي.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التغذية الراجعة والإغلاق</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقود المدرب نقاشًا تفاعليًا مع المتدربين حول مهارات التعاون، الضبط الدقيق، وأهمية بيانات ADC في التحكم.</li><li>يتم تقديم تغذية راجعة فردية وجماعية حول أداء الفرق وكيفية تطوير المهارات التقنية والسلوكية.</li><li>يُطلب من المتدربين كتابة ملخص شخصي لتعلمهم والخطوات التي سيطبقونها لاحقًا في مشاريعهم.</li><li>يوجّه المدرب المتدربين إلى الموارد الإضافية والنقاشات المستقبلية لتعزيز التعلم المستمر.</li><li>اختتام النشاط بتشجيع المتدربين على مزيد من التحديات والتطبيقات العملية في الواقع المهني.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكنك استغلال بيانات ADC لتحسين استقرار وسرعة محرك التيار المستمر في مشروع حقيقي؟ قدم مثالاً عملياً يوضح استراتيجيتك.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

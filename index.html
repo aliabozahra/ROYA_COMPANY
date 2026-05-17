@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ابوزهرة </title>
+  <link rel="stylesheet" href="assets/css/main.css"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="index.html" class="brand">
+    <div class="brand-logo">🎓</div>
+    <div class="brand-name">
+      رؤية
+      <small>كونتي</small>
+    </div>
+  </a>
+  <div class="nav-right">
+    <div class="nav-stat">
+      <span>📚</span>
+      <strong id="totalCount">0</strong>
+      مقرر
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE -->
+<div class="page">
+
+  <!-- Hero -->
+  <div class="home-hero">
+    <div class="tag">المرحلة الخامسة المقررات</div>
+    <h1>سبحان الله وبحمده <span>صل على النبي الامي وآله وصحبه </span> سبحان الله العظيم</h1>
+    <p>جميع المقررات، الكويزات، والأنشطة في مكان واحد منظم وواضح عشان نسهل على فريقنا فريق شركة رؤية خاصة فريق الإعداد  والله المستعان.</p>
+  </div>
+
+  <!-- Search -->
+  <div class="search-wrap">
+    <span class="search-ico">🔍</span>
+    <input class="search-input" id="searchInput"
+           placeholder="ابحث باسم المقرر أو التصنيف..." type="text"/>
+    <button class="search-clr" id="searchClr">✕</button>
+  </div>
+
+  <!-- Courses -->
+  <div class="sec-header">
+    <div class="sec-title">جميع المقررات</div>
+    <div class="sec-badge" id="countBadge">0 مقرر</div>
+  </div>
+
+  <div class="courses-grid" id="grid">
+    <div class="loading-state">
+      <div class="spinner"></div>
+      <p>جار تحميل المقررات...</p>
+    </div>
+  </div>
+
+</div>
+
+<script src="assets/js/courses-config.js"></script>
+<script>
+// ══════════════════════════════════════════════
+//  أيقونات وألوان افتراضية للمقررات
+// ══════════════════════════════════════════════
+var DEFAULT_COLORS = [
+  { color: "linear-gradient(135deg,#dbeafe,#bfdbfe)", iconBg: "#eff6ff" },
+  { color: "linear-gradient(135deg,#d1fae5,#a7f3d0)", iconBg: "#ecfdf5" },
+  { color: "linear-gradient(135deg,#ede9fe,#ddd6fe)", iconBg: "#f5f3ff" },
+  { color: "linear-gradient(135deg,#fce7f3,#fbcfe8)", iconBg: "#fdf2f8" },
+  { color: "linear-gradient(135deg,#fef3c7,#fde68a)", iconBg: "#fffbeb" },
+  { color: "linear-gradient(135deg,#fee2e2,#fecaca)", iconBg: "#fff1f2" },
+];
+var DEFAULT_ICONS = ["📘","📗","📙","📕","📓","📔","📒","📃","📄","🗒️"];
+
+// ══════════════════════════════════════════════
+//  دمج الـ config مع بيانات افتراضية
+// ══════════════════════════════════════════════
+function buildCourseData() {
+  return COURSES_CONFIG.map(function(c, i) {
+    var def = DEFAULT_COLORS[i % DEFAULT_COLORS.length];
+    return {
+      folder:      c.folder,
+      code:        c.code        || ('CRS-' + String(i+1).padStart(3,'0')),
+      icon:        c.icon        || DEFAULT_ICONS[i % DEFAULT_ICONS.length],
+      color:       c.color       || def.color,
+      iconBg:      c.iconBg      || def.iconBg,
+      category:    c.category    || 'عام',
+      description: c.description || '',
+      title:       c.title       || c.folder,
+    };
+  });
+}
+
+// ══════════════════════════════════════════════
+//  بناء الكروت
+// ══════════════════════════════════════════════
+var allCourses = buildCourseData();
+
+function renderGrid(list) {
+  var grid = document.getElementById('grid');
+  document.getElementById('countBadge').textContent = list.length + ' مقرر';
+  document.getElementById('totalCount').textContent  = allCourses.length;
+
+  if (!list.length) {
+    grid.innerHTML =
+      '<div class="no-results">' +
+        '<div class="e-ico">🔍</div>' +
+        '<p>لا توجد نتائج لهذا البحث</p>' +
+      '</div>';
+    return;
+  }
+
+  grid.innerHTML = list.map(function(c, i) {
+    var id = encodeURIComponent(c.folder);
+    return (
+      '<a class="course-card" href="course.html?id=' + id + '" style="animation-delay:' + (i*0.05) + 's">' +
+        '<div class="card-top" style="background:' + c.color + '">' +
+          '<div class="card-emoji">' + c.icon + '</div>' +
+          '<div class="card-cat">' + c.category + '</div>' +
+        '</div>' +
+        '<div class="card-body">' +
+          '<div class="card-code">' + c.code + '</div>' +
+          '<div class="card-title">' + c.folder + '</div>' +
+          (c.description ? '<div class="card-desc">' + c.description + '</div>' : '') +
+        '</div>' +
+        '<div style="padding:0 16px 16px">' +
+          '<div class="btn-open">فتح المقرر &larr;</div>' +
+        '</div>' +
+      '</a>'
+    );
+  }).join('');
+}
+
+renderGrid(allCourses);
+
+// ══════════════════════════════════════════════
+//  البحث
+// ══════════════════════════════════════════════
+var searchInput = document.getElementById('searchInput');
+var searchClr   = document.getElementById('searchClr');
+
+searchInput.addEventListener('input', function() {
+  var q = searchInput.value.trim().toLowerCase();
+  searchClr.style.display = q ? 'block' : 'none';
+  if (!q) { renderGrid(allCourses); return; }
+  renderGrid(allCourses.filter(function(c) {
+    return (c.folder + c.code + c.category + c.description)
+             .toLowerCase().includes(q);
+  }));
+});
+
+searchClr.addEventListener('click', function() {
+  searchInput.value = '';
+  searchClr.style.display = 'none';
+  renderGrid(allCourses);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تحليل حالات معدل أخذ العينات</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تحليل حالات معدل أخذ العينات</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">تمهيد المتدرب لفهم أثر معدل أخذ العينات على جودة الصور الطبية من خلال تحليل حالات واقعية وتقييم المشكلات التقنية.</p>
+        <ul class="obj-list"><li>يفسر أهمية معدل أخذ العينات في الحفاظ على دقة الصور.</li><li>يحلل تأثير اختلاف المعدلات على جودة النتائج التشخيصية.</li><li>يحدد المشكلات التقنية في حالات تصوير طبي مختلفة.</li><li>يقترح حلولًا مناسبة لتحسين معدل أخذ العينات.</li><li>يطبق مفاهيم تحويل فورييه ومبدأ نيquist في تحليل الإشارات.</li><li>يطور مهارات التفكير النقدي والتقييم التقني في سياق عملي.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تحليلي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>حزمة حالات تصوير طبي رقمية مع بيانات أخذ العينات</li><li>برنامج عرض صور رقمي تفاعلي</li><li>وثائق وصف الحالة والمواصفات الفنية</li><li>أدوات تواصل وتفاعل جماعي عبر الإنترنت</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد للمحاور الأساسية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بتوضيح أهمية معدل أخذ العينات في التصوير الطبي وتأثيره التطبيقي.</li><li>يوضح العلاقة بين معدل العينات ومبدأ نيquist-شانون من خلال مثال مبسط.</li><li>يعرض للمتدربين مقطع فيديو قصير يوضح اختلاف جودة الصورة بتغير معدل العينات.</li><li>يحضّر المتدربين نفسياً للتفكير النقدي بتحفيزهم على سؤال لماذا يؤثر معدل العينات كثيراً في التشخيص.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف وتحليل حالات واقعية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقسم المدرب المتدربين إلى مجموعات صغيرة لكل منها حالات تصوير طبية مختلفة مع بيانات معدل أخذ العينات المصاحبة.</li><li>يطلب من كل مجموعة فحص الصور المصاحبة وتقييم مدى وضوح التشخيص ومشكلات الجودة المرئية.</li><li>تُناقش المجموعات المشكلات الفنية المحتملة المرتبطة بمعدل أخذ العينات في كل حالة.</li><li>يتم تحفيز المتدربين لتوثيق المشكلات والأسباب المؤثرة من الناحية التقنية المرتبطة ببيانات الحالة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التعمق في التحليل النقدي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المدرب بطرح أسئلة توجيهية توجه المتدربين لفهم العلاقة بين معدل العينات وتأثير العوامل التقنية الأخرى مثل الضوضاء والتشويش.</li><li>يحفز الحوار داخل المجموعات للنظر في نتائج كل حالة ومقارنتها مع نظرية نيquist.</li><li>يدع المتدربين يعيدون تقييم مدى كفاية معدل العينات وهل هو السبب الأساسي للمشكلة.</li><li>يطالب كل مجموعة بصياغة حُكم مبدئي عن الأسباب واقتراح خطوات تحسين ممكنة بناءً على التحليل.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">صياغة الحلول التقنية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقدم المدرب أمثلة عملية عن تعديل معدل العينات في أجهزة التصوير لتحسين جودة النتائج.</li><li>تُكلّف المجموعات بتطوير حلول واقعية لتحسين معدل أخذ العينات أو معالجة الصور وفق بيانات الحالات.</li><li>تستخدم المجموعات الأدوات الرقمية لتحليل الأثر المتوقع لتعديل المعدلات على نتائج الصور.</li><li>يناقش الجميع الحلول المقترحة ومدى ملائمتها للتحديات التقنية المعروضة في الحالات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التغذية الراجعة والإغلاق</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يعرض المدرب ملخصات مناقشات كل مجموعة ويربط النتائج بالنظرية الأساسية.</li><li>يقدم تعليقات مهنية على مستوى التحليل ومدى فهم المتدربين للمفاهيم.</li><li>يشجع المتدربين على مشاركة أفكارهم حول كيفية تطبيق هذه المعارف في بيئة العمل.</li><li>يختم النشاط بسؤال مفتوح يعكس أهمية تعلم تحليل معدل العينات والحفاظ على جودة الصور الطبية.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يؤثر معدل أخذ العينات المبني على نظرية نايكويست-شانون على جودة الصور الطبية، وما هي العواقب السريرية المحتملة عند عدم الالتزام بمعدلات العينات المناسبة؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

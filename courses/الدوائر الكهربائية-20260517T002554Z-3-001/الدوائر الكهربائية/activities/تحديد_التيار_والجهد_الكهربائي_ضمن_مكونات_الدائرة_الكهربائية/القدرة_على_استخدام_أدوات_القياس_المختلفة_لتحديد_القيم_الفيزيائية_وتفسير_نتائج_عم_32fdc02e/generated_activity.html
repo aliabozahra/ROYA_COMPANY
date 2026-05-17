@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تحدي القياس الدقيق للدوائر الكهربائية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تحدي القياس الدقيق للدوائر الكهربائية</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يهدف هذا النشاط إلى تعزيز مهارات المتدرب في استخدام الفولتميتر والأمبيرميتر بدقة ضمن دوائر كهربائية بسيطة، مع التركيز على تحليل القراءات واكتشاف الأخطاء وتحسين الأداء.</p>
+        <ul class="obj-list"><li>تطبيق الأساليب الصحيحة لربط الأجهزة في الدائرة الكهربائية.</li><li>قراءة وتحليل قيم الجهد والتيار باستخدام أدوات القياس.</li><li>تفسير الفروقات بين القيم النظرية والعملية بناءً على قراءات الأجهزة.</li><li>اتخاذ قرارات تصحيحية لتحسين دقة القياس وسلامة الأجهزة.</li><li>تعزيز الوعي بأهمية السلامة عند التعامل مع دوائر كهربائية حقيقية.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">عملي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>الفولتميتر التناظري أو الرقمي</li><li>الأمبيرميتر</li><li>دائرة كهربائية نموذجية (بطارية 12 فولت، مقاومة 100 أوم، أسلاك توصيل)</li><li>معدات السلامة الكهربائية (قفازات، نظارات حماية)</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد وتهيئة الفهم النظري</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بتقديم شرح مبسط عن الفولتميتر والأمبيرميتر ووظائفهما في الدوائر الكهربائية.</li><li>عرض فيديو تعليمي يوضح الخصائص الرئيسية لكلا الجهازين وطريقة الربط المناسبة.</li><li>مناقشة أهمية الدقة والسلامة في استخدام أجهزة القياس.</li><li>طرح أسئلة لتحفيز التفكير حول المشكلات التي قد تظهر في القياس الخاطئ.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التطبيق العملي الأولي للقياس</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدربون بتجميع دائرة كهربائية بسيطة باستخدام البطارية والمقاومة والأسلاك.</li><li>يربط المتدرب الفولتميتر بطريقة صحيحة على التوازي لقياس الجهد عبر المقاومة.</li><li>يربط الأمبيرميتر على التوالي لقياس التيار في الدائرة، مع التأكد من إيقاف تشغيل الدائرة أثناء الربط.</li><li>تسجيل القراءات الظاهرة بدقة، مع ملاحظة أي صعوبات أو أخطاء في الربط.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التحدي في الكشف عن انسجام القياسات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقدم المدرب سيناريو به خلل بسيط (مثلاً تغيير طول الأسلاك أو توصيل خاطئ) ويطلب من المتدربين اكتشاف المشكلة بناءً على القياسات.</li><li>المتدربون يستخدمون أدوات القياس لتحليل القيم وتفسير الفوارق بين التوقعات والقراءات الفعلية.</li><li>مناقشة الفرق بين النتائج المتوقعة ونتائج القياس ودراسة أسباب الانحراف.</li><li>تشجيع المتدربين على اقتراح حلول لإصلاح الأخطاء وتحسين دقة القياس.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التحليل وتصحيح الإجراءات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدربون بإجراء تعديلات على الدائرة بناءً على ملاحظاتهم، مثل استبدال الأسلاك أو تعديل نقطة الربط.</li><li>إعادة القياسات بعد التعديل لتقييم مدى التحسن في الأداء والقراءات.</li><li>يقوم كل متدرب بتدوين النتائج النهائية ومقارنتها بالقيم النظرية.</li><li>تنظيم مناقشة جماعية لتبادل الخبرات والتحديات التي واجهوها.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق وتلخيص الدروس المستفادة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يراجع المدرب المفاهيم الأساسية مع المتدربين ويبرز أهمية الدقة في القياسات والتفسير السليم.</li><li>تشجيع المشاركين على التعبير عن انطباعاتهم عن التجربة والتحديات التي تغلبوا عليها.</li><li>تقديم نصائح للسلامة والتعامل السليم مع الأجهزة الكهربائية وأدوات القياس.</li><li>توجيه المتدربين إلى المحور التالي من التدريب لتعميق المعرفة بأدوات القياس المتقدمة.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تفسر الفروقات بين القيم النظرية والقيم المقاسة باستخدام الفولتميتر والأمبيرميتر، وما الإجراءات التي يمكن اتخاذها لضمان دقة القياسات وسلامة الأجهزة؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

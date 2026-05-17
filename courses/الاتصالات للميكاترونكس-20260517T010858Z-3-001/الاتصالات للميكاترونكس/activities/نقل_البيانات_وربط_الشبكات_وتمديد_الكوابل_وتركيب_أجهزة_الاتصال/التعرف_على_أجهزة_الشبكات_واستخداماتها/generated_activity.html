@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تمثيل أجهزة الشبكات الصناعية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تمثيل أجهزة الشبكات الصناعية</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">ينطلق هذا النشاط من فكرة لعب أدوار كممثلين لأجهزة الشبكات بهدف توضيح وظائف كل جهاز ودوره في الشبكة الصناعية، بحيث تعزز التمثيلية التفاعل والفهم التطبيقي.</p>
+        <ul class="obj-list"><li>يحاكي المشاركون دور أجهزة الشبكات المختلفة بدقة لتعزيز إدراكهم لوظائفها.</li><li>يطبق المتدربون مفاهيم التنسيق بين الأجهزة في الشبكة الصناعية عبر التمثيل العملي.</li><li>يتفاعلون كمجموعة لحل تحديات شبكية واقعية من خلال أدوارهم المعينة.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>بطاقات أدوار أجهزة الشبكة (Hub, Switch, Router, End Device)</li><li>مساحات موسعة للتحرك</li><li>لوحات وعلامات للإشارة إلى الاتصالات</li><li>سماعات ميكروفون للمساعدة على التفاعل الصوتي</li><li>بطاقات سيناريوهات تحدي الشبكة</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد - تهيئة المتدربين للدور</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بجلسة تعريفية تشرح أهمية أجهزة الشبكة ووظائفها، مع عرض بطاقات الأدوار لكل جهاز.</li><li>يتم توزيع الأدوار على المتدربين مع شرح مبسط لكل جهاز ودوره في الشبكة الصناعية.</li><li>يُحفَّز المشاركون للتفكير في كيفية تفاعل أدوارهم وتأثيرها على تدفق البيانات في الشبكة.</li><li>ينشأ حوار تفاعلي قصير لتحفيز التفكير حول كيفية حدوث المشكلات إذا لم تُنفذ الأدوار بالشكل الصحيح.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الاستكشاف - تمثيل الأدوار الأولى</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدربون بالتحرك والتمثيل كأجهزة الشبكة حسب الدور المعطى، حيث يعبر كل منهم عن وظيفة جهازه بوضوح.</li><li>يتم بناء شبكة مبدئية بوصل المتدربين مع بعضهم بناءً على الاتصالات الطبيعية (مثلاً: Hub يبث لجميع الأجهزة).</li><li>يقوم المدرب بإطلاق أول سيناريو بسيط مثل تمرير إشارة من جهاز نهائي إلى آخر عبر Hub.</li><li>يراقب المشاركون تدفق البيانات ويشاركون بملاحظاتهم أثناء التمثيل.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التحدي - التعامل مع تعقيدات الشبكة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تقديم سيناريو جديد حيث تظهر المشاكل مثل ازدحام البيانات بسبب استخدام Hub مع أجهزة متعددة.</li><li>يلجأ المتدربون لأدوار Switch وRouter لتنسيق تدفق البيانات بطريقة محسنة وذكية.</li><li>تشجيع الحوار والتفاوض بين الأجهزة لتحديد الطريقة الأنسب لإعادة توجيه الإشارات وحل الاختناقات.</li><li>تنفيذ التعديلات على التمثيل وفق الحلول المقترحة، وتجربة نتائج التعديلات عملياً.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التغذية الراجعة - مناقشة الأداء والتعلم</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يجمع المدرب المتدربين في حلقة نقاشية لمراجعة الأدوات والطرق التي تم بها تحسين الشبكة خلال التمثيل.</li><li>يشارك كل متدرب تجربته حول دوره وكيف أثر على الأداء الكلي للشبكة.</li><li>يسلط المدرب الضوء على مفاتيح النجاح والفشل في التمثيل، ويربطها بالمفاهيم النظرية.</li><li>يتم تشجيع المتدربين على اقتراح أفكار لتطوير الشبكة أو تعزيز الاتصال في سياقات صناعية مختلفة.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن لتنسيق وظائف الأجهزة المختلفة في الشبكة أن يحول شبكة صناعية معقدة إلى منظومة متكاملة وفعالة؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تجربة التحكم بدالة تقدم وفلاتر</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تجربة التحكم بدالة تقدم وفلاتر</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">ينطوي نشاط تمثيلي عملي على اختبار وتقييم علمي يؤكد فهم المتدربة لفكرة دالة التقدم والفلاتر من خلال تطبيق عملي واقعي.</p>
+        <ul class="obj-list"><li>يطبق المتدرب تركيب دالة التقدم على نظام تحكم متعدد المراحل.</li><li>يجري المتدرب تجربة لقياس تأثير الفلاتر على إشارة التحكم والضجيج.</li><li>يحليل المتدرب تغير الاستجابة الزمنية للنظام بين السيناريوهات المختلفة.</li><li>يتفاعل المتدرب مع مشاكل الضجيج المصاحب ويقدم حلولاً عملية باستخدام الفلاتر.</li><li>يشرح المتدرب العلاقة الفنية بين دالة التقدم والفلاتر في منع الاهتزازات.</li><li>يقيم المتدرب أداء النظام محققاً توازن بين الاستقرار والدقة.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">عملي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>جهاز تحكم قابل للبرمجة مزود بدالة تقدم وهياكل فلترة</li><li>مذبذب إشارة للتحكم والتشويش</li><li>أجهزة قياس مثل الأوسيلوسكوب</li><li>حاسوب محمول مع برنامج محاكاة مثل MATLAB أو أي بيئة التحكم</li><li>أدوات تسجيل البيانات وتحليلها</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتعرف على المفاهيم</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بمقدمة تفاعلية قصيرة يقدم فيها التعريف ل‍دالة التقدم وأهمية الفلاتر في التحكم الترددي.</li><li>يعرض المدرب رسم بياني توضيحي يبين كيف تؤثر دالة التقدم والفلاتر على إشارة التحكم والضوضاء المصاحبة.</li><li>يطلب من المتدربين مناقشة ما يعرفونه مسبقاً لتسليط الضوء على المفاهيم الأساسية والجوانب العملية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">إعداد التجربة والتجهيزات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدربون بتركيب دائرة التحكم باستخدام جهاز التحكم المزود بدالة التقدم والفلاتر.</li><li>يتأكد المدرب من توصيل الأجهزة المساعدة مثل المذبذب وأجهزة القياس بشكل صحيح.</li><li>يضبط المتدربون معايير الدالة والفلاتر ضمن البرنامج لضمان السماح بمستوى معين من التعديل.</li><li>يتم تهيئة نظام القياس لتسجيل الإشارات والتحكم والضجيج بشكل دقيق عبر الأوسيلوسكوب وأدوات التسجيل.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">إجراء التجربة والقياسات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يشغل المتدربون النظام مع ضبط دالة التقدم بدون فلترة ويلاحظون إشارة التحكم والضجيج عبر الأجهزة.</li><li>يسجل المتدربون البيانات الخاصة بالاستجابة الزمنية والتذبذبات.</li><li>يكرر المتدربون التجربة مع تفعيل الفلاتر المختلفة (تمرير منخفض، تمرير عالي، فلتر توقف) مع توثيق النتائج.</li><li>يقوم المتدربون بتحليل كيفية تفاعل النظام مع التعديلات في الدالة والفلاتر وتأثيرها على الضجيج والاستقرار.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التحليل الفني والتفسير</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يعمل المتدربون ضمن مجموعات لتحليل بيانات التجربة مقارنةً بحالات بدون فلترة وبتطبيق دالة التقدم فقط.</li><li>يقومون بحساب مؤشرات الأداء مثل هامش الطور، وقت الاستجابة، وتقليل الاهتزاز.</li><li>يناقش المتدربون كيف ساعدت الفلاتر في تحسين دقة السيطرة وتقليل الضجيج.</li><li>يقدم المدرب ملاحظات ويوضح العلاقة بين النظرية والتطبيق العملي بناءً على النتائج المرصودة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التحدي وتطبيق الحلول</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يوجه المدرب للمتدربين تحدياً لتعديل معاملات دالة التقدم والفلاتر بهدف تحقيق استقرار أمثل مع أدنى ضجيج.</li><li>يطبق المتدربون التعديلات المقترحة على النظام وينفذون التجربة مجدداً.</li><li>يقارن المتدربون الأداء الجديد بالسابقة ويحددون الإعدادات المثلى.</li><li>يعرض كل فريق نتائجه ويشرح خياراته في تعديل المعاملات وأسباب ذلك.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التغذية الراجعة والإغلاق</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يناقش المدرب مع المتدربين ما تعلموه من التجربة في جلسة تفاعلية.</li><li>يجيب المدرب عن أسئلة المجموعات ويوجه نصائح لتحسين الفهم والتطبيق العملي.</li><li>يطلب المدرب من المتدربين تقديم ملخصات كتابية أو شفوية لما وصلوا إليه.</li><li>يختم المدرب الجلسة بملاحظات تؤكد أهمية دمج دالة التقدم والفلاتر في التحكم الفعّال.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تساهم دالة التقدم والفلاتر معاً في تحسين استجابة نظام التحكم وتخفيف الضجيج، وما هو التأثير العملي لذلك في بيئة صناعية؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

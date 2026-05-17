@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تجربة التحكم بمحرك DC بأردوينو</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تجربة التحكم بمحرك DC بأردوينو</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">ينمي هذا النشاط مهارات تطبيقية عملية في توصيل وبرمجة محرك DC باستخدام متحكم Arduino، ليتمكن المتدرب من ضبط سرعة وعزم المحرك بدقة.</p>
+        <ul class="obj-list"><li>تنفيذ توصيلات كهربائية صحيحة وآمنة لمحرك DC مع متحكم Arduino.</li><li>كتابة برامج تحكم متنوعة تضبط سرعة المحرك باستخدام تقنية PWM.</li><li>تطبيق التحكم في اتجاه الدوران وتعديل عزم المحرك عبر البرمجة.</li><li>استكشاف الأخطاء الشائعة وتصحيحها أثناء التوصيل والبرمجة.</li><li>تنفيذ تجربة تحكم متزامنة في محركين باستخدام وحدة L298N.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>متتبع أردوينو (Arduino Board)</li><li>محرك تيار مستمر DC</li><li>وحدة تحكم L298N</li><li>ترانزستور TIP120 ومقاومات</li><li>أسلاك توصيل</li><li>مزود طاقة خارجي مناسب للمحرك</li><li>كمبيوتر مع بيئة تطوير Arduino IDE</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتعريف بالأدوات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بتقديم ملخص نظري قصير عن خصائص محركات التيار المستمر واستخدامها في الأنظمة الروبوتية.</li><li>عرض مكونات التجربة: Arduino، محرك DC، وحدة L298N والترانزستور TIP120 مع شرح دور كل منها.</li><li>شرح القيود الكهربائية لأطراف Arduino وأهمية استخدام دائرة وسيطة لتحميل التيار.</li><li>توضيح مفهوم PWM ودوره في التحكم بالسرعة وعزم الدوران بشكل مبسط.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">توصيل الدائرة الكهربائية الأساسية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدرب بتوصيل المحرك بالترانزستور TIP120 وفقاً للرسم التخطيطي المقدم.</li><li>ضبط التوصيلات بين قاعدة الترانزستور، المقاومة، وطرف PWM في Arduino.</li><li>اختبار التوصيلات والتأكد من توحيد الأرضي بين Arduino والمصدر الخارجي.</li><li>قياس الفولت والتيار باستخدام أدوات القياس للتحقق من الإعداد الصحيح.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">برمجة التحكم في سرعة وعزم المحرك</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>كتابة برنامج Arduino بسيط يستخدم إشارة PWM للتحكم في سرعة المحرك.</li><li>تجربة تعديل قيمة PWM بين 0 و255 وملاحظة تأثيرها الفعلي على سرعة المحرك.</li><li>تنفيذ وظيفة للتحكم المتدرج في السرعة باستخدام حلقات for وتأخير زمني لملاحظة الاستقرار.</li><li>تضمين شرط حماية لضمان عدم تجاوز قيم PWM الحدود المسموح بها.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحكم الاتجاه باستخدام وحدة L298N</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تبديل التجربة لاستخدام وحدة L298N وتحضير الدائرة لتوصيل محركين.</li><li>توصيل أطراف IN1..IN4 وتمكين ENA وENB وربط كافة الأطراف بشكل صحيح مع Arduino.</li><li>برمجة تغيير اتجاه دوران المحركات باستخدام ألبتات التحكم وضبط السرعة بواسطة PWM على ENA/ENB.</li><li>تجربة تنفيذ حركات روبوتية بسيطة مثل الدوران إلى الأمام والخلف وتقييم تنفيذ الأوامر.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التقييم والتحدي العملي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>طرح سيناريو عملي على المتدرب يطلب منه ضبط سرعة وعزم المحركات حسب متطلبات محددة (مثل زيادة سرعة المحرك الأيسر وتثبيت الأيمن).</li><li>تشجيع المتدربين على استخدام المتغيرات والمصفوفات لتنظيم دبابيس التحكم وقيم السرعة.</li><li>إجراء اختبار عملي فردي لتشغيل محركات متعددة مع الحفاظ على استقرار التيار وعدم تلف الأجهزة.</li><li>مراجعة الأخطاء الشائعة وتصحيحها بالتعاون مع الزملاء والمدرب.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق والتغذية الراجعة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>مناقشة التجربة مع المتدربين وإبراز نقاط القوة والتحديات التي واجهوها.</li><li>تلخيص الدروس المستفادة والدعوة لاستكشاف مكتبات تحكم متقدمة في المحركات في مستقبلاً.</li><li>تقديم نصائح للحفاظ على سلامة الأجهزة الكهربائية أثناء التوصيل والبرمجة.</li><li>تشجيع المتدربين على تطبيق المفاهيم في مشاريع شخصية أو ضمن برامج التدريب الأخرى.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يؤثر تعديل عرض نبضة PWM على سرعة وعزم محرك التيار المستمر، وما أثر استخدام جسر H في التحكم في اتجاه دوران المحرك؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

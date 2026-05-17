@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رحلة محاكاة توجيه PLC</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">رحلة محاكاة توجيه PLC</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يمكّن هذا النشاط المتدرب من تجربة تفاعلية لبرامج PLC تركز على التوجيه وتغيير مسارات التنفيذ، ليختبر فهمه العملي بشكل مباشر وحقيقي.</p>
+        <ul class="obj-list"><li>تطبيق مفاهيم التوجيه الشرطي والمتعدد في بيئة محاكاة.</li><li>التعرف على أثر تعديل مسارات التنفيذ على نتائج البرنامج.</li><li>تعزيز القدرة على حل مشكلات البرمجة ضمن سيناريوهات متغيرة.</li><li>تطوير مهارات الملاحظة والتحليل الفوري في برامج PLC.</li><li>اكتساب خبرة في التعامل مع التغيير الديناميكي لمسارات البرنامج.</li><li>ممارسة اتخاذ قرارات برمجية في بيئة آمنة ومحاكاة واقعية.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>برنامج محاكاة PLC تفاعلي مع واجهة تعديل مسارات التنفيذ</li><li>أجهزة حاسوب مزودة بالبرنامج</li><li>وسائط عرض لنتائج التنفيذ الحيّة</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تمهيد: استكشاف مفهوم التوجيه في PLC</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بشرح مبسط ومحدد لفكرة التوجيه وأهميته في برامج PLC.</li><li>يتم عرض سيناريوهات حقيقية بسيطة على الشاشة تبين تغيير مسار التنفيذ وتأثيره.</li><li>يطرح المدرب أسئلة تفاعلية لتحفيز المتدربين على التفكير في الحاجة لتغيير مسارات التنفيذ.</li><li>يُوزع المتدربين على فرق صغيرة ليشاركوا خبراتهم السابقة أو فهمهم لمفهوم التوجيه.</li><li>يُعرض نموذج مصغر لتطبيق التوجيه عبر البرنامج المحاكي لتكون نقطة بداية مشتركة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف: التفاعل مع سيناريوهات المحاكاة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم كل متدرب بتشغيل سيناريو محدد على برنامج المحاكاة يتضمن تغيير مسار تنفيذ PLC.</li><li>يقوم المتدرب باختيار شروط مختلفة تؤثر على مسار التنفيذ ليشاهد التفاعل الحي للبرنامج.</li><li>يُطلب من المتدربين تدوين ملاحظاتهم حول كيفية تأثير الشروط على سير البرنامج.</li><li>يشارك المتدربون نتائج ملاحظاتهم في جلسة عصف ذهني قصيرة لصياغة فهم أعمق.</li><li>المدرب يشرح آليات التنفيذ خلف الكواليس ويربط بين النظرية والتطبيق الحي.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تطبيق عملي: تعديل سيناريوهات وتنفيذ برمجي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تكليف المتدربين بمهمة تعديل مسارات تنفيذ مختلفة ضمن البرنامج المحاكي.</li><li>يُحث المتدربون على اختبار سيناريوهات أخرى بتغيير القفزات الشرطية والانتقالات.</li><li>يتم مراقبة تأثر الإجراءات على النتائج النهائية لكل تعديل ودراسة أسبابه.</li><li>يُحفّز المدرب المتدربين على اقتراح حلول برمجية لأخطاء أو مفاجآت تظهر خلال المحاكاة.</li><li>تزويد المتدربين بدعم مباشر وإرشاد خلال التعديلات العملية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل النتائج: مراجعة تأثير التوجيه</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يناقش المتدربون في مجموعات كيف أثرت كل تغييرات التوجيه على مسار التنفيذ وفعاليته.</li><li>عرض حالات نجاح وفشل التوجيه في المحاكاة مع تحليل الأسباب.</li><li>تقديم المدرب شرحاً مفصلاً لأنواع التوجيه المختلفة المستخدمة في السيناريوهات.</li><li>توضيح كيف تؤثر طرق التوجيه على كفاءة وأمان البرامج الصناعية الواقعية.</li><li>تجميع الدروس المستفادة لتطوير استراتيجيات التوجيه البرمجي الأفضل.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحدي المحاكاة: مواجهة سيناريوهات غير متوقعة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُطرح على المتدربين سيناريو معقد يتطلب استخدام مهارات التوجيه لتجاوز المشكلة.</li><li>يعمل المتدربون منفردين أو فرق لتعديل البرنامج وتحقيق السيناريو بنجاح.</li><li>يستخدم المتدربون أدوات المحاكاة لفحص النتائج فورياً وإعادة المحاولة حسب الحاجة.</li><li>يشجع المدرب على التفكير خارج الصندوق للتعامل مع السيناريو الديناميكي.</li><li>ختام التحدي بعرض الحلول ومناقشة التفاوتات بين الاستراتيجيات المختلفة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">إغلاق: مراجعة نهائية واستنتاجات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يطلب المدرب من المتدربين تلخيص تجربتهم وما تعلموه من نشاط المحاكاة.</li><li>مناقشة كيفية تطبيق ما اكتسبوه في مواقف العمل الحقيقية.</li><li>توجيه المتدربين لصياغة أهداف تعلم شخصية لتعزيز مهارات التوجيه.</li><li>تقديم مصادر إضافية وأدوات دعم للتعلم المستمر.</li><li>شكر المتدربين وتحفيزهم على الاستمرار بالتجربة والتطوير الذاتي.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن لتغيير مسار تنفيذ برنامج PLC باستخدام التوجيه الشرطي المتعدد أن يؤثر على كفاءة وسلامة النظام الصناعي في بيئة حقيقية؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

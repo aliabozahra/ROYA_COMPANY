@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بناء دوائر مكبر ومفتاح MOSFET</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">بناء دوائر مكبر ومفتاح MOSFET</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">ينفذ المتدرب تجارب مختبرية لبناء دوائر مكبر إشارة واستخدام MOSFET كمفتاح منطقي لتطبيق المفاهيم عمليًا، بحيث يعزز مهاراته الفنية في تركيب وقياس الدوائر الإلكترونية الدقيقة.</p>
+        <ul class="obj-list"><li>يُركب المتدرب دوائر MOSFET كمكبر إشارة ومفتاح منطقي بشكل عملي دقيق.</li><li>يُستخدم المتدرب أدوات القياس لقراءة وتحليل إشارة الخرج الناتجة من الدوائر.</li><li>يحسن المتدرب فهمه لعلاقة الجهد والتيار في مكونات MOSFET ويطبقها على دائرة حقيقية.</li><li>يحدد المتدرب تأثير مقاومات التحيز على أداء دائرة مكبر الإشارة.</li><li>يقيم المتدرب كفاءة التبديل والأداء الحراري للمفتاح الإلكتروني ضمن تجاربه العملية.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">عملي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>لوحة تجارب (Breadboard)</li><li>MOSFET نوع IRFZ44N و2N7000</li><li>مقاومات بأحجام مختلفة (10 كيلو أوم، 220 أوم، 1 ميجا أوم، 1 كيلو أوم)</li><li>مصدر جهد مبرمج 5 فولت و12 فولت</li><li>لوحة Arduino Uno للتحكم في الإشارات الرقمية</li><li>مولد إشارة تردد 1 كيلو هرتز</li><li>مولتيميتر متعدد القياسات</li><li>أوسيلوسكوب</li><li>حمل LED ومروحة كهربائية صغيرة</li><li>أسلاك توصيل وأدوات تثبيت</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتوجيه النظري</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بمقدمة تفاعلية تشرح أهمية MOSFET في التطبيقات العملية كمكبر إشارة ومفتاح.</li><li>يستعرض المدرب مكونات الدوائر المطلوبة ويشرح التوصيلات الأساسية على لوحة التجارب.</li><li>يقدم المدرب ملخصًا تقنيًا مختصرًا عن خصائص MOSFET كمكبر ومفتاح، مع أمثلة تطبيقية.</li><li>يطرح المدرب أسئلة تحفيزية لتفعيل تفكير المتدربين حول كيفية قياس وتحليل الإشارات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">بناء دائرة مكبر إشارة MOSFET Common-Source</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يوزع المتدربون المكونات اللازمة ويبدأون بتركيب دائرة المكبر على لوحة التجارب طبقًا للمخطط.</li><li>يربط المتدربون مولد الإشارة بوابة الـ MOSFET من خلال مقاومة العزل ويربطون مقاومة الصرف ومصدر الجهد.</li><li>يشغل المتدرب مولد الإشارة ويستخدم الأوسيلوسكوب لرصد إشارة الإدخال والإخراج وملاحظة التضخيم.</li><li>يقوم المتدربون بتعديل مقاومة الصرف وعدد التحيزات لملاحظة أثرها على الكسب واستقرار الدائرة.</li><li>يوجه المدرب كيفية التعامل مع التشويه ويشرح كيفية تعديل التحييز لتجنب التشبع.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تجربة مفتاح MOSFET في دائرة التبديل الرقمية (تجربة Bozud J)</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يركب المتدربون دارة مفتاح MOSFET باستخدام IRFZ44N مع مقاومة السحب لأسفل وحمل LED أو مروحة.</li><li>يربط المتدرب خرج Arduino للتحكم في جهد البوابة ويراقب حالة الحمل عند إرسال إشارات عالية ومنخفضة.</li><li>يقوم المتدرب بقياس جهد وصوت التيار عبر الحمل باستخدام المولتيميتر والأوسيلوسكوب لقياس سرعة التبديل.</li><li>يكرر المتدربون تجربة تبديل الحمل الثقيل ويلاحظون التغير في درجة حرارة MOSFET باستخدام مقياس حرارة.</li><li>يناقش المدرب حساسية البوابة للضوضاء وأساليب تحسين الثبات في الدائرة العملية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل الأداء واستخلاص النتائج العملية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يجمع المتدربون نتائج القياسات ويقارنون الأداء بين دائرة المكبر ودائرة المفتاح.</li><li>يناقش المتدربون مع المدرب كيفية تأثير قيم المقاومات وعوامل التحيز على الكفاءة والتشويه.</li><li>يدرس المتدربون قضية استهلاك الطاقة في الدوائر ويقيسون الفقد الحراري ومقاومة القناة.</li><li>يطبق المدرب والطلاب تقييمًا جماعيًا لمشكلات محتملة وحلولها في بناء دارات MOSFET العملية.</li><li>يُختتم بتحليل كيفية دمج هذه المعرفة في مشاريع إلكترونية متقدمة وربطها بالتطبيقات الصناعية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق والتغذية الراجعة التفاعلية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يطلب المدرب من كل متدرب تقديم ملخص شخصي لما تعلمه من تركيب وقياس وتشغيل الدوائر.</li><li>يجري مناقشة مفتوحة حول تحديات البناء العملي وكيفية تجنب الأخطاء التقنية.</li><li>يوفر المدرب نصائح تطبيقية لإدارة الطاقة والسلامة أثناء العمل مع MOSFET.</li><li>يوجه المدرب المتدربين إلى مصادر وموارد لمواصلة التعلم والتجارب في المجال.</li><li>يختم النشاط باستبيان شفوي لجمع انطباعات المتدربين عن الرحلة العملية.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يؤثر اختيار قيمة مقاومات التحيز في دائرة مكبر MOSFET على كسب الإشارة واستقرار الدائرة؟ وهل يمكنك تفسير سبب انخفاض استهلاك الطاقة في دائرة مفتاح MOSFET مقارنة بالترانزستور ثنائي القطب (BJT)؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

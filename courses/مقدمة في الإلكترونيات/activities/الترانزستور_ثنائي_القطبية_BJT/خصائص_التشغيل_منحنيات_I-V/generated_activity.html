@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>محاكاة تحليل منحنيات التيار-جهد</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">محاكاة تحليل منحنيات التيار-جهد</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يهدف هذا النشاط إلى تمكين المتدرب من استخدام برنامج محاكاة لعرض وتحليل منحنيات التيار-الجهد للترانزستور BJT، مع تعديل المتغيرات وفهم تأثيرها على سلوك الترانزستور بشكل تفاعلي.</p>
+        <ul class="obj-list"><li>عرض وتحليل منحنيات الإدخال والإخراج والمنحنيات النقلية للترانزستور BJT باستخدام المحاكاة الرقمية.</li><li>تعديل معلمات الدائرة مثل تيار القاعدة وجهد المجمع-الانبعاث لفهم التغيرات في منحنيات التيار-الجهد.</li><li>تمييز مناطق التشغيل المختلفة (النشطة، التشبع، القطع) وتفسير السلوك في كل منطقة عبر المحاكاة.</li><li>فهم تأثير المتغيرات الديناميكية على معامل التعزيز (β) وسلوك الترانزستور خلال المحاكاة.</li><li>تحليل نتائج المحاكاة وربطها بتطبيقات عملية وتصميم دوائر إلكترونية تعتمد على هذا السلوك.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>برنامج محاكاة إلكترونية متقدم (مثل LTSpice أو Multisim)</li><li>حاسوب متصل بالشبكة مع البرنامج مثبتاً</li><li>لوائح مرجعية لمنحنيات التيار-الجهد الخاصة بالترانزستور BJT</li><li>أدوات تعليمية تفاعلية رقمية لشرح طبيعة المناطق التشغيلية</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتعريف بالمحاكاة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقدم المدرب مقدمة قصيرة تشرح أهمية وتطبيقات منحنيات التيار-الجهد للترانزستور BJT.</li><li>يعرض المدرب البرنامج المستخدم للمحاكاة ويوضح واجهة المستخدم الأساسية.</li><li>يوجه المدرب المتدربين لتحميل نموذج الترانزستور BJT وفتح مشروع محاكاة جديد.</li><li>يشجع المتدربين على مناقشة توقعاتهم لسلوك الترانزستور عند تعديل المتغيرات المختلفة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف منحنيات الإدخال والإخراج عبر المحاكاة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يحدد المتدرب تيار القاعدة (IB) ويوجه البرنامج لرسم منحنيات الإدخال (IB مقابل VBE).</li><li>يقوم المتدرب بتعديل جهد القاعدة-المصدر VBE وملاحظة تغيير التيار حسب المنحنى.</li><li>يرسم المتدرب منحنيات الإخراج (IC مقابل VCE) لمجموعة مختلفة من تيارات القاعدة الثابتة.</li><li>يناقش المدرب والمتدربون كيف تمثل هذه المنحنيات مناطق التشغيل المختلفة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل تأثير المتغيرات الديناميكية على المنحنيات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يعدل المتدرب متغيرات مثل تيار القاعدة والجهد المجمع-المصدر ويراقب تأثيرها على منحنيات التشغيل.</li><li>يستخدم البرنامج لقياس معامل التعزيز (β) من بيانات المحاكاة وتحليل تغيره مع التغيرات.</li><li>يناقش المتدربون كيف تؤثر المتغيرات المختلفة على أداء الترانزستور في الدوائر العملية.</li><li>يسجل المتدربون ملاحظاتهم ويربطونها بملاحظات واقعية من تجارب إلكترونية سابقة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تطبيق عملي: محاكاة دائرة مضخم مشترك المصدر</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُعد المتدرب نموذج دائرة مضخم مشترك المصدر باستخدام البرنامج.</li><li>يضبط المتدرب نقطة التشغيل (Q-point) من خلال تعديل الجهود والتيارات ويلاحظ منحنيات IC-VCE.</li><li>يضيف المتدرب إشارة إدخال ويلاحظ سلوك المضخم عبر الرسم البياني للمنحنيات.</li><li>يحاول المتدرب تحسين نقطة التشغيل لتجنب التشبع والقطع، ويستخدم البيانات لمحاكاة تأثير ذلك.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التحدي والتحليل التفاعلي للتصرفات غير المتوقعة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقدم المدرب سيناريوهات لتغير درجة الحرارة أو جودة المكونات في المحاكاة ويطلب من المتدربين توقع السلوك.</li><li>يستخدم المتدربون المحاكاة لاختبار هذه السيناريوهات وتحليل الاختلافات في منحنيات التيار-الجهد.</li><li>يناقش المتدربون كيف يمكن لهذه العوامل أن تؤثر على تصميم الدوائر الحقيقية.</li><li>يقوم كل متدرب بمشاركة نتائج تحليله ومقارنته مع المجموعة لتعزيز الفهم.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق والتغذية الراجعة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يجمع المدرب الملاحظات الأساسية من المتدربين حول تجربتهم في استخدام المحاكاة.</li><li>يطرح المدرب أسئلة تقييمية لتحفيز التفكير في أهمية فهم منحنيات التيار-الجهد.</li><li>يوجه المتدربون لرفع تقارير قصيرة تلخص التغيرات في المنحنيات وأثرها على تصميم الدوائر.</li><li>يختم النشاط بتوجيه الموارد والمواد للمزيد من التعلم الذاتي حول خصائص التشغيل.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يؤثر تعديل تيار القاعدة وجهد المجمع-المصدر على مناطق تشغيل الترانزستور BJT، وكيف يمكن ترجمة هذا الفهم إلى قرارات تصميمية فعالة في دوائر المضخمات والمفاتيح الرقمية؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

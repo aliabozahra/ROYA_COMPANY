@@ -1,0 +1,216 @@
+[
+  {
+    "name": "أساسيات_هندسة_التحكم_والتكنولوجيا",
+    "items": [
+      {
+        "name": "أنواع_الأنظمة_المستخدمة_في_أنظمة_التحكم",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "أنواع_الإشارات_المستخدمة_في_نظام_التحكم",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التمثيل_الرياضي_لأنظمة_التحكم",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "ما_هي_هندسة_التحكم",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مقدمة",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "أنظمة_التحكم_الكلاسيكية_والحديثة",
+    "items": [
+      {
+        "name": "النماذج_الرياضية_في_MATLAB",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تطبيقات_على_أنظمة_التحكم",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تمثيلات_النماذج_الرياضية_للأنظمة_الديناميكية_الخطية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "نماذج_الربط_في_MATLAB",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "وظائف_التحويل_ونقل_لابلاس",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "استجابات_التردد_وتخطيطها",
+    "items": [
+      {
+        "name": "تخطيط_نيكولز",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تخطيط_نيكويست",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مخطط_بود",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مقدمة",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "النمذجة_الرياضية",
+    "items": [
+      {
+        "name": "النموذج_الرياضي_لنظام_التحكم_من_الدرجة_الأولى",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "النموذج_الرياضي_لنظام_التحكم_من_الدرجة_الثانية",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "تحليل_نظام_الحلقة_المغلقة",
+    "items": [
+      {
+        "name": "أنظمة_الحلقة_المغلقة_والحلقة_المفتوحة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مخطط_البلوك",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "تصميم_وحدة_التحكم_الكلاسيكية",
+    "items": [
+      {
+        "name": "إجراءات_التحكم",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "متحكم_PD",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "متحكم_PI",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "متحكم_PID",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "حلقة_التغذية_الراجعة_الأساسية",
+    "items": [
+      {
+        "name": "الاستقرار",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الحلقة_المغلقة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "خصائص_النظام",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مقدمة",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "زمن_الاستجابة_لنظام_التحكم",
+    "items": [
+      {
+        "name": "استجابات_الخطوة_لبعض_وظائف_النقل_المحددة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الاستجابة_لإشارة_Sinusoid",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "وظائف_النقل_واستجاباتها",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  }
+]

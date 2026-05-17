@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تحدي تعديل مكثفات الربط</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تحدي تعديل مكثفات الربط</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يجمع هذا النشاط بين التنافس العملي والتطبيق الفعلي لفهم وتحسين أداء مكبرات FET.</p>
+        <ul class="obj-list"><li>يقيس المتدرب أثر تغيير قيم مكثفات الربط على الكسب والاستجابة الترددية.</li><li>يطبق المتدرب تقنيات تعديل المكثفات تحت ضغط التحدي الزمني.</li><li>يحلل المتدرب نتائج التعديلات ويوازن بين الكسب والاستجابة لتحسين أداء المكبر.</li><li>يعمل المتدرب بروح الفريق مع استخدام أدوات القياس بشكل متقن.</li><li>يطور المتدرب مهارات صنع القرار السريع والمستنير في بيئة تنافسية.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>دائرة مكبر FET مجهزة بمكثفات ربط متغيرة القيمة</li><li>مولد إشارة</li><li>أوسيلوسكوب</li><li>مقياس متعدد</li><li>لوحة تجارب (Protoboard) وأدوات تركيب إلكترونية</li><li>نشرة تعليمات التجربة ومقاييس التقييم</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يرحب المدرب بالمجموعات ويشرح مفهوم مكثفات الربط في مكبرات FET وعلاقتها بالكسب والاستجابة الترددية.</li><li>يقدم المدرب شرحًا مبسطًا لقواعد التحدي وأهداف المسابقة وآلية التقييم.</li><li>ينشط المدرب جلسة أسئلة سريعة لفهم خلفيات المتدربين فيما يتعلق بمكثفات الربط.</li><li>يوضح المدرب أدوات القياس المستخدمة ويشرح كيفية قراءة القيم على الأوسيلوسكوب والمقياس المتعدد.</li><li>يقسم المتدربون إلى مجموعات ويوزع الأدوات على كل مجموعة لضمان التوازن والعدالة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الاستكشاف والتجهيز</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تقوم كل مجموعة بفحص الدائرة الحالية بدون مكثفات ربط وتوثيق قيم الكسب والاستجابة الترددية باستخدام مولد الإشارة والأوسيلوسكوب.</li><li>يتعاون أعضاء الفريق لتجربة إضافة مكثفات ربط بقيم مختلفة مبدئية 0.01، 0.1، و1 ميكروفاراد وتأثيرها على أداء الدائرة.</li><li>يحرص المتدربون على تسجيل الملاحظات بدقة في جداول معدة مسبقًا حول الربح والترددات المستجيبة.</li><li>يبدأ كل فريق بتحديد استراتيجية تعديل القيم بناءً على نتائج الاستكشاف الأولى وخواص المكثفات.</li><li>يشجع المدرب الفرق على تبادل الأفكار والنقاش السريع لبناء التكتيك الأنسب في ظل الوقت المحدد.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التنفيذ العملي والتعديل</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تنفذ كل مجموعة تعديلاتها المدروسة على قيم مكثفات الربط وفقًا لخطة الفريق.</li><li>يقوم الفريق بقياس وتسجيل القيم الجديدة للكسب والاستجابة الترددية بدقة باستخدام الأدوات المخصصة.</li><li>يتابع الفريق تغير أداء الدائرة مع كل تعديل ويقوم بتسجيل النتائج في جداول مقارنة توضح الأداء والتحسينات.</li><li>يُطلب من الفرق توثيق التغييرات التي أدخلتها والأثر المباشر على أداء المكبر.</li><li>يتنافس المتدربون خلال هذه المرحلة على إيجاد التوازن الأمثل بين الكسب والاستجابة الترددية ضمن إطار زمني محدد.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التحليل والتقييم الجماعي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تجمع الفرق بياناتها النهائية وتبدأ بتحليلها لتحديد خيار المكثفات الأفضل بناءً على معايير محددة مسبقًا مثل أعلى كسب وأفضل استجابة ترددية.</li><li>يقدم كل فريق تقريرًا قصيرًا شفهيًا يشرح نتائجه، الأسباب المنطقية لاختيار قيم المكثفات والتحديات التي واجهها.</li><li>يقيم المدربّون الأداء العملي للفرق باستخدام معايير شفافة تشمل الدقة، التبرير العلمي، والتعاون الجماعي.</li><li>تُعرض النتائج على الشاشة الكبيرة للمقارنة بين الفرق، مما يثير روح المنافسة ويعزز التعلم الجماعي.</li><li>يتلقى المتدربون تغذية راجعة فورية حول أدائهم ونقاط التطوير من المدرب، مع دعم الأفكار الإبداعية للاستخدام في التطبيقات المستقبلية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق والتلخيص</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقود المدرب نقاشًا نهائيًا يربط بين التجربة العملية والنظرية لفهم دور مكثفات الربط في مكبرات FET.</li><li>يناقش المشاركون الدروس المستفادة من التحدي وكيف يمكن تطبيقها في بيئة العمل الحقيقية.</li><li>يحفز المدرب المتدربين على التفكير في استراتيجيات أخرى ممكنة لتعديل الدوائر وتحسينها.</li><li>يوزع المدرب ملخصًا مكتوبًا للنشاط يحتوي على نقاط رئيسية ومقاييس نجاح لتوثيق تجربة التعلم.</li><li>يوجه المدرب سؤالًا تحفيزيًا للمتعلمين كخطوة للتفكير المستقبلي ويشكر الجميع على المشاركة الفعالة.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن لاتزان قيم مكثفات الربط أن يؤثر في تصميم مكبر FET لتحسين الكسب والاستجابة الترددية، وما هي العوامل التي يجب مراعاتها لتحقيق أفضل أداء في التطبيقات العملية؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

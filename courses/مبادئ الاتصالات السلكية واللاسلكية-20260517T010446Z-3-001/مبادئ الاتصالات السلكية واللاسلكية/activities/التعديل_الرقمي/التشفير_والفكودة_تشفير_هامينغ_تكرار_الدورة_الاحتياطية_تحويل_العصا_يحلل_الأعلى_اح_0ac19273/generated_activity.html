@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رحلة التشفير وتصحيح الأخطاء العملية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">رحلة التشفير وتصحيح الأخطاء العملية</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">تجربة عملية تتيح للمتدرب تنفيذ تشفير بيانات عملي باستخدام طرق هامينغ وريدم-سولومون، تليها محاكاة فعالة لتصحيح الأخطاء الناتجة عن ضوضاء قناة الاتصال، مما يعزز مهارات تطبيق تقنيات التشفير وتصحيح الأخطاء وتحليل أداء الأنظمة الرقمية.</p>
+        <ul class="obj-list"><li>يطبق المتدرب تشفير هامينغ على بيانات نموذجية ويختبر آلية الكشف والتصحيح.</li><li>ينفذ المتدرب تشفير ريد-سولومون لفهم إضافة الرموز الاحتياطية وتصحيح الأخطاء الجماعية.</li><li>يحاكي المتدرب تأثير ضوضاء قناة الاتصال على بيانات مشفرة ويجري تعديلات لتحسين الدقة.</li><li>يحلل المتدرب أداء النظام من حيث معدل الخطأ بعد تطبيق تقنيات التشفير والتصحيح.</li><li>يُظهر المتدرب قدرة على مقارنة نتائج طرق التشفير المختلفة والاستنتاج العملي.</li><li>يطور المتدرب فهمًا عمليًا للأثر الواقعي لتقنيات التشفير في الاتصالات الرقمية.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>برمجية محاكاة تشفير وتصحيح أخطاء (مثل MATLAB، أو أدوات محاكاة الشبكات)</li><li>حاسوب محمول مع بيئة تنفيذ الشفرات</li><li>بيانات نصية أو ثنائية كنموذج</li><li>وثائق إرشادية ونماذج أولية للبرمجة</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بشرح موجز واقعي لأهمية التشفير وتصحيح الأخطاء في الاتصالات الرقمية.</li><li>يضبط المتدربون حواسيبهم ويحصلون على نسخة البرمجية المخصصة للنشاط.</li><li>يتم توزيع وثائق مختصرة توضح الفكرة العامة للنشاط ومراحل التنفيذ.</li><li>يناقش المدرب والأسئلة الأولية لتهيئة المتدربين نفسياً ومعرفياً.</li><li>يشترك المتدربون في تبادل توقعاتهم وأهداف تعلمهم من النشاط.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تشفير هامينغ: تنفيذ وتطبيق</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يرشد المدرب المتدربين في إدخال بيانات نصية أو ثنائية قصيرة في البرمجية.</li><li>يقوم المتدربون بتطبيق تشفير هامينغ (7,4) يدويًا ثم إلكترونيًا في المحاكاة.</li><li>يُجرى تحليل مباشر لخواص كلمة الكود الناتجة ومواقع بتات الباريتي.</li><li>تُحاكى أخطاء بت فردية في البيانات المشفرة ويُلاحظ المتدربين كيفية الكشف والتصحيح التلقائي.</li><li>يُطرح تحدي تصحيح خطأ واحد يدوياً والتحقق من دقة النتائج باستخدام البرمجية.</li><li>يناقش المتدربون المشاكل والتحديات التي واجهوها خلال التطبيق العملي.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تشفير ريد-سولومون: ترميز وتصحيح جماعي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقدم المدرب نبذة تطبيقية مبسطة عن رمز ريد-سولومون ودوره في تصحيح الأخطاء الرمزية.</li><li>يستخدم المتدربون البرنامج لترميز بيانات أطول باستخدام RS(15,11) أو مماثل.</li><li>يتم إدخال أخطاء عشوائية متعددة في البيانات المشفرة عبر واجهة المحاكاة.</li><li>يقوم المتدربون بمحاولة استرجاع البيانات الأصلية عبر آلية التصحيح التلقائي.</li><li>يتم دراسة الفرق في القدرة على تصحيح الأخطاء بين هامينغ وريدم-سولومون.</li><li>يناقش المتدربون كيف تؤثر عدد الرموز الاحتياطية على معدل التصحيح والكفاءة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">محاكاة قناة الاتصال الضوضائية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُشرح مفهوم قناة الضوضاء وتأثيرها على الإشارات الرقمية عمليًا.</li><li>يضيف المتدربون ضوضاء محاكية (مثل AWGN) إلى البيانات المشفرة متبعين سيناريوهات مختلفة.</li><li>يتم اختبار أداء النظام عبر مراقبة معدلات الخطأ قبل وبعد التصحيح.</li><li>يقوم المتدربون بتعديل مستوى الضوضاء ولاحظ تأثيره على جودة الاستقبال والتصحيح.</li><li>يستخدم المتدربون الرسوم البيانية والتقارير لتحليل أداء النظام عمليًا.</li><li>يناقش المدرب مع المتدربين الاستراتيجيات لتحسين التحمل للأخطاء المحتملة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل الأداء ومقارنة النتائج</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يكلف المدرب المتدربين بإعداد تقارير قصيرة توضح نتائج التجربة وتحليلها.</li><li>يقوم المتدربون بمقارنة فاعلية طرق التشفير من حيث معدل الخطأ المتوقع والتصحيح.</li><li>تُجري مجموعات المتدربين عروض مختصرة تبرز تحليلاتهم وتوصياتهم.</li><li>يحفز المدرب النقاش حول التطبيقات الواقعية لكل تقنية والأسباب العملية وراء اختيارها.</li><li>يقوم المشاركون بتبادل الملاحظات البناءة ويحددون نقاط القوة والتحسين.</li><li>يختتم المدرب المرحلة بتلخيص للنقاط الرئيسية المستفادة وكيفية تطبيقها مستقبلاً.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تؤثر خصائص قناة الاتصال والضوضاء على كفاءة وفاعلية تقنيات تشفير هامينغ وريدم-سولومون في تصحيح الأخطاء الرقمية؟ وما هو التحدي الأساسي في اختيار التقنية المناسبة لكل بيئة اتصال؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

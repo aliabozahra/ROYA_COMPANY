@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نقاش مصممين ومهندسين نيكويست</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">نقاش مصممين ومهندسين نيكويست</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يطبق المتدرب مهارات التواصل الجماعي في قراءة وتفسير مخططات نيكويست لاتخاذ قرارات تصميمية مشتركة ضمن فريق مهندسين ومصممين.</p>
+        <ul class="obj-list"><li>يتبادل المتدربون وجهات النظر حول مخططات نيكويست مع توضيح دلالاتها الهندسية.</li><li>يتخذ المتدربون قرارات تصميمية مدعومة بتحليل التخطيط الترددي الجماعي.</li><li>يستخدم المتدربون لغة تقنية واضحة في الحوار الهندسي.</li><li>يعزز المتدربون مهارات التعاون وحل المشكلات ضمن فريق.</li><li>يطبق المتدربون مفاهيم الاستقرار في تركيب النظام بناءً على النقاش الجماعي.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>لوحات بيضاء وأقلام حبر</li><li>حاسبات محمولة مع برنامج MATLAB أو برنامج رسم بياني مشابه</li><li>نماذج تخطيط نيكويست مطبوعة وأمثلة حقيقية</li><li>بطاقات توزيع أدوار (مصمم، مهندس تحكم، محلل، مراجع)</li><li>بطاقات سيناريوهات أنظمة للتحليل</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد للتمثيل الدورى</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقدم المدرب مقدمة بسيطة تفاعل المتدربين مع موضوع تخطيط نيكويست وأهميته في تحليل الأنظمة.</li><li>يقسم المدرب المشاركين إلى مجموعات صغيرة (4-5 أفراد) ويخصص لكل متدرب دور محدد مثل مصمم، مهندس تحكم، محلل، مراجع.</li><li>يشرح المدرب أهداف النشاط وأهمية التفاعل الجماعي في صنع قرارات التصميم.</li><li>يوزع المدرب أدوات العمل ويشرح آلية العمل وتوقيت كل مرحلة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف وتحليل المخططات في الدور</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تبدأ كل مجموعة بمراجعة نموذج تخطيط نيكويست لنظام محدد مقدم ضمن السيناريو.</li><li>يتبادل أعضاء الفريق المعلومات من وجهات نظر الأدوار المختلفة لمناقشة خصائص ومخاطر الاستقرار المرتبطة بالمخطط.</li><li>يناقش المشاركون الترددات الهامة وتأثيرها على استقرار النظام بناءً على القراءة الجماعية.</li><li>يحدد الفريق النقاط الحرجة التي تتطلب اتخاذ قرار تصميمي مثل تعديل المعاملات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تصميم قرار تعاوني وتقديم الحلول</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تعقد المجموعات اجتماعاً تحكيمياً داخلياً لتصميم حلول مقترحة بناءً على الحوار السابق.</li><li>يعد كل فريق خطة تصميمية تشمل التعديلات المطلوبة لضمان استقرار نظام التحكم.</li><li>يقوم كل متحدث من الفريق بتقديم وجهة نظره التقنية لتبرير القرارات المتخذة.</li><li>تسجل الحلول والتوصيات بشكل واضح على اللوحة البيضاء أو البرنامج المستخدم.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">محاكاة الدور والتفاعل مع السيناريوهات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يختبر الفريق تأثير التعديلات في مثال محاكاة بسيطة باستخدام برنامج MATLAB أو أداة رسم بياني.</li><li>يوضح كل عضو كيف ينعكس التعديل على جودة الاستقرار في النظام من خلال مراجعة النتائج الشخصية.</li><li>يتم توثيق الملاحظات حول فعالية الحلول ومدى تحسين استجابة النظام.</li><li>تتبادل الفرق الخبراء تعليقات بناءة حول نتائج المجموعات والخطط المعروضة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التغذية الراجعة وإغلاق النشاط</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يناقش المدرب مع المتدربين أهم الدروس المستفادة من التفاعل الجماعي وتمثيل الأدوار.</li><li>يحفز المدرب المتدربين على التفكير في كيفية تطبيق هذه المهارات في حالات دراسية أو مهنية حقيقية.</li><li>يستقبل المدرب التعليقات والأسئلة من المشاركين لفتح حوار تعليمي موسع.</li><li>يختتم المدرب النشاط بتلخيص توافقي يربط بين العمل الجماعي والمهارات التقنية المكتسبة.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكنك كمهندس أو مصمم استخدام تحليل تخطيط نيكويست الجماعي لاتخاذ قرارات تصميمية دقيقة تدعم استقرار نظام التحكم؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,3 @@
+{
+  "buildCommand": "python scripts/generate-manifests.py && python scripts/generate_courses_config.py"
+}

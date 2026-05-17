@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>محاكاة تصميم نظام الحلقة المغلقة</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">محاكاة تصميم نظام الحلقة المغلقة</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">تنفذ تجربة محاكاة عملية باستخدام MATLAB Simulink لتمثيل نظام الحلقة المغلقة، تمكن المتدرب من التفاعل مع النظام وتحليل أثر تعديل المعلمات.</p>
+        <ul class="obj-list"><li>تصميم نظام حلقة مغلقة باستخدام MATLAB Simulink.</li><li>ملاحظة تأثير تعديل المعلمات الأساسية على أداء النظام.</li><li>تحليل استجابة النظام للتغيرات ومواجهة الاضطرابات.</li><li>ربط المفاهيم النظرية للأنظمة ذات الحلقة المغلقة بالتطبيق العملي والمحاكاة.</li><li>تعزيز مهارات اتخاذ القرار التقني أثناء تعديل خصائص النظام.</li><li>فهم أهمية الدقة والاستقرار والمرونة في أنظمة التحكم.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>MATLAB Simulink</li><li>كمبيوتر مزود ببرمجيات المحاكاة</li><li>دليل استخدام موجز للنموذج المحاكى</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقدم المدرب مقدمة تفاعلية عن مفهوم نظام الحلقة المغلقة وأهميته في الصناعة.</li><li>يعرض المدرب فيديوهات توضيحية قصيرة لأمثلة حقيقية مثل نظام التحكم بدرجة الحرارة أو الطيار الآلي.</li><li>يناقش المدرب مع المتدربين توقعات الأداء في النظام بناءً على الخصائص النظرية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف نموذج الحلقة المغلقة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يوجه المدرب المتدربين لفتح نموذج محاكاة MATLAB Simulink جاهز لنظام حلقة مغلقة بسيط.</li><li>يشرح المدرب مكونات النظام المعروضة، مثل الحساس، وحدة التحكم، والمخرجات.</li><li>يشجع المتدربون على استعراض الرسم البياني للنموذج والتعرف على مسارات الإشارة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تطبيق تعديلات المعلمات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يطلب المدرب من المتدربين تعديل قيم المعلمات الرئيسية (مثل مكاسب وحدة التحكم أو زمن الاستجابة) في النموذج.</li><li>يقوم المتدربون بتشغيل المحاكاة مباشرة لملاحظة تأثير التعديلات على أداء النظام.</li><li>يوجَّه المتدربون لتوثيق ملاحظاتهم حول الاستقرار، الاستجابة، والدقة في النظام بعد كل تعديل.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل أداء النظام تحت الاضطرابات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يضيف المدرب اضطراباً محدداً للنظام مثل إشارة تدخل مفاجأة في السيناريو المحاكى.</li><li>يشاهد المتدربون كيف يتفاعل النظام مع الاضطرابات ويضبط المعلمات لتحسين الأداء.</li><li>يقود المدرب حواراً تطبيقيًا حول دور التغذية الراجعة في الحفاظ على استقرار النظام.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحدي التصميم والتحسين</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يطرح المدرب تحدياً عملياً لتصميم نظام حلقة مغلقة بمواصفات محددة مثل دقة استقرار معينة وسرعة استجابة محددة.</li><li>يعمل المتدربون بشكل فردي أو مجموعات لتعديل النموذج وتحقيق المواصفات المطلوبة.</li><li>يتم عرض الحلول ومناقشتها مع التركيز على استراتيجيات التعديل والتعلم من التجربة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التغذية الراجعة والإغلاق</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يجمع المدرب الملاحظات من المتدربين حول تجربتهم في المحاكاة والدروس المستفادة.</li><li>يفسر المدرب العلاقة بين المعلمات التي تم تعديلها والخصائص النظرية للحلقة المغلقة.</li><li>يختتم النشاط بتلخيص أهمية المحاكاة في ربط المعرفة النظرية بالتطبيق العملي وتحفيز تطوير المهارات التقنية.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تؤثر كل من الدقة، الاستقرار، والمرونة في تصميم وتحسين أداء نظام الحلقة المغلقة أثناء مواجهة اضطرابات البيئة؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

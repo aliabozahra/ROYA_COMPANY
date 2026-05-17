@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تحليل حالات مكبرات BJT</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تحليل حالات مكبرات BJT</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يبني هذا النشاط تجربة تطبيقية متقدمة تدمج بين التحليل النظري وقراءة البيانات، ليتمكن المتدرب من التفاعل مع تحديات حقيقية في دوائر مكبرات الصوت BJT.</p>
+        <ul class="obj-list"><li>يطبق المتدرب قوانين كيرشوف في تحليل دوائر مكبرات الصوت BJT.</li><li>يحسب الكسب والتشويش في دوائر مكبرات الصوت باستخدام التحليل الخطي.</li><li>يحدد المتدرب تأثير عوامل الامتصاص والتشويه في الأداء ويقدم توصيات تصميمية لتحسين الأداء.</li><li>يحلل بيانات الدوائر ويستخلص استنتاجات تصميمية عملية مبنية على التحليل النظري والتطبيقي.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تحليلي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>حالات دراسية رقمية مفصلة</li><li>برمجيات تحليل دوائر مثل SPICE (اختياري)</li><li>أدوات رسم بياني وتحليل بيانات (Excel أو برنامج مماثل)</li><li>بطاقات تحدي أسئلة تقييمية</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقدم المدرب لمحة عامة عن الهدف من النشاط وأهمية التحليل الخطي لدوائر مكبرات الصوت باستخدام BJT.</li><li>يعرض شرحاً مبسطاً لمبادئ التحليل الخطي وقوانين كيرشوف وأهميتها في فهم دوائر المكبرات.</li><li>يحفز المتدربين عبر طرح أسئلة حول خبراتهم السابقة مع تحليل دوائر إلكترونية وأهمية التحليل النظري مقابل العملي.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف حالة دراسية واقعية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُوزع على المتدربين ملفاً يتضمن دارة مكبر صوت تعمل بـ BJT مع مكونات وقيم مُحددة.</li><li>يقوم المتدربون بقراءة وصف الدائرة ونقاط التشغيل (Q-point) وتحليل نموذج الإشارة الصغيرة.</li><li>يرسم المتدربون مخطط معدّل بناءً على نموذج هيبولاني المطلوب لدراسة الدائرة.</li><li>يُطلب من المتدربين تحديد المعطيات اللازمة لحساب الكسب والتشويش.</li><li>يشجع المدرب على نقاش مفتوح بين المتدربين حول نقاط القوة والتحديات الممكنة في حالة الدائرة المقدمة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل الكسب والتشويش</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يحسب المتدربون الكسب الجهدي والتياري باستخدام المعادلات القياسية للتحليل الخطي ودراسة التأثيرات المحتملة لعوامل الامتصاص (مثل مقاومة المصدر والمقاومة الحمل).</li><li>يقدر المتدربون مصادر التشويش المختلفة وتفسير تأثيرها على جودة الإشارة اعتماداً على المعطيات.</li><li>تُقارن النتائج بين تحليل الكسب النظري مع تقييم التشويش والتشويه المتوقع في الدائرة.</li><li>يُطلب من المتدربين توثيق خطوات الحساب وتحليل الفروقات المحتملة بسبب عوامل الامتصاص والتشويه المعروضة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">اتخاذ قرارات تصميمية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يشجع المدرب المتدربين على مناقشة كيف يمكن تحسين التصميم استناداً إلى نتائج التحليل (مثل تعديل المقاومات أو اختيار ترانزستورات مختلفة).</li><li>يضع المتدربون خطط تعديل الدائرة لتقليل التشويش أو زيادة الكسب وفقاً للبيانات التي تم تحليلها.</li><li>يقوم كل متدرب أو مجموعة بتقديم توصيات تصميمية واضحة مدعمة بتحليل البيانات.</li><li>يتم تحفيز النقاش لتقييم مميزات وعيوب كل اقتراح وتصميم الحل الأمثل.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تقديم وعرض النتائج</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يجهز المتدربون تقريراً موجزاً يعرض فيه التحليل، النتائج، وتأثير عوامل التشويه والتشويش، والتوصيات التصميمية.</li><li>تُقدم العروض الشفهية داخل مجموعات أو أمام الحضور مع دعم توضيحي بالرسومات البيانية والبيانات المحسوبة.</li><li>يقوم المدرب بإعطاء ملاحظات بناءة على التحليل ووضوح التوصيات والقدرة على الربط بين النظرية والتطبيق.</li><li>يُناقش المدرب والمتدربون أهم الدروس المستفادة والتحديات التي تمت مواجهتها خلال النشاط.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن تطبيق مبادئ التحليل الخطي وقوانين كيرشوف لتحسين تصميم مكبر صوت BJT وتقليل التشويش والتشويه في نظام مكبر صوت عملي؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

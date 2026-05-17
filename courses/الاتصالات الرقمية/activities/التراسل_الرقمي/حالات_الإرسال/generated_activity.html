@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>محاكاة أنظمة الإرسال الرقمي</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">محاكاة أنظمة الإرسال الرقمي</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يتعرف المتدرب على محاكاة حالات الإرسال المتزامن وغير المتزامن، ويطبّق تجربة عملية لفهم تأثير كل حالة على جودة وكفاءة نقل البيانات.</p>
+        <ul class="obj-list"><li>يُطبّق تجربة محاكاة الإرسال في الأنظمة الرقمية.</li><li>يقيس تأثير الإرسال المتزامن وغير المتزامن على الأداء.</li><li>يُحلل الفروق بين الأحادي، النصف ثنائي، والثنائي الكامل.</li><li>يُلاحظ التغير في جودة نقل البيانات أثناء المحاكاة.</li><li>يُعدّل الإعدادات لتحسين كفاءة النظام.</li><li>يستنتج دور حالة الإرسال في تصميم الشبكات الفعالة.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>برمجيات محاكاة أنظمة الإرسال الرقمية</li><li>أجهزة كمبيوتر مجهزة ببرامج المحاكاة</li><li>شبكة المحلية (LAN) صغيرة</li><li>أدوات قياس جودة الإشارة ومعدل الخطأ (BER)</li><li>مواد مرئية توضيحية للحالات المختلفة</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتعريف بالنظام</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بتعريف المتدربين على مفهوم حالات الإرسال وأهميتها.</li><li>يعرض المدرب فيديو تفاعلي يوضح بيئة نظام الإرسال الرقمي.</li><li>يوضح المدرب الفرق بين الإرسال المتزامن وغير المتزامن.</li><li>يشرح الأدوات المستخدمة في المحاكاة ويقدم دليل استخدام مختصر.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">المحاكاة العملية لحالة الإرسال الأحادي الاتجاه</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدربون بضبط إعدادات المحاكاة للحالة الأحادية.</li><li>ينفذ المتدربون سيناريو إرسال بيانات من مصدر واحد لمستقبل بدون رد.</li><li>يراقب المتدربون جودة الإشارة ومعدل الأخطاء خلال الإرسال.</li><li>يسجل المتدربون الملاحظات المتعلقة بكفاءة النقل والمشكلات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف حالة الإرسال النصف ثنائي الاتجاه</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يعدل المتدربون إعدادات المحاكاة للنصف ثنائي الاتجاه.</li><li>ينفذ المتدربون تمرين تبادل بيانات مع تبديل اتجاه الإرسال والاستقبال.</li><li>يلاحظ المتدربون تأخير التبديل وتأثيره على معدل البيانات.</li><li>يقيس المتدربون مستوى التداخل والتأخير الناتج عن التبديل.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تجربة الإرسال الثنائي الكامل والتزامني</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يضبط المتدربون المحاكاة على الإرسال الثنائي المتزامن.</li><li>ينفذون إرسال واستقبال بيانات متزامنين في اتجاهين مستقلين.</li><li>يستخدم المتدربون أدوات القياس لمراقبة معدل الخطأ وجودة الإشارة.</li><li>يقارنون الأداء مع الحالات السابقة ويستنتجون الفروق.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل النتائج وشرح أداء النظام</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يناقش المتدربون نتائج المحاكاة وملاحظاتهم في مجموعات صغيرة.</li><li>يقدم المدرب شرحاً تفصيلياً عن تأثير حالات الإرسال المختلفة على الأداء.</li><li>يتعرف المتدربون على كيفية اختيار الحالة المناسبة استنادًا للموقف التطبيقي.</li><li>ينجز المتدربون تمارين قصيرة لتحليل الحالات والتنبؤ بالأداء.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التطبيق والتحدي النهائي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُطلب من المتدربين إعداد سيناريو شبكة منزلية تتضمن ثلاث حالات إرسال.</li><li>يستخدم المتدربون المحاكاة لضبط وتقييم جودة الشبكة المناسبة.</li><li>يتحدّى المتدربون لتحسين الكفاءة وتقليل الأخطاء من خلال التعديلات.</li><li>يعرض كل فريق نتائجه ويشارك الحلول المتبعة لتحسين جودة الإرسال.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق والتغذية الراجعة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يجري المدرب جلسة مراجعة شاملة لجميع مراحل المحاكاة.</li><li>يشارك المتدربون تحدياتهم وتجاربهم خلال النشاط.</li><li>يُقدم المدرب ملاحظات محددة لكل متدرب لتعزيز التعلم.</li><li>يوجه المدرب المناقشة نحو تطبيق المفاهيم في البيئة المهنية.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يؤثر اختيار حالة الإرسال على جودة وكفاءة نقل البيانات في نظام الاتصالات الرقمي، ومتى تختار كل حالة عمليًا؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

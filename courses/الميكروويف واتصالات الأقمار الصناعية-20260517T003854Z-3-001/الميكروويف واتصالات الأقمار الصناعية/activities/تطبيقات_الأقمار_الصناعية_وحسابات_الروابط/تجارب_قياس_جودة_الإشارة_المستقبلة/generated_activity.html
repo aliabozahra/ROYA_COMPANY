@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تجربة قياس جودة الإشارة الفضائية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تجربة قياس جودة الإشارة الفضائية</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">تمهيد المتدرب لفهم خطوات إجراء التجارب العملية لقياس جودة الإشارة المستقبلة من الأقمار الصناعية بدقة واحترافية.</p>
+        <ul class="obj-list"><li>تمكين المتدرب من إعداد أدوات القياس والتجهيزات الأساسية بدقة.</li><li>تعلم المتدرب كيفية استقبال وقياس وتحليل بيانات الإشارة الفضائية.</li><li>تطوير مهارات المتدرب في تسجيل البيانات بدقة واستخدام أدوات التحليل الميداني.</li><li>تطبيق تقنيات تحسين جودة الإشارة عبر التجربة العملية.</li><li>إكساب المتدرب مهارات اتخاذ قرارات تحليلية بناءً على نتائج التجارب.</li><li>تعزيز قدرة المتدرب على ترجمة البيانات الميدانية إلى تحسينات عملية في الروابط الفضائية.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">عملي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>هوائي بارابولي Ku-band قیاس قطر 1.8 متر</li><li>مضخم إشارة منخفض الضجيج (LNA)</li><li>محلل طيف (Spectrum Analyzer)</li><li>مقياس قوة الإشارة (Power Meter)</li><li>مولد إشارة للمعايرة</li><li>كابلات RF منخفضة الفقدان (RG-213)</li><li>موصلات N-type ودروع معدنية للحماية</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تمهيد وتعريف أهداف التجربة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بتوضيح أهمية إجراء التجارب العملية لقياس جودة الإشارة الفضائية.</li><li>شرح مكونات الأدوات المستخدمة وأدوارها في سلسلة القياس.</li><li>عرض حالات تطبيقية واقعية توضّح تأثير جودة الإشارة على الاتصالات الفضائية.</li><li>تهيئة المتدربين نفسياً لاستقبال تجربة حسية وعملية ثرية.</li><li>تشجيع المتدربين على المشاركة بطرح توقعاتهم وأسئلتهم حول التجربة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التحضير الفني وتجهيز الأدوات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تقسيم المتدربين إلى مجموعات تنظيمية لضمان العمل الجماعي.</li><li>توزيع المهام بينها: تجهيز الهوائي، تركيب LNA، توصيل الكابلات، تشغيل الأجهزة.</li><li>التدريب على توجيه الهوائي بدقة نحو القمر الصناعي المستهدف باستخدام نظام تتبع GPS.</li><li>تركيب مضخم الإشارة منخفض الضجيج (LNA) وضبطه لخفض الضجيج المضاف.</li><li>التأكد من معايرة جميع الأجهزة باستخدام مولد إشارة معروف.</li><li>تأمين الكابلات والموصلات ودروع الحماية لمنع التشويش والتداخلات الخارجية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تنفيذ قياسات الإشارة الحية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>توجيه الهوائي تدريجياً أثناء مراقبة مستوى الإشارة عبر جهاز قياس الطيف.</li><li>قراءة ومراقبة قيمة SNR و BER باستخدام الأجهزة المخصصة.</li><li>تسجيل البيانات بشكل مباشر داخل جداول إلكترونية عبر برامج مخصصة.</li><li>ملاحظة أي تقلبات في الإشارة مع توثيق الظروف البيئية المحيطة (طقس، تداخلات).</li><li>ضبط المعدات وتحسين التوجيه لتعزيز جودة الإشارة حسب النتائج الأولية.</li><li>إجراء محاولات متكررة لتحسين استقرار وجودة الإشارة المستقبلة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل بيانات التجربة والتقييم المبدئي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>مقارنة القراءات المسجلة بالقيم النظرية المتوقعة من وحدات حساب الروابط.</li><li>تحديد العوامل المؤثرة على جودة الإشارة مثل الفقدان والتداخل.</li><li>مناقشة أسباب الانحرافات أو التشويش ومناقشة الحلول المحتملة.</li><li>توظيف برامج تحليل مثل MATLAB لتحليل النتائج إحصائياً ومرئياً.</li><li>تحفيز المتدربين على تقديم استنتاجاتهم وملاحظاتهم الجماعية.</li><li>التأكد من فهم التحديات وكيفية التعامل معها عملياً.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحسين الإعدادات وتطبيق الحلول الميدانية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تعديل موضع الهوائي وزاويته لتحسين الكسب وزيادة SNR.</li><li>تركيب واختبار مضخمات إضافية أو فلاتر لضمان جودة أعلى.</li><li>تقييم تأثير التعديلات من خلال تنفيذ قياسات جديدة وتسجيلها.</li><li>مقارنة النتائج بعد التحسين مع نتائج القياسات الأولية.</li><li>مناقشة كيف يمكن لهذه التحسينات تطبيقها في مشاريع حقيقية.</li><li>تدريب المتدربين على توثيق جميع الإجراءات والنتائج بشكل علمي.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق والمراجعة النهائية للنشاط</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تنفيذ إجراءات السلامة بتنظيف وترتيب الأدوات والتأكد من إيقاف تشغيل المعدات بشكل آمن.</li><li>إجراء مناقشة مفتوحة مع المتدربين لتعزيز التعلم الذاتي والجماعي.</li><li>طرح أسئلة تقييمية لتحفيز التفكير النقدي حول التجربة ونتائجها.</li><li>تقديم ملخص من المدرب يربط بين التجربة العملية والمفاهيم النظرية.</li><li>تحفيز المتدربين على التفكير في التطبيقات المستقبلية لتحسين جودة الإشارة.</li><li>التأكيد على أهمية الدقة والتوثيق في التجارب العلمية.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تؤثر دقة إعداد الأجهزة وتجهيز الأدوات في نتائج قياس جودة الإشارة الفضائية، وما هي الخطوات التي يمكن اتخاذها لتقليل التشويش وتحسين دقة القياسات؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

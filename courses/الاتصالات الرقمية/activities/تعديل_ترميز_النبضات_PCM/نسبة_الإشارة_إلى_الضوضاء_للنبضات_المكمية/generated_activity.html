@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رحلة التحدي في تحسين SNR</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">رحلة التحدي في تحسين SNR</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يهدف هذا النشاط إلى تطوير مهارة عملية في ابتكار وتحليل وتحسين نسبة الإشارة إلى الضوضاء (SNR) في نظم تعديل النبضات (PCM) من خلال تجربة تفاعلية وتحديات تطبيقية.</p>
+        <ul class="obj-list"><li>يحسب المتدرب SNR ويشرح أثره على جودة الإشارة.</li><li>يبتكر حلول لتحسين SNR عبر تقنيات عملية مبتكرة.</li><li>يطبق خطوات عملية لاختبار وتحليل تأثير تحسين SNR.</li><li>يحلل نتائج تحسين SNR ويربطها بالمفاهيم النظرية.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>محاكيات حاسوبية لنظام PCM</li><li>أجهزة قياس وإشارات صوتية رقمية</li><li>برمجيات لتحليل البيانات كـMATLAB أو Python</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يرحب المدرب بالمتدربين ويشرح لهم أهمية SNR في جودة الاتصالات الرقمية.</li><li>يعرض فيديو قصير يوضح مفهوم التشويش وتأثيره على الإشارات الصوتية الرقمية.</li><li>يسأل المدرب المتدربين عن تجاربهم مع ضعف جودة الصوت في الاتصالات.</li><li>يوضح المدرب أهداف النشاط ويربطها بحاجتهم العملية لتحسين أنظمة PCM.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الاستكشاف</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقسم المدرب المتدربين إلى فرق صغيرة لاستكشاف القياسات العملية لـ SNR باستخدام المحاكيات.</li><li>كل فريق يحدد إشارة ويقيس مستوى الضوضاء عبر الأداة المعطاة.</li><li>تسجيل المتدربين للقيم والملاحظات ومحاولة تفسيرها نظرياً.</li><li>يقدم المدرب سيناريوهات مختلفة فيها تغييرات في عدد البتات ومعدل العينة، والتحدي هو تحديد تأثير هذه التغيرات عبر التجربة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الابتكار والتطبيق</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تُطلب من كل فريق ابتكار فكرة عملية (مثلاً زيادة عدد البتات، استخدام فلاتر رقمية، أو تعديل معدل العينات) لتحسين SNR.</li><li>تطبيق كل فكرة ابتكرها الفريق عملياً عبر المحاكيات والأجهزة.</li><li>توثيق النتائج مع ملاحظة كيف تغيرت نسبة SNR وجودة الإشارة.</li><li>تجربة نماذج من تصحيح الخطأ وتحليل أثرها على نسبة الإشارة إلى الضوضاء.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التحليل والمراجعة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تجتمع الفرق لمشاركة نتائجها ومناقشة الفروقات في تحسين SNR والأسباب الفنية.</li><li>يقود المدرب نقاشاً تحليلياً يستخلص منه المتدربون كيف يمكن الجمع بين حلول الفرق لتحسين شامل.</li><li>يقوم كل متدرب أو فريق بتقييم نسبة SNR قبل وبعد التعديل لتأكيد مدى تحسين الأداء.</li><li>يضع المدرب أمثلة حقيقية من الاتصالات الحديثة ويقارنها مع نتائج التدريب.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التغذية الراجعة والإغلاق</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقدم المدرب ملخصاً لتجربة التعلم والتحديات التي مر بها المتدربون.</li><li>يطلب من كل متدرب أن يكتب أو يشارك بأهم درس تعلمه خلال النشاط.</li><li>توجيه المتدربين لاستكمال تجربة المحاكاة في المنزل أو المختبر باستخدام البرمجيات.</li><li>إغلاق النشاط بإثارة الحماس للمحاور القادمة وربطها بمفاهيم التحسين المتقدم في الاتصالات الرقمية.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن دمج الحلول التي ابتكرتها خلال النشاط لتحسين SNR في أنظمة اتصالات رقمية متقدمة مثل 5G، وما تأثير ذلك على جودة الخدمة المقدمة؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

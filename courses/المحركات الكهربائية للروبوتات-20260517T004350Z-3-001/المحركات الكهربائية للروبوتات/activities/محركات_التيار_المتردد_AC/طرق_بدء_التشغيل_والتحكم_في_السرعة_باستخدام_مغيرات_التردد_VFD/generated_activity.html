@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تحليل حالة مصنع مغير التردد</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تحليل حالة مصنع مغير التردد</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يقدم هذا النشاط تمهيداً عملياً لفهم طريقة عمل مغيرات التردد في التحكم بسرعات محركات AC عبر دراسة حالة حقيقية.</p>
+        <ul class="obj-list"><li>تحليل بيانات الأداء الفني لمصنع يستخدم مغيرات التردد.</li><li>تحديد الأسباب الجذرية لمشكلات التحكم في السرعة.</li><li>اقتراح حلول تقنية لتحسين أداء المحركات.</li><li>تقييم كفاءة الحلول المقترحة بناءً على معايير الأداء.</li><li>تعزيز مهارات التفكير التحليلي وحل المشكلات التقنية.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تحليلي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>دراسة حالة مفصلة تحتوي على بيانات تشغيل المصنع.</li><li>رسوم بيانية تمثل أداء المحركات.</li><li>جداول قياس التيار والعزم والسرعة.</li><li>أدوات تدوين ومشاركة الأفكار بين المتدربين.</li><li>حاسوب للوصول إلى برمجيات تحليلية أو جداول بيانات.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتعريف بالسياق</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يرحب المدرب بالمتدربين ويعرفهم بأهمية التحكم في سرعة محركات التيار المتردد.</li><li>يعرض المدرب ملخصاً عن دور مغيرات التردد VFD في المصانع والروبوتات.</li><li>يوضح المدرب الأهداف التعليمية للنشاط ويوجه المتدربين لكيفية مشاركة الأفكار.</li><li>يقدم المدرب لمحة عن الحالة الواقعية للمصنع الذي سيتم تحليله ويوزع المواد الخاصة بدراسة الحالة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف دراسة الحالة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقرأ المتدربون دراسة الحالة التفصيلية التي تتضمن بيانات تشغيل المصنع ومشاكل ملاحظة.</li><li>يحدد المتدربون العوامل المؤثرة في أداء المحركات بناءً على البيانات المقدمة.</li><li>يناقش المتدربون خلال مجموعات صغيرة التفاصيل الفنية للمشكلة.</li><li>يطرح المدرب أسئلة إرشادية لتحفيز المتدربين على فهم العلاقة بين المعلمات وأداء المحركات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل المشكلة وتحديد العوامل</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يجمع المتدربون ملاحظاتهم حول نقاط الضعف والأسباب المحتملة للمشكلة.</li><li>يستخدم المتدربون الجداول والرسوم البيانية لتحليل التيارات، العزم، والسرعة في المصنع.</li><li>يقوم المتدربون بتصنيف المشاكل التقنية إلى فئات حسب تأثيرها وأولويتها.</li><li>يقدم كل فريق تحليلاً مختصراً للنتائج ويشاركها مع المجموعة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التوصل للحلول وتحسين الأداء</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يتم طرح أفكار الحلول الممكنة استنادًا لتحليل البيانات السابقة.</li><li>يناقش المتدربون مزايا وعيوب كل حل من الحلول المقترحة.</li><li>ينسق المتدربون طرق لتحسين كفاءة مغير التردد وضبط إعداداته حسب نوع الحمولة.</li><li>يقوم الفريق بصياغة خطة عمل مقترحة للتحسينات التقنية مع تحديد الخطوات التنفيذية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التقييم والمراجعة النهائية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يعرض كل فريق نتائج تحليله وخطة تحسينه أمام المدرب والمجموعة.</li><li>يحصل المتدربون على تغذية راجعة من المدرب والزملاء حول الإجراءات والاقتراحات.</li><li>يناقش الجميع التأثيرات المحتملة على أداء المصنع وكفاءة المحركات.</li><li>يختم المدرب النشاط بتلخيص أبرز الدروس المستفادة ويربطها بالأهداف التعليمية.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تساهم المعلمات المختلفة لمغير التردد في تحسين أداء محركات AC داخل الأنظمة الصناعية، وما هو دور التحليل الفني في اتخاذ قرارات تحسين النظام؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

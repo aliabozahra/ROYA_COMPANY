@@ -1,0 +1,262 @@
+[
+  {
+    "name": "معدات_المختبر_المركزي_المبدأ،_والأنواع،_والمعايرة_والصيانة",
+    "items": [
+      {
+        "name": "معدات_ال_PCR",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "معدات_السلامة_البيولوجية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "معدات_المختبرات_الطبية_العامة_المبدأ،_والأنواع،_والمعايرة_والصيانة",
+    "items": [
+      {
+        "name": "البدل",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الحاضنة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الماصات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "جهاز_الطرد_المركزي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "معدات_أساسية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "معدات_بنك_الدم_المبدأ،_والأنواع،_والمعايرة_والصيانة",
+    "items": [
+      {
+        "name": "الثلاجات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "جهاز_استخلاص_البلازما",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "جهاز_الطرد_المركزي_المبرد",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "حاضنة_الصفائح_الدموية_مع_المحرض",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "معدات_مختبر_الأحياء_الدقيقة_المبدأ،_والأنواع،_والمعايرة_والصيانة",
+    "items": [
+      {
+        "name": "حاضنة_ثاني_أكسيد_الكربون",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "محللات_زراعة_الدم",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "معدات_مختبر_الأنسجة_البناء،_والأنواع،_والمعايرة_والصيانة",
+    "items": [
+      {
+        "name": "المايكروتوم",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "معدات_التعويم_بالماء",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "معدات_الشمع",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "معدات_الصفائح_الساخنة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "معدات_صبغ_الشرائح_الأوتوماتيكي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "معدات_معالجة_الأنسجة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "معدات_مختبر_الدم_المبدأ،_والأنواع،_والمعايرة_والصيانة",
+    "items": [
+      {
+        "name": "عدادات_كولتر",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "محللات_HPLC_و_ESR",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "معدات_التجلط",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "معدات_التدفق_الخلوي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "معدات_مختبر_الكيمياء_الحيوية_المبدأ،_والأنواع،_والمعايرة_والصيانة",
+    "items": [
+      {
+        "name": "المعدات_ذات_المبدأ_اللون_والطيف",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "معدات_التحليل_الأوتوماتيكي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "معدات_التحليل_شبه_الأوتوماتيكي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "معدات_تحليل_المحاليل_الكهربائية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "معدات_مختبر_المناعة_المبدأ،_والأنواع،_والمعايرة_والصيانة",
+    "items": [
+      {
+        "name": "معدات_CLIA",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "معدات_Elisa",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "مقدمة_عن_معدات_المختبرات_الطبية",
+    "items": [
+      {
+        "name": "السلامة_وإدارة_النفايات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الوظائف_وطبيعة_المختبر",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تصنيف_المختبرات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "معدات_المختبرات_الطبية_وأقسامها",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "نظام_الجودة",
+    "items": [
+      {
+        "name": "نبذة_عن_نظام_المجفف",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "نظام_جودة_المختبرات_الطبية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  }
+]

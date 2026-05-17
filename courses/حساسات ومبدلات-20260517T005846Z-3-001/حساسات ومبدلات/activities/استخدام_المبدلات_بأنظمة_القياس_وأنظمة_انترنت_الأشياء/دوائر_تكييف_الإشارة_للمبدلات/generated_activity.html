@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تحدي قرارات تصميم دوائر تكييف</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تحدي قرارات تصميم دوائر تكييف</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يناقش المتدرب حالات واقعية لاختيار وتصميم دوائر تكييف الإشارة لمشاكل محددة في أنظمة القياس.</p>
+        <ul class="obj-list"><li>يعزز مهارات التفكير الاستراتيجي لاتخاذ القرار الهندسي.</li><li>يُطور قدرة اختيار الحلول الأنسب لتكييف الإشارة.</li><li>يحلل تأثير دوائر التكييف المختلفة على دقة النظام.</li><li>يتخذ قرارات مهنية مبنية على معطيات تقنية وبيئية.</li><li>يُميز بين أنواع دوائر تكييف الإشارة بناءً على التطبيق.</li><li>يُخطط لاستراتيجيات تركيب دوائر تكييف لضمان موثوقية القياس.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تحليلي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>حالات دراسية واقعية بصيغة نصية وتوصيف تقني</li><li>رزم معلومات تقنية مختصرة لأنواع دوائر التكييف</li><li>بيانات قياسية وأمثلة على إرشادات أداء الأنظمة</li><li>لوحات عصف ذهني تفاعلية (رقمية أو ورقية)</li><li>نموذج تقويم قرارات مع معايير تقنية</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يستهل المدرب بعرض تمهيد قصير يربط بين مفهوم دوائر تكييف الإشارة وأهميتها في أنظمة القياس والإنترنت الصناعي.</li><li>يُحفّز المتدربين على التفكير في تحديات ضعيفة أو مشوهة للإشارات من خلال سؤال استهلالي تحفيزي.</li><li>يُعرض مختصر تقني يوضح أنواع دوائر التكييف ووظائفها بشكل موجز لتوحيد الخلفية المعرفية.</li><li>يشجّع المتدربين على طرح أسئلة سريعة لفهم الحالة العامة بالمجال.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف الحالة الواقعية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُوزع على المتدربين وصف مفصل لحالة واقعية تتعلق بمشكلة إشارات مشوهة في نظام قياس صناعي.</li><li>يكلف المدرب بقراءة الحالة وتحليل المعطيات التقنية والصعوبات المصاحبة.</li><li>يُشكّل مجموعات صغيرة لمناقشة العوامل المؤثرة على الإشارات والأسباب المحتملة للمشكلات.</li><li>يُجلس المتدربين لطرح آرائهم الأولية ومقترحاتهم مع تحديد أوجه الغموض في الحالة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل الخيارات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُزوّد كل فريق بوثيقة تحوي مواصفات تقنيات مختلفة لدوائر تكييف الإشارة (تكبير، ترشيح، خطّيّة، عزل).</li><li>يُطلب من المتدربين مناقشة مدى ملائمة كل نوع لحل مشكلتهم المحددة مع الاعتماد على البيانات التقنية.</li><li>يحاضر المدرب لتوضيح الفروقات التطبيقية بين الدوائر واستعراض تأثيراتها على النموذج المقدم.</li><li>يُحفّز المتدربين لتقديم مبررات فنية مستندة لمقارنة الخيارات وتحليل المزايا والعيوب.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">اتخاذ القرار المهني</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُوجه المدرب المتدربين لصياغة قرار مهني حول اختيار وتصميم الدائرة الأنسب بناءً على التحليل السابق.</li><li>تقدم كل مجموعة قرارها مع التسلسل المنطقي للاختيار والأدلة الداعمة.</li><li>يُفتح نقاش جماعي يُركز على نقد البناء واتساق القرارات مع معطيات الحالة.</li><li>يُساعد المدرب في توضيح كيف يؤثر القرار المهني السليم على كفاءة النظام وموثوقية القياس.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التغذية الراجعة والإغلاق</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُقدم المدرب تقييمًا تفصيليًا لقرارات المجموعات مع إبراز نقاط القوة والفرص للتحسين.</li><li>يُفسح المجال للمتدربين لمشاركة الدروس المستفادة من المثال وما يمكن تطبيقه في مواقف أخرى.</li><li>يُختتم النشاط بربط الأفكار مع الأهداف التعليمية ودعوة المتدربين لاستمرارية التفكير الاستراتيجي في اتخاذ القرارات.</li><li>يُشجّع المدرب على اقتراح موارد إضافية لتعمق المفاهيم حول دوائر تكييف الإشارة.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن لتقييم شامل لظروف التطبيق والبيئة التقنية أن يؤثر على اختيار وتصميم دوائر تكييف الإشارة لضمان أفضل أداء في أنظمة القياس والإنترنت الصناعي؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

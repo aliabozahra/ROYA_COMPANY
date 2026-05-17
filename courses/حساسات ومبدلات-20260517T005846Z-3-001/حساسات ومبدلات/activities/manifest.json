@@ -1,0 +1,383 @@
+[
+  {
+    "name": "أنواع_المبدلات",
+    "items": [
+      {
+        "name": "التعرف_على_المبدلات_الشائعة_مثل_Thermistor_LDR_Strain_Gauge",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "المبدل_Transducer_ووظيفته_الأساسية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "المبدلات_الفعالة_Active_والخمدة_Passive",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تجربة_دراسة_خصائص_الـــــــ_LDR_Light_Dependent_Resistor",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تجربة_معايرة_Thermistor_لقياس_درجة_الحرارة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "خصائص_المبدلات",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "استخدام_المبدلات_بأنظمة_القياس_وأنظمة_انترنت_الأشياء",
+    "items": [
+      {
+        "name": "أنواع_الإشارات_الناتجة_تناظرية_ورقمية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الحساسية_والخطية_والثبات_في_أداء_المبدلات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "المبدلات_التفاضلية_واستخدامها_في_القياس_الدقيق",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تأثير_درجة_الحرارة_والضوضاء_على_المبدلات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_استخدام_حساس_الضغط_Pressure_Transducer_لقياس_ضغط_الهواء",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_استخدام_مبدل_الإزاحة_الخطية_Linear_Potentiometer_لقياس_الموضع",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تطبيقات_المبدلات_في_أنظمة_إنترنت_الأشياء_IoT",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "دوائر_تكييف_الإشارة_للمبدلات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مبدأ_تحويل_الطاقة_في_المبدلات",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "استخدام_المبدلات_في_القياس",
+    "items": [
+      {
+        "name": "العلاقة_بين_المتغير_الفيزيائي_وقيمة_الخرج_الكهربائي_للمبدل",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "المبدلات_في_أنظمة_قياس_وتحكم",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "المبدلات_في_دوائر_عملية_للحصول_على_خرج_كهربائي_مقابل_إشارة_فيزيائية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تجربة_استخدام_Microphone_لتحويل_الصوت_إلى_إشارة_كهربائية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تجربة_استخدام_Strain_Gauge_لقياس_القوة_أو_الإجهاد",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "قياس_الإشارة_الكهربائية_الناتجة_عن_المبدلات",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "الاستشعار_الاستقرائي_والكهروحراري",
+    "items": [
+      {
+        "name": "العلاقة_بين_درجة_الحرارة_والجهد_المراقب_في_المزدوجة_الحرارية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "القيم_الحرارية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "المفاهيم_الأساسية_للظواهر_الحرارية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_1_اختبار_حساس_استقرائي_للكشف_عن_المعادن",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_2_توصيل_الثيرموكبل_وتسجيل_الفولتية_عند_تسخينه_عند_درجات_حرارة_مختل_d7bf3a0d",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مستشعر_إزاحة_المحولات_التفاضلية_الخطية_المتغيرة_LVDT",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مستشعرات_الإزاحة_الحثية_المتغيرة_الممانعة_المتغيرة",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "الخصائص_الثابتة_لعناصر_نظام_القياس",
+    "items": [
+      {
+        "name": "الخصائص_الإحصائية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الخصائص_المنهجية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_1_دراسة_العلاقة_الخطية_في_المقاومة_المتغيرة_ورسم_العلاقة_الناتجة_ب_cb1ec139",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تحديد_الخصائص_الثابتة__المعايرة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "نموذج_معمم_لعنصر_النظام",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "تأثيرات_التحميل_والشبكات_ثنائية_المنافذ",
+    "items": [
+      {
+        "name": "التحميل_الكهربائي",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_1_تأثير_مقاومة_الحمل_على_الجهد_الخارج_لمصدر_تيار_مستمر",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_2_دراسة_تأثير_التحميل_بين_مرحلتين_من_مكبرات_RC_المربوطة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "شبكات_ثنائية_المنفذ",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "عناصر_استشعار_بالمقاومة_وبالسعة",
+    "items": [
+      {
+        "name": "تجربة_العملية_1_قياس_الإجهاد_باستخدام_مقياس_الإجهاد_المقاومي_المعدني",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_2_دراسة_و_تركيب_مستشعر_الإزاحة_السعودية_التفاضلية_و_مستشعر_إزاحة_ا_4d92ccd6",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مستشعر_مستوى_السعة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مستشعرات_الإزاحة_المختلفة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مستشعرات_معدنية_وأشباه_الموصلات_مقاومة_لقياس_درجة_الحرارة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مقاييس_الإجهاد_المقاومة_للمعادن_وأشباه_الموصلات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مقاييس_الجهد_لقياس_الإزاحة_الخطية_والزاوية",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "مستشعرات_القاعات",
+    "items": [
+      {
+        "name": "أساسيات_مستشعرات_تأثير_القاعة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الإلكترونات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الجهد_الناتج_من_الاستشعار",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_1_تشغيل_حساس_هول_للكشف_عن_وجود_مجال_مغناطيسي",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_2_استخدام_حساس_هول_لقياس_سرعة_دوران_قرص",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "جهاز_استشعار_نموذجي",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "حركة_الثقوب",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "نظام_القياس_العام",
+    "items": [
+      {
+        "name": "أمثلة_على_أنظمة_القياس",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_1_التدريب_العملي_على_توصيل_الملمتيتر_الرقمي_لقياس_ومقارنته_بالقراء_a8e638b1",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "رموز_الرسم_التخطيطي_للكتل",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "لغرض_وأداء_أنظمة_القياس",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "هيكل_أنظمة_القياس",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>محاكاة تركيب الشبكة البصرية المختبرية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">محاكاة تركيب الشبكة البصرية المختبرية</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يهدف هذا النشاط إلى تمكين المتدرب من تركيب وإعداد أجهزة الاتصال بنظام الألياف البصرية بشكل عملي ومتكامل في بيئة مختبرية، بحيث يتعلم كيفية تحويل التصميم النظري إلى شبكة فعالة.</p>
+        <ul class="obj-list"><li>تركيب الأجهزة البصرية وفق المواصفات الفنية بدقة عالية</li><li>تكوين الشبكة وتخصيص العناوين بشكل صحيح</li><li>تشغيل واختبار أداء الشبكة باستخدام أدوات قياس متخصصة</li><li>التعرف على الخطوات الأمنية الأساسية لتأمين الشبكة</li><li>تعزيز القدرة على حل المشكلات وتجنب الأخطاء الشائعة في التثبيت</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">عملي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>أجهزة اتصال بصرية حقيقية (راوتر، سويتش، مودم ONT)</li><li>كابلات وأدوات توصيل SC و LC</li><li>جهاز OTDR لفحص الألياف</li><li>مزود طاقة مضبوط ومراقب</li><li>أجهزة قياس قوة الإشارة Power Meter</li><li>برمجيات تكوين الشبكة وواجهات المستخدم</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتحضير البيئي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يرحب المدرب بالمتدربين ويشرح لهم أهمية التركيب الصحيح لأجهزة الاتصال في الشبكات البصرية</li><li>يتم استعراض محتويات البيئة المختبرية والتعريف بالأجهزة والأدوات المتاحة</li><li>يقوم المتدربون بفحص الموقع المختبر بما يشمل التحقق من الطاقة الكهربائية، درجة الحرارة والرطوبة لضمان ملائمة التشغيل</li><li>يتم التحقق من توفر جميع الأدوات اللازمة وترتيبها بشكل يسهل الوصول إليها أثناء التركيب</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التركيب الفيزيائي للأجهزة والألياف</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدربون بتركيب الأجهزة (الراوترات والسويتشات ومودم ONT) على الحوامل المخصصة ضمن الخزانة البصرية</li><li>توصيل الكابلات البصرية باستخدام الموصلات SC أو LC مع استخدام أدوات التنظيف لإزالة الغبار بدقة قبل التوصيل</li><li>ترتيب الكابلات المتعددة الألياف بشكل منظم لتفادي الالتواء وتقليل الفقد في الإشارة الضوئية</li><li>إجراء فحص مبدئي باستخدام جهاز OTDR للتأكد من سلامة الكابلات وعدم وجود عيوب</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التكوين الأولي وتشغيل الشبكة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تشغيل الأجهزة وتسجيل الدخول إلى واجهات إدارة الشبكة</li><li>إعداد عناوين IP ثابتة وإدخال الإعدادات الأساسية المطلوبة في كل جهاز مثل معدل البيانات</li><li>تخصيص العناوين للعملاء المحليين باستخدام الإعدادات اليدوية أو DHCP حسب التصميم</li><li>اختبار الاتصال بين الأجهزة باستخدام أوامر ping وأدوات مراقبة مثل Wireshark</li><li>قياس قوة الإشارة الضوئية عبر Power Meter وإعادة التوصيل إذا لزم الأمر</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التطبيق العملي للاعتبارات الأمنية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تنفيذ إجراءات تأمين أساسية مثل تفعيل جدران الحماية على الأجهزة وإعداد كلمات سر قوية</li><li>تفعيل تشفير البيانات بين الأجهزة باستخدام بروتوكولات الأمان المناسبة</li><li>مراقبة الشبكة باستخدام أدوات الكشف عن التدخل والمعاينة الدورية للحالة</li><li>مناقشة سيناريوهات الهجمات المحتملة وكيفية تفاديها من خلال التكوين الصحيح للحماية</li><li>متابعة تحديثات النظام والتأكد من تطبيقها بانتظام</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التقييم والمراجعة النهائية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>مراجعة جميع الخطوات التي تمت من تركيب وتوصيل وتكوين وإعداد الأمان</li><li>تبادل الملاحظات بين المتدربين والمدرب حول الصعوبات التي واجهوها وكيف تم حلها عملياً</li><li>تطبيق اختبارات شاملة للأداء والثبات باستخدام سيناريوهات تشغيل حقيقية في بيئة المختبر</li><li>تلخيص الدروس المستفادة وتوضيح الروابط بين المحاور المختلفة للوحدة التعليمية</li><li>طرح أسئلة تفاعلية تشجع على التفكير النقدي حول سيناريوهات تركيب الشبكات</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تؤثر جودة تركيب أجهزة الاتصال وتكوين الشبكة على استقرار وأداء الشبكات البصرية في بيئات العمل الحقيقية؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

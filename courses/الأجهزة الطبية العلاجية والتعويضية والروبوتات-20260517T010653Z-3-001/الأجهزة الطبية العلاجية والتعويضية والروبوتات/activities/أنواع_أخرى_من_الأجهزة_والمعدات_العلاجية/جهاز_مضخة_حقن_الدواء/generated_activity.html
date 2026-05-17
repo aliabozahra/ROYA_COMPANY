@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تحليل سيناريوهات مضخة الحقن بدقة</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تحليل سيناريوهات مضخة الحقن بدقة</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يهدف هذا النشاط إلى تعزيز القدرة التحليلية لدى المتدربين من خلال تمكينهم من تحليل سيناريوهات طبية متعددة تخص ضبط مضخة الحقن بدقة عالية مع فهم عميق لتأثير الأخطاء وطرق تجنبها.</p>
+        <ul class="obj-list"><li>تحليل دقيق لسيناريوهات عملية تتناول ضبط مضخة الحقن.</li><li>تقييم الآثار السريرية الناتجة عن أخطاء ضبط الجرعات.</li><li>تمييز أسباب الخطأ التقني والطبي وتأثيراته المحتملة.</li><li>اقتراح حلول وتدابير وقائية لتجنب الأخطاء في الضبط.</li><li>ربط المعرفة النظرية بممارسات الرعاية الصحية.</li><li>صقل مهارات التفكير النقدي واتخاذ القرار ضمن سياق أجهزة مضخات الحقن.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تحليلي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>حالات دراسية رقمية تفاعلية على جهاز لوحي</li><li>أجهزة عرض لعرض السيناريوهات والبيانات</li><li>نماذج افتراضية لمضخات الحقن الرقمية</li><li>جداول مقارنة لأخطاء الجرعات وتأثيراتها</li><li>أداة تقييم الكفاءة التحليلية (استبانة)</li><li>منصة تواصل للمناقشة الجماعية</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بعرض مفهوم عام لمضخة الحقن وأهميتها في الرعاية الطبية.</li><li>يتعرف المتدربون على الأهداف التعليمية للنشاط وأهمية تحليل حالات الأخطاء.</li><li>يتم تهيئة الأجواء الحوارية بتوجيه أسئلة استكشافية حول تجارب المتدربين السابقة مع أجهزة الحقن.</li><li>يُشرح للمتدربين آلية عمل المضخة ونبذة عن أهم مكوناتها التقنية.</li><li>يُوزع ملخصات مختصرة لتعريف مصطلحات تقنية ضرورية لفهم السيناريوهات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الاستكشاف والتحليل الأولي للسيناريوهات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُعرض للمتدربين 3 سيناريوهات طبية واقعـية تتضمن ضبط مضخة الحقن، تتنوع في نوع المرض والجرعات.</li><li>يقوم المتدربون بتحليل كل سيناريو بشكل فردي عبر جدول تفاعلي يوجههم لاستنباط نقاط الخطأ المحتملة.</li><li>يناقش الفريق المدرِّب نقاط القوة والضعف في ضبـط كل حالة، ويركز على أساسيات ضبط الجرعات.</li><li>يتم توفير رسومات بيانية لتوضيح تأثيرات الجرعات الخاطئة على الحالة السريرية.</li><li>تُستخدم تقنية النقاش الجماعي لتبادل الآراء وتحليل آثار الأخطاء بصورة أعمق.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تقييم أثر الأخطاء وكيفية الوقاية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُطلب من المتدربين تقدير العواقب السريرية المحتملة لكل خطأ مطروح في السيناريوهات.</li><li>يتعرف المتدربون على أبحاث ودراسات دقيقة توضح نسب حدوث الأخطاء ومدى تأثيرها بالممارسة.</li><li>يتم استعراض استراتيجيات تنظيمية وتقنية لتفادي هذه الأخطاء، مثل معايرة المضخات والفحوص الدورية.</li><li>يُجري المشاركون نشاطاً تفاعلياً لإعداد خطط تطبيقية للوقاية استناداً إلى التحليل السابق.</li><li>تُعرض حالات ناجحة تم فيها تطبيق هذه الخطط ويُحلل المتدربون الدروس المستفادة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التخطيط لاتخاذ القرار المسؤول</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يتم تقديم سيناريو جديد مع مُتغيرات غير محددة مسبقاً يحتاج المتدربون إلى تقييم دقيق.</li><li>يقوم المتدربون بوضع خطة ضبط دقيقة للمضخة، مع توضيح خطوات الوقاية والتدخل السريع.</li><li>يناقش الفريق المدرِّب مع المتدربين جوانب المخاطر وتحديد أولويات العناية.</li><li>يُطلب من المتدربين تقديم مبررات علمية ومنهجية لاختياراتهم في ضبط الجرعات.</li><li>تُختتم المرحلة بعرض ملخصات للخطوات المتفق عليها لتعزيز اتخاذ القرار الصحيح.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التغذية الراجعة والإغلاق</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقدم المدرب ملاحظات فردية وجماعية حول تحليلات المتدربين وخططهم.</li><li>يُفتح مجال للنقاش والأسئلة لتعميق الفهم ومشاركة الخبرات.</li><li>يتم تسليط الضوء على أهمية الفهم النظري في منع الأخطاء وتطوير الأداء المستقبلي.</li><li>يوجه المدرب المتدربين لتوثيق الدروس المستفادة وكيفية تطبيقها في الواقع العملي.</li><li>تُختتم الجلسة بتشجيع المتدربين على متابعة التعلم الذاتي ومواصلة البحث في مضخات الحقن.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يؤثر ضبط مضخة الحقن بدقة على سلامة المريض، وما هي أبرز الخطوات التحليلية التي تتبعها لتقييم ومنع الأخطاء المحتملة في إعداد الجرعات؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

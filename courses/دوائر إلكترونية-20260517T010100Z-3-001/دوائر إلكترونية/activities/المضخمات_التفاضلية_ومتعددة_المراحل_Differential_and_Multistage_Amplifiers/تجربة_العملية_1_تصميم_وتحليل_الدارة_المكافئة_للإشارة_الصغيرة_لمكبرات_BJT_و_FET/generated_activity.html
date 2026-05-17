@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بناء وتحليل دارة مكافئة للإشارة</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">بناء وتحليل دارة مكافئة للإشارة</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">هدف هذا النشاط، يكون المتدرب قادر على:</p>
+        <ul class="obj-list"><li>بناء دارة مكافئة للإشارة الصغيرة باستخدام مكونات فعلية لـ BJT وFET.</li><li>تسجيل بيانات الأداء باستخدام أدوات قياس حقيقية وتحليلها عملياً.</li><li>استنتاج الفروقات بين الأداء النظري والتطبيقي وتفسيرها.</li><li>تعزيز مهارات التشخيص وحل المشكلات التقنية أثناء البناء.</li><li>مراعاة معايير السلامة والدقة في التجارب الميدانية.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">عملي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>لوحة تجارب (breadboard)</li><li>ترانزستورات 2N3904 و2N7000</li><li>مقاومات دقيقة 1%</li><li>مكثفات سيراميكية</li><li>مولد إشارة سينوسي</li><li>أوسيلوسكوب</li><li>مصد قواعد قدرة 5-12 فولت</li><li>أدوات قياس كهربائية متنوعة</li><li>نظارات واقية وسوار حماية من الكهرباء الساكنة</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يشرح المدرب أهداف النشاط وأهميته العملية في تصميم مكبرات الإشارة الصغيرة.</li><li>يعرض المدرب المفاهيم النظرية المتعلقة بالنماذج المكافئة لإشارة الصغيرة لـ BJT وFET.</li><li>المتدربون يراجعون القوانين والمعادلات الحاسمة مع التركيز على نقاط التحيز والقيم المثلى.</li><li>المدرب يوضح أدوات القياس وكيفية استخدامها بشكل آمن وصحيح.</li><li>تنظيم مجموعات العمل وتوزيع المهام لضمان مشاركة فعالة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التجهيز العملي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>جمع المكونات المطلوبة وفحصها مع شرح خصائص كل منها من قبل المتدربين.</li><li>تركيب المكونات على لوحة التجارب بحذر مع التأكد من التوصيلات الصحيحة للمقاومات والمكثفات والترانزستورات.</li><li>المدرب يوجه المتدربين للتحقق من نقطة التحيز باستخدام الفولتميتر وأجهزة القياس الأخرى.</li><li>تنفيذ إجراءات السلامة مثل ارتداء النظارات الواقيّة وفصل مصادر الطاقة أثناء التوصيل.</li><li>اختبار التوصيلات الأوليّة بدون إشارة للتحقق من عدم وجود دوائر قصيرة أو مكونات معطوبة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تطبيق الإشارة وقياس الأداء</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>توصيل مولد الإشارة بشكل مناسب مع ضبط التردد 1 kHz وشدة الإشارة ضمن القيم الآمنة.</li><li>المتدربون يقومون بقياس جهد الإدخال والخرج باستخدام الأوسيلوسكوب بصورة دقيقة.</li><li>تسجيل القيم العملية لكسب الجهد (Av) وحسابها نسبة إلى جهد الإدخال.</li><li>ملاحظة استجابة الدارة لسلوك الإشارات الصغيرة وتوثيق أي تشويه أو انحراف.</li><li>إجراء اختبارات متكررة مع تغير القيم البسيطة للتحميل لترسيخ فهم التأثيرات المتبادلة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل النتائج واستخلاص الاستنتاجات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>عرض البيانات المسجلة من التجربة بشكل منظم لكل مجموعة متدربة.</li><li>المتدربون يحللون الفروقات بين القيم العملية والنظرية مع مدخلات المدرب التوجيهية.</li><li>تفسير أسباب الانحرافات مثل الضوضاء، تأثير درجة الحرارة، ومشاكل المكونات.</li><li>استنتاجات جماعية حول كفاءة التصاميم وأفضل الممارسات في البناء.</li><li>اقتراح تحسينات مستقبلية وإجراءات للحد من المشكلات المكتشفة خلال التجربة.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تفسر الفروق بين القيم النظرية والكلاسيكية لقيم كسب الجهد التي تم قياسها عند بناء الدارة باستخدام BJT وFET؟ وما العوامل العملية التي قد تؤثر على هذه النتائج؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

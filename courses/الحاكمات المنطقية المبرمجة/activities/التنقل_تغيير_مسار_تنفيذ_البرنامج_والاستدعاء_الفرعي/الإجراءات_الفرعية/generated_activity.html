@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تحدي برمجة الإجراءات الفرعية العملية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تحدي برمجة الإجراءات الفرعية العملية</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">ينطوي النشاط على رحلة تدريبية تفاعلية لتطوير مهارة عملية متميزة في ابتكار وتنفيذ الإجراءات الفرعية ببرمجة PLC، تهدف إلى تعزيز التفرد والتميّز في تطبيق البرمجة الصناعية.</p>
+        <ul class="obj-list"><li>تطبيق المهارات العملية لإنشاء إجراءات فرعية في بيئة برمجية صناعية.</li><li>تصميم برامج فرعية تحقق كفاءة ومرونة عالية في إدارة العمليات الصناعية.</li><li>تنفيذ سيناريوهات منتقاة تعكس تحديات واقعية في برمجة PLC.</li><li>تحليل آليات التنقل داخل البرامج الفرعية لتحقيق التنفيذ الأمثل.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">عملي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>محاكي برمجة PLC</li><li>مجموعة أمثلة كود مبسطة</li><li>لوحة تحكم صناعية افتراضية</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتحفيز</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يرحب المدرب بالمشاركين ويشرح أهمية الإجراءات الفرعية في برمجة PLC من خلال عرض سيناريو مصنع واقعي.</li><li>يقدّم المدرب ملخصًا تفاعليًا عن خصائص الإجراءات الفرعية ودورها في تنظيم البرمجيات وتحسين الصيانة.</li><li>يُحفّز المشاركين على التفاعل بمشاركة أفكارهم حول التحديات التي واجهوها في برمجة الإجراءات المتكررة.</li><li>يُستخدم عرض فيديو قصير يُبرز كيف تؤدي الإجراءات الفرعية لتحسين الكفاءة البرمجية وتقليل الأخطاء.</li><li>يوزع المدرب ورقة شفافة تحتوي على رسم تخطيطي لبرنامج PLC قبل وبعد استخدام الإجراءات الفرعية لتعزيز الفهم الذهني.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف تصميم الإجراءات الفرعية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المشاركون بفتح بيئة المحاكاة البرمجية لل PLC.</li><li>يُطلب من المشاركين تحليل كود برمجي نموذجي مكون من سلسة تعليمات متكررة، ويحددون نقاط يمكن فيها إنشاء إجراءات فرعية.</li><li>يقوم المدرب بتوجيه مناقشة جماعية حول مزايا وخطوات تصميم إجراء فرعي مناسب للمهمة المعطاة.</li><li>يقوم المشاركون بتحديد المعاملات الإدخالية والإخراجية المطلوبة للإجراء ليكون مستقلاً ومرناً.</li><li>ينفذ المدرب تجربة حية باستدعاء الإجراءات الفرعية ويوضح كيفية إدارة التنقل والعودة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التطبيق العملي للتحدي البرمجي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يوزع المدرب على المشاركين سيناريو يحاكي نظام تحكم صناعي يتطلب تصميم إجراءات فرعية لتنفيذ مهام محددة (مثل فحص جودة، قياس مستوى، تشغيل مضخة).</li><li>يقوم المشاركون بكتابة وإنشاء الإجراءات الفرعية باستخدام المحاكي، مع تمرير البيانات عبر المعاملات واختبار الاستدعاءات المتعددة وتحليل النتائج.</li><li>يدعم المدرب المشاركين بالمراجعات الفردية، ويوجههم لتجنب التكرار وتحسين الكود حسب المبادئ.</li><li>تشغيل البرنامج ومحاكاة تنفيذ الخطوات الصناعية الافتراضية، ملاحظة أثر الإجراءات الفرعية على القابلية للصيانة والتنقل البرمجي.</li><li>مواجهة تحدي مفاجئ يطلب من المشاركين تعديل إجراء فرعي بإضافة شرط أمني، وزيادة الأمان ضد التداخل.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التحليل والتغذية الراجعة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تنظيم جلسة نقاشية لتقييم تجربة البرمجة العملية، مع التركيز على كيفية تحسين الأداء والمرونة من خلال الإجراءات الفرعية.</li><li>يُطالب المشاركون بشرح كيف ساهمت تقنيات الاستدعاء والعودة في تنظيم تنفيذ البرنامج.</li><li>يقوم المدرب بتقديم ملاحظات مخصصة لكل مجموعة حول تصميم الإجراءات ووضوح الكود ونمط التنقل المعتمد.</li><li>يسجل المشاركون الدروس المستفادة ويقتبسوا أفكاراً حول التحديات التي واجهوها والحلول التي ابتكروها.</li><li>ختم الجلسة بنبذة عن تطبيقات متقدمة مقبلة في الوحدة التالية، تثير فضول المتدربين للارتقاء بمهاراتهم.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن لتصميم الإجراءات الفرعية المدروس في النشاط تحسين كفاءة برنامج PLC وتقليل الأخطاء، وما هو أثر ذلك على صيانة الأنظمة الصناعية؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

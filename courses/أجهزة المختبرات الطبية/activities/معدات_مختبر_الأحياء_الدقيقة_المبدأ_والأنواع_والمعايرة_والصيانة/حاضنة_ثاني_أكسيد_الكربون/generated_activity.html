@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ورشة المعايرة والصيانة التفاعلية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">ورشة المعايرة والصيانة التفاعلية</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يهدف هذا النشاط إلى تمكين المتدرب من اكتساب مهارات عملية فريدة في معايرة وصيانة حاضنة ثاني أكسيد الكربون، من خلال تجربة تطبيقية تفاعلية تحاكي الواقع وتبرز أهمية الدقة والتفرد في التنفيذ.</p>
+        <ul class="obj-list"><li>يطبق المتدرب خطوات المعايرة الدقيقة لمستويات CO2 ودرجة الحرارة والرطوبة في الحاضنة.</li><li>يفسر أثر الصيانة الوقائية على سلامة العينات واستمرارية الأداء في الحاضنة.</li><li>يستخدم أدوات القياس الحديثة لفحص أداء الحاضنة وضبط إعداداتها.</li><li>يحلل المشكلات التقنية ويقدم حلولاً للتحديات المرتبطة بالحاضنة بشكل فردي وجماعي.</li><li>يصف إجراءات السلامة الضرورية أثناء عمليات المعايرة والصيانة للحاضنة.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>حاضنة CO2 مزودة بأجهزة تحكم ومراقبة</li><li>أجهزة قياس CO2 محمولة</li><li>مقاييس حرارة معتمدة</li><li>أجهزة قياس الرطوبة الرقمية</li><li>معدات تنظيف الفلاتر وأدوات التعقيم</li><li>لوحات تحكم رقمية ومحاكاة برمجية</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتسخين الذهني</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يجمع المدرب المتدربين في فضاء العمل ويعرض فيديو تمهيدي يشرح أهمية الحاضنة في المختبر.</li><li>يطرح المدرب أسئلة تفاعلية لتحفيز التفكير حول تحديات نمو الأحياء الدقيقة في ظروف غير مستقرة.</li><li>يوضح المدرب أهداف الورشة ويشرح كيف سينفذ المتدربون التمرين التفاعلي العملي.</li><li>يُجرى نقاش سريع لتوضيح المفاهيم الأساسية للمعايرة والصيانة وأثرها على النتائج.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التعرف الميداني على الحاضنة وأدوات المعايرة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقسم المدرب المتدربين إلى فرق عمل صغيرة وتتوزع كل مجموعة حول حاضنة مختلفة.</li><li>تستعرض الفرق مكونات الحاضنة وأجهزة القياس المرافقة بدءاً من الأجهزة المحمولة لمستوى CO2.</li><li>يشرح كل فريق وظيفة كل أداة ويعرض طرق قياس المعايير المختلفة في الحاضنة.</li><li>يقوم المتدربون بتجربة تشغيل بسيطة للأجهزة مع إشراف المدرب لتثبيت المفاهيم.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تطبيق خطوات المعايرة العملية للحاضنة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدربون بقياس مستوى CO2 داخل الحاضنة بعد فتح الغطاء وانتظار الاستقرار.</li><li>يوثق المتدربون قراءات بداية ويقارنونها مع القيم المثالية 5% CO2 و 37 درجة مئوية و95% رطوبة.</li><li>يعدل المتدربون إعدادات ضوابط الغاز والحرارة والرطوبة وفق بروتوكولات المعايرة المعلنة.</li><li>ينفذ المدرب تهيئة اختبارات متابعة لضمان دقة العملية ويشرح كيفية التعامل مع انحرافات القراءات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التدريب على إجراءات الصيانة الوقائية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يوجه المدرب الفرق لتنظيف الفلاتر والأجزاء الداخلية باستخدام معدات التعقيم.</li><li>تتدرب الفرق على فحص الأبواب والأختام لضمان عدم التسريب والتلوث.</li><li>يناقش المدرب علامات الأعطال الشائعة وكيفية إجراء الفحوصات الأسبوعية والسنوية.</li><li>يتم تنفيذ تمرين محاكاة لإجراءات استبدال مستشعرات الحاضنة والتوثيق السليم لها.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل حالات واقعية وحل التحديات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقدم المدرب سيناريو حقيقة لعطل في الحاضنة أدى إلى فشل تجارب بحثية.</li><li>تعمل كل مجموعة على تشخيص المشكلة المقترحة واقتراح الحلول باستخدام معارفهم المكتسبة.</li><li>تجري مناقشة تفاعلية تشارك خلالها الفرق الحلول والنتائج المتوقعة.</li><li>يوجه المدرب تعليقات لتصويب الأفكار ويبرز طرق الوقاية من مثل هذه المشكلات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التقييم والتغذية الراجعة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تجري محاكاة فردية حيث يعيد كل متدرب تطبيق معايرة جزء محدد من الحاضنة بدقة.</li><li>ينفذ المدرب مراجعة فورية لكل أداء ويوجه التغذية الراجعة البناءة لكل متدرب.</li><li>يجري تقييم جماعي لنقاط القوة والتحديات خلال النشاط.</li><li>يختم المدرب الجلسة بتلخيص الدروس المستفادة ويشرح الاتفاقيات المستقبلية لتطبيق الصيانة والمعايرة.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن لصيانة الحاضنة الدورية أن تؤثر على دقة التجارب المختبرية ونجاح الأبحاث العلمية؟ صف أثر هذه الصيانة على سلامة العينات وصحة النتائج.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

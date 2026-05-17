@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تجربة قياس خسائر خطوط الميكروستريب</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تجربة قياس خسائر خطوط الميكروستريب</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">ينفذ تجربة عملية لقياس الخسائر والفقد في خطوط الميكروستريب والستريب لاين باستخدام معدات حقيقية، ويحلل ويقارن النتائج لتقييم جودة الخطوط.</p>
+        <ul class="obj-list"><li>يطبق مهارات تركيب وتجهيز المختبر بدقة عالية.</li><li>يقيس معاملات الانتشار باستخدام محلل الشبكة المتجهي VNA.</li><li>ينفذ معايرة دقيقة للأجهزة لضمان دقة القياسات.</li><li>يوثق البيانات التجريبية بدقة مع استخدام أدوات الحوسبة الإحصائية.</li><li>يحلل نتائج الفقد بما يربط بين النظرية والتطبيق العملي.</li><li>يستخلص توصيات لتحسين جودة الخطوط بناءً على التحليل.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">عملي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>محلل الشبكة المتجهي (VNA)</li><li>مولد إشارة عالي التردد</li><li>مقياس القدرة</li><li>الكابلات عالية الجودة مع وصلات SMA</li><li>معدات تثبيت خطوط الميكروستريب والستريب لاين</li><li>حاسوب مزود ببرامج تحليل البيانات (مثل MATLAB)</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد وإعداد المختبر</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يشرح المدرب أهمية التجربة وربطها بالواقع العملي والتقني.</li><li>يتم تجهيز مساحة العمل وتنسيق الأدوات على الطاولات المعزولة كهرومغناطيسيًا.</li><li>يفحص المتدرب سلامة المعدات والكابلات ويجري الفحص البصري والتأكد من السلامة الكهربائية.</li><li>يرتدي المتدربون نظارات وقائية ويتعرفون على قواعد السلامة في بيئة التجربة.</li><li>يضبط المدرب المولد والمحلل وفق مواصفات التردد المطلوبة للنطاق بين 1 إلى 10 جيجاهرتز.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تركيب خط الميكروستريب والستريب لاين</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدرب بتثبيت الركيزة العازلة والطبقات النحاسية بدقة وفق التعليمات.</li><li>يشرح المدرب كيفية الربط باستخدام البراغي والكابلات الخاصة مع الحرص على تقليل فقد التوصيل.</li><li>يعاين المتدرب تأريض الأجهزة وتنظيم اللوحة لتقليل التداخل الكهرومغناطيسي.</li><li>يتحقق المتدرب من تثبيت الموصلات SMA والكابلات بحذر ليمنع وجود تشويش أو تلف.</li><li>يناقش الفريق أهمية كل خطوة في التركيب ودورها في دقة نتائج القياس.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">المعايرة والقياس باستخدام VNA</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يركز المتدرب على تنفيذ معايرة دقيقة حسب كيت المعايرة Standard Calibration Kit (Open-Short-Load-Thru).</li><li>يوصل المتدرب خط الميكروستريب بالمنافذ SMA في جهاز VNA بإحكام.</li><li>ينفذ المتدرب مسح ترددات مصاحبًا لقراءة معاملات S خاصة S21 و S11 بدقة.</li><li>يسجل المتدرب القراءات الرقمية والمعاملات بتكرار لتقليل الخطأ.</li><li>يراقب المتدرب التغيرات والقمم غير المتوقعة ويستفسر من المدرب عن أسبابها.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">قياس القدرة وتحليل الخسائر</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يستخدم المتدرب مولد الإشارة لضبط قدرة الإشارة عند مستوى منخفض لتقليل التشويه.</li><li>يقوم المتدرب بتوصيل مقياس القدرة في طرف الخط لتسجيل القدرة المستلمة.</li><li>يحسب المتدرب الفقد بناءً على النسبتين بين القدرة الداخلة والخارجة db = 10 log(P_in/P_out).</li><li>ينفذ المتدرب التجربة على خطوط مختلفة ويقارن بين الفقد الناتج لعوامل متعددة.</li><li>يدون النتائج في جداول منظمة ويسجل ملاحظاته على أداء كل خط.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل البيانات والتفسير</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يستخدم المتدرب برمجيات مثل MATLAB لرسم منحنيات الفقد مقابل التردد وتحليل الاتجاهات.</li><li>يشرح المدرب أهمية عوامل الفقد (توصيلي، عازل، إشعاعي) وتأثيرها على القياسات.</li><li>يحلل الفريق المعطيات لمعرفة مدى تطابقها مع القيم النظرية ويبرز الفروق وأسبابها.</li><li>يناقش المتدربون كيف يمكن تحسين تصميم الخطوط بناءً على نتائج التجارب.</li><li>يكتب المتدربون تقريرًا مبسطًا يتضمن الاستنتاجات والتوصيات لتحسين جودة الخط.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق والتقييم</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يحفظ المتدربون البيانات ويرتبون المعدات بإتقان مع التأكد من سلامة الأجهزة.</li><li>يناقش المدرب التجربة مع المتدربين ويربط بين عملية القياس والتحديات الصناعية.</li><li>يقدم المتدربون ردود فعل حول تجربتهم ويناقشون الدروس المستفادة.</li><li>يتم تقييم مهارات المتدربين في الاستخدام الصحيح للأدوات وإجراء التحليل.</li><li>يختم المدرب بالتوجيهات للخطوات القادمة في المنهج بناءً على النتائج المحققة.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يؤثر فقد الخطوط المتنوعة (الميكروستريب والستريب لاين) على جودة وإستقرار إشارة الاتصال في تطبيقات الاتصالات الحديثة؟ اشرح ذلك مستشهداً بتحليل نتائج التجربة.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

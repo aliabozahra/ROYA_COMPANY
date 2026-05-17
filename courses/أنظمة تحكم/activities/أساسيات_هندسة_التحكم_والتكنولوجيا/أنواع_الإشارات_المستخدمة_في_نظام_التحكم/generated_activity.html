@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تجربة تأثير إشارات التحكم</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تجربة تأثير إشارات التحكم</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يهدف هذا النشاط إلى توفير تجربة تطبيقية تتيح للمتدرب فهم تأثير نوع الإشارة (تناظرية أو رقمية) على أداء نظام تحكم معين، من خلال تفاعل مباشر مع برنامج محاكاة يعرض تغييرات في الخصائص الديناميكية مع متغيرات مختلفة.</p>
+        <ul class="obj-list"><li>تطبيق مفهوم الإشارات التناظرية والرقمية في سياق نظام تحكم عملي.</li><li>ملاحظة الفروق في الأداء والاستجابة باستخدام أنواع مختلفة من الإشارات.</li><li>تحليل كيفية تأثير المتغيرات على خصائص النظام حسب نوع الإشارة.</li><li>تعزيز القدرة على اتخاذ قرارات تصميمية مبنية على النتائج التجريبية.</li><li>تطوير مهارات استخدام أدوات المحاكاة للتفاعل مع أنظمة التحكم.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>برنامج محاكاة نظام تحكم مع قابلية اختيار نوع الإشارة وتنظيم المتغيرات</li><li>حاسوب مزود بالشاشة ووسائل إدخال للتحكم بالتجربة</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقدم المدرب ملخصًا موجزًا عن أهمية الإشارات في نظم التحكم مع التركيز على التناظرية والرقمية.</li><li>يشرح المدرب الهدف من استخدام المحاكاة في فهم تأثير نوع الإشارة.</li><li>يتم تعريف المتدربين على واجهة برنامج المحاكاة مع إظهار عناصر التحكم الرئيسية.</li><li>يسأل المدرب المتدربين أسئلة تحفيزية لربط ما تعلموه سابقاً بالحاجة إلى المحاكاة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف نوع الإشارة التناظرية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يختار المتدرب وضع الإشارة التناظرية في المحاكاة ويشغل النظام التجريبي.</li><li>يراقب المتدرب تغيرات النظام أثناء عرض الإشارة التناظرية مع متغيرات مختلفة (مثل التردد، مستوى الضوضاء).</li><li>يسجل المتدرب ملاحظاته حول استمرارية الإشارة وتأثيرها على استجابة النظام ودقة التحكم.</li><li>يناقش المدرب مع المتدربين كيفية تمثيل الإشارة التناظرية ديناميكياً في الواقع.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف نوع الإشارة الرقمية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يغير المتدرب إعدادات المحاكاة لاستخدام الإشارة الرقمية ويرصد النظام في هذا الوضع.</li><li>يقوم المتدرب بضبط معدل العينة ومستوى الضوضاء ويرى تأثير ذلك على أداء النظام.</li><li>يقارن المتدرب ملاحظاته على استجابة النظام وحساسيته باستخدام الإشارة الرقمية مع الحالة السابقة.</li><li>يوضح المدرب دور المعالجات الرقمية في تحسين مقاومة الضوضاء مقارنة بالإشارة التناظرية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل مقارنة تأثير الإشارات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدرب بتوثيق الفروق في الاستجابة، الدقة، والتأثيرات الناتجة عن المتغيرات بين الإشارات التناظرية والرقمية.</li><li>يتعاون الفريق لتحليل مزايا وعيوب كل نوع إشارة في سيناريوهات مختلفة مستخدمين بيانات المحاكاة.</li><li>يناقش المدرب ويحاور المتدربين حول سبب اختيار نوع إشارة محددة في تطبيقات صناعية مختلفة.</li><li>يستخلص المتدربون قواعد عامة لاختيار الإشارة بناءً على ظروف التحكم.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحدي وتطبيق متقدم</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُكلف المتدربون بتعديل متغيرات متعددة داخل المحاكاة لتحقيق أداء تحكم مستقر باستخدام كل نوع إشارة.</li><li>يتم تقديم حالة مشكلة حقيقية ضمن المحاكاة تتطلب من المتدربين اختيار نوع الإشارة الأنسب.</li><li>يشرح كل متدرب استراتيجيته مع تبرير قراره استناداً إلى ملاحظات المحاكاة والخصائص الفنية.</li><li>يوفر المدرب تغذية راجعة ويساعد في تعميق الفهم عبر مناقشة تطبيقات الحياة الواقعية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق والتقييم</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدرب بملء استبيان تقييم التجربة، محوراً حول مدى فهمه لتأثير نوع الإشارة.</li><li>يختتم المدرب النشاط بمراجعة النقاط الأساسية والمفاهيم المكتسبة.</li><li>يحصل المتدربون على فرص لطرح الأسئلة ومناقشة الأفكار لتعزيز التعلم.</li><li>يوجه المدرب المتدربين لمصادر تعليمية داعمة لاستكمال المعرفة.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يؤثر اختيار نوع الإشارة (تناظرية أو رقمية) على أداء واستقرار نظام التحكم في بيئة صناعية معينة؟ وضح أسباب ذلك مستعيناً بما جربته في المحاكاة.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

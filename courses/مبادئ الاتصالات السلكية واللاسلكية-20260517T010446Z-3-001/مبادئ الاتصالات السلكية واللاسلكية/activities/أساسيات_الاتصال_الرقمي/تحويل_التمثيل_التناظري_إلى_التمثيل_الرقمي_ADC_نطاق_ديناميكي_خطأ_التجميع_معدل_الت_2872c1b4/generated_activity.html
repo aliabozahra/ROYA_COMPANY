@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تجربة تحويل إشارة تناظرية رقمية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تجربة تحويل إشارة تناظرية رقمية</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يهدف هذا النشاط إلى تمكين المتدرب من فهم عملي لتحويل الإشارات التناظرية إلى رقمية وقياس تأثير المتغيرات الفيزيائية على جودة الإشارة الرقمية.</p>
+        <ul class="obj-list"><li>إجراء تجربة عملية باستخدام محاكيات وأدوات تحويل ADC.</li><li>قياس تأثير معدل أخذ العينات على جودة الإشارة.</li><li>تقييم أثر الضوضاء على الإشارة الرقمية الناتجة.</li><li>تحليل مدى تأثير دقة التكميم على جودة الإشارة.</li><li>مقارنة نتائج تحويل الإشارة عند تغيير متغيرات التحويل.</li><li>فهم وتطبيق المقاييس التقنية في التحليل والقياس العملي.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>محاكي تحويل ADC مدمج أو برنامج محاكاة</li><li>مولد إشارة تناظرية (افتراضي أو حقيقي)</li><li>جهاز قياس طيف أو أوسيلوسكوب افتراضي</li><li>برنامج قياس SNR و Dynamic Range</li><li>حاسوب مزود ببرمجية تحليل الإشارات</li><li>أدوات تعديل متغيرات التحويل وأخذ العينات</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والإعداد</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>شرح مختصر عن مبدأ التحويل التناظري إلى رقمي ADC.</li><li>توضيح أهداف التجربة وأهم المتغيرات: الضوضاء، معدل أخذ العينات، والدقة.</li><li>تقديم الأدوات والمحاكيات المستخدمة في النشاط.</li><li>توضيح كيفية التحكم بمتغيرات التجربة في المحاكيات.</li><li>تحفيز المتدربين على توقع تأثير المتغيرات على الإشارة الرقمية.</li><li>توزيع الأدوار بين المتدربين (عند اللزوم) لضمان تفاعل أثناء التجربة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">مرحلة الاستكشاف</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تشغيل المحاكي لتوليد إشارة تناظرية ثابتة.</li><li>اختيار معدل أخذ عينات مبدئي ضمن المحاكي.</li><li>تنفيذ تحويل ADC للسيطرة على الإشارة بتنظيم متغيرات الدقة والضوضاء.</li><li>ملاحظة النتائج الأولية على شكل إشارة رقمية ومقارنة الجودة.</li><li>تسجيل ملاحظات المتدربين عن الفروقات.</li><li>تشجيع المتدربين لطرح أسئلة حول نتائج الملاحظة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">مرحلة التعديل التجريبي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تعديل معدل أخذ العينات بزيادته أو تقليله تدريجياً.</li><li>تغيير دقة التكميم في ADC (عدد البتات).</li><li>إضافة مستويات ضوضاء مختلفة للتمثيل العملي.</li><li>مراقبة تأثير التعديل على جودة الإشارة الرقيمة الناتجة.</li><li>استخدام أدوات القياس لحساب نسبة الإشارة إلى الضوضاء (SNR) ونطاق الديناميكي.</li><li>تدوين نتائج كل تعديل في جدول أو ملف ملاحظات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">مرحلة القياس والتحليل</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>قياس الخصائص الرقمية للإشارة المحولة في كل تجربة.</li><li>تحليل تأثير كل متغير على جودة الإشارة الرقمية من الناحية الفنية.</li><li>مقارنة النتائج مع المفاهيم النظرية لADC ومبادئ نايكويست.</li><li>رسم منحنيات توضح العلاقة بين معدل أخذ العينات والدقة وجودة الإشارة.</li><li>مناقشة التوازن بين الدقة والسرعة في التحويل.</li><li>تحديد أفضل إعداد متوازن بناءً على نتائج القياس.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق والتطبيق</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تلخيص الأثر العملي لمتغيرات ADC في الاتصالات.</li><li>مناقشة كيف يمكن استخدام هذه الفهم في تصميم أنظمة واقعية.</li><li>تشجيع المتدربين على التفكير في تحديات أخرى يمكن قياسها عملياً.</li><li>توجيه المتدربين لصياغة تقارير قصيرة عن تجربتهم ودروسها.</li><li>تقديم تغذية راجعة جماعية لتعزيز التعلم.</li><li>إنهاء النشاط بتحديد أولويات التطور المهني في مجال ADC.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تؤثر التغيرات في معدل أخذ العينات والدقة والضوضاء على جودة الإشارة الرقمية؟ وما هي التوازنات التصميمية الممكنة لتحقيق أفضل أداء في أنظمة ADC؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

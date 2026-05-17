@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تحدي تصميم مذبذب إزاحة الطور</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تحدي تصميم مذبذب إزاحة الطور</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يقوم المتدرب بغالب بناء هذه النشاط، تكون المتدربة قادرة على:</p>
+        <ul class="obj-list"><li>تحليل سيناريو مذبذب إزاحة الطور مع معطيات متغيرة</li><li>اتخاذ قرارات تصميمية مدروسة تتعلق بقيم R و C ومكسب المضخم</li><li>شرح أسباب القرارات التصميمية بناءً على مبادئ الإزاحة والربح والتردد</li><li>تحليل تأثير التغييرات على تردد الاهتزاز واستقرار الإشارة</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">60 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تحليلي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>برنامج محاكاة الدوائر الإلكترونية</li><li>أوراق عمل تفاعلية إلكترونية</li><li>لوحة عرض سيناريوهات التصميم</li><li>حاسوب أو جهاز لوحي</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تمهيد – فهم مبدأ المذبذب</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>المدرب يبدأ بعرض مختصر يوضح مبدأ عمل مذبذب الإزاحة في الطور مع التركيز على المعادلات الرئيسية مثل f = 1 / (2πRC√6) وشروط بوركهاوسن.</li><li>يُطرح سؤال تحفيزي: كيف تؤثر قيمة R و C ومكسب التضخيم في التردد والاستقرار؟</li><li>المتدرب يراجع نموذج مبسط لدائرة المذبذب المعطاة عبر برنامج المحاكاة.</li><li>المتدرب يتعرف على المتغيرات المتغيرة في سيناريو التصميم.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف – تحليل المعطيات والتغييرات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>المتدرب يتلقى سيناريو تصميم مع مجموعة من القيم الأولية لمكونات المذبذب (R, C, مكسب المضخم) ويتم تحديد التردد المستهدف.</li><li>يقوم المتدرب بتحليل أثر كل تغيير فردي في R أو C على التردد باستخدام محاكاة عملية أو الحساب اليدوي.</li><li>المتدرب يناقش مع زملائه تأثير المكسب (K) على بدء الاستقرار وضرورة الحفاظ عليه ≥29.</li><li>يُطلب من المتدرب تحديد المشكلات المحتملة التي قد تواجه التصميم مع التغيرات في المكونات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">اتخاذ القرار – اختيار القيم المناسبة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>المتدرب يضع خطة مبدئية لاختيار قيم R و C و الربح K التي تحقق تردد 1 كيلوهرتز وفق المعطيات.</li><li>بعد ذلك، يتخذ المتدرب قرار تعديل أحد المكونات لظرف معين (مثل توفر مقاومة أدق أو مكثف بقيمة تجريبية مختلفة).</li><li>المتدرب يبرر قراره تقنيًا باستخدام معادلات الطور والتردد، ويشرح سبب اختياره لقيمة مكسب معينة.</li><li>يقوم المتدرب بتقييم كيف سيؤثر هذا القرار على الاستقرار ودقة التردد.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل النتائج – تفسير مخرجات التصميم</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>المتدرب يحاكي التصميم المختار في البرنامج ويقارن النتائج مع التوقعات النظرية.</li><li>يقوم المتدرب بتحليل اختلاف التردد أو الاستقرار الناتج عن التغييرات التي قام بها سابقًا.</li><li>يُطلب من المتدرب كتابة شرح موجز يوضح كيف أدت تغييرات معينة إلى نتائج محددة، ويشرح مفاهيم الإزاحة في الطور ومكسب المضخم في ذلك.</li><li>المتدرب يتلقى تغذية راجعة من المدرب والزملاء حول قراراته التحليلية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق – استخلاص الدروس وتوصيات التصميم</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>المتدرب يلخص في مجموعة نقاط التوصيات الأساسية لتصميم مذبذب إزاحة الطور مستقر بدقة تردد عالية.</li><li>يناقش المتدرب مع المدرب كيف يمكن تطبيق هذه القرارات في سيناريوهات عملية حقيقية مثل أنظمة الاتصالات وأجهزة القياس.</li><li>يتم توضيح أهمية الموازنة بين الإزاحة والتضخيم ودور كل مكون في ضبط تردد الاستقرار.</li><li>اختتام النشاط بتحفيز التفكير في تحسينات مستقبلية أو سيناريوهات متقدمة للتصميم.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تبرر اختيارك لقيم المقاومة والسعة ومكسب المضخم في تصميم مذبذب إزاحة الطور لتحقيق تردد مستقر، وما تأثير أي تغير في هذه القيم على أداء المذبذب؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

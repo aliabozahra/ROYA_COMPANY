@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>محاكاة مهندسي المحركات الكهربائية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">محاكاة مهندسي المحركات الكهربائية</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">ينمي هذا النشاط مهارات اتخاذ القرار الهندسي والتكامل التطبيقي بين المحركات والتطبيقات عبر تبادل الأدوار والتفكير النقدي.</p>
+        <ul class="obj-list"><li>تطبيق معايير اختيار المحرك المناسب لكل قطاع هندسي.</li><li>تعزيز التعاون وحل المشكلات المتقدمة ضمن فرق متعددة التخصصات.</li><li>تحليل المتطلبات التقنية وتحويلها إلى حلول هندسية قابلة للتنفيذ.</li><li>ممارسة التفاوض وتبادل وجهات النظر بفعالية ضمن بيئة محاكاة.</li><li>تطوير قدرة المتدربين على الدمج بين المعرفة النظرية والتطبيق العملي.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>بطاقات أدوار المهندسين تحتوي معلومات تخصصية تقنية</li><li>نماذج ومحاكيات إلكترونية لخصائص المحركات</li><li>لوحات بيضاء وأقلام للتخطيط الجماعي</li><li>عناصر تمثيل نموذجية للأجهزة (مثل طائرة بدون طيار، سيارة كهربائية، روبوت صناعي)</li><li>جهاز عرض لعرض سيناريوهات تطبيقية ومخططات تحكم</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتحضير للتعاون الهندسي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبادر المدرب بتقديم ملخص لحالة النشاط وأهدافه ويركز على أهمية التعاون والتكامل بين الفرق.</li><li>يقوم المتدربون بتشكيل فرق يمثل كل منها قطاعاً هندسياً من القطاعات الثلاث: الطائرات بدون طيار، السيارات الكهربائية، والروبوتات الصناعية.</li><li>توضع بطاقات الأدوار مع تعريفات كل مهندس تتضمن مسؤولياته ومحدودية الاختيارات في تصميم المحرك.</li><li>يتم توضيح الأدوات المستخدمة وشرح قواعد اللعبة والمحاكاة لضمان فهم واضح للمهمة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الاستكشاف وتحليل المتطلبات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقرأ كل فريق خصائص التطبيقات المخصصة لمجاله ومحدودية المحركات المتاحة.</li><li>يبدأ المدرب بسرد سيناريوهات مختلفة تتطلب تغييرات في المعايير (كزيادة السرعة، التحمل، أو الكفاءة الطاقية).</li><li>تجري الفرق مناقشات داخلية لتحديد أهم متطلبات الأداء والتكلفة والتوافق ضمن قطاعهم.</li><li>يقوم كل فريق بإعداد تقرير تحليلي صغير يلخص المعايير الرئيسية التي تؤثر على اختيار المحرك.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التقاطع التعاوني وحل المشكلات المتكامل</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تجتمع الفرق معاً في جلسة مشتركة لمشاركة نتائجهم وتحليل التداخل بين احتياجات القطاعات.</li><li>يقوم المشاركون بلعب أدوار مهندسين من القطاعات الأخرى ليتبادلوا وجهات النظر ويطرحوا تساؤلات نقدية.</li><li>يبدأ المشاركون بصياغة حلول متكاملة تأخذ في الحسبان كل متطلبات القطاعات، مع فرضيات تحكم إلكتروني مناسبة.</li><li>تتم مناقشة التحديات والتناقضات لإعادة صياغة الحلول بطريقة توافقية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التطبيق العملي والنمذجة الهندسية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يستخدم كل فريق أدوات المحاكاة والنماذج لاختبار الحلول التي توصلوا إليها من حيث الأداء والكفاءة.</li><li>يتم قياس مؤشرات مثل استهلاك الطاقة، العزم، والتوافق مع قواعد التصميم الهندسي.</li><li>يقوم الفرق بتقديم عروض مختصرة توضح محاكاة الأداء وفعالية التكامل بين المحركات والتطبيقات.</li><li>تبادل الملاحظات البناءة بين الفرق لتطوير الحلول وتحسين استجابات النماذج.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التقييم والتغذية الراجعة الشاملة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يدير المدرب جلسة تحليل لما تم انجازه ويطلب من كل مشارك تقييم إضافتهم وملاحظاتهم على التجربة.</li><li>يتم مناقشة التحديات التي واجهت الفرق وكيفية التغلب عليها باستخدام التفكير النقدي.</li><li>يشارك المشاركون رؤى حول كيف ساعد تبادل الأدوار في توسيع فهمهم للمتطلبات الهندسية المتكاملة.</li><li>ينهي المدرب اللقاء بتلخيص الدروس المستفادة والمهارات المكتسبة ويربطها بأهداف التدريب.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">بعد مشاركتك في هذا النشاط، كيف يمكنك تطبيق مهارات اتخاذ القرار والتكامل بين المحركات والتطبيقات في مشاريع هندسية حقيقية متعددة التخصصات؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تحدي إصلاح الأعطال الطبي</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تحدي إصلاح الأعطال الطبي</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">ينظم المتدربون تحدي عملي لتطبيق مهارات الإصلاح باستخدام الأدوات والأساليب الصحيحة تحت ضغط الوقت، بهدف إتقان التعامل مع أعطال جهاز الإنعاش القلبي.</p>
+        <ul class="obj-list"><li>يطبق المتدربون خطوات التشخيص السريع للأعطال.</li><li>يستخدمون الأدوات التقنية بشكل آمن وفعال.</li><li>يقللون مدة الإصلاح ضمن الوقت المحدد.</li><li>يتعاملون مع سيناريوهات أعطال متعددة تحت ظروف ضغط.</li><li>يحسنون قدراتهم على التواصل والعمل الجماعي خلال التحدي.</li><li>يقيّمون أدائهم بناءً على دقة وسرعة التنفيذ.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>جهاز محاكي للإنعاش القلبي مع أعطال مبرمجة</li><li>مجموعات أدوات الإصلاح (حلقات إصلاح دائرية، أنظمة قسطرة، أدوات ربط الحواف)</li><li>عداد وقت إلكتروني لقياس زمن كل مرحلة</li><li>لوحات تسجيل الأداء وحالة الأعطال</li><li>وسائل حماية شخصية (قفازات، نظارات أمان)</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقدم المدرب نبذة تحفيزية عن أهمية التحدي في تحسين المهارات العملية.</li><li>يشرح شروط التحدي، قواعد السلامة، ومدة التنفيذ المحددة.</li><li>يُوزع المتدربون إلى فرق ويتعرفون على الأدوات المتاحة.</li><li>يعرض المدرب موجزاً سريعاً عن أنواع الأعطال المختلفة الممكن مواجهتها.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الاستكشاف التشخيصي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تبدأ كل مجموعة بفحص الجهاز المحاكي لتحديد نوع العطل الظاهر.</li><li>يستخدم المتدربون الأدوات التشخيصية لفحص المؤشرات والأجزاء المتأثرة.</li><li>يُطلب من كل فريق تدوين ملاحظاتهم عن الأسباب المحتملة لكل عطل.</li><li>يناقش الفرق بإيجاز خيارات الإصلاح الممكنة بحسب الأدوات المتوفرة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التخطيط الجماعي للإصلاح</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تضع الفرق خطة إصلاح تستند إلى تشخيصها وترتيب الخطوات العملية.</li><li>يتم تحديد الخيارات الأمثل لاستخدام أدوات الإصلاح ومستلزماتها.</li><li>يناقش المتدربون كيفية تقسيم الأدوار لضمان سرعة وكفاءة التنفيذ.</li><li>يستقبل المدرب خطط الفرق ويعطي ملاحظات سريعة لتحسينها.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التنفيذ العملي للتحدي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تنفذ الفرق الإصلاح في الجهاز المحاكي ضمن الوقت المحدد باستخدام الأدوات الصحيحة.</li><li>يراقب المدرب سلامة إجراءات كل فريق والتزامهم بقواعد العمل.</li><li>تواجه الفرق أعطال مفاجئة إضافية في سياق التحدي لتصحيحها سريعاً.</li><li>يتم تسجيل زمن وكل خطوة توقيتياً لتقييم الأداء بدقة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التقييم والتغذية الراجعة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُجري المدرب مراجعة شاملة لأداء كل فريق مع إبراز نقاط القوة ونقاط التحسين.</li><li>يشارك المتدربون تجاربهم وتحدياتهم خلال التحدي.</li><li>يتم تقديم حلول بديلة أو تقنيات أسرع حسب ما استجد في التطبيق.</li><li>ختاماً، يحدد المدرب الفريق الفائز بناءً على معايير الدقة والوقت وسلامة الأداء.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تسهم المنافسة والتحدي في تعزيز مهارات إصلاح أعطال جهاز الإنعاش القلبي في بيئة الطوارئ؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

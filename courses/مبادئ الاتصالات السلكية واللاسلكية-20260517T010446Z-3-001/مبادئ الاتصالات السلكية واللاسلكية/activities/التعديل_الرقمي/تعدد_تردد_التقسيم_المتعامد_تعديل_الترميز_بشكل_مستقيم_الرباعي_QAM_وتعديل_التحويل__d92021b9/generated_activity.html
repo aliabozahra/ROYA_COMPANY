@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تحليل حالات تقنيات OFDM,QAM,QPSK</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تحليل حالات تقنيات OFDM,QAM,QPSK</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يعكس النشاط قدرة المتدرب على تحليل ودراسة حالات تقنية في نظم الاتصالات الرقمية.</p>
+        <ul class="obj-list"><li>تقييم أداء تقنيات OFDM مع QAM وQPSK في سيناريوهات مختلفة.</li><li>تحليل مزايا وتحديات كل تقنية وارتباطها بالواقع الصناعي.</li><li>تطبيق مفاهيم التعديل الرقمي لفهم الأداء تحت ظروف التشويش.</li><li>تنمية مهارات التفكير النقدي وحل المشكلات التقنية.</li><li>ربط النظرية بالتطبيق وتحليل السيناريوهات الحقيقية.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تحليلي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>دراسة حالة مكتوبة</li><li>مخططات ومخططات كونستليشن</li><li>عرض تقديمي تفاعلي</li><li>لوحة نقاش ومجموعات صغيرة</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد: إعداد المتدربين للنشاط</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بتقديم نبذة مختصرة عن أهمية تعدد التردد والتعديل الرقمي عبر عرض تقديمي يحفز الاهتمام.</li><li>يُطرح سؤال توجيهي للمتدربين حول تحديات الاتصال في البيئات المزدحمة ودور تقنيات مثل OFDM وQAM وQPSK.</li><li>يشرح المدرب بإيجاز ماهية دراسة الحالة ويوزع أوراق العمل على المتدربين.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف دراسة الحالة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدربون بقراءة دراسة الحالة التي تعرض شبكة اتصالات تستخدم OFDM مع QAM وQPSK في سيناريوهات مختلفة.</li><li>يناقش المتدربون في مجموعات صغيرة مكونات الدراسة مع التركيز على فهم كيفية تطبيق كل تقنية في الواقع الصناعي.</li><li>يدون المتدربون ملاحظاتهم ويحددون مزايا كل تقنية وتحدياتها في كل سيناريو.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل تقني متعمق</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>ينظم المدرب جلسة تفاعلية لربط مفاهيم OFDM وQAM وQPSK بنقاط القوة والضعف في الدراسة.</li><li>يُوزع جدولًا يختبر أداء التقنيات حسب عدة معايير مثل الكفاءة الطيفية، مقاومة التشويش، والتطبيقات المناسبة.</li><li>يطالب المتدربون بتحليل الجداول والمخططات وشرح كيف تؤثر خصائص كل تقنية في الأداء تحت الظروف العملية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تقييم نقدي وحل المشكلات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يتيح المدرب لكل مجموعة تقديم رؤاها وتحليلاتها النقدية أمام المجموعة الكاملة.</li><li>يُطرح تحدي تطبيقي بمثال عملي لتحسين أداء النظام في سيناريو معين باستخدام معرفة التقنيات الثلاث.</li><li>يتعاون المتدربون عبر المناقشة للوصول إلى توصيات عملية بناءً على تحليلهم تقنيًا وصناعيًا.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التغذية الراجعة والإغلاق</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يعطي المدرب ملاحظات شاملة على عروض المتدربين وأفكارهم، مع إبراز نقاط الاتصال بين النظرية والتطبيق.</li><li>يناقش المدرب كيف يمكن للتقنيات المدروسة أن تؤثر على مستقبل الاتصالات ويشجع التفكير في التطوير والابتكار.</li><li>يطلب من المتدربين كتابة خلاصة شخصية توضح كيف طورت دراستهم القدرة على تقييم تقنيات التعديل المختلفة.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن لمزايا تعدد تردد التقسيم المتعامد (OFDM) والتعديلات الرقمية QAM وQPSK أن تتكامل لتحسين أداء شبكات الاتصالات الحديثة في ظل تحديات التداخل والتشويش؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

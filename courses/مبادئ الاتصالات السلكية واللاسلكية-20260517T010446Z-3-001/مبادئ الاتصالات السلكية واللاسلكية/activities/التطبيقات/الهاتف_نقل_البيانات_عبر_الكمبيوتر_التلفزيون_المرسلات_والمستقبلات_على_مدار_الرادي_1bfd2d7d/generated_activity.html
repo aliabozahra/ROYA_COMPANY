@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تصميم نموذج نقل البيانات العملي</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تصميم نموذج نقل البيانات العملي</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يهدف هذا النشاط إلى منح المتدرب تجربة عملية تفاعلية تدمج بين المبادئ النظرية والمهارات التطبيقية في نقل البيانات عبر الشبكات، مع التركيز على بناء نموذج عملي يعكس التحديات التقنية في بيئة محاكاة واقعية.</p>
+        <ul class="obj-list"><li>يطبق المتدرب مبادئ تقسيم البيانات وتحويلها إلى إشارات رقمية باستخدام أدوات محاكاة.</li><li>يتمكن المتدرب من تصميم شبكة محلية LAN بسيطة تشمل بنية أساسية من كابلات وموجهات.</li><li>يحاكي المتدرب نقل الصوت عبر أنظمة الهاتف التقليدية والرقمية مع إدارة مشكلات التشويش والضوضاء.</li><li>يستخدم المتدرب أنظمة الاتصالات اللاسلكية مثل البلوتوث وWiFi ضمن سيناريو عملي متكامل.</li><li>يقيم المتدرب أداء نموذج النقل من حيث السرعة، الدقة، والتكاليف باستخدام التحديات والقيود المعطاة.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">عملي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>برمجيات محاكاة شبكات مثل Cisco Packet Tracer أو GNS3</li><li>أجهزة كمبيوتر محمولة أو حواسيب مكتبية</li><li>أجهزة توجيه Router و Switch افتراضية</li><li>أدوات نقل صوت رقمية وأنالوجية مدمجة في المحاكي</li><li>مخططات تفسيرية بناءً على محتوى الوحدة</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بتقديم عرض تمهيدي يربط بين محتوى الوحدة وأهمية نقل البيانات.</li><li>يشرح المدرب بإيجاز التحديات الفيزياوية والفنية في نقل الصوت عبر أنظمة الهاتف.</li><li>يناقش المتدربون أمثلة من حياتهم اليومية لتعزيز الارتباط المعرفي.</li><li>يُطلب من المتدربين تحديد مفاتيح النجاح في تصميم نظام نقل بيانات فعال.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف البرمجية والمحاكاة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يوجه المدرب المتدربين إلى فتح برنامج المحاكاة والتعرف على أدواته.</li><li>يقوم المتدربون ببناء بنية شبكة مكونة من أجهزة كمبيوتر وموجه وربطها بأسلاك إيثرنت افتراضية.</li><li>يجرب المتدربون نقل بيانات نصية عبر الشبكة ويتابعون المسار باستخدام أدوات التتبع.</li><li>يناقش المدرب مع المتدربين أسباب أي تأخير محتمل أو فقدان معلومات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تطبيق نقل الصوت والتحديات العملية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدربون بمحاكاة نقل صوت عبر نظام هاتف أنالوجي داخل المحاكي.</li><li>يلاحظ المتدربون أثر الضوضاء والتشويش ويستخدمون الفلاتر الرقمية داخل المحاكي لتقليلها.</li><li>ينتقل المتدربون إلى نظام نقل صوت رقمي (PCM)، ويقارنون جودة الصوت وأداء الشبكة.</li><li>يُطلب من المتدربين تحسين نموذجهم لتقليل التأخير وزيادة الدقة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">دمج تقنيات الاتصالات اللاسلكية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يجرب المتدربون إعداد شبكة بلوتوث ذات تغطية قصيرة لربط أجهزة فردية.</li><li>يقوم المتدربون بإنشاء نقطة وصول WiFi لربط عناصر الشبكة المتنقلة.</li><li>يشاركون في تحدي لتقليل استهلاك الطاقة أثناء نقل البيانات اللاسلكي مع الحفاظ على الأداء.</li><li>يتفاعلون مع مدربهم في تحليل مخرجات الأداء وتحديد الحلول الأمثل.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التقييم والتغذية الراجعة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يعرض كل متدرب أو مجموعة نموذجها العملي ضمن محاكاة كاملة للمدرب والزملاء.</li><li>يتلقى المتدربون ملاحظات عن جودة التصميم والابتكار في التعامل مع التحديات.</li><li>يناقش المدرب مع المتدربين كيف يمكن تطبيق هذه النماذج في الواقع العملي والتحديات الحقيقية.</li><li>يوجه المتدربون إلى كتابة تقرير مختصر يوضح كيفية تحسين الأداء في المستقبل.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن للتقنيات المختلفة في نقل الصوت والبيانات أن تؤثر على جودة الاتصال وسرعته، وما هي الاعتبارات المهمة لتصميم شبكة فعالة تلبي متطلبات المستخدمين في بيئة واقعية؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

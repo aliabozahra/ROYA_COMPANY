@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بناء نماذج قنوات اتصالات فيزيائية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">بناء نماذج قنوات اتصالات فيزيائية</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يغطي نشاطًا عمليًا يمكّن المتدربة والمتدرب من بناء نموذج لقنوات فيزيائية وقنوات نقل، وفهم الفروق بينهما وتأثير كل نوع على نقل الإشارة.</p>
+        <ul class="obj-list"><li>يبني نموذجًا عمليًا لقناة فيزيائية تُمثل وسط الإرسال.</li><li>يركب نموذجًا لقناة نقل رقمية لضبط سريان البيانات.</li><li>يرصد تأثير التداخلات والترددات المختلفة على جودة الإشارة.</li><li>يقارن بين الفقدان الناتج باستخدام أنواع القنوات المختلفة.</li><li>يحلل نتائج نماذج النقل والفيزياء لفهم أثر الخصائص على الأداء.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">عملي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>عدة محاكاة تفاعلية لبيئات نقل الإشارة</li><li>لوحات تجميع ومكونات إلكترونية بسيطة</li><li>حاسوب محمول مزود ببرمجيات محاكاة الاتصالات</li><li>أجهزة قياس إشارة مثل مقياس التداخل وموصلات</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقدم المدرب مقدمة تشرح أهميّة القنوات الفيزيائية وقنوات النقل في الاتصالات المتنقلة</li><li>يعرض فيديو قصير يوضح الفرق بين نوعي القنوات مع أمثلة واقعية</li><li>يطرح المدرب سؤالًا تمهيديًا تحفيزيًا حول أثر نوع قناة معينة على جودة الاتصال</li><li>يُقسّم المتدربون إلى مجموعات صغيرة ويشرح لكل مجموعة الهدف من التجربة العملية</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">إنشاء النموذج الفيزيائي لقناة الإشارة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يوزع المدرب مكونات التجربة ويوضح كيفية بناء قناة فيزيائية باستخدام الوسط اللاسلكي أو الأسلاك التجريبية</li><li>يتعاون المتدربون لبناء نموذج يعكس خصائص الانتشار، التداخل، والفقدان</li><li>يقوم كل فريق بتركيب جهاز إرسال واستقبال للإشارة مع مراقبة الخصائص الفيزيائية</li><li>يُطلب من المتدربين تعديل عامل التردد ومسافة الإرسال لملاحظة تأثير تلك المتغيرات</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">بناء نموذج قناة النقل الرقمية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يرشد المدرب المتدربين إلى إنشاء قناة نقل رقمية باستخدام برمجيات المحاكاة المثبتة على الحواسيب</li><li>يقوم المتدربون برسم سيناريوهات تعكس الترتيب، إعادة الإرسال، وتصحيح الخطأ</li><li>يتم ضبط القناة لنقل البيانات وتجربة تأثرها بعوامل مثل الفقدان والتداخل</li><li>يُشارك كل فريق ملاحظاته حول جودة نقل البيانات وفق نماذج القناة</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">رصد وتحليل أثر القنوات المختلفة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدربون بقياس قوة الإشارة وجودة النقل في كل من القناة الفيزيائية وقناة النقل الرقمية</li><li>يستخدمون الأجهزة وأدوات البرمجيات الرصدية لتجميع بيانات الأداء</li><li>يتم تحليل النتائج لفهم تأثير خصائص القنوات كالتداخل والتردد على جودة الإشارة</li><li>تُجرى مناقشة جماعية لطرح الاستنتاجات وتوضيح الفروق التي تمت ملاحظتها</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحدي عملي وتحسين التصميم</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يطالب المدرب المجموعات بتحسين نموذج القناة الفيزيائية لتقليل فقد الإشارة</li><li>يُشجع المتدربون على تجربة إعدادات مختلفة مثل اختيار ترددات معينة أو تعديل الوسط</li><li>يقوم كل فريق بتوثيق التحسينات ونتائج أداء النموذج</li><li>يناقش الجميع تأثير تلك التعديلات على جودة الاتصال ويعرضون التحديات التي واجهوها</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق والتقييم الذاتي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المدرب بتلخيص التعلم المستفاد من المراحل السابقة وربطها بالفكرة الجوهرية</li><li>يُطلب من كل متدرب كتابة ملخص قصير يُبرز أهم ما تعلمه</li><li>يناقش المشاركون كيف يمكن للتجربة العملية أن تعزز فهم القنوات في التطبيقات الفعلية</li><li>يحفز المدرب المشاركين على طرح تساؤلات مفتوحة تمهيدًا للمواضيع القادمة</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تفسر الفرق بين القنوات الفيزيائية وقنوات النقل في تأثيرهما على جودة نقل الإشارة في بيئات الاتصالات المتنقلة؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

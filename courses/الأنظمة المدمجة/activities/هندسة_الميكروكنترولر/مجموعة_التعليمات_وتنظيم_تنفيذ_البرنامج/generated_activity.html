@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>محاكاة تنفيذ تعليمات الميكروكنترولر</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">محاكاة تنفيذ تعليمات الميكروكنترولر</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">ينفذ المتدربون تمثيلاً حيوياً لدور حامل التعليمات والمعالج التنفيذي لتعليمات الميكروكنترولر، ليحمّلوا ويحللوا وينفذوا سلسلة تعليمات معقدة.</p>
+        <ul class="obj-list"><li>يطبق المتدربون فهمهم لدورية الاسترداد-فك الشيفرة-التنفيذ عبر أدوارهم.</li><li>يعكس المتدربون عملية تنظيم تنفيذ البرنامج من خلال تعاون اجتماعي فعّال.</li><li>يحسّن المتدربون مهارات التواصل والإدارة في سيناريوهات نظم مضبوطة.</li><li>يُثبت المتدربون المفاهيم النظرية عبر التفاعل الحي بدلاً من المحاكاة الرقمية.</li><li>يتعرف المتدربون على تفاصيل كل نوع تعليمة وأثرها على تدفق التنفيذ.</li><li>يحصل المتدربون على تجربة خطوات تنفيذية عملية تعزز استيعابهم.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>بطاقات تعليمات مكتوبة تمثل أوامر ميكروكنترولر مختلفة</li><li>ساحة تعليمات مخصصة على الأرض مرسومة تمثل الذاكرة وعناصر المعالج</li><li>صحائف تعريف الأدوار (حامل تعليمات، معالج تنفيذي، عداد برنامج، سجلات، وحدة تحكم تعليمات)</li><li>سماعات أو صفارات لتنظيم الإشارات ومراحل التنفيذ</li><li>لوحات كتابة لتسجيل نواتج تنفيذ التعليمات والإشارات</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتعريف بالأدوار</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بشرح موجز عن أهمية فهم تنفيذ التعليمات.</li><li>يقوم المدرب بتقسيم المتدربين إلى مجموعات ويشرح دور كل مجموعة: حامل التعليمات، المعالج التنفيذي، عداد البرنامج، وحدة التحكم، والسجلات.</li><li>يوزع المدرب بطاقات التعليمات المحتوية على أوامر ميكروكنترولر حقيقية مبسطة لكل حامل تعليمات.</li><li>يحصل كل متدرب على صحيفته التعريفية واستعراض سريع لمهامه ووظيفته.</li><li>يتفق الجميع على قواعد التواصل والإشارات المستخدمة خلال تنفيذ الأوامر.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الاسترداد وتحميل التعليمات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم حامل التعليمات بقراءة البطاقة الأولى بناءً على عنوان عداد البرنامج.</li><li>ينقل حامل التعليمات البطاقة إلى سجل الاسترداد في المعالج التنفيذي.</li><li>يرصد المعالج التنفيذي الإشارة ويؤكد استلام التعليمة بصفارة قصيرة.</li><li>يُحدث عداد البرنامج العنوان التالي للتحضير للتعليمات القادمة.</li><li>يتفاعل المتدربون الآخرون بملاحظة الإشارات وتسجيل التدفق.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">فك شفرة التعليمات وتحديد العمليات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المعالج التنفيذي بتحليل البطاقة لفك شفرة التعليمة وتحديد النوع (حسابية، تحكم، تخزين).</li><li>يوزع وحدات التحكم إشارات لتفعيل المكونات المطلوبة (مثل ALU أو السجلات).</li><li>يشرح حامل التعليمات تفاصيل فك الشفرة للمتدربين للتأكد من الفهم.</li><li>يتم اختيار خطوات توضيحية لنمذجة هذه الوظيفة بشكل تعاوني.</li><li>تدير المجموعة حواراً قصيراً لتفسير المعنى العملي لكل تعليمة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التنفيذ وتعديل حالة الميكروكنترولر</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>في هذه المرحلة، تنفذ التعليمة فعلياً: تغيير قيم السجلات، نقل البيانات، قفز في البرنامج.</li><li>يمثل المتدربون تحديث الحالة بصرياً على اللوحات والسجلات.</li><li>يتم تطبيق التعديلات بدقة وعلى مراحل لضمان تتبع دقيق.</li><li>يُعطى وقت للنقاش حول تأثير كل تنفيذ على سلسلة التعليمات.</li><li>يحصل الجميع على تغذية راجعة من المدرب فيما يخص الدقة والتعاون.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تكرار الدورة بسلسلة تعليمات متعددة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تكرر العملية مع تعليمة جديدة من الذاكرة حسب عداد البرنامج.</li><li>يُجري المتدربون تبادل الأدوار لتعميق الفهم ومرونة التنفيذ.</li><li>يتم تصعيد التحدي بدمج تعقيدات مثل القفزات والحلقات ضمن التعليمات.</li><li>يشجع المدرب على مشاركة المشاهدات والتحديات في التنفيذ الجماعي.</li><li>تُسجل الملاحظات لتقييم النقاط التي تتطلب مراجعة أو توضيح.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التغذية الراجعة والإغلاق</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يجتمع الفريق كاملاً لمناقشة التجربة ومدى تجسيدهم للتنفيذ الحقيقي.</li><li>يقدم كل متدرب ملاحظات حول فهمه ووجهة نظره في آلية العمل.</li><li>يشرح المدرب المفاهيم الرئيسة التي تم التحقق منها عن طريق النشاط.</li><li>يُطرح تساؤل مناقشة مستمر يدفع للتفكير في تحسين التنفيذ مستقبلاً.</li><li>ينهي المدرب النشاط بإبراز ارتباط التطبيق بالخدمات العملية للأنظمة المدمجة.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يساعد تمثيل دور حامل التعليمات والمعالج التنفيذي في تعميق فهمك لدورية تنفيذ برنامج الميكروكنترولر، وما الفائدة العملية التي تخرج بها من هذا التفاعل الجماعي مقارنة بالمحاكاة الرقمية؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

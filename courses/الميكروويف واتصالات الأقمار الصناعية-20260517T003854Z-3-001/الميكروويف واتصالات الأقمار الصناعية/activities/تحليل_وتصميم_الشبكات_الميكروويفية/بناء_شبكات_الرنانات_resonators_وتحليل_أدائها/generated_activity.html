@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تحليل أداء شبكة رنان متقدمة</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تحليل أداء شبكة رنان متقدمة</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يهدف هذا النشاط إلى تطوير مهارات تحليل المشكلات والتشخيص الهندسي من خلال دراسة حالة عملية لشبكة رنان بها خلل في الأداء، حيث يتعلم المتدرب كيفية تفسير البيانات الفنية وتطبيق إجراءات الضبط لتحسين الأداء.</p>
+        <ul class="obj-list"><li>تحليل بيانات أداء الرنان بدقة واستنباط أسباب الخلل.</li><li>تصميم حلول ضبط فعالة بناءً على المعطيات التقنية.</li><li>تطبيق منهجية تشخيص منهجية تستند إلى أساسيات تصميم وبناء الرنانات.</li><li>تعزيز القدرة على استخدام أدوات القياس والتحليل بمهنية.</li><li>بناء ثقة في اتخاذ قرارات ضبط قائمة على بيانات واقعية.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تحليلي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>جهاز محلل الشبكة (Vector Network Analyzer)</li><li>نموذج بيانات أداء الرنان (محاكاة أو قياس واقعي)</li><li>برمجيات تحليل تردد واستجابة مثل ADS أو HFSS</li><li>مخططات ورسومات تقنية للرنان والشبكة</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يرحب المدرب بالمتدربين ويقدم ملخصًا عن دور الرنانات في شبكة الميكروويف.</li><li>يشرح أهمية تحليل الأداء والضبط لضمان كفاءة الشبكات في الاتصالات الحديثة.</li><li>يعرض حالة الدراسة المختارة التي تحتوي على خلل في أداء شبكة رنان بتردد محدد.</li><li>يحدد أهداف النشاط ومسارات العمل خلال الجلسة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الفحص الأولي وتحليل البيانات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدربون باستلام بيانات قياس المعامل S21 وS11 الشبكي للرنان المعني.</li><li>يحللون المنحنيات لتحديد نقاط الخلل مثل انخفاض الـ Q، تغير التردد الرنيني، أو التعرض لفقدان غير مفسر.</li><li>يناقش المدرب مع المتدربين العوامل المحتملة التي قد تؤدي إلى هذه المشاكل.</li><li>يتم تجهيز وثيقة تحليل مبدئية تحوي الملاحظات الفنية لكل فريق.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحديد العوامل المؤثرة وتوليد الحلول</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يعرض كل فريق الفرضيات الممكنة بناءً على بيانات التحليل المكتسبة.</li><li>يتم مناقشة المواد، الأبعاد، الظروف البيئية، ومطابقة المعاوقة كأساس لأسباب الخلل.</li><li>يقوم المشاركون بتصميم إجراءات ضبط مستندة إلى المعطيات، مثل تعديل أبعاد الرنان، تحسين المواد، أو ضبط البراغي المعدنية داخل التجويف.</li><li>يوجه المدرب لمساعدة الفرق في صياغة حلول منهاجية قابلة للتطبيق.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">محاكاة وتقييم الحلول المقترحة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يستخدم المتدربون برمجيات المحاكاة لمراجعة أثر التعديلات المقترحة على استجابة الرنان.</li><li>يقومون بمقارنة النتائج مع بيانات الأداء الأصلية لتحديد مدى التحسن.</li><li>يتم تقييم كل حل من حيث فاعليته في زيادة الـ Q وتقليل الفقد ورفع ثبات التردد.</li><li>يناقش المدرب والفرق تحليلاً نقدياً للخيارات مع توجيه لتعزيز التفكير التحليلي.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تطوير خطة ضبط وتعزيز الأداء</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تتم صياغة خطة عمل مفصلة لضبط الرنان تشمل خطوات التنفيذ والتفصيل الفني.</li><li>يناقش المشاركون التأثير المتوقع على الشبكة بالكامل بعد تطبيق الضبط.</li><li>يعزز المدرب أهمية المتابعة المستمرة والاختبار الدوري للاستقرار.</li><li>يتم توثيق الخطة وتقديمها مع ملخص للتوصيات والتحديات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق والتقييم الذاتي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم كل مشارك بمراجعة تعلمه ذهنيًا وكتابيًا ويستخلص أهم الدروس العملية.</li><li>يناقش المدرب بعصف ذهني مفتوح حول أهمية المنهجية التحليلية في هندسة الاتصالات.</li><li>يسأل المدرب المتدربين عن كيفية تطبيق المهارات المكتسبة في حالات أخرى مشابهة.</li><li>يتم منح ملاحظات فورية لتحفيز الاستمرار في تطوير مهارات التحليل والضبط.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن لتغير صغير في أبعاد الرنان أو المواد المستخدمة أن يؤثر بشكل كبير على أداء الشبكة، وما هي أفضل الممارسات لضمان استقرار الرنان في بيئات تشغيل متغيرة؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

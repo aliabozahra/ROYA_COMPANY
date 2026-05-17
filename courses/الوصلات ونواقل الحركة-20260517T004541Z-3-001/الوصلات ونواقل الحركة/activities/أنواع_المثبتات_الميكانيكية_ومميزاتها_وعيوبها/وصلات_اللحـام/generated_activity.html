@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>محاكاة تفاعلية لوصلات اللحام</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">محاكاة تفاعلية لوصلات اللحام</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">ينظم هذا النشاط رحلة تعلم عملية تدمج المحاكاة الرقمية مع المعرفة الهندسية عبر مراحل مترابطة تحاكي بيئة اللحام الحقيقية، ليكون المتدرب قادراً على:</p>
+        <ul class="obj-list"><li>التعرف على أنواع اللحام المختلفة وخصائص كل منها.</li><li>تقييم جودة الوصلات باستخدام أدوات المحاكاة التفاعلية.</li><li>اختبار سيناريوهات حدوث العيوب وتقنيات اكتشافها.</li><li>تطبيق عمليات اللحام المناسبة للحالات الهندسية المتنوعة.</li><li>تحليل تأثير العيوب على سلامة الوصلات.</li><li>اتخاذ قرارات فنية لتحسين جودة اللحام وتجنب المخاطر.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>برنامج محاكاة اللحام التفاعلي</li><li>حاسوب مزود بواجهة تحكم تفاعلية</li><li>شاشة عرض كبيرة للمناقشة الجماعية</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتعريف</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يرحب المدرب بالمتدربين ويشرح أهمية اللحام في وصلات الهياكل الميكانيكية.</li><li>يعرض فيديو قصير تمهيدي يوضح مبادئ اللحام وأنواعه.</li><li>يوزع المدرب دليل مصور يشرح المفاهيم الأساسية لأنواع اللحام.</li><li>يوجه أسئلة تحفيزية للمتدربين حول تجاربهم السابقة مع اللحام.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف برنامج المحاكاة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يشرح المدرب واجهة البرنامج وكيفية اختيار نوع اللحام وإعداداته.</li><li>يقوم المتدربون بتجربة فتح البرنامج والتعرف على الأدوات المتوفرة.</li><li>يجرب المتدربون تنفيذ لحام بسيط باستخدام المحاكاة تحت إرشاد المدرب.</li><li>يناقش المدرب مع المتدربين الفروقات في كل نوع لحام من حيث الإعدادات والتأثير.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تطبيق أنواع اللحام المختلفة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يكلف المدرب المتدربين بإجراء حلقات تطبيقية على اللحام بالحرارة والضغط واللحام بالضغط مع الحرارة.</li><li>يتابع كل متدرب تنفيذ وصلات بمحاكاة مع مراقبة جودة اللحام وفلترة العيوب تلقائياً.</li><li>يدون المتدربون ملاحظاتهم حول إمكانيات البرنامج في تمثيل الواقع.</li><li>يجيب المدرب عن أسئلة تقنية أثناء تجربة اللحام.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل سيناريوهات العيوب</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يعرض البرنامج مشاهد افتراضية لوصلات لحام بها عيوب مختلفة كالتشققات والتسريبات.</li><li>يُطلب من المتدربين تحديد نوع العيب وأسبابه المحتملة باستخدام أدوات المحاكاة.</li><li>يناقش المشاركون حلولاً تقنية لمعالجة أو تقليل الآثار السلبية للعيوب.</li><li>يقوم المدرب بشرح الفروقات في الأمان والسلامة في كل سيناريو ويقدم نصائح هندسية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التقييم والتحدي العملي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يوجه المدرب تحدياً لكل متدرب لتصميم لحام يواكب متطلبات سيناريو محدد داخل المحاكاة.</li><li>يختبر المتدربون وصلاتهم عبر سيناريو اختبارات إجهاد واهتزاز في البرنامج.</li><li>يُقارن المدرب النتائج ويُسلط الضوء على اعتبارات الهندسة العملية والابتكار.</li><li>يحصل المتدربون على تغذية راجعة معمقة لتحسين تصاميم اللحام واجتياز التحدي بنجاح.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق والتلخيص</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يلخص المدرب النقاط الأساسية التي تعلمها المتدربون خلال النشاط.</li><li>يجري نقاشاً مفتوحاً حول أهمية استخدام المحاكاة في مهارات اللحام العملية.</li><li>يوجه المدرب سؤالاً نقاشياً حول كيفية تطبيق هذه التجربة في موقع العمل الحقيقي.</li><li>يشجع المشاركون على مشاركة انطباعاتهم ويقدم المدرب توصيات لتطوير المهارة مستقبلياً.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن لتحليل سيناريوهات العيوب التي جربتها في المحاكاة أن يؤثر على اختيارك لنوع اللحام أو طرق الفحص في تطبيقات العمل الميداني؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

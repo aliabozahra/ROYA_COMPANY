@@ -1,0 +1,171 @@
+[
+  {
+    "name": "أنظمة_النقل_الخطي_والدقيق",
+    "items": [
+      {
+        "name": "أنظمة_الرف_والمسنن_Rack_and_Pinion",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "اللوالب_المحورية_واللولب_الكروي_LeadBall_Screws",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تطبيقات_الحركة_الدقيقة_في_الروبوتات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "محركات_هارمونيك_Harmonic_Drives",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مقارنة_بين_الدقة_وكفاءة_الأنظمة",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "أنظمة_النقل_الدوراني",
+    "items": [
+      {
+        "name": "اختيار_نظام_النقل_المناسب_حسب_التطبيق",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التروس_مستقيمة_مخروطية_كوكبية_حلزونية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "السلاسل_تركيبها_مميزاتها_وعيوبها",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "السيور_والبكرات_أنواعها_شدها_كفاءتها",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "حسابات_نسبة_النقل_والسرعة_والعزم",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "التحليل_الميكانيكي",
+    "items": [
+      {
+        "name": "الاحتكاك_وتأثيره_على_الأداء",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الفجوة_العكسية_Backlash_أسبابها_وحلولها",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الكفاءة_الميكانيكية_حساب_الخسائر_الميكانيكية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تأثير_الصلابة_على_استقرار_ودقة_الحركة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تحليل_القوى_والعزوم_في_الأنظمة_المركبة",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "الدمج_والتطبيق_العملي",
+    "items": [
+      {
+        "name": "اختبارات_الأداء_والاستجابة_والدقة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تجميع_نظام_ميكانيكي_فرعي_متكامل",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تحليل_المشكلات_الميكانيكية_وطرق_الصيانة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تفكيك_نظام_روبوتي_حقيقي_وتحليل_أجزائه",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "عرض_مشاريع_تطبيقية_ونهائية",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "المحامل_والمحاور_Bearings_and_shafts",
+    "items": [
+      {
+        "name": "أنواع_المفاصل_الدوارة_الخطية_المفصلية_الهجينة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "المحامل_Bearings_كروية_انزلاقية_أسطوانية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "المحاور_Shafts_الحمل_العزم_الانحناء",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "حساب_العزم_وتحليل_القوة_المؤثرة_في_المفاصل",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  }
+]

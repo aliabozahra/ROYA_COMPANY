@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تمثيل اختيار الصمامات الطبية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تمثيل اختيار الصمامات الطبية</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يقدم هذا النشاط تجربة تطبيقية تتمحور حول تمثيل مواقف طبية واقعية لاختيار الصمامات الصناعية المناسبة، مما يُنمّي مهارات التقييم الفني والتواصل العلمي لدى المتدربين.</p>
+        <ul class="obj-list"><li>يطبق المتدربون مهارات التقييم الفني لاختيار الصمامات الصناعية حسب الحالة الطبية.</li><li>يتحاور المتدربون بفعالية لمناقشة أسباب اختيار أنواع الصمامات المختلفة.</li><li>يقارن المتدربون بين أنواع الصمامات الميكانيكية والبيولوجية والهجينة من حيث الاستخدام.</li><li>يطور المتدربون مهارات التعبير عن الرأي الفني العلمي في إطار تمثيل الأدوار.</li><li>يتعلم المتدربون كيفية الاستماع للنظراء وتقديم تغذية راجعة بناءة.</li><li>يزداد وعي المتدربين بأهمية التواصل العلمي في المجال الطبي الهندسي.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>بطاقات حالات طبية مفصلة مع سيناريوهات مرضية</li><li>نماذج أو صور لأنواع الصمامات الصناعية (ميكانيكية، بيولوجية، هجينة)</li><li>مساحات عرض للمناقشة الجماعية</li><li>سجل ملاحظات لكل متدرب لتدوين النقاط الحيوية</li><li>لوحة فليب شارت لتلخيص المداخلات</li><li>عناصر تمثيل بسيطة (مثل شارات أدوار أو ملصقات)</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتحضير النفسي والمعرفي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يرحب المدرب بالمتدربين ويشرح الهدف من النشاط وأهميته في تعزيز مهارات التقييم والتواصل.</li><li>يقوم المدرب بتوضيح أنواع الصمامات الصناعية ونبذة عن كل نوع مع التركيز على الفروقات والاستخدامات.</li><li>يتم توزيع بطاقات الحالات الطبية بشكل فردي أو جماعي حسب تصميم النشاط.</li><li>يُطلب من المتدربين التفكير الأولي في نوع الصمام الملائم لكل حالة بدون نقاش.</li><li>يتم شرح قواعد لعب الأدوار وكيفية التعبير والتمثيل من خلال السيناريوهات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">مرحلة تمثيل الأدوار واختيار الصمامات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المتدربون بتجسيد الحالات الطبية وفق البطاقات الموزعة عليهم.</li><li>يقوم كل فريق بتمثيل السيناريو مع تقديم اختيار الصمام المناسب مدعومًا بالحجة الفنية.</li><li>يتبادل المتدربون الأدوار بين الطبيب التشخيصي، مهندس الأجهزة الطبية، والمريض أو الفريق الطبي.</li><li>يشجع المدرب المتدربين على التعبير الواضح والمنطقي للقرارات والمبررات الطبية والفنية.</li><li>يتم تسجيل الملاحظات المهمة عن اختيارات الصمامات وأساليب التبرير.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">النقاش الجماعي والتحليل المقارن</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>ينتقل المتدربون إلى مناقشة جماعية لكل حالة بهدف تحليل الاختيارات.</li><li>يقود المدرب نقاشًا تحليليًا يركز على مقارنة مزايا وعيوب الصمامات الميكانيكية، البيولوجية والهجينة حسب السياق الطبي.</li><li>يحصل كل فريق على فرصة لتقديم وجهة نظره وتلقي أسئلة نقدية من الزملاء.</li><li>يساهم المدرب في توجيه الحوار ليشمل الاعتبارات العملية مثل الأدوية المرافقة، العمر، وأنماط الحياة.</li><li>تلخيص النقاط الرئيسية للتمييز بين أنواع الصمامات تحت لوحة الفليب شارت.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">مرحلة التقييم الذاتي وتغذية راجعة متبادلة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُطلب من كل متدرب كتابة تقييم ذاتي لأسلوب عرضه ومشاركته خلال التمثيل.</li><li>يشارك المتدربون ملاحظاتهم حول أداء الزملاء بطريقة تحفيزية وبناءة.</li><li>يقدم المدرب ملاحظات عامة وتعزيز على مهارات التقييم الفني والتواصل العلمي.</li><li>تأكيد أهمية التنظيم المنطقي والتعبير الواضح في المواقف الطبية الحقيقية.</li><li>تشجيع المتدربين على التفكير في تطبيق هذه المهارات في مجالات عملهم المستقبلية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق وتوجيه السؤال النظري</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المدرب بتلخيص الدروس المكتسبة من النشاط وربطها بالموضوعات التدريبية الأخرى.</li><li>يوجه المدرب السؤال النظري للمتدربين لتحفيز التفكير المستقبلي.</li><li>يشكر المدرب المتدربين على التفاعل ويحثهم على الاستمرار في تطوير مهارات التحليل والتواصل.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن لاختيار نوع الصمام الصناعي المناسب أن يؤثر على نتائج المريض مدى الحياة، وما الأبعاد التقنية والطبية التي يجب أخذها في الاعتبار أثناء هذا الاختيار؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ورشة إصلاح أجهزة الليزر الطبية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">ورشة إصلاح أجهزة الليزر الطبية</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">ننفذ ورش عمل تطبيقية تدمج بين المعرفة التقنية والإجراءات العملية لإصلاح أعطال أجهزة الليزر الطبية.</p>
+        <ul class="obj-list"><li>تطبيق استخدام الأدوات المتخصصة لإصلاح الأعطال الكهربائية والبصرية</li><li>تشخيص الأعطال الواقعية في أجهزة الليزر الطبية باستخدام المعدات المناسبة</li><li>تنفيذ خطوات الصيانة الوقائية لضمان سلامة الجهاز</li><li>استخدام البرمجيات التشخيصية لتحديد وحل مشاكل النظام</li><li>معايرة أجهزة قياس طاقة الليزر لتحقيق الدقة المطلوبة</li><li>ممارسة إجراءات تنظيف ومحاذاة المرايا والعدسات</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>المقاييس المتعددة الوظائف</li><li>أجهزة قياس طاقة الليزر</li><li>أنظمة التشخيص البرمجي</li><li>أدوات التنظيف والصيانة</li><li>نماذج تدريبية لأجهزة الليزر الطبية</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد التعريفي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقدم المدرب نظرة عامة على أهمية ورش الإصلاح العملية</li><li>يشرح المدرب العلاقة بين النظرية والتطبيق في إصلاح أجهزة الليزر</li><li>يُوزع المتدربون على مجموعات ويُعرّفون بأدوات العمل الأساسية</li><li>يُطرح سؤال تحفيزي عن تحديات الإصلاح في الواقع العملي</li><li>يُوضح المدرب أهداف الورشة والخطوات القادمة</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التعرف على الأدوات والتقنيات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُعرض المدرب كل أداة من الأدوات مع شرح وظيفتها</li><li>يُطبق المتدربون استخدام المقاييس المتعددة الوظائف على دوائر كهربائية بسيطة</li><li>يتدرب المتدربون على استخدام أجهزة قياس طاقة الليزر لمعايرة شعاع تجريبي</li><li>يستعرض المدرب كيفية تشغيل أنظمة التشخيص البرمجي وتحميل بيانات الجهاز</li><li>يُجري المتدربون تمارين تنظيف ومحاذاة العدسات والمرايا على نماذج</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تشخيص الأعطال العملية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُوزع المدرب سيناريوهات لأعطال حقيقية تواجهها أجهزة الليزر</li><li>تقوم الفرق باستخدام الأدوات لتحديد سبب العطل في النماذج</li><li>يُوجه المدرب أسئلة تحليلية لاتجاهات التشخيص الصحيح</li><li>يُشارك المتدربون استنتاجاتهم ويشرح أحدهم التحليل أمام الجميع</li><li>يُنتقل إلى تعميق الفهم باستخدام البرمجيات التشخيصية</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإصلاح التطبيقي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تبدأ الفرق بتنفيذ الخطوات العملية لإصلاح الأعطال المحددة</li><li>يُشرف المدرب على تنفيذ التبديل، المحاذاة، والمعايرة</li><li>يستخدم المتدربون أنظمة التشخيص البرمجية لضبط إعدادات الجهاز</li><li>يُجري المتدربون اختبارات على الجهاز بعد الإصلاح للتأكد من الأداء</li><li>يتبادل المتدربون الملاحظات ويقترحون تحسينات</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التقييم والتغذية الراجعة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يناقش المدرب النتائج مع المتدربين ويُقيم أداء كل فريق</li><li>يتم عرض الحالات التي تم إصلاحها مع شرح مفصل لكل مرحلة</li><li>يُطلب من المتدربين تقديم تحديات واجهوها وكيف تعاملوا معها</li><li>يطرح المدرب أسئلة تحفّز التفكير النقدي حول التحسينات المستقبلية</li><li>يختم المدرب الورشة بتلخيص الدروس المستفادة والتوجيهات التطبيقية</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن للتكامل بين التقنيات الحديثة والأدوات المتخصصة أن يساهم في تحسين دقة وكفاءة إصلاح أجهزة الليزر الطبية وضمان سلامة المرضى؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

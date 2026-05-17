@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تجربة رسم وتحليل منحنى الدايود</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تجربة رسم وتحليل منحنى الدايود</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">بنهاية هذا النشاط، تكون المتدربة قادرة على:</p>
+        <ul class="obj-list"><li>تنفيذ تجربة عملية لرسم منحنى التيار مقابل الجهد للدايود</li><li>تحليل البيانات المختبرية لاستخراج خصائص الدايود الفيزيائية</li><li>تفسير سلوك الدايود تحت الاستقطاب المباشر والعكسي</li><li>تقييم أداء الدايود وتأثير عوامل الحماية في الدائرة</li><li>تطبيق مهارات قياس الجهد والتيار بدقة باستخدام معدات المختبر</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">عملي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>دايود نوع 1N4148</li><li>مصدر جهد متغير DC (0-5 فولت)</li><li>مقياس تيار (أميتر)</li><li>مقياس جهد (فولتميتر)</li><li>مقاومة حد 1 كيلو أوم</li><li>لوحة اختبار (Breadboard)</li><li>أسلاك توصيل متعددة الألوان</li><li>حاسوب مع برنامج Excel للرسم والتحليل (اختياري)</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتوعية الأساسية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تقديم شرح مبسط لخصائص الدايود وسلوك منحنى التيار-الجهد</li><li>مناقشة أهمية تجارب المختبر لفهم الفروق بين النموذج النظري والعملي</li><li>توضيح آلية عمل الأدوات والمعدات المستخدمة في التجربة</li><li>تقديم إرشادات السلامة المختبرية والحث على الدقة في القياس</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">إعداد الدائرة التجريبية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>توجيه المتدربين لتركيب الدايود على لوحة الاختبار حسب الاتجاه المباشر</li><li>توصيل المقاوم وملحقات القياس (الأميتر والفولتميتر) بالدائرة</li><li>مراجعة التوصيلات مع المتدربين لضمان صحة التركيب</li><li>تفعيل مصدر الجهد وضبطه عند 0 فولت استعدادًا للقياس</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تنفيذ القياسات في الاتجاه المباشر</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>زيادة جهد المصدر تدريجيًا بمقدار 0.1 فولت حتى 1 فولت</li><li>قراءة وتسجيل قيم التيار والجهد بدقة في جدول مخصص</li><li>ملاحظة التغيرات السريعة للتيار بعد تجاوز 0.7 فولت</li><li>تنبيه المتدربين إلى توخي الحذر لتجنب زيادة الجهد فوق الحدود</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تنفيذ القياسات في الاتجاه العكسي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>عكس توصيلات الدايود لتطبيق الاستقطاب العكسي</li><li>زيادة جهد المصدر سالبًا تدريجيًا حتى -5 فولت</li><li>تمكين المتدربين من تسجيل التيارات الصغيرة التي تظهر</li><li>مناقشة أسباب وجود تيار التسرب العكسي وكيفية التعامل معه</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">رسم وتحليل منحنى التيار مقابل الجهد</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>توجيه المتدربين لاستخدام البيانات المجمعة في رسم المنحنى يدوياً أو باستخدام برنامج Excel</li><li>تحديد المراحل المختلفة للمنحنى: المنطقة الميتة، الخطية، والتشبع</li><li>مقارنة النتائج مع النظرية وتفسير الفروق المحتملة</li><li>استخلاص معاملات الدايود مثل تيار التشبع العكسي ومعامل الشوكتي</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التقييم والتغذية الراجعة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>مناقشة المتدربين حول ملاحظاتهم حول السلوك العملي للدايود</li><li>طرح أسئلة تحليلية لتحفيز التفكير النقدي حول الأخطاء المحتملة</li><li>تقديم ملاحظات تقنية لتحسين مهارات القياس والتحليل</li><li>تلخيص أهم النقاط التي تم تعلمها وربطها بالتطبيقات الحقيقية</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن تفسير تأثير درجة الحرارة على شكل منحنى التيار مقابل الجهد للدايود، ولماذا من المهم أخذ ذلك في الاعتبار عند تصميم الدوائر الإلكترونية؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

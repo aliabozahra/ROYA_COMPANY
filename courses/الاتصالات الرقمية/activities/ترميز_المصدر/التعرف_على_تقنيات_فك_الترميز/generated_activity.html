@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تحدي فك الترميز السريع</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تحدي فك الترميز السريع</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">تصميم تجربة تفاعلية تنافسية ترفع من مهارات المتدربين في فك الترميز تحت ضغوط زمنية محددة.</p>
+        <ul class="obj-list"><li>تحقيق الاستجابة السريعة والفعالة لفك رموز مشفرة متعددة.</li><li>تطوير دقة استعادة البيانات الأصلية من الرموز.</li><li>تعزيز روح التحدي والتعلم العملي المتسارع.</li><li>إكساب القدرة على التعامل مع تقنيات ترميز متنوعة.</li><li>تقييم الأداء التنافسي بمؤشرات واضحة ومحفزة.</li><li>تشجيع التفكير الإبداعي في استراتيجيات الحل.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>أجهزة حاسوب مزودة ببرمجيات فك الترميز</li><li>نظام توقيت إلكتروني</li><li>لوحة تسجيل النقاط الإلكترونية</li><li>عناصر جوائز رمزية محفزة</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتوجيه</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>استقبال المتدربين وترحيبهم بالمنافسة.</li><li>عرض موجز عن أهمية فك الترميز في الاتصالات.</li><li>توضيح قواعد التحدي وأنواع الترميزات التي ستواجه.</li><li>تقسيم المتدربين إلى فرق متنافسة مع تحديد أدوار كل عضو.</li><li>توزيع الأدوات النمطية وتأكيد آليات متابعة الوقت والنقاط.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">مرحلة الاستكشاف والتدريب المكثف</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تقديم نماذج مبسطة لرموز مرمزة لفكها في وقت محدود.</li><li>دعوة الفرق لتطبيق تقنيات فك الترميز الأساسية.</li><li>تنظيم جلسة مراجعة سريعة لتبادل الخبرات بين الفرق.</li><li>طرح أسئلة تحفيزية لتعزيز فهم آليات فك الترميز.</li><li>توجيه إرشادات لتعزيز السرعة والدقة قبل التحدي الرئيسي.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">مرحلة التحدي التنافسي الرئيسي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>إطلاق التحدي بإعطاء أول مجموعة من البيانات المشفرة.</li><li>تفعيل نظام التوقيت ومراقبة الأداء عبر لوحة النقاط.</li><li>تسليم بيانات مشفرة متقدمة بتقنيات مختلفة بالتتابع.</li><li>اقتراح حلول فورية مع تقديم تعليقات سريعة لتحفيز.</li><li>حساب النقاط بناءً على السرعة والدقة لكل فريق.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">مرحلة التقييم والتغذية الراجعة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>جمع نتائج الفرق وتحليلها بشكل لحظي.</li><li>إعطاء ملاحظات تفصيلية لكل فريق حول الأداء.</li><li>نقاش مفتوح عن استراتيجيات الحل الناجحة والمشكلات.</li><li>اقتراح تحسينات لتقنيات فك الترميز المستقبلية.</li><li>التحضير لمرحلة إعلان الجوائز والتكريم.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق والتكريم</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>عرض ملخص لإنجازات الفريقين والمهارات المكتسبة.</li><li>توزيع الجوائز الرمزية للفريق الفائز وأعضاءه.</li><li>تحفيز المشاركين للانخراط في تدريبات أكثر تعقيداً.</li><li>توجيه المتدربين لمواصلة استكشاف موضوع الترميز.</li><li>ختام النشاط بشكر المتدربين على الحماس والمشاركة.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن تعديل استراتيجيتك في فك الترميز لتحسين الأداء تحت ضغوط زمنية وفي حالات وجود أخطاء ناتجة عن التشويش؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

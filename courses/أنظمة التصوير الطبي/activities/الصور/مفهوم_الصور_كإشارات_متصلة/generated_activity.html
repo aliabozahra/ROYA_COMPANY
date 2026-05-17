@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>قرار نوع الصور الطبية المناسب</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">قرار نوع الصور الطبية المناسب</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يستكشف المتدربون الفروق الأساسية بين الصور المتصلة والرقمية، ثم يحللوا معايير دقة التمثيل والحجم والعمليات المناسبة لاتخاذ قرار واعي بشأن الأنسب لتطبيق طبي معين.</p>
+        <ul class="obj-list"><li>يفهم المتدرب الفوارق الجوهرية بين الصور المتصلة والرقمية من حيث التكوين والخصائص.</li><li>يحلل المتدرب معايير اختيار نوع الصورة المناسبة استنادًا إلى تطبيقات طبية محددة.</li><li>يتخذ المتدرب قرارًا مدعومًا بالحجج العلمية والعملية لاختيار نوع الصورة الأفضل للحالة المعطاة.</li><li>يستعرض المتدرب أمثلة واقعية ويقارنها بطريقة نقدية لتعزيز الفهم العميق.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تحليلي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>صور طبية متصلة ورقمية جاهزة للعرض</li><li>معايير مقارنة مكتوبة على بطاقات</li><li>لوحة عرض أو شاشة ذكية</li><li>ألواح بيضاء وأقلام للكتابة الجماعية</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتوعية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بعرض مقدمة تركز على أهمية الصور الطبية وأنواعها.</li><li>يناقش المدرب مع المتدربين مفهوم الإشارة المتصلة مقابل الإشارة الرقمية، مع أمثلة مبسطة.</li><li>يطلب المدرب من المتدربين التعبير عن أفكارهم الأولية حول الفرق المحتمل بين النوعين.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف الأمثلة الواقعية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقسم المدرب المتدربين إلى مجموعات صغيرة.</li><li>يُوزع على كل مجموعة مجموعات من الصور الطبية: متصلة ورقمية مع معلومات مختصرة عن كل صورة.</li><li>تتم مطالبة المجموعات بدراسة الصور والتعرف على الفروق المرئية والتكوينية.</li><li>تُعطى كل مجموعة بطاقات تتضمن معايير مهمة مثل دقة التمثيل، حجم التخزين، سرعة المعالجة، الحساسيات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التحليل الجماعي والتفكير النقدي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تجمع المجموعات للاجتماع الكبير لمشاركة نتائج ملاحظاتهم.</li><li>يحفز المدرب النقاش حول مميزات وقيود كل نوع صورة اعتمادًا على المعايير المقدمة.</li><li>تتم مناقشة كيف تؤثر هذه الخصائص على استخدام الصور في تطبيقات طبية حقيقية مثل الأشعة السينية والرنين المغناطيسي.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">اتخاذ القرار وتبريره</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تُطرح حالات طبية افتراضية تتطلب اختيار نوع الصورة الأنسب (مثلاً تصوير عظام، نسيج رخو، تشخيص طارئ).</li><li>تُطلب من المجموعات اتخاذ قرار مدعوم بحجة منطقية حول النوع الأمثل للصورة لكل حالة.</li><li>يشارك كل فريق قراره ويتم شرح الأسباب بشكل مفصل أمام الجميع.</li><li>يقوم المدرب بتقديم تغذية راجعة مهنية لتعزيز فهم المتدربين.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق والتلخيص</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المدرب بتلخيص الفروق الأساسية بين النوعين وترابطها مع التحليل والقرار المتخذ.</li><li>يشجع المدرب المتدربين على التعبير عن دروسهم المستفادة والتحديات التي واجهوها خلال النشاط.</li><li>يوجه المدرب سؤالًا نقديًا لتعميق التفكير مستقبلاً.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن أن تؤثر خصائص الصور المتصلة والرقمية في جودة التشخيص الطبي، وما هي العوامل التي يجب مراعاتها عند اختيار نوع الصورة في الممارسة المهنية؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

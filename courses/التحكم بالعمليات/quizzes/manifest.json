@@ -1,0 +1,432 @@
+[
+  {
+    "name": "أساسيات_التحكم_في_العمليات",
+    "items": [
+      {
+        "name": "أنواع_أو_أوضاع_تشغيل_أنظمة_التحكم_في_العمليات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "أوضاع_التحكم_التناسبي_والتكاملي_والتفاضلي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "التحكم_في_الحلقة_المغلقة_وحساب_كسب_العملية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "التعريفات_الأساسية_والمصطلحات_المستخدمة_في_التحكم_في_العمليات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "ديناميات_العمليات_وثوابت_الزمن",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مقدمة_في_التحكم_المتسلسل_Cascade_Control",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "نمذجة_العمليات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "أساسيات_نظم_التحكم",
+    "items": [
+      {
+        "name": "استجابات_العملية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "التحكم_التبديلي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "التحكم_التعديلي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "التحكم_المغلق",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "التحكم_المفتوح",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "العمليات_ذات_التأخير",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "المنطقة_الميتة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "أسس_التحكم_الرقمي",
+    "items": [
+      {
+        "name": "التحكم_التفاضلي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "التحكم_التكاملي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "التحكم_الرقمي_مقابل_التناظري_مراجعة_لتعريفاتهما",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "التحكم_النسبي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الحاجة_إلى_التحكم_الرقمي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الحسابات_الممسوحة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "العمل_في_حلقات_التحكم_الرقمي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تحديد_الوظائف_في_مجال_التردد",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "وظيفة_الريادة_كتحكم_تفاضلي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "الاستقرار_وأوضاع_التحكم_في_الحلقات_المغلقة",
+    "items": [
+      {
+        "name": "أوضاع_التحكم_التناسبي_والتكاملي_والتفاضلي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الاستقرار",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الاضطرابات_الرئيسية_لمُسخّن_التغذية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "التحكم_التفاضلي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "التحكم_التكاملي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "التحكم_التناسبي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "العملية_الصناعية_في_التطبيق_العملي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تطبيقات_أوضاع_التحكم_في_العمليات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "سلوك_الديناميكا_لمُسخّن_التغذية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "علاقات_P_و_I_و_D_والتفاعلات_ذات_الصلة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مخرجات_وحدة_التحكم_PID_النموذجية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "التحكم_PID_الواقعي_والمثالي",
+    "items": [
+      {
+        "name": "أثر_العمل_الترددي_وتأثيرات_الضجيج",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الأوصاف_المقارنة_للتحكم_PID_الواقعي_والمثالي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "دالة_التقدم_التحكم_الترددي_مع_فلتر",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "وصف_التحكم_PID_المثالي_أو_غير_التفاعلي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "وصف_التحكم_PID_الواقعي_التفاعلي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "المبادئ_الأساسية_لصمامات_التحكم_والمعملات",
+    "items": [
+      {
+        "name": "المبادئ_الأساسية_لصمامات_التحكم_والمعملات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تحديد_حجم_الصمامات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "كسب_صمامات_التحكم،_الخصائص،_التشويه،_وقابلية_التغيير",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "محركات_صمامات_التحكم",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مواضع_صمامات_التحكم",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "نظرة_عامة_على_ثمانية_من_أكثر_أنواع_صمامات_التحكم_الأساسية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "تعيين_معاملات_المتحكمات_PID_في_أنظمة_التحكم_المفتوحة_والمغلقة",
+    "items": [
+      {
+        "name": "أهداف_التعيين",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "طريقة_التدوير_المستمر_زيجلر_نيكولز",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "طريقة_التعيين_بالدوران_المهدأ",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "طريقة_التعيين_في_الحلقة_المفتوحة_1_حسب_زيجلر_نيكولز",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "طريقة_ثابت_الزمن_في_الحلقة_LTC",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "طريقة_منحنى_الاستجابة_زيجلر_نيكولز",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مشاكل_التذبذب_التي_قد_تواجه_في_التعيين_بالحلقات_المفتوحة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "قياسات_العمليات_والمحولات",
+    "items": [
+      {
+        "name": "أجهزة_إرسال_الضغط",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "أجهزة_إرسال_المستوى",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "اختيار_أجهزة_الاستشعار",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الاعتبارات_المتعلقة_بالأجهزة_والمحولات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الخصائص_الشائعة_للمحولات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تعريف_المحولات_Transducers_والمستشعرات_Sensors",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "ديناميات_المستشعرات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "طيف_نماذج_المستخدمين_في_المحولات_القياسية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "عدادات_التدفق",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "قائمة_المتغيرات_المقاسة_الشائعة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مستشعرات_الحرارة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "معايير_واعتبارات_الاختيار",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مقدمة_في_أجهزة_الإرسال_الذكية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  }
+]

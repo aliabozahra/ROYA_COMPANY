@@ -1,0 +1,330 @@
+[
+  {
+    "name": "أجهزة_الإدخالالإخراج",
+    "items": [
+      {
+        "name": "أجهزة_الإخراج",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "أجهزة_الإدخال",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "أمثلة_على_التطبيقات",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "التبديلات_الداخلية",
+    "items": [
+      {
+        "name": "أمثلة_على_البرامج",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التبديلات_المدعومة_بالبطارية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التعيين_وإعادة_التعيين",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "العملية_ذات_الطلقة_الواحدة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "برامج_التدرج_السلم",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تبديل_التحكم_الرئيسي",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مفهوم_التبديلات_الداخلية",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "التنقل_تغيير_مسار_تنفيذ_البرنامج_والاستدعاء_الفرعي",
+    "items": [
+      {
+        "name": "الإجراءات_الفرعية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التوجيه",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "الحاكمات_في_التطبيقات_الصناعية",
+    "items": [
+      {
+        "name": "أنظمة_PLC",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الأمان",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الأنظمة_التي_يتم_التحكم_فيها_بالمرحلات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الإمداد_والسحب",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "البرامج",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التحكم_المنطقي_القابل_للبرمجة_PLC",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الحاكمات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "العتاد",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "النظم_التي_يتم_التحكم_فيها_بالمعالج_الدقيق",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "بنية_PLC",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "الطرق_البرمجية_IL_و_SFC_و_ST",
+    "items": [
+      {
+        "name": "النصوص_المنظمة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "قوائم_التعليمات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مخططات_الوظائف_التسلسلية",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "المفاهيم_الرقمية_المتعلقة_بتشغيل_PLC",
+    "items": [
+      {
+        "name": "PLC_بيانات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الأرقام_المشفرة_بالنظام_الثنائي",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الأرقام_في_الأنظمة_الثنائية_والثمانية_والسداسية_عشر_والمشفرة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الأنظمة_المنطقية_التوافقية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الأنظمة_المنطقية_المتسلسلة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الحسابات_الثنائية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "النظام_الثنائي_والسداسي_عشر",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "نظام_الثنائي",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "برمجة_المخطط_المتدرج_Ladder_والكتل_الوظيفية_Functional_Block",
+    "items": [
+      {
+        "name": "أمثلة_على_البرامج",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "إدخال_البرامج",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التثبيت",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الكتل_الوظيفية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الوظائف_المنطقية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "برمجة_التدرج_في_PLC",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مخرجات_متعددة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مخططات_التدرج",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "تعلم_معالجة_الإدخالالإخراج_في_PLC",
+    "items": [
+      {
+        "name": "أمثلة_على_الأنظمة_التجارية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الاتصالات_عن_بُعد",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الشبكات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "عناوين_الإدخالالإخراج",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "معالجة_الإشارة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "معالجة_المدخلات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "وحدات_الإدخالالإخراج",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  }
+]

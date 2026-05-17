@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تحليل أداء الدايود الواقعي</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تحليل أداء الدايود الواقعي</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يُقدم النشاط دراسة حالة تفاعلية لتحليل الفرق بين الدايود المثالي والحقيقي وتأثير العوامل الواقعية على الأداء، ما يُمكن المتدرب من تطوير مهارات التحليل والتفكير النقدي.</p>
+        <ul class="obj-list"><li>يُحلل المتدرب سلوك الدايود في نموذجين مختلفين ضمن دائرة واقعية.</li><li>يُقارن بين خصائص الدايود المثالي والدايود الحقيقي ويشرح تأثيرها على أداء الدوائر.</li><li>يُطبق المتدرب خطوات عملية لقياس وتحليل الفروقات بين النماذج.</li><li>يُطور المتدرب مهارات اتخاذ القرار بناءً على نتائج التحليل.</li><li>يُفسر دور العوامل الحقيقية مثل المقاومة والتسريب والجهد العتبي في سلوك الدايود.</li><li>يُستنتج قوانين تصميمية لدائرة تصحيح الطاقة بناءً على الفهم الواقعي.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تحليلي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>دائرة تصحيح نصف موجة مجهزة بدايود</li><li>أوسيلوسكوب</li><li>مولد إشارة (Function Generator)</li><li>برنامج محاكاة دوائر SPICE أو مكافئ</li><li>حاسوب محمول أو تابلت</li><li>أطلس قياس إلكتروني متعدد (Multimeter)</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتحفيز</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بعرض سيناريو واقعي عن تصميم دائرة إلكترونية تستخدم دايودات وتركيبها في أجهزة يومية.</li><li>يطرح سؤالاً تحفيزياً حول الفرق المتوقع بين الدايود المثالي والحقيقي في العمل.</li><li>يشرح المدرب أهمية دراسة الفروق لتحسين تصميم الدوائر ودعم اتخاذ القرارات الفنية.</li><li>يُعرض فيديو قصير يوضح سلوك الدايودين المثالي والحقيقي في دوائر مختلفة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف خصائص الدايود المثالي والحقيقي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدربون بمراجعة خصائص الدايود المثالي من خلال تمثيلات بيانية وتوضيحية.</li><li>يُعرض لهم نموذج الدايود الحقيقي ومكوناته الفيزيائية، مع شرح تأثير مقاومة التسريب والجهد العتبي.</li><li>يناقش المتدربون الفروق الجوهرية ويُطلب منهم تدوين ملاحظات حول العوامل المؤثرة.</li><li>يُستخدم برنامج المحاكاة لعرض منحنيات التيار مقابل الجهد لكل نموذج في السيناريو الواقعي.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التحليل التطبيقي لدائرة تصحيح نصف الموجة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُوزع على المتدربين دوائر تصحيح نصف موجة معدة مسبقاً مع دايودات حقيقية.</li><li>يُطلب منهم ربط الدائرة وتشغيلها مع استخدام الأوسيلوسكوب ومولد الإشارة لقياس الجهد والتيار.</li><li>يقارن المتدربون القياسات الفعلية بالقياسات المتوقعة من النموذج المثالي.</li><li>يُوثّق المتدربون فروقات الجهد وشكل الإشارة وتأثير التسريب والعتبة الجهدية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التفكير النقدي واتخاذ القرار الهندسي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>ينفذ المتدربون تحليلاً نقدياً لنتائج القياس ويحددون تأثير الخصائص الحقيقية.</li><li>يُناقش الفريق كيفية تعويض هذه الخسائر في التصميم لضمان كفاءة الدائرة.</li><li>يقترح المتدربون بدائل اختيارية مثل نوع الدايود أو تعديل الدائرة للحد من العيوب.</li><li>يُجمع الجميع على أفضل استراتيجيات التصميم المستندة إلى التحليل العملي.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التغذية الراجعة والتعميم</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُجري المدرب جلسة مناقشة تسلط الضوء على المفاهيم الرئيسية المكتسبة من النشاط.</li><li>يُحث المتدربون على مشاركة أفكارهم حول أهمية الفهم الدقيق للدايود في الهندسة العملية.</li><li>يُعرض تطبيقات متقدمة يمكن أن تستفيد من المعرفة المكتسبة، مثل دوائر الطاقة والاتصالات.</li><li>يُكلف المتدربون بواجب تحليلي قصير لتلخيص الدروس واستخلاص خطوط توجيه للمشاريع المستقبلية.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تؤثر الخصائص الحقيقية للدايود مثل المقاومة التسريبية والجهد العتبي على أداء دوائر التصحيح ولماذا من المهم تضمين هذه العوامل في التصميم الهندسي الواقعي؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

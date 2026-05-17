@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تجربة تطبيق ترميز قناة فعالة</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تجربة تطبيق ترميز قناة فعالة</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">ينفذ المتدرب تجربة عملية حقيقية حيث يطبق تقنيات مختلفة لترميز القناة على بيانات رقمية بهدف التحقق من فاعلية الحماية ضد الأخطاء.</p>
+        <ul class="obj-list"><li>يطبق المتدرب رموز ترميز القناة مثل هامنج، ريد-سولومون، والترميز التلافيفي على بيانات رقمية حقيقية.</li><li>يقارن المتدرب بين أداء كل تقنية ترميز عبر إرسال بيانات مشوشة ورصد معايير كشف وتصحيح الأخطاء.</li><li>يُثبّت المتدرب فهمه عبر تحليل النتائج واستخلاص تأثير الترميز على معدل الخطأ.</li><li>يُنمّي المتدرب القدرة على استخدام أدوات مثل MATLAB أو بيئات محاكاة لتقييم أنظمة الترميز.</li><li>يُدار التجربة في قالب عملي يعكس تحديات واقعية في بيئات اتصالات رقمية.</li><li>يُعزز النشاط مهارات التفكير النقدي والتقني المتصلة بترميز القناة.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">عملي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>جهاز كمبيوتر مزود ببرنامج MATLAB أو Simulink</li><li>بيانات رقمية تمثيلية (ملفات نصية أو موجات رقمية)</li><li>أداة توليد الضوضاء الرقمية (Noise Generator)</li><li>نموذج محاكاة لنظام ترميز القناة (Simulink model أو برمجية متخصصة)</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تمهيد وإعداد المتدربين</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يرحب المدرب بالمتدربين ويشرح هدف التجربة العملية وأهميتها في فهم ترميز القناة.</li><li>يقدم المدرب ملخصًا سريعًا عن تقنيات ترميز القناة الرئيسية (هامينغ، ريد-سولومون، الترميز التلافيفي).</li><li>ينفذ المدرب استبيانًا شفهيًا للتأكد من جاهزية المتدربين ومستوى معرفتهم السابقة.</li><li>يوزع المدرب ملفات البيانات الرقمية المستخدمة وأدوات البرمجة المطلوبة.</li><li>يُعرّف المدرب على بيئة برنامج MATLAB بما يشمل كيفية تحميل الإشارات وإضافة الترميز.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف تقنيات الترميز المختلفة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدربون بتحميل إحدى بيانات الإشارة الرقمية إلى بيئة المحاكاة.</li><li>ينفذ المتدربون ترميز هامنج على البيانات باستخدام نموذج برمجي معد سلفاً.</li><li>يحاكي المتدربون إرسال البيانات عبر قناة مشوشة باستخدام أداة توليد الضوضاء الرقمية.</li><li>يطبق المتدربون فك ترميز هامنج ويقيسون معدل الخطأ قبل وبعد التصحيح.</li><li>يسجل المتدربون نتائج الأداء لرمز هامنج ولاحظوا فعالية الكشف والتصحيح.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تطبيق وتحليل ترميز ريد-سولومون</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يختار المتدربون بيانات جديدة ويطبقون ترميز ريد-سولومون.</li><li>يزيد المتدربون شدة التشويش تدريجيًا لتقييم تحمل ترميز ريد-سولومون لأخطاء متكدسة.</li><li>يفك المتدربون الترميز ثم يقيسون معدل الأخطاء ويقارنونه بنتائج ترميز هامنج.</li><li>يحلل المتدربون الفروق في الأداء ويكتشفون ميزات وحالات مناسبة لاستخدام هذا الترميز.</li><li>يسجل المتدربون ملاحظاتهم ويناقشون هذه الفروقات مع الزملاء والمدرب.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تنفيذ الترميز التلافيفي وقياس الأداء</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يتم شرح كيفية عمل الترميز التلافيفي وأهمية خوارزمية فيتيربي في فك الترميز.</li><li>يطبق المتدربون الترميز التلافيفي على إشارة رقمية جديدة في بيئة المحاكاة.</li><li>يسمح المدرب بزيادة معقدة الضوضاء لدراسة مقاومة الترميز التلافيفي للأخطاء العشوائية.</li><li>يقيس المتدربون نتائج معدل خطأ البت ويقارنونها مع التقنيات السابقة.</li><li>يتم مناقشة السيناريوهات التطبيقية العملية التي يستحسن فيها استخدام الترميز التلافيفي.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل النتائج واستخلاص الدروس</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يجمع المتدربون نتائج التجارب لسلسلة الترميزات على جدول موحد للمقارنة.</li><li>يركز المتدربون على مدى قدرة كل تقنية على الكشف والتصحيح في ظل ظروف تشويش مختلفة.</li><li>يقدم المدرب تحليلاً مكثفًا لمفهوم تكلفة التعديل مقابل كفاءة الحماية في كل حالة.</li><li>يناقش المتدربون القيادة التقنية والتطبيقات الملائمة لكل ترميز مع أمثلة واقعية.</li><li>يختتم المدرب جلسة النقاش بإجابات على أسئلة المتدربين والتلخيص.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تقييم عملي وتغذية راجعة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يكمل كل متدرب اختبارًا عمليًا قصيرًا في بيئة المحاكاة يبرهن من خلاله على ترميز وفك ترميز ناجح.</li><li>يُشجع المتدربون على تقديم تحديات ومشكلات فنية أظهرت صعوبة أثناء التجربة.</li><li>يوفر المدرب تغذية راجعة شخصية وقيمة لتحسين مهارات التنفيذ.</li><li>يتم توزيع دليل مختصر يضم نصائح عملية وأفضل الممارسات لترميز القناة.</li><li>يشجع المدرب المتدربين على الاستمرار في التجربة الذاتية والتعمق في أدوات المحاكاة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">إغلاق واستنتاج</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يطلب المدرب من كل متدرب تلخيص أهم ما تعلمه من التجربة العملية.</li><li>يتم تأكيد تعزيز مفهوم دور الترميز في تحسين جودة الاتصالات الرقمية.</li><li>يدعو المدرب المتدربين للتفكير في كيفية تطبيق التجربة على بيئات واقعية في سوق العمل.</li><li>ينهي المدرب النشاط بتأكيد جاهزية المتدربين للانتقال لمراحل تعلم متقدمة.</li><li>يوجه المدرب سؤالًا تحفيزيًا للنقاش الختامي لتعزيز التفكير النقدي.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكنك استخدام نتائج تجربتك العملية لتصميم نظام ترميز قناة ملائم لنظام اتصالات في بيئة شبكات لاسلكية مزدحمة؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تحدي محاكاة برمجة الأنظمة المدمجة</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تحدي محاكاة برمجة الأنظمة المدمجة</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">تمهيد عملي يركز على تحفيز المتدرب نحو اكتساب مهارات فعالة في محاكاة الشفرة البرمجية، والتنزيل، واختبارها وتصحيح أخطائها في بيئة افتراضية متقدمة.</p>
+        <ul class="obj-list"><li>يتمكن المتدرب من استخدام بيئة محاكاة لتحميل الشفرة واختبارها ضمن سيناريوهات واقعية.</li><li>يطبق المتدرب تقنيات تحديد الأخطاء وتصحيحها من خلال محاكاة تفاعلية.</li><li>يحلل المتدرب نتائج المحاكاة لتطوير الشفرة وضمان السلامة قبل التطبيق الفعلي.</li><li>يكتسب المتدرب مهارات التنزيل الفعلي للشفرة على الميكروكنترولر وفهم أساليب الاختبار.</li><li>يظهر المتدرب قدرة على التعامل مع تعقيدات الأنظمة المدمجة في بيئة محاكاة آمنة.</li><li>يعزز المتدرب ثقته في تطبيق الشفرة على الجهاز المدمج بعد اختبارها وتحليلها.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>بيئة محاكاة Tinkercad</li><li>Arduino IDE</li><li>برنامج Proteus</li><li>ميكروكنترولر Arduino Uno متصل بالحاسوب</li><li>أدوات التنزيل والبرمجة مثل USB وJTAG</li><li>أدوات مراقبة وتصحيح الأخطاء (Debuggers مثل GDB)</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والإعداد للبيئة الافتراضية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>عرض مقدمة تفاعلية حول أهمية المحاكاة في الأنظمة المدمجة وأثرها على تقليل المخاطر.</li><li>توضيح الهدف من النشاط وشرح الأدوات المستخدمة مثل Tinkercad وArduino IDE.</li><li>توجيه المتدربين لإعداد حساباتهم وحصولهم على البرمجيات المطلوبة والاتصال ببيئة المحاكاة.</li><li>شرح طريقة تحميل الشفرة البسيطة في المحاكي كمقدمة تحضيرية.</li><li>تشجيع المتدربين على طرح توقعاتهم حول اختبار الشفرة في بيئة محاكاة قبل التطبيق العملي.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف وتحميل الشفرة في بيئة المحاكاة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>توزيع سيناريو محدد يتضمن كود برمجي لنظام تحكم معين (مثل نظام الإضاءة التلقائي).</li><li>توجيه المتدرب لكتابة أو استيراد الشفرة إلى المحاكي.</li><li>تشغيل المحاكاة مع مراقبة السلوك الظاهر لعمل النظام الافتراضي.</li><li>تسجيل ملاحظات حول ظهور أي أخطاء أو سلوك غير متوقع.</li><li>مناقشة مع المدرب حول الملاحظات الأولية لمستوى أداء الشفرة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل الأخطاء وتصحيحها في السيناريو المحاكى</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تحديد استخدام أدوات تصحيح الأخطاء داخل البيئة الافتراضية (مثل تتبع المتغيرات والقراءة اللحظية).</li><li>تشخيص المشكلات البرمجية التي تظهر في نتائج المحاكاة.</li><li>توجيه المتدرب لتعديل الكود لإصلاح أنواع محددة من الأخطاء (مثل الحلقات اللانهائية أو قضايا التهيئة).</li><li>إعادة تشغيل المحاكاة للتحقق من تصحيح المشكلات والتأكد من استقرار النظام.</li><li>تشجيع المناقشة الجماعية لتحليل التعديلات وأثرها على الأداء.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تنزيل الشفرة على الميكروكنترولر الحقيقي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تحضير المتدربين لعملية ربط اللوحة الحقيقية بالكمبيوتر باستخدام الأسلاك والبروتوكولات المناسبة.</li><li>عرض خطوات استخدام Arduino IDE لتحميل الشفرة وتنزيلها على الميكروكنترولر.</li><li>تأكيد الإعداد الصحيح لمنفذ الاتصال وتحديد الجهاز المناسب في البرنامج.</li><li>تنزيل الشفرة ومراقبة تشغيل النظام الحقيقي مع مقارنة بالنتائج في المحاكي.</li><li>التعرف على الاختلافات الممكنة بين المحاكاة والتنفيذ الفعلي وأسبابها.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">اختبار الأداء وتصحيح الأخطاء في النظام الحقيقي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تشغيل النظام في حالات اختبار مختلفة واقعية على الجهاز المدمج.</li><li>استخدام أدوات تصحيح الأخطاء مثل JTAG أو Debugger لمراقبة أداء النظام، مع إيقاف التنفيذ لفحص القيم الداخلية.</li><li>الكشف عن الأخطاء الجديدة أو الفروقات في الأداء مقارنة بمحاكاة البيئة الافتراضية.</li><li>تعديل الشفرة لتحسين الثبات والأداء حسب النتائج الحقيقية.</li><li>توثيق ومشاركة استنتاجات المتدربين حول أهمية التصحيح في بيئة حية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق والتقييم الذاتي والنقاش</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>إجراء جلسة مفتوحة لمناقشة التحديات التي واجهها المتدرب خلال المحاكاة والاختبار الواقعي.</li><li>تحفيز المتدربين على تقييم مهاراتهم في استخدام المحاكاة والتنزيل وتصحيح الأخطاء.</li><li>طرح أسئلة على المتدربين لتحليل الأثر التعليمي للتجربة.</li><li>تقديم تغذية راجعة بناءة من المدرب مع خلاصة أهم الاستراتيجيات.</li><li>توجيه المتدربين لكيفية تطبيق ما تعلموه في مشاريع حقيقية مستقبلية.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تساهم بيئة المحاكاة الافتراضية في الكشف المبكر عن أخطاء الشفرة، وما الفروقات التي قد تواجهها عند تنزيل الشفرة على الجهاز الحقيقي مقارنة بالمحاكاة؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

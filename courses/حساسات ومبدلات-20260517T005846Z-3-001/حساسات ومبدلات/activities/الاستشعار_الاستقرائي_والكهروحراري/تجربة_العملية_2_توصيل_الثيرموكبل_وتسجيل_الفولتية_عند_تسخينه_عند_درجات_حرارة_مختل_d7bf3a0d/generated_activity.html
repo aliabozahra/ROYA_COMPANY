@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تجربة توصيل وقراءة الثيرموكبل</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تجربة توصيل وقراءة الثيرموكبل</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">ينفذ متدرّب تجربة شاملة تبدأ بتركيب الثيرموكبل وقراءة الفولتية ثم مسح وتحليل النتائج لفهم العلاقة بين الجهد ودرجة الحرارة.</p>
+        <ul class="obj-list"><li>يركب متدرب الثيرموكبل بدقة مع مراعاة قواعد السلامة الكهربائية</li><li>يستخدم المتدرب مقياس الفولتية لقراءة البيانات وتسجيلها عملياً</li><li>يرسم المتدرب منحنى الفولتية مقابل الحرارة باستخدام برنامج حاسوبي</li><li>يحلل المتدرب النتائج لاستنتاج العلاقة بين الجهد ودرجة الحرارة</li><li>يحدد المتدرب الانحرافات المحتملة في القياسات ويقترح حلولاً تصحيحية</li><li>يشرح المتدرب تأثير التوصيلات ونوعية الأسلاك على دقة القياس</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>ثيرموكبل نوع K</li><li>لوح تسخين كهربائي قابل للضبط</li><li>مقياس فولتية رقمي دقيق</li><li>حوض ماء مثلج</li><li>أسلاك امتداد مناسبة</li><li>مشابك عزل حراري</li><li>حاسوب محمول مع برنامج Excel</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتعريف بالأدوات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يستعرض المدرب فقرة تعريفية مختصرة حول الثيرموكبل ومبدأ تأثير سيبيك</li><li>يشرح المدرب أهمية الثيرموكبل ودوره في قراءة درجات الحرارة بدقة</li><li>يعرض المدرب الأجهزة والأدوات المستخدمة مع تثبيت قواعد السلامة الكهربائية</li><li>يتعرف المتدربون على أجزاء الثيرموكبل ووظيفة كل جزء من القطع والمقاييس</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تجهيز وتركيب الثيرموكبل</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يحدد المتدرب موقع الوصلة الساخنة والباردة ويقوم بتوصيل الثيرموكبل بشكل صحيح على لوح التسخين</li><li>يستخدم المتدرب مشابك عزل حراري لضمان ثبات التوصيل ومنع تلوث الوصلات</li><li>يصل المتدرب الطرف المرجعي إلى حوض الماء المثلج لدرجة حرارة ثابتة</li><li>يتحقق المدرب من سلامة التوصيلات ويشرف على ارتداء المتدربين لمعدات الوقاية الشخصية</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">قراءة الفولتية عند درجات حرارة متدرجة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يرفع المتدرب درجة حرارة لوح التسخين تدريجياً بدءًا من 25 درجة مئوية حتى 200 درجة بفواصل 25 درجة</li><li>يقوم المتدرب بقراءة الفولتية بعد استقرار درجة الحرارة عند كل مستوى</li><li>يسجل المتدرب القيم الرقمية بدقة مع توثيق زمن ومستوى كل قراءة</li><li>يعتمد المدرب معايير تسجيل دقيقة لضمان دقة البيانات وتحفيز التركيز على التفاصيل</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">مسح البيانات وتحليل العلاقة بين الجهد والحرارة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>ينقل المتدرب البيانات المسجلة إلى برنامج Excel على الحاسوب المحمول</li><li>يرسم المتدرب منحنى الفولتية مقابل درجة الحرارة باستخدام أدوات الرسم البياني</li><li>يطبق المتدرب تحليل انحدار خطي لتقدير معامل التأثير ويقارن الخطية مع النماذج النظرية</li><li>يناقش المتدرب أسباب الانحرافات المحتملة ويرصد تأثير عوامل التوصيل والتداخل</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تقييم الدقة واستخلاص النتائج</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يشارك المتدرب النتائج مع زملائه في مناقشة مدعومة بالبيانات</li><li>يحدد الفريق معا معايرة مناسبة للقراءات لتحسين الدقة</li><li>يقوم المتدرب بتدوين توصيات تقنية تتضمن الحفاظ على نظافة الوصلات واختيار الأسلاك</li><li>يعرض المدرب لأنظمة تحكم آلية بسيطة توضح دمج الثيرموكبل في عمليات صناعية حقيقية</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يفسر تأثير التوصيلات والأسلاك المستخدمة في تثبيت الثيرموكبل على دقة قراءة الفولتية؟ وما أهمية ثبات درجة الحرارة المرجعية في تجربة القياس؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

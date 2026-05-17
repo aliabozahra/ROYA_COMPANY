@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تجربة التعويم الميدانية للأنسجة</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تجربة التعويم الميدانية للأنسجة</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">تجربة عملية تدمج الجانب النظري والتطبيقي في تحضير شرائح الأنسجة، تركز المتدربة على تنفيذ معايرة دقيقة لمعدات التعويم لضمان جودة الشرائح.</p>
+        <ul class="obj-list"><li>تنفيذ تحضير شرائح الأنسجة باستخدام معدات التعويم بدقة.</li><li>مراقبة أثر معايرة المعدات على جودة الشرائح بشكل عملي.</li><li>تطبيق المعايير الصحيحة لضبط درجة حرارة حمام التعويم.</li><li>تحليل النتائج المرئية للشرائح وتحديد تأثير المعايرة عليها.</li><li>تنمية مهارات الملاحظة والتقويم الذاتي في بيئة المختبر.</li><li>تعزيز قدرة المتدرب على ربط التطبيق العملي بالمفاهيم النظرية.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">عملي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>معدات التعويم بالماء (حمام تعويم)</li><li>مقياس حرارة رقمي معاير</li><li>شرائح أنسجة جاهزة للتحضير</li><li>فرشاة ومشرط خاص بالأنسجة</li><li>زوائد بارافين وأدوات نقل الشرائح</li><li>دفتر مراقبة سجلات المعايرة والصيانة</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تمهيد وتحفيز المتدرب</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بعرض قصير عن أهمية الدقة في تشغيل معدات التعويم ومدى تأثيرها على جودة الشرائح.</li><li>يشرح المدرب موجزًا الدور الحاسم للمعايرة الدورية في المعدات ودورها في منع تشوه العينات.</li><li>يحصل المتدرب على فرصة لمناقشة خبراتهم السابقة مع معدات التعويم لاستنهاض الحماس.</li><li>يعرض المدرب مقاطع فيديو حية تُظهر الفرق بين الشرائح المعايرة جيدًا وتلك غير المعايرة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">جمع البيانات الأولية والتعرف على المعدات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدربون بفحص وتعريف أجزاء حمام التعويم وأدوات القياس المرتبطة به.</li><li>ينفذ كل متدرب قياس درجة حرارة الماء الحالي باستخدام المقياس الرقمي.</li><li>يسجل المتدربون القيم ويقارنونها مع القيم المثالية المحددة في دليل التشغيل.</li><li>يتعرف المتدربون على كيفية ضبط درجة حرارة الجهاز وفقًا للمعايرة المطلوبة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تطبيق معايرة معدات التعويم عمليًا</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يشرح المدرب خطوات ضبط مقياس الحرارة والثرموستات معًا لضبط درجة الحرارة بدقة ±0.5 درجة مئوية.</li><li>يقوم كل متدرب بضبط الجهاز وفق المعايير وإعادة قياس درجة الحرارة للتحقق من دقة المعايرة.</li><li>يوثق المتدربون بيانات المعايرة في دفتر الملاحظات، متضمنة التاريخ والقيم المقاسة.</li><li>يناقش المدرب مع المتدربين تأثير درجات الحرارة المختلفة على جودة الشرائح.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تنفيذ تجربة تعويم الشرائح</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدرب بغمس شريحة نسيجية رقيقة في حمام التعويم عند الدرجة المضبوطة.</li><li>يراقب الانسيابية وانتشار الشريحة على سطح الماء، مدونًا أي ملاحظات بصرية.</li><li>ينقل المتدرب الشريحة باستخدام أدوات مناسبة إلى طبق التجفيف، متجنبًا تكون الفقاعات.</li><li>يكرر المتدرب التجربة باستخدام درجة حرارة غير معايرة لمعرفة الفرق في جودة الشرائح.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل النتائج وتقييم التأثير</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يعرض كل متدرب الشرائح المعالجة ويقارنها بصريًا بين الحالة المعايرة وغير المعايرة.</li><li>يناقش المتدربون جودة الشرائح ومدى تأثير المعايرة على التقليل من الطيات والفقاعات.</li><li>يكتب المتدرب تقريرًا موجزًا عن نتائج التجربة مع تقديم توصيات لتحسين العملية.</li><li>يختتم المدرب المرحلة بتلخيص النقاط التي تثبت أهمية المعايرة والصيانة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">إغلاق النشاط والتغذية الراجعة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يطرح المدرب أسئلة تقييمية لتعزيز الفهم والتحفيز على التفكير النقدي.</li><li>يشارك المتدربون ملاحظاتهم وتجاربهم خلال النشاط بشكل مفتوح.</li><li>يوجه المدرب نصائح عملية للمتدربين حول تطبيق المعايرة والصيانة في بيئة العمل الحقيقية.</li><li>يوزع المدرب دليل مختصر للممارسة المستدامة في تشغيل معدات التعويم.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تؤثر دقة المعايرة في معدات التعويم على جودة شرائح الأنسجة، وما هي الخطوات التي تتبعها لضمان تحقيق هذه الدقة في المختبر؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

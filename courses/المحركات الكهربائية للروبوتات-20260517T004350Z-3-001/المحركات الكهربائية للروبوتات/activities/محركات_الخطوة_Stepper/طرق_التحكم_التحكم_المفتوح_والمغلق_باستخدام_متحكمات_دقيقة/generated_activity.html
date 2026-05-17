@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تحليل نظم التحكم بالمحركات</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تحليل نظم التحكم بالمحركات</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يهدف هذا النشاط إلى تحليل عملي لنُظم تحكم المفتوح والمغلق في محركات الخطوة، وربط الفهم النظري بتطبيقات مصانع حقيقية من خلال تحليل مقارنة.</p>
+        <ul class="obj-list"><li>تقييم مزايا وعيوب التحكم المفتوح والمغلق في نظم محركات الخطوة.</li><li>تطوير مهارات التفكير النقدي في اختيار نظام التحكم المناسب للمصانع.</li><li>ربط المعرفة النظرية بحالات واقعية عملية لتحسين الفهم التطبيقي.</li><li>تعزيز القدرة على تحليل وحل المشكلات التقنية المتعلقة بأداء المحركات.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تحليلي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>حالات دراسية مفصلة لمصانع تستخدم التحكم المفتوح والمغلق</li><li>مخططات وأنظمة تحكم لمحركات الخطوة</li><li>أجهزة عرض وأدوات تفاعل للمناقشة الجماعية</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتعريف بالحالة العملية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يرحب المدرب بالمتدربين ويشرح هدف النشاط وأهميته.</li><li>يعرض المدرب نظرة عامة على المصنع الذي يستخدم محركات خطوة في نظام تحكم مفتوح وآخر مغلق.</li><li>يقدّم المدرب شرحاً مبسطاً للأساسيات النظرية للتحكم المفتوح والمغلق في المحركات.</li><li>يتم طرح سؤال تحفيزي للمتدربين: ما المتوقع أن تكون مميزات وعيوب كل نظام؟</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الاستكشاف التفصيلي لأنظمة التحكم</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقسم المدرب المتدربين إلى مجموعات ويعطي كل مجموعة حالة نسبياً مفصلة عن أحد النظامين (مفتوح أو مغلق).</li><li>تُقرأ التفاصيل من كل مجموعة وتحلل الفرضيات والتحديات المحتملة.</li><li>تستخدم المجموعات المخططات والمجسمات لتوضيح كيفية عمل النظام المدروس.</li><li>تجري مناقشة موجهة حول كيفية تأثير الخصائص التقنية (مثل استخدام الحساسات، أو غيابها) على أداء النظام.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التحليل والمقارنة الجماعية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تجتمع المجموعات لمشاركة نتائج دراستها وربطها بحالة المصنع.</li><li>يقود المدرب نقاشاً تحليلياً لتحديد الفوائد والعيوب لكل نظام من وجهة نظر التطبيق الصناعي.</li><li>يتم مناقشة تأثير الأحمال المختلفة، ودقة الحركة، والكلفة التشغيلية، ومرونة النظام على اختيار نظام التحكم.</li><li>تطوير قائمة مقارنة تفاعلية بين النظامين تظهر نقاط القوة والضعف.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تقييم الحلول واتخاذ القرار</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم كل متدرب بتقييم الحالة الصناعية بناءً على ما تم تعلمه، مع إبراز النظام الأنسب حسب الظروف المعطاة.</li><li>يُطلب من المتدربين تقديم مبررات منطقية مقنعة لاختيارهم مع الأخذ بالاعتبار جوانب تقنية واقتصادية.</li><li>ينفذ المدرب تمريناً قصيراً لتحديد السيناريوهات التي تكون فيها كل طريقة أفضل.</li><li>تلخيص جماعي يُوضح الاختيار الأمثل لكل حالة والاعتبارات الأساسية في تحليل الحلول.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التغذية الراجعة والإغلاق</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقدم المدرب تقييمه لأداء المتدربين في النشاط ويحركهم على نقاط القوة وفرص التطوير.</li><li>توزيع بطاقات استبيان لتعزيز التفكير حول ما تعلموه والأفكار المفتوحة التي يرغبون في استكشافها مستقبلاً.</li><li>اختتام النشاط بتلخيص لأهمية اختيار نظام التحكم الصحيح وتأثير ذلك على نجاح التطبيق الصناعي.</li><li>طرح سؤال مفتوح للمتدربين لاستثارة التفكير المستقبلي والتأكيد على استمرارية التعلم.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن لمصمم نظام تحكم أن يقرر بين استخدام نظام تحكم مفتوح أو مغلق لمحركات الخطوة في مصنع معين بناءً على المعطيات التقنية والاقتصادية؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

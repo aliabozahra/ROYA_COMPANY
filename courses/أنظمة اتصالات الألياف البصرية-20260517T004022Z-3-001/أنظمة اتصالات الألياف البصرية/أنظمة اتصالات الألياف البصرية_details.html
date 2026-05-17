@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>أنظمة اتصالات الألياف البصرية</title>
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4f7fa;
+      --card: #ffffff;
+      --primary: #1f6f8b;
+      --secondary: #99c24d;
+      --accent: #e36414;
+      --trainer-bg: #f1f5f9;
+      --text: #1f2937;
+      --muted: #6b7280;
+    }
+    body.dark {
+      --bg: #0f172a;
+      --card: #020617;
+      --primary: #38bdf8;
+      --secondary: #22c55e;
+      --accent: #f97316;
+      --trainer-bg: #020617;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+    }
+    header {
+      background: linear-gradient(135deg, var(--primary), #145369);
+      color: white;
+      padding: 45px 20px;
+      text-align: center;
+      position: relative;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      opacity: 0.9;
+    }
+    .header-objective {
+      display: inline-block;
+      margin-top: 14px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+      padding: 12px 24px;
+      max-width: 800px;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      opacity: 0.95;
+    }
+    .header-objective-label {
+      display: block;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      opacity: 0.75;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+    .toggle-dark {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    /* ---------- ACCORDION ---------- */
+    .unit {
+      background: var(--card);
+      border-radius: 18px;
+      margin-bottom: 30px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      overflow: hidden;
+      animation: fadeUp 0.6s ease;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .unit-header {
+      padding: 22px 26px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: white;
+    }
+    .unit-header h2 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+    .unit-content {
+      display: none;
+      padding: 30px;
+    }
+    .unit.open .unit-content {
+      display: block;
+    }
+    /* ---------- TABS ---------- */
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .tabs button {
+      border: none;
+      padding: 10px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      background: #e5e7eb;
+      color: #111;
+      font-family: inherit;
+    }
+    body.dark .tabs button {
+      background: #1e293b;
+      color: #e5e7eb;
+    }
+    .tabs button.active {
+      background: var(--primary);
+      color: white;
+    }
+    .tab {
+      display: none;
+      animation: fadeUp 0.4s ease;
+    }
+    .tab.active {
+      display: block;
+    }
+    h3 {
+      color: var(--accent);
+      margin-top: 20px;
+    }
+    ul {
+      padding-right: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+    p {
+      color: var(--muted);
+    }
+    /* ---------- TRAINER ---------- */
+    .trainer {
+      background: var(--trainer-bg);
+      padding: 22px;
+      border-radius: 14px;
+      border-right: 5px solid var(--primary);
+      margin-top: 15px;
+    }
+    .trainer-toggle {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+<header>
+  <button class="toggle-dark" onclick="toggleDark()">🌙</button>
+  <h1>أنظمة اتصالات الألياف البصرية</h1>
+  <p>خريجو وخريجات المرحلة الثانوية في المملكة العربية السعودية، والطلاب والمتدربون والمتدربات في البرامج التقنية والمهنية المتخصصة في تقنية هندسة الاتصالات، حيث يهدف هذا المسار التقني إلى تأهيل الكوادر الوطنية للعمل في قطاع البنية التحتية لتقنية المعلومات ومزودي خدمات الإنترنت وشركات الاتصالات، من خلال إكسابهم المهارات العملية اللازمة لتحليل أنماط تشغيل الألياف البصرية، والتعامل مع مصادر الضوء وكواشفه وثنائيات الليزر شبه الموصلة، بالإضافة إلى القدرة الفنية على بناء وتوصيل المكونات التشغيلية للأنظمة البصرية وتقييم أدائها العام والتحقق من جودة الاتصال، وصولاً إلى تحقيق الجاهزية التامة لسوق العمل.</p>
+  <div class="header-objective">
+    <span class="header-objective-label">🎯 هدف الدورة</span>
+    يهدف المقرر إلى تزويد المتدربين بفهم عميق لأنظمة اتصالات الألياف البصرية، بدءاً من المبادئ الفيزيائية للضوء مروراً بمزايا الألياف وأنماط تشغيلها، ثم التعرف على خصائص مصادر الضوء، والأنواع المختلفة للثنائيات، وأجهزة الكشف والاستقبال، وصولاً إلى تقييم المكونات التشغيلية والاتصال ضمن الشبكات البصرية. يتطلع المقرر إلى إكساب المتدربين مهارات تطبيقية عملية تتيح لهم القدرة على التركيب، الفحص، التكوين، والتحليل الفني لأنظمة الألياف البصرية.
+  </div>
+</header>
+<main>
+  
+    <div class="unit">
+
+      <!-- Accordion Header -->
+      <div class="unit-header" onclick="toggleUnit(this)">
+        <h2>عمل الألياف البصرية</h2>
+        <span class="chevron">▼</span>
+      </div>
+
+      <!-- Accordion Content -->
+      <div class="unit-content">
+
+        <!-- Tabs -->
+        <div class="tabs">
+          <button class="active" onclick="openTab(this,'unit_0_overview')">نظرة عامة</button>
+          <button onclick="openTab(this,'unit_0_content')">مقدمة</button>
+          <button onclick="openTab(this,'unit_0_trainer')">دليل المدرب</button>
+        </div>
+
+        <!-- ══════════ OVERVIEW TAB ══════════ -->
+        <div id="unit_0_overview" class="tab active">
+
+          <div class="section-block">
+            <h3 class="section-title">هدف الوحدة</h3>
+            <p class="objective-text">تهدف هذه الوحدة إلى توضيح الخصائص الفيزيائية للضوء وسلوكياته داخل الألياف البصرية، مع التركيز على عمليات الانعكاس، الانكسار، والتشتت، بالإضافة إلى تقنيات التعامل مع الألياف مثل التلجيم والموصلات والتلميع. يكتسب المتدرب فهماً متكاملاً يضمن امتلاكه القدرة على تحليل مبادئ عمل نظام الألياف البصرية ومزاياه التشغيلية بواقعية.</p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">المهارات المكتسبة</h3>
+            <div class="skills-grid">
+              <span class="skill-badge">تحليل الخصائص الفيزيائية للضوء داخل الألياف البصرية</span><span class="skill-badge">تطبيق قوانين الانعكاس والانكسار على أنظمة الألياف</span><span class="skill-badge">حساب معاملات الانكسار والزاوية الحرجة</span><span class="skill-badge">تنفيذ تقنيات التلجيم والموصلات والتلميع للألياف</span><span class="skill-badge">تقييم خسائر الألياف البصرية وتحسين جودة الإشارة</span>
+            </div>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">وصف الوحدة</h3>
+            <p>تتضمن هذه الوحدة دراسة مفصلة لفيزياء الضوء ومبادئ سلوكه في الألياف البصرية، مثل الانعكاس الداخلي الكلي، معامل الانكسار، والتشتت. كما تتناول التقنيات العملية المستخدمة لتحسين جودة الألياف وتقليل الخسائر مثل التلجيم والموصلات والتلميع.</p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">الموضوعات ومخرجات التعلم</h3>
+            <div class="topics-container">
+              
+        <div class="topic-block">
+          <div class="topic-name">فيزياء الضوء، مثل الضوء كموجة، وضوء كشعاع وجسيم (فوتون)، الطيف الكهرومغناطيسي، وتردد وطول موجة الضوء - المرئي وتحت الحمراء؛ سلوك الضوء، مثل الانعكاس، والانكسار، والتشتت، والانكسار، والامتصاص. والتشتت: معامل الانكسار، مثل معامل الانكسار للمواد المستخدمة عادة للألياف البصرية، وحسابات تنطوي على قانون ستيل؛ الانعكاس الداخلي الكلي، الزاوية الحرجة، زاوية القبول، الفتح العددي، التشتت والتطفية؛ تقنيات إياها الألياف، مثل التلجيم والموصلات؛ التلميع؛ الخسائر النموذجية.</div>
+          <ul class="topic-outcomes"><li>يشرح طبيعة الضوء كموجة وجسيم</li><li>يصف الطيف الكهرومغناطيسي وتردداته وأطوال موجاته</li><li>يحدد ظواهر الانعكاس والانكسار والتشتت داخل الألياف</li><li>يحسب معامل الانكسار للمواد الشائعة في الألياف</li><li>يطبق قانون ستيل في حساب مسائل مرور الضوء</li></ul>
+        </div>
+        
+        <div class="topic-block">
+          <div class="topic-name">الانعكاس الداخلي الكلي والزاوية الحرجة</div>
+          <ul class="topic-outcomes"><li>يشرح مفهوم الانعكاس الداخلي الكلي</li><li>يحدد الزاوية الحرجة وزاوية القبول في الألياف</li><li>يحسب الفتح العددي للألياف البصرية</li><li>يقارن بين تأثير التشتت والتطفية على جودة الإشارة</li><li>يشرح أهمية الزوايا الحرجة في تصميم الألياف</li></ul>
+        </div>
+        
+        <div class="topic-block">
+          <div class="topic-name">تقنيات التعامل مع الألياف</div>
+          <ul class="topic-outcomes"><li>يُجري عملية التلجيم للألياف البصرية بدقة</li><li>يستخدم الموصلات المناسبة لتوصيل الألياف</li><li>يُطبق التلميع لتحسين جودة الاتصال</li><li>يقيس الخسائر النموذجية في وصلة الألياف</li><li>يحسن تشغيل النظام بتقليل الخسائر</li></ul>
+        </div>
+        
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ══════════ CONTENT TAB ══════════ -->
+        <div id="unit_0_content" class="tab">
+
+          <div class="section-block">
+            <h3 class="section-title">التمهيد</h3>
+            <p class="intro-text">يُعدّ فهم كيفية عمل الألياف البصرية حجر الزاوية في إتقان تقنيات الاتصالات الحديثة، إذ يمثل الضوء وسيطاً أساسياً لنقل البيانات بسرعة وكفاءة غير مسبوقة في عالمنا الرقمي اليوم. هذه الوحدة ليست مجرد دراسة نظرية لفيزياء الضوء، بل هي غوص عميق في المبادئ التي تحكم سلوك الفوتونات داخل هذه المسارات الدقيقة، وكيف يمكن تسخيرها لخدمة متطلبات الشبكات المعاصرة، بدءاً من البنية التحتية لمزودي خدمات الإنترنت ووصولاً إلى شبكات الاتصالات العالمية. إن الإلمام بالخصائص الفيزيائية للضوء والانعكاس الكلي الداخلي هو المفتاح لفك شفرة الأداء الفائق لهذه التقنية، وامتلاك القدرة على تحليل مبادئ عمل نظام الألياف البصرية ومزاياه التشغيلية بواقعية. تركز هذه الوحدة على الكشف عن الأسرار الكامنة وراء الظواهر الفيزيائية التي تجعل الألياف البصرية قادرة على حمل كميات هائلة من المعلومات لمسافات طويلة دون تدهور يذكر. سيتعرف المتدرب على مفهوم الضوء كموجة وجسيم، ويستكشف الطيف الكهرومغناطيسي، وترددات وأطوال موجات الضوء المرئي وتحت الحمراء، التي تُعد حاسمة في تصميم أنظمة الاتصالات البصرية. كما يدرس سلوك الضوء داخل الألياف من خلال عمليات الانعكاس والانكسار والتشتت والامتصاص، وهي مفاهيم أساسية تُشكل جوهر انتقال الإشارة الضوئية. يكتسب المتعلم فهماً معمقاً لمعاملات الانكسار للمواد المستخدمة عادة في الألياف البصرية، وكيفية حسابها باستخدام قوانين أساسية مثل قانون ستيل، وهو ما يمكنه من تقدير جودة المواد المستخدمة وتأثيرها على مسار الضوء. تتوسع الوحدة لتشمل مبادئ الانعكاس الداخلي الكلي، وهي الظاهرة الفيزيائية التي يقوم عليها عمل الألياف البصرية، حيث تُعد الزاوية الحرجة وزاوية القبول من المحددات الأساسية التي يجب فهمها. سيتمكن المتدرب من حساب الفتح العددي للألياف البصرية، وهو مقياس مهم لقدرة الألياف على تجميع الضوء، كما سيتعرف على التشتت والتوهين وأثرها على جودة الإشارة المنقولة. هذه الجوانب النظرية تُسهم في بناء قاعدة معرفية صلبة لتقييم أداء الألياف وتحديد المواصفات المناسبة لتطبيقات معينة. كما تتناول الوحدة الجوانب العملية والتقنية اللازمة للتعامل مع الألياف البصرية بمهارة واحترافية. يُعدّ التلجيم (Splicing) والموصلات (Connectors) والتلميع (Polishing) من العمليات الدقيقة التي تؤثر بشكل مباشر على كفاءة نقل الإشارة وتقليل الخسائر. سيتدرب المتعلم على كيفية تنفيذ هذه التقنيات لضمان أعلى مستويات الأداء التشغيلي وتقليل </p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">الموضوعات المتناولة</h3>
+            <ul class="expanded-topics-list">
+              <li>فيزياء الضوء، مثل الضوء كموجة، وضوء كشعاع وجسيم (فوتون)، الطيف الكهرومغناطيسي، وتردد وطول موجة الضوء - المرئي وتحت الحمراء؛ سلوك الضوء، مثل الانعكاس، والانكسار، والتشتت، والانكسار، والامتصاص. والتشتت: معامل الانكسار، مثل معامل الانكسار للمواد المستخدمة عادة للألياف البصرية، وحسابات تنطوي على قانون ستيل؛ الانعكاس الداخلي الكلي، الزاوية الحرجة، زاوية القبول، الفتح العددي، التشتت والتطفية؛ تقنيات إياها الألياف، مثل التلجيم والموصلات؛ التلميع؛ الخسائر النموذجية.</li><li>الانعكاس الداخلي الكلي والزاوية الحرجة</li><li>تقنيات التعامل مع الألياف</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- ══════════ TRAINER TAB ══════════ -->
+        <div id="unit_0_trainer" class="tab">
+
+          <button class="trainer-toggle" onclick="toggleTrainer(this)">
+            إظهار / إخفاء دليل المدرب
+          </button>
+
+          <div class="trainer" style="display:none">
+
+            <div class="trainer-section">
+              <p class="trainer-label">تعليمات المدرب</p>
+              <p>عزيزي المدرب
+تهدف هذه الوحدة إلى تعريف المتدربين بمبادئ فيزياء الضوء وعلاقته بأنظمة الألياف البصرية، مع التركيز على سلوك الضوء داخل الألياف، والقوانين الحاكمة لذلك، بالإضافة إلى تقنيات التعامل مع الألياف لتحسين جودة الاتصال وتقليل الخسائر.
+اعتمد في تنفيذها على أساليب المحاكاة والتجارب العملية التي توضح مفاهيم الانعكاس، الانكسار، التشتت، بالإضافة إلى توضيح تطبيقات قانون ستيل والزاوية الحرجة من خلال تمارين حسابية.
+شجع المتدربين على مناقشة التحديات المتعلقة بفقدان الإشارة في الألياف البصرية من خلال دراسة الخسائر النموذجية وطرق تقليلها.
+تذكّر أن دورك هو تيسير التعلم العملي النظري والتطبيقي مع ربط المفاهيم العلمية بتطبيقات ميدانية عملية في هندسة الاتصالات بالألياف البصرية.</p>
+            </div>
+
+            
+        <div class="trainer-section">
+          <p class="trainer-label">النشاط الافتتاحي</p>
+          <p>تهيئة المتدربين لاستكشاف مفاهيم فسيائية أساسية للضوء وأثرها على أنظمة الألياف البصرية من خلال نشاط تفاعلي.
+
+55 دقيقة
+
+نشاط استكشافي عملي (Interative Exploration)
+
+أجهزة إضاءة صغيرة، عدسات، ألياف بصرية قصيرة، وأدوات قياس زاوية الانعكاس والانكسار.
+
+الهدف
+
+الزمن
+
+الأسلوب
+
+الأدوات
+
+خطوات التنفيذ:
+1. يبدأ المدرب بالترحيب بالمشاركين ويشرح لهم هدف النشاط وهو فهم طبيعة الضوء وسلوكياته.
+2. يقوم المشاركون بتجارب عملية باستخدام أجهزة الإضاءة والألياف القصيرة لقياس ظواهر الانعكاس والانكسار.
+3. يقيس المتدربون الزوايا الحرجة ويستخلصون أهمية الانعكاس الداخلي الكلي.
+4. يناقش المدرب معهم النتائج ويربطها بالمفاهيم النظرية.
+5. يختتم المدرب النشاط بتلخيص العلاقة بين خصائص الضوء وتصميم الألياف.</p>
+        </div>
+        <div class="trainer-section">
+          <p class="trainer-label">سؤال بعد النشاط</p>
+          <p>في رأيك، كيف تساعد معرفة سلوك الضوء وخصائصه في تحسين أداء أنظمة الألياف البصرية وتطويرها في قطاع الاتصالات السعودي؟</p>
+        </div>
+        
+
+            <div class="trainer-section">
+              <p class="trainer-label">أسئلة التقييم</p>
+              <ol class="eval-questions">
+                <li>كيف تفسر طبيعة الضوء كموجة وكجسيم (فوتون) وأهميته في الاتصالات بالألياف البصرية؟</li><li>ما هو تأثير الانعكاس والانكسار على انتقال الضوء داخل الألياف؟</li><li>اشرح أهمية الانعكاس الداخلي الكلي والزاوية الحرجة في تصميم الألياف البصرية.</li><li>كيف يستخدم قانون ستيل في حسابات مرور الضوء داخل الألياف؟ قدم مثالاً تطبيقياً.</li><li>ما هي التقنيات المستخدمة لتحسين جودة الاتصال بالألياف مثل التلجيم والتلميع؟</li><li>ما هي الخسائر النموذجية التي تحدث في الألياف البصرية وكيف يمكن تقليلها؟</li>
+              </ol>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="unit">
+
+      <!-- Accordion Header -->
+      <div class="unit-header" onclick="toggleUnit(this)">
+        <h2>مزايا الألياف البصرية</h2>
+        <span class="chevron">▼</span>
+      </div>
+
+      <!-- Accordion Content -->
+      <div class="unit-content">
+
+        <!-- Tabs -->
+        <div class="tabs">
+          <button class="active" onclick="openTab(this,'unit_1_overview')">نظرة عامة</button>
+          <button onclick="openTab(this,'unit_1_content')">مقدمة</button>
+          <button onclick="openTab(this,'unit_1_trainer')">دليل المدرب</button>
+        </div>
+
+        <!-- ══════════ OVERVIEW TAB ══════════ -->
+        <div id="unit_1_overview" class="tab active">
+
+          <div class="section-block">
+            <h3 class="section-title">هدف الوحدة</h3>
+            <p class="objective-text">تُركز هذه الوحدة على استكشاف مزايا استخدام الألياف البصرية في أنظمة الاتصالات، مع شرح تفصيلي للنطاق الترددي العالي، الأمان، غياب التداخل، والتكلفة الاقتصادية. يتمكن المتدرب من تقييم الفوائد العملية والاقتصادية لاستخدام الألياف في الشبكات الحديثة، مما يدعم اتخاذ قرارات تصميمية وتقنية محسوبة.</p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">المهارات المكتسبة</h3>
+            <div class="skills-grid">
+              <span class="skill-badge">تحليل النطاق الترددي للألياف البصرية</span><span class="skill-badge">تقييم أمان الاتصالات عبر الألياف البصرية</span><span class="skill-badge">تمييز أسباب غياب التداخل الكهرومغناطيسي</span><span class="skill-badge">تحليل الجوانب الاقتصادية لاستخدام الألياف</span><span class="skill-badge">تقديم مشورة تقنية مبنية على مزايا الألياف</span>
+            </div>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">وصف الوحدة</h3>
+            <p>تشرح هذه الوحدة مزايا الألياف البصرية في الاتصالات، تشمل زيادة النطاق الترددي، الحماية الأمنية الأفضل، القضاء على التداخل الكهرومغناطيسي، وتحليل التكلفة الاقتصادية مقابل الوسائط التقليدية.</p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">الموضوعات ومخرجات التعلم</h3>
+            <div class="topics-container">
+              
+        <div class="topic-block">
+          <div class="topic-name">النطاق الترددي؛ الأمان؛ عدم وجود تداخل؛ التكلفة.</div>
+          <ul class="topic-outcomes"><li>يشرح أهمية النطاق الترددي في أنظمة الألياف البصرية</li><li>يُوضح كيف ترتفع مستويات الأمان في الاتصالات البصرية</li><li>يُبرز أسباب غياب التداخل الكهرومغناطيسي في الألياف</li><li>يُقيّم التكلفة الاقتصادية للألياف مقارنة بالوسائط التقليدية</li></ul>
+        </div>
+        
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ══════════ CONTENT TAB ══════════ -->
+        <div id="unit_1_content" class="tab">
+
+          <div class="section-block">
+            <h3 class="section-title">التمهيد</h3>
+            <p class="intro-text"></p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">الموضوعات المتناولة</h3>
+            <ul class="expanded-topics-list">
+              
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- ══════════ TRAINER TAB ══════════ -->
+        <div id="unit_1_trainer" class="tab">
+
+          <button class="trainer-toggle" onclick="toggleTrainer(this)">
+            إظهار / إخفاء دليل المدرب
+          </button>
+
+          <div class="trainer" style="display:none">
+
+            <div class="trainer-section">
+              <p class="trainer-label">تعليمات المدرب</p>
+              <p>عزيزي المدرب
+تركّز هذه الوحدة على تمكين المتدربين من التعرف على المزايا الفريدة لأنظمة الألياف البصرية مقارنة بالوسائط التقليدية، مثل السعة الترددية العالية، الأمان، وعدم وجود تداخل، والتكلفة.
+اعتمد في تنفيذها على العروض التوضيحية والنقاشات الجماعية التي تبرز كيف تؤثر هذه المزايا على تحسين جودة الخدمات المقدمة في قطاع الاتصالات.
+رشد المتدربين إلى تحليل الحالات العملية وتقييم الفوائد الاقتصادية لاستخدام الألياف البصرية.
+تذكّر أن تشجع على الحوار والنقاش وتوظيف دراسات حالة واقعية تعكس دور الألياف في تعزيز البنية التحتية الرقمية.</p>
+            </div>
+
+            
+
+            <div class="trainer-section">
+              <p class="trainer-label">أسئلة التقييم</p>
+              <ol class="eval-questions">
+                <li>لماذا يعد النطاق الترددي العالي ميزة أساسية للألياف البصرية في الاتصالات؟</li><li>كيف تساهم الألياف البصرية في تعزيز أمان نقل البيانات مقارنة بالوسائط الأخرى؟</li><li>اشرح أسباب عدم وجود التداخل الكهرومغناطيسي في الألياف البصرية وأثر ذلك على جودة الاتصال.</li><li>ما هي العوامل الاقتصادية التي تجعل استخدام الألياف البصرية مجديًا مقارنة بالوسائط التقليدية؟</li><li>كيف يمكن للمزايا التقنية والاقتصادية للألياف أن تدعم أهداف رؤية 2030 في مجال تقنية المعلومات؟</li>
+              </ol>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="unit">
+
+      <!-- Accordion Header -->
+      <div class="unit-header" onclick="toggleUnit(this)">
+        <h2>أنماط التشغيل</h2>
+        <span class="chevron">▼</span>
+      </div>
+
+      <!-- Accordion Content -->
+      <div class="unit-content">
+
+        <!-- Tabs -->
+        <div class="tabs">
+          <button class="active" onclick="openTab(this,'unit_2_overview')">نظرة عامة</button>
+          <button onclick="openTab(this,'unit_2_content')">مقدمة</button>
+          <button onclick="openTab(this,'unit_2_trainer')">دليل المدرب</button>
+        </div>
+
+        <!-- ══════════ OVERVIEW TAB ══════════ -->
+        <div id="unit_2_overview" class="tab active">
+
+          <div class="section-block">
+            <h3 class="section-title">هدف الوحدة</h3>
+            <p class="objective-text">تقدم هذه الوحدة تحليلاً شاملاً لأنماط تشغيل الألياف البصرية المتعددة ووضع واحد، مع دراسة مفصلة لمؤشرات الانكسار، المواد المستخدمة، واختيار الأطوال الموجية المناسبة. يكتسب المتدرب القدرة على تقييم تأثير هذه العوامل على خصائص الأداء والاختيار الأمثل لتصميم الأنظمة البصرية.</p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">المهارات المكتسبة</h3>
+            <div class="skills-grid">
+              <span class="skill-badge">تمييز أنماط التشغيل المختلفة للألياف</span><span class="skill-badge">تحليل مؤشر السلم ومؤشر التدرج للانكسار</span><span class="skill-badge">تقييم الخصائص الفيزيائية لمؤشر الانكسار</span><span class="skill-badge">معرفة المواد الشائعة في صناعة الألياف</span><span class="skill-badge">اختيار الطول الموجي المناسب للتطبيقات المختلفة</span>
+            </div>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">وصف الوحدة</h3>
+            <p>تتناول الوحدة مفهوم أنماط تشغيل الألياف البصرية وأنواعها، تفصيل لمؤشرات الانكسار وأثرها على الأداء، ودراسة المواد المستخدمة مع تحديد الطول الموجي الأمثل للاستخدامات التقنية.</p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">الموضوعات ومخرجات التعلم</h3>
+            <div class="topics-container">
+              
+        <div class="topic-block">
+          <div class="topic-name">متعدد الأوضاع (مؤشر السلم ومؤشر التدرج)؛ وضع واحد (وضع واحد)؛ ملامح مؤشر الانكسار لألياف البصرية؛ المواد المستخدمة لتصنيع ألياف البصرية؛ اختيار الطول الموجي.</div>
+          <ul class="topic-outcomes"><li>يشرح مفهوم متعدد الأوضاع ووضع واحد في الألياف البصرية</li><li>يميّز بين مؤشر السلم ومؤشر التدرج للانكسار</li><li>يصف ملامح مؤشر الانكسار وتأثيرها على الانتقال الضوئي</li><li>يعدد المواد المستخدمة في تصنيع الألياف البصرية</li><li>يُحدد الطول الموجي الأمثل وفقًا للمتطلبات التقنية</li></ul>
+        </div>
+        
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ══════════ CONTENT TAB ══════════ -->
+        <div id="unit_2_content" class="tab">
+
+          <div class="section-block">
+            <h3 class="section-title">التمهيد</h3>
+            <p class="intro-text"></p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">الموضوعات المتناولة</h3>
+            <ul class="expanded-topics-list">
+              
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- ══════════ TRAINER TAB ══════════ -->
+        <div id="unit_2_trainer" class="tab">
+
+          <button class="trainer-toggle" onclick="toggleTrainer(this)">
+            إظهار / إخفاء دليل المدرب
+          </button>
+
+          <div class="trainer" style="display:none">
+
+            <div class="trainer-section">
+              <p class="trainer-label">تعليمات المدرب</p>
+              <p>عزيزي المدرب
+تركز هذه الوحدة على شرح وتحليل أنماط التشغيل المختلفة للألياف البصرية (متعدد الأوضاع ووضع واحد)، مع توضيح خصائص مؤشر الانكسار والمواد المستخدمة وتأثيرها على أداء النظام.
+نفّذ الوحدة باستخدام شروح نظرية مدعومة بمخططات توضيحية، وتمارين تطبيقية على اختيار الطول الموجي المناسب لأنماط التشغيل المختلفة.
+شجع المتدربين على مناقشة مزايا وعيوب كل نمط، وربطها بحالات عملية في مجال الاتصالات.
+تذكّر أن دورك هو تسهيل الفهم الفني والتقني بأسلوب مبسط ومترابط مع التطبيق العملي.</p>
+            </div>
+
+            
+
+            <div class="trainer-section">
+              <p class="trainer-label">أسئلة التقييم</p>
+              <ol class="eval-questions">
+                <li>ما الفرق الأساسي بين نمطي التشغيل متعدد الأوضاع ووضع واحد في الألياف البصرية؟</li><li>كيف يؤثر مؤشر السلم والتدرج في الانكسار على خصائص الألياف البصرية؟</li><li>اشرح أهمية اختيار المواد المناسبة في تصنيع الألياف البصرية وتأثير ذلك على الأداء.</li><li>كيف تحدد الطول الموجي المناسب لاستخدامه في نظام الاتصالات بالألياف؟</li><li>ما تأثير أنماط التشغيل على جودة وسرعة نقل البيانات في النظام؟</li>
+              </ol>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="unit">
+
+      <!-- Accordion Header -->
+      <div class="unit-header" onclick="toggleUnit(this)">
+        <h2>خصائص مصادر الضوء</h2>
+        <span class="chevron">▼</span>
+      </div>
+
+      <!-- Accordion Content -->
+      <div class="unit-content">
+
+        <!-- Tabs -->
+        <div class="tabs">
+          <button class="active" onclick="openTab(this,'unit_3_overview')">نظرة عامة</button>
+          <button onclick="openTab(this,'unit_3_content')">مقدمة</button>
+          <button onclick="openTab(this,'unit_3_trainer')">دليل المدرب</button>
+        </div>
+
+        <!-- ══════════ OVERVIEW TAB ══════════ -->
+        <div id="unit_3_overview" class="tab active">
+
+          <div class="section-block">
+            <h3 class="section-title">هدف الوحدة</h3>
+            <p class="objective-text">تستعرض هذه الوحدة المتطلبات التقنية الأساسية لمصادر الضوء في أنظمة الألياف، وشرح مبادئ الانبعاث العفوي والمحفز، إضافةً إلى حسابات تحديد طول الموجة المنبعثة والخصائص التشغيلية والزمنية. يطور المتدرب مهارات تحليل الأداء الفني لمصادر الضوء وضبطها بما يتوافق مع خصائص النظام.</p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">المهارات المكتسبة</h3>
+            <div class="skills-grid">
+              <span class="skill-badge">تحديد متطلبات قدرة الإخراج والكفاءة في مصادر الضوء</span><span class="skill-badge">شرح مبادئ الانبعاث العفوي والمحفز</span><span class="skill-badge">حساب طول الموجة المنبعثة بناءً على المعطيات الفيزيائية</span><span class="skill-badge">تقييم خصائص التشغيل مثل عرض الخط ووقت الاستجابة</span><span class="skill-badge">تحليل استقرار مصادر الضوء في التشغيل</span>
+            </div>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">وصف الوحدة</h3>
+            <p>تركز الوحدة على الخصائص الفنية لمصادر الضوء في أنظمة الاتصالات بالألياف، مبادئ الانبعاث، الحسابات الفيزيائية المتعلقة بالطول الموجي، والخصائص المؤثرة على الأداء والتشغيل.</p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">الموضوعات ومخرجات التعلم</h3>
+            <div class="topics-container">
+              
+        <div class="topic-block">
+          <div class="topic-name">المتطلبات من حيث قدرة الإخراج، الكفاءة، التوصيل، الطول الموجي. التشغيل، عرض الخط، وقت الاستجابة، الاستقرار، مبادئ الانبعاث (العفوي، المحفز)؛ حسابات لتحديد طول الموجة المنبعثة (بناءً على درجة الحرارة التشغيلية وفجوة النطاق الطاقوي لمادة الشبه موصل)</div>
+          <ul class="topic-outcomes"><li>يشرح متطلبات قدرة الإخراج والكفاءة لمصادر الضوء</li><li>يُميز بين الانبعاث العفوي والانبعاث المحفز</li><li>يُجري حسابات لتحديد الطول الموجي المنبعث</li><li>يُبين خصائص عرض الخط ووقت الاستجابة</li><li>يُقيم استقرار مصدر الضوء أثناء التشغيل</li></ul>
+        </div>
+        
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ══════════ CONTENT TAB ══════════ -->
+        <div id="unit_3_content" class="tab">
+
+          <div class="section-block">
+            <h3 class="section-title">التمهيد</h3>
+            <p class="intro-text"></p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">الموضوعات المتناولة</h3>
+            <ul class="expanded-topics-list">
+              
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- ══════════ TRAINER TAB ══════════ -->
+        <div id="unit_3_trainer" class="tab">
+
+          <button class="trainer-toggle" onclick="toggleTrainer(this)">
+            إظهار / إخفاء دليل المدرب
+          </button>
+
+          <div class="trainer" style="display:none">
+
+            <div class="trainer-section">
+              <p class="trainer-label">تعليمات المدرب</p>
+              <p>عزيزي المدرب
+تهدف هذه الوحدة إلى تعريف المتدربين بخصائص ومواصفات مصادر الضوء المستخدمة في أنظمة الألياف البصرية، مثل قدرة الإخراج، الكفاءة، عرض الخط، وقت الاستجابة، والاستقرار.
+نفّذ الوحدة باستخدام عرض نظري مدعم بحالات عملية وحسابات تطبيقية لتحديد الأطوال الموجية بناءً على الظروف التشغيلية.
+حث المتدربين على التفكير النقدي لفهم كيف تؤثر هذه الخصائص على جودة وكفاءة الأنظمة البصرية.
+تذكّر أن تربط بين المبادئ النظرية والتطبيقات العملية في مجال هندسة الاتصالات.</p>
+            </div>
+
+            
+
+            <div class="trainer-section">
+              <p class="trainer-label">أسئلة التقييم</p>
+              <ol class="eval-questions">
+                <li>ما هي المتطلبات الأساسية لمصدر الضوء في أنظمة الألياف البصرية؟</li><li>اشرح الفرق بين الانبعاث العفوي والانبعاث المحفز في مصادر الضوء.</li><li>كيف يمكن حساب طول الموجة المنبعثة بناءً على درجة حرارة التشغيل وفجوة النطاق الطاقوي؟</li><li>لماذا تعتبر خصائص مثل عرض الخط ووقت الاستجابة مهمة في اختيار مصدر الضوء؟</li><li>كيف يؤثر استقرار مصدر الضوء على جودة الاتصال في النظام؟</li>
+              </ol>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="unit">
+
+      <!-- Accordion Header -->
+      <div class="unit-header" onclick="toggleUnit(this)">
+        <h2>ثنائيات الضوء المنبعثة</h2>
+        <span class="chevron">▼</span>
+      </div>
+
+      <!-- Accordion Content -->
+      <div class="unit-content">
+
+        <!-- Tabs -->
+        <div class="tabs">
+          <button class="active" onclick="openTab(this,'unit_4_overview')">نظرة عامة</button>
+          <button onclick="openTab(this,'unit_4_content')">مقدمة</button>
+          <button onclick="openTab(this,'unit_4_trainer')">دليل المدرب</button>
+        </div>
+
+        <!-- ══════════ OVERVIEW TAB ══════════ -->
+        <div id="unit_4_overview" class="tab active">
+
+          <div class="section-block">
+            <h3 class="section-title">هدف الوحدة</h3>
+            <p class="objective-text">تُعرّف هذه الوحدة على مواد وتقنيات تصنيع ثنائيات الضوء المنبعثة، وهندسة بنية المجسات المختلفة، مع دراسة الخصائص الفنية مثل عرض الخط، زاوية الانبعاث، الزمنية، النطاق الترددي، كفاءة التوصيل، والاستقرار، وأيضاً تقييم الاعتبارات الاقتصادية لاختيار المكونات الأنسب. يمكّن المتدرب من التمييز بين أنواع الثنائيات حسب الأداء والتكلفة.</p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">المهارات المكتسبة</h3>
+            <div class="skills-grid">
+              <span class="skill-badge">تحليل مواد الشبه موصل المستخدمة في الثنائيات</span><span class="skill-badge">تمييز بين بنى ثنائيات الضوء المختلفة</span><span class="skill-badge">تقييم الخصائص الفنية للثنائيات مثل عرض الخط وزاوية الانبعاث</span><span class="skill-badge">تحليل كفاءة التوصيل واستقرار الأجهزة</span><span class="skill-badge">تقييم التكلفة مقابل الأداء للثنائيات البصرية</span>
+            </div>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">وصف الوحدة</h3>
+            <p>تشرح الوحدة مكونات ثنائيات الضوء المنبعثة، بدءاً من المواد والهيكلية، ثم الخصائص التشغيلية والفنية، وأثرها على الأداء العام، مع تحليل الجوانب الاقتصادية للاختيار المناسب.</p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">الموضوعات ومخرجات التعلم</h3>
+            <div class="topics-container">
+              
+        <div class="topic-block">
+          <div class="topic-name">مواد الشبه موصل؛ البنية (بسيطة، منبعثة من السطح، منبعثة من الحافة)؛ الخصائص، مثل عرض الخط، زاوية الانبعاث، وقت الاستجابة، الطول الموجي، النطاق الترددي، قدرة الإخراج، نمط الانبعاث، كفاءة التوصيل، الاستقرار، التكلفة</div>
+          <ul class="topic-outcomes"><li>يصف أنواع مواد الشبه موصل المستخدمة في الثنائيات</li><li>يفسر بنى ثنائيات الضوء المختلفة وأثرها على الأداء</li><li>يُقيم خصائص عرض الخط وزاوية الانبعاث</li><li>يُسجل وقت الاستجابة للنماذج المختلفة</li><li>يُوازن بين كفاءة التوصيل والتكلفة في الاختيار</li></ul>
+        </div>
+        
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ══════════ CONTENT TAB ══════════ -->
+        <div id="unit_4_content" class="tab">
+
+          <div class="section-block">
+            <h3 class="section-title">التمهيد</h3>
+            <p class="intro-text"></p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">الموضوعات المتناولة</h3>
+            <ul class="expanded-topics-list">
+              
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- ══════════ TRAINER TAB ══════════ -->
+        <div id="unit_4_trainer" class="tab">
+
+          <button class="trainer-toggle" onclick="toggleTrainer(this)">
+            إظهار / إخفاء دليل المدرب
+          </button>
+
+          <div class="trainer" style="display:none">
+
+            <div class="trainer-section">
+              <p class="trainer-label">تعليمات المدرب</p>
+              <p>عزيزي المدرب
+تتناول هذه الوحدة التعرف على ثنائيات الضوء المنبعثة وأهميتها في أنظمة الاتصالات الضوئية، مع دراسة البنية، الخصائص، وأداء الأجهزة التقنية المختلفة.
+نفّذ الوحدة بشرح تفصيلي مدعوم برسومات توضيحية لمواد الشبه موصل وتقنيات التصنيع، مع تحليل الخصائص التقنية والاقتصادية لاختيار المكونات المناسبة.
+شجع المتدربين على مقارنة خصائص الأداء المختلفة ومدى تأثيرها على كفاءة واستقرار النظام.
+تذكّر أن تسهل النقاشات العملية حول اعتبارات التكلفة مقابل الأداء في واقع سوق العمل السعودي.</p>
+            </div>
+
+            
+
+            <div class="trainer-section">
+              <p class="trainer-label">أسئلة التقييم</p>
+              <ol class="eval-questions">
+                <li>ما دور مواد الشبه موصل في تصميم ثنائيات الضوء المنبعثة؟</li><li>اشرح الفروق بين البنية البسيطة والبنية المنبعثة من السطح والمنبعثة من الحافة.</li><li>كيف تؤثر خصائص مثل عرض الخط وزاوية الانبعاث على أداء الثنائيات؟</li><li>ما أهمية كفاءة التوصيل والاستقرار في اختيار الثنائيات المناسبة؟</li><li>كيف يتم تقييم الاعتبارات الاقتصادية عند اختيار مكونات ثنائيات الضوء؟</li>
+              </ol>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="unit">
+
+      <!-- Accordion Header -->
+      <div class="unit-header" onclick="toggleUnit(this)">
+        <h2>ثنائيات الليزر شبه الموصل</h2>
+        <span class="chevron">▼</span>
+      </div>
+
+      <!-- Accordion Content -->
+      <div class="unit-content">
+
+        <!-- Tabs -->
+        <div class="tabs">
+          <button class="active" onclick="openTab(this,'unit_5_overview')">نظرة عامة</button>
+          <button onclick="openTab(this,'unit_5_content')">مقدمة</button>
+          <button onclick="openTab(this,'unit_5_trainer')">دليل المدرب</button>
+        </div>
+
+        <!-- ══════════ OVERVIEW TAB ══════════ -->
+        <div id="unit_5_overview" class="tab active">
+
+          <div class="section-block">
+            <h3 class="section-title">هدف الوحدة</h3>
+            <p class="objective-text">تقدم الوحدة دراسة متعمقة للبنى المختلفة لثنائيات الليزر شبه الموصل، مع شرح مفصل للخصائص التقنية وأثرها على الأداء، بالإضافة إلى دور إلكترونيات التحكم وتنظيم درجة الحرارة للحفاظ على الاستقرار والكفاءة العليين. يتمكن المتدرب من تقييم وموازنة الأداء مقابل التكلفة في مجال ثنائيات الليزر.</p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">المهارات المكتسبة</h3>
+            <div class="skills-grid">
+              <span class="skill-badge">مقارنة بين بنى ثنائيات الليزر المختلفة</span><span class="skill-badge">تحليل الخصائص الفنية مثل عرض الخط والطول الموجي</span><span class="skill-badge">تفصيل دور إلكترونيات التحكم ودرجة الحرارة</span><span class="skill-badge">تقييم كفاءة التوصيل واستقرار الجهاز</span><span class="skill-badge">موازنة الأداء والتكلفة لاختيار المكونات</span>
+            </div>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">وصف الوحدة</h3>
+            <p>تدرس الوحدة بنى ثنائيات الليزر شبه الموصل، الخصائص التقنية، التحكم الإلكتروني، والتنظيم الحراري لضمان الأداء المستقر، مع تحليل الاعتبارات الاقتصادية وتطبيقاتها في الاتصالات البصرية.</p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">الموضوعات ومخرجات التعلم</h3>
+            <div class="topics-container">
+              
+        <div class="topic-block">
+          <div class="topic-name">بنية بسيطة، بنية هيتر (متعددة الطبقات)؛ الخصائص، مثل عرض الخط، زاوية الانبعاث، وقت الاستجابة، الطول الموجي، النطاق الترددي، قدرة الإخراج، نمط الانبعاث، كفاءة التوصيل، الاستقرار، التكلفة؛ إلكترونيات التحكم والتحكم في درجة الحرارة.</div>
+          <ul class="topic-outcomes"><li>يشرح بنى ثنائيات الليزر البسيطة والمتعددة الطبقات</li><li>يُقيّم تأثير عرض الخط وزاوية الانبعاث على الأداء</li><li>يصف وظيفة إلكترونيات التحكم وتنظيم الحرارة</li><li>يُقيس استقرار الجهاز وكفاءة التوصيل</li><li>يُجري مقارنة بين التكلفة والأداء لاختيار الأنسب</li></ul>
+        </div>
+        
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ══════════ CONTENT TAB ══════════ -->
+        <div id="unit_5_content" class="tab">
+
+          <div class="section-block">
+            <h3 class="section-title">التمهيد</h3>
+            <p class="intro-text"></p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">الموضوعات المتناولة</h3>
+            <ul class="expanded-topics-list">
+              
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- ══════════ TRAINER TAB ══════════ -->
+        <div id="unit_5_trainer" class="tab">
+
+          <button class="trainer-toggle" onclick="toggleTrainer(this)">
+            إظهار / إخفاء دليل المدرب
+          </button>
+
+          <div class="trainer" style="display:none">
+
+            <div class="trainer-section">
+              <p class="trainer-label">تعليمات المدرب</p>
+              <p>عزيزي المدرب
+تسلط هذه الوحدة الضوء على ثنائيات الليزر شبه الموصلة، دراسة بنيتها المختلفة وخصائصها التقنية مثل عرض الخط، زاوية الانبعاث، الطول الموجي، والتحكم الإلكتروني.
+اعتمد في التنفيذ على شرح مفصل وتوضيحي، مع تقديم دراسات حالة تطبيقية على التحكم في درجة الحرارة وأثره على استقرار الأداء.
+حفّز المتدربين على النقاش حول أهمية الموازنة بين الكفاءة، الاستقرار، والتكلفة في اختيار هذه الأجهزة.
+تذكّر أن تربط المعرفة النظرية بالتطبيقات العملية الواقعية في نظم الاتصالات الحديثة.</p>
+            </div>
+
+            
+
+            <div class="trainer-section">
+              <p class="trainer-label">أسئلة التقييم</p>
+              <ol class="eval-questions">
+                <li>قارن بين البنية البسيطة والبنية الهيتر متعددة الطبقات لثنائيات الليزر.</li><li>كيف تؤثر خصائص مثل عرض الخط وزاوية الانبعاث على كفاءة الجهاز وأداءه؟</li><li>ما دور إلكترونيات التحكم والتحكم في درجة الحرارة في تحسين استقرار الجهاز؟</li><li>كيف يمكن تقييم كفاءة التوصيل مقارنة بالتكلفة في اختيار ثنائي الليزر؟</li><li>لماذا يعتبر التحكم في درجة الحرارة أمراً حيوياً لثبات أداء ثنائيات الليزر؟</li>
+              </ol>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="unit">
+
+      <!-- Accordion Header -->
+      <div class="unit-header" onclick="toggleUnit(this)">
+        <h2>كاشفات الضوء</h2>
+        <span class="chevron">▼</span>
+      </div>
+
+      <!-- Accordion Content -->
+      <div class="unit-content">
+
+        <!-- Tabs -->
+        <div class="tabs">
+          <button class="active" onclick="openTab(this,'unit_6_overview')">نظرة عامة</button>
+          <button onclick="openTab(this,'unit_6_content')">مقدمة</button>
+          <button onclick="openTab(this,'unit_6_trainer')">دليل المدرب</button>
+        </div>
+
+        <!-- ══════════ OVERVIEW TAB ══════════ -->
+        <div id="unit_6_overview" class="tab active">
+
+          <div class="section-block">
+            <h3 class="section-title">هدف الوحدة</h3>
+            <p class="objective-text">توضح هذه الوحدة مبادئ عمل أجهزة الكشف الضوئية المستخدمة في أنظمة الألياف البصرية، مع دراسة منهجية لخصائص الحساسية، أوقات الاستجابة، الخطية، والضوضاء. تشمل الدراسة أنواع مختلفة من الديودات الضوئية مثل PN وPIN وتقنيات التكبير، إلى جانب إجراء الحسابات لتحديد استجابة الكاشفات. يكتسب المتدرب مهارات فنية متقدمة في تصميم واختيار كاشفات الضوء.</p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">المهارات المكتسبة</h3>
+            <div class="skills-grid">
+              <span class="skill-badge">تحليل خصائص الحساسية والضوضاء في كاشفات الضوء</span><span class="skill-badge">تفسير مبادئ توليد الإلكترونات والثقوب في أشباه الموصلات</span><span class="skill-badge">تمييز أنواع الديودات الضوئية PN وPIN والمكبرات</span><span class="skill-badge">تطبيق مبادئ تصميم وبناء الكاشفات الضوئية</span><span class="skill-badge">إجراء حسابات تحديد استجابة الكاشفات بدقة</span>
+            </div>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">وصف الوحدة</h3>
+            <p>تتناول الوحدة عمل كاشفات الضوء في أنظمة الاتصالات بالألياف، الخصائص التقنية، المبادئ الفيزيائية الأساسية للحدود الطاقوية، وأنواع الديودات المتعددة مع تعليمات عملية لإجراء الحسابات الفنية.</p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">الموضوعات ومخرجات التعلم</h3>
+            <div class="topics-container">
+              
+        <div class="topic-block">
+          <div class="topic-name">منطليات الكاشفات الضوئية، مثل الحساسية، وأوقات الاستجابة، والخطية، والضوضاء؛ مبادئ كشف الضوء، مثل تكوين الفجوة الطاقوية لإنتاج الإلكترونات والثقوب، والاستجابة الطيفية؛ عمل وخصائص الديودات الضوئية، مثل الاتصال (PN)، والاتصال (PIN)، والمكبر بتقنية (PIN)، ومصادر التيار المضاعفة بالفوتودايود (APD)؛ تصميم وبناء الديودات الضوئية، مثل الاتصال (PN)، والاتصال (PIN)، والمكبر بتقنية (PIN)، ومصادر التيار المضاعفة بالفوتودايود (APD)؛ حسابات لتحديد قيم استجابة الكاشفات الضوئية.</div>
+          <ul class="topic-outcomes"><li>يبين خصائص الحساسية وأوقات الاستجابة والخطية والضوضاء</li><li>يفسر كيفية تكوين الإلكترونات والثقوب في مواد الكشف</li><li>يصف أنواع الديودات الضوئية PN وPIN والمكبرات</li><li>يُوضح تصميم وبناء الديودات الضوئية المختلفة</li><li>يُجري حسابات دقيقة لاستجابة الكاشفات الضوئية</li></ul>
+        </div>
+        
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ══════════ CONTENT TAB ══════════ -->
+        <div id="unit_6_content" class="tab">
+
+          <div class="section-block">
+            <h3 class="section-title">التمهيد</h3>
+            <p class="intro-text"></p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">الموضوعات المتناولة</h3>
+            <ul class="expanded-topics-list">
+              
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- ══════════ TRAINER TAB ══════════ -->
+        <div id="unit_6_trainer" class="tab">
+
+          <button class="trainer-toggle" onclick="toggleTrainer(this)">
+            إظهار / إخفاء دليل المدرب
+          </button>
+
+          <div class="trainer" style="display:none">
+
+            <div class="trainer-section">
+              <p class="trainer-label">تعليمات المدرب</p>
+              <p>عزيزي المدرب
+تركز هذه الوحدة على شرح أجهزة الكشف الضوئية المستخدمة في أنظمة الألياف، من حيث الخصائص الفنية، مبادئ الكشف، وتصميم الديودات المختلفة.
+اعتمد في التنفيذ على أسلوب النظري المدمج بتجارب افتراضية تمكّن المتدربين من فهم الحساسية وأوقات الاستجابة وخطية الأداء.
+شجع المشاركين على تمارين تطبيقية لحساب استجابة الكاشفات، مع توضيح الفروقات بين أنواع الديودات المستخدمة.
+تذكّر أن تدعم الفهم النظري بالحالات العملية والمقارنة بين تقنيات الكشف الضوئي.</p>
+            </div>
+
+            
+
+            <div class="trainer-section">
+              <p class="trainer-label">أسئلة التقييم</p>
+              <ol class="eval-questions">
+                <li>ما هي الخصائص الأساسية التي تميز كواشف الضوء المستخدمة في الألياف البصرية؟</li><li>اشرح كيفية تكوين الفجوة الطاقوية ودورها في كشف الضوء.</li><li>ما الفرق بين ديودات الاتصال (PN) و(PIN) وأجهزة APD؟</li><li>كيف يؤثر التصميم الهندسي للديودات الضوئية على أدائها؟</li><li>كيف تتم حسابات استجابة الكاشفات الضوئية؟ قدم مثالاً.</li><li>ما أهمية أوقات الاستجابة والخطية في تقييم أداء الكاشف؟</li>
+              </ol>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="unit">
+
+      <!-- Accordion Header -->
+      <div class="unit-header" onclick="toggleUnit(this)">
+        <h2>مستقبلات الضوء</h2>
+        <span class="chevron">▼</span>
+      </div>
+
+      <!-- Accordion Content -->
+      <div class="unit-content">
+
+        <!-- Tabs -->
+        <div class="tabs">
+          <button class="active" onclick="openTab(this,'unit_7_overview')">نظرة عامة</button>
+          <button onclick="openTab(this,'unit_7_content')">مقدمة</button>
+          <button onclick="openTab(this,'unit_7_trainer')">دليل المدرب</button>
+        </div>
+
+        <!-- ══════════ OVERVIEW TAB ══════════ -->
+        <div id="unit_7_overview" class="tab active">
+
+          <div class="section-block">
+            <h3 class="section-title">هدف الوحدة</h3>
+            <p class="objective-text">تركز هذه الوحدة على شرح أنواع المستقبلات الضوئية مثل الدوانر والكاشفات المقاومية والتكاملية ومصادر التيار المضاعف بالفوتودايود (APD)، بالإضافة إلى تقييم خصائص الأداء مثل المقاومة، القابلية للكشف، الضوضاء، والنطاق الترددي. يمكّن المتدرب من اختيار المستقبلات المناسبة لتطبيقات مختلفة وتحليل أداء الأنظمة الضوئية.</p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">المهارات المكتسبة</h3>
+            <div class="skills-grid">
+              <span class="skill-badge">تمييز أنواع المستقبلات الضوئية المختلفة</span><span class="skill-badge">تحليل خصائص الأداء الفنية للمستقبلات</span><span class="skill-badge">تفسير وظيفة APD ومزاياها</span><span class="skill-badge">تقييم المقاومة والقابلية للكشف في المستقبلات</span><span class="skill-badge">تقدير نسبة الضوضاء والنطاق الترددي في النظام</span>
+            </div>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">وصف الوحدة</h3>
+            <p>تتضمن الوحدة دراسة شاملة لمستقبلات الضوء في أنظمة الاتصالات عبر الألياف، مع شرح تفصيلي للخصائص التقنية، أنواع المستقبلات، وكيفية عمل المصادر التي تقوم بتعزيز الإشارة مثل APD.</p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">الموضوعات ومخرجات التعلم</h3>
+            <div class="topics-container">
+              
+        <div class="topic-block">
+          <div class="topic-name">الدوانر الكاشفة؛ المستقبلات، مثل مستقبلات التحويل المقاوم، والتكامل، ومصادر التيار المضاعفة بالفوتودايود (APD)، والمقاومة العالية، والقابلية للكشف، والضوضاء، والنطاق الترددي.</div>
+          <ul class="topic-outcomes"><li>يُعرّف الدوانر الكاشفة وأنواع المستقبلات المختلفة</li><li>يُقيم خصائص المقاومة والقابلية للكشف في المستقبلات</li><li>يُبين مستويات الضوضاء وتأثيرها على الإشارة</li><li>يشرح وظائف مصادر التيار المضاعف (APD)</li><li>يُحدد النطاق الترددي المناسب لكل نوع مستقبل</li></ul>
+        </div>
+        
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ══════════ CONTENT TAB ══════════ -->
+        <div id="unit_7_content" class="tab">
+
+          <div class="section-block">
+            <h3 class="section-title">التمهيد</h3>
+            <p class="intro-text"></p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">الموضوعات المتناولة</h3>
+            <ul class="expanded-topics-list">
+              
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- ══════════ TRAINER TAB ══════════ -->
+        <div id="unit_7_trainer" class="tab">
+
+          <button class="trainer-toggle" onclick="toggleTrainer(this)">
+            إظهار / إخفاء دليل المدرب
+          </button>
+
+          <div class="trainer" style="display:none">
+
+            <div class="trainer-section">
+              <p class="trainer-label">تعليمات المدرب</p>
+              <p>عزيزي المدرب
+تعرض هذه الوحدة أنواع مستقبلات الضوء المختلفة في أنظمة الألياف، مع شرح خصائصها الفنية مثل المقاومة، القابلية للكشف، الضوضاء، والنطاق الترددي.
+اعتمد في شرحك على مقارنة عملية بين مختلف أنواع المستقبلات، والتركيز على دور APD في تحسين جودة الإشارة.
+شجع المشاركين على تحليل حالات تطبيقية لفهم تأثير خصائص المستقبلات على جودة الاتصال.
+تذكّر أن تجعل الشرح تفاعلياً بتوظيف أسئلة تحفيزية ومناقشة لخيارات التصميم الهندسي.</p>
+            </div>
+
+            
+
+            <div class="trainer-section">
+              <p class="trainer-label">أسئلة التقييم</p>
+              <ol class="eval-questions">
+                <li>ما هي أنواع مستقبلات الضوء المستخدمة في أنظمة الاتصالات بالألياف؟</li><li>اشرح دور الدوانر الكاشفة في استقبال الإشارة الضوئية.</li><li>كيف تؤثر المقاومة والقابلية للكشف على أداء المستقبل؟</li><li>ما هي أهمية مستويات الضوضاء والنطاق الترددي في تصميم المستقبلات؟</li><li>كيف يساهم جهاز APD في تحسين جودة الإشارة المستقبلة؟</li>
+              </ol>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="unit">
+
+      <!-- Accordion Header -->
+      <div class="unit-header" onclick="toggleUnit(this)">
+        <h2>المكونات التشغيلية</h2>
+        <span class="chevron">▼</span>
+      </div>
+
+      <!-- Accordion Content -->
+      <div class="unit-content">
+
+        <!-- Tabs -->
+        <div class="tabs">
+          <button class="active" onclick="openTab(this,'unit_8_overview')">نظرة عامة</button>
+          <button onclick="openTab(this,'unit_8_content')">مقدمة</button>
+          <button onclick="openTab(this,'unit_8_trainer')">دليل المدرب</button>
+        </div>
+
+        <!-- ══════════ OVERVIEW TAB ══════════ -->
+        <div id="unit_8_overview" class="tab active">
+
+          <div class="section-block">
+            <h3 class="section-title">هدف الوحدة</h3>
+            <p class="objective-text">تُركّز هذه الوحدة على الإجراءات العملية لتثبيت وتكوين أجهزة الاتصال في شبكات الألياف البصرية، تتضمن تخصيص العناوين، إعدادات العميل المحلي، التكوين والتثبيت الخاص بالخوادم، مع تأكيد على أهمية الاعتبارات الأمنية لحماية البيانات والشبكة. يتعلم المتدرب التخطيط والتنفيذ الفني للتهيئة التشغيلية لهذه الأنظمة.</p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">المهارات المكتسبة</h3>
+            <div class="skills-grid">
+              <span class="skill-badge">تثبيت أجهزة الاتصال بالشبكة الضوئية</span><span class="skill-badge">تكوين عناوين IP للعملاء المحليين</span><span class="skill-badge">إعداد وتثبيت الخوادم في الشبكة</span><span class="skill-badge">تطبيق اعتبارات الأمان في الشبكات</span><span class="skill-badge">مراقبة أداء الأنظمة أثناء التشغيل</span>
+            </div>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">وصف الوحدة</h3>
+            <p>تستعرض الوحدة عملية تثبيت مكونات الشبكة الضوئية وتشغيلها بما يشمل التكوين البرمجي للأجهزة، إدارة العناوين، التثبيت البنيوي للخوادم، مع التركيز على الإجراءات الأمنية اللازمة لضمان تشغيل آمن ومستقر.</p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">الموضوعات ومخرجات التعلم</h3>
+            <div class="topics-container">
+              
+        <div class="topic-block">
+          <div class="topic-name">تثبيت أجهزة الاتصال، تخصيص العناوين، تكوين العميل المحلي، تكوين الخادم، تثبيت الخادم، الاعتبارات الأمنية.</div>
+          <ul class="topic-outcomes"><li>ينفذ تثبيت أجهزة الاتصال بالشبكة الضوئية بدقة</li><li>يوزع العناوين الإلكترونية للعملاء بشكل صحيح</li><li>يُكوّن إعدادات العميل المحلي وفق المعايير</li><li>يُعد تكوينات الخادم ويُثبتها بشكل فعال</li><li>يُطبق إجراءات الأمان لضمان سلامة البيانات</li></ul>
+        </div>
+        
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ══════════ CONTENT TAB ══════════ -->
+        <div id="unit_8_content" class="tab">
+
+          <div class="section-block">
+            <h3 class="section-title">التمهيد</h3>
+            <p class="intro-text"></p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">الموضوعات المتناولة</h3>
+            <ul class="expanded-topics-list">
+              
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- ══════════ TRAINER TAB ══════════ -->
+        <div id="unit_8_trainer" class="tab">
+
+          <button class="trainer-toggle" onclick="toggleTrainer(this)">
+            إظهار / إخفاء دليل المدرب
+          </button>
+
+          <div class="trainer" style="display:none">
+
+            <div class="trainer-section">
+              <p class="trainer-label">تعليمات المدرب</p>
+              <p>عزيزي المدرب
+تهدف هذه الوحدة إلى توضيح كيفية تثبيت أجهزة الاتصال، تخصيص العناوين، وتكوين كل من العميل المحلي والخادم، بالإضافة إلى الاعتبارات الأمنية في نظم الألياف البصرية.
+اعتمد في التنفيذ على دراسات حالة ونمذجة عمليات التثبيت الحقيقية، مع مشاركة المتدربين في تطبيق خطوات التكوين.
+شجّع النقاشات حول أهمية الأمن وتأثيره على موثوقية وكفاءة النظام.
+تذكّر أن تربط المعرفة التقنية بالتطبيق العملي في بيئة العمل السعودية الحديثة.</p>
+            </div>
+
+            
+
+            <div class="trainer-section">
+              <p class="trainer-label">أسئلة التقييم</p>
+              <ol class="eval-questions">
+                <li>ما هي الخطوات الأساسية لتثبيت أجهزة الاتصال في شبكة الألياف البصرية؟</li><li>كيف تتم عملية تخصيص العناوين وتكوين العميل المحلي؟</li><li>اشرح كيفية إعداد وتثبيت الخادم لضمان تشغيل سلس للنظام.</li><li>ما هي الاعتبارات الأمنية الهامة عند تكوين أجهزة الاتصال؟</li><li>كيف تؤثر إعدادات التكوين على جودة وأمان الاتصال بالشبكة؟</li>
+              </ol>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="unit">
+
+      <!-- Accordion Header -->
+      <div class="unit-header" onclick="toggleUnit(this)">
+        <h2>التحقق من التكوين و الاتصال</h2>
+        <span class="chevron">▼</span>
+      </div>
+
+      <!-- Accordion Content -->
+      <div class="unit-content">
+
+        <!-- Tabs -->
+        <div class="tabs">
+          <button class="active" onclick="openTab(this,'unit_9_overview')">نظرة عامة</button>
+          <button onclick="openTab(this,'unit_9_content')">مقدمة</button>
+          <button onclick="openTab(this,'unit_9_trainer')">دليل المدرب</button>
+        </div>
+
+        <!-- ══════════ OVERVIEW TAB ══════════ -->
+        <div id="unit_9_overview" class="tab active">
+
+          <div class="section-block">
+            <h3 class="section-title">هدف الوحدة</h3>
+            <p class="objective-text">تركز هذه الوحدة على مهارات تقييم واختبار اتصال الشبكات الضوئية باستخدام أدوات مثل Ping، Traceroute، SSH، وTelnet. يتم تنمية قدرات المتدرب على تحليل حالة الاتصال، رصد الأداء، وضبط إعدادات الشبكة عن بعد مع ضمان أمان النقل والعمل بكفاءة عالية.</p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">المهارات المكتسبة</h3>
+            <div class="skills-grid">
+              <span class="skill-badge">استخدام أداة Ping لاختبار توافر الشبكة</span><span class="skill-badge">تطبيق تتبع المسار عبر Traceroute بفعالية</span><span class="skill-badge">تنفيذ الوصول الآمن باستخدام SSH</span><span class="skill-badge">استخدام Telnet في إعدادات أجهزة الشبكة</span><span class="skill-badge">تحليل نتائج اختبارات الاتصال لتحسين الأداء</span>
+            </div>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">وصف الوحدة</h3>
+            <p>تتضمن الوحدة تدريباً عملياً على أدوات التحقق من الاتصال والتكوين في الشبكات الضوئية، مع التركيز على تحليل النتائج والقرارات الفنية اللازمة لضمان جودة واستقرار الاتصال.</p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">الموضوعات ومخرجات التعلم</h3>
+            <div class="topics-container">
+              
+        <div class="topic-block">
+          <div class="topic-name">تثبيت وسط اتصال الشبكة (ping)، (ping)، الموسع  تتبع الطريقة  (SSH)، (telnet)، (traceroute)</div>
+          <ul class="topic-outcomes"><li>يستخدم أداة Ping لاختبار توافر الشبكة</li><li>يُجري تتبع المسار باستخدام Traceroute بدقة</li><li>يطبق الاتصال الآمن باستخدام SSH</li><li>يستخدم Telnet في عمليات التكوين الشبكي</li><li>يُحلل نتائج أدوات التحقق لاتخاذ قرارات فنية</li></ul>
+        </div>
+        
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ══════════ CONTENT TAB ══════════ -->
+        <div id="unit_9_content" class="tab">
+
+          <div class="section-block">
+            <h3 class="section-title">التمهيد</h3>
+            <p class="intro-text"></p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-title">الموضوعات المتناولة</h3>
+            <ul class="expanded-topics-list">
+              
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- ══════════ TRAINER TAB ══════════ -->
+        <div id="unit_9_trainer" class="tab">
+
+          <button class="trainer-toggle" onclick="toggleTrainer(this)">
+            إظهار / إخفاء دليل المدرب
+          </button>
+
+          <div class="trainer" style="display:none">
+
+            <div class="trainer-section">
+              <p class="trainer-label">تعليمات المدرب</p>
+              <p>عزيزي المدرب
+تركز هذه الوحدة على تعليم استخدام أدوات التحقق من الاتصال والتكوين مثل Ping، Traceroute، SSH، وTelnet لضمان الأداء السليم لأنظمة الألياف البصرية.
+اعتمد في شرحك على عروض تطبيقية تفاعلية مع محاكاة لأوامر الشبكة المختلفة واستخدام أدوات التتبع.
+شجع المتدربين على تقييم استجابتها وتفسير النتائج لضمان فهم شامل.
+تذكّر أن توجه المتدربين نحو استغلال هذه الأدوات لتحليل وحل مشاكل الاتصال بفعالية.</p>
+            </div>
+
+            
+
+            <div class="trainer-section">
+              <p class="trainer-label">أسئلة التقييم</p>
+              <ol class="eval-questions">
+                <li>كيف يستخدم أمر Ping لاختبار توفر الشبكة والاتصال؟</li><li>اشرح كيف تساعد أداة Traceroute في تتبع مسار الاتصال بين الأجهزة.</li><li>ما هي أهمية استخدام SSH في إدارة الأنظمة عن بعد بطريقة آمنة؟</li><li>كيف يمكن استخدام Telnet في تكوين أجهزة الشبكة؟</li><li>ما الفرق بين استخدام SSH وTelnet من حيث الأمان والوظائف؟</li>
+              </ol>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    
+</main>
+<footer>
+  LMS-Ready • Generated by AI Agent
+</footer>
+<script>
+  function toggleDark() {
+    document.body.classList.toggle("dark");
+  }
+  function toggleUnit(el) {
+    el.parentElement.classList.toggle("open");
+  }
+  function openTab(btn, id) {
+    const parent = btn.closest(".unit-content");
+    parent.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+    parent.querySelectorAll(".tabs button").forEach(b => b.classList.remove("active"));
+    parent.querySelector(`#${id}`).classList.add("active");
+    btn.classList.add("active");
+  }
+  function toggleTrainer(btn) {
+    const trainer = btn.nextElementSibling;
+    trainer.style.display = trainer.style.display === "none" ? "block" : "none";
+  }
+</script>
+</body>
+</html>

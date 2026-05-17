@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>المقرر – رؤية كونتي</title>
+  <link rel="stylesheet" href="assets/css/main.css"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="index.html" class="brand">
+    <div class="brand-logo">🎓</div>
+    <div class="brand-name">
+      رؤية
+      <small>كونتي</small>
+    </div>
+    </a>
+  <div class="nav-right">
+    <a href="index.html" class="btn-back">← المقررات</a>
+  </div>
+</nav>
+
+<!-- PAGE -->
+<div class="page" id="pageContent">
+  <div class="loading-state">
+    <div class="spinner"></div>
+    <p>جار تحميل المقرر...</p>
+  </div>
+</div>
+
+<!-- FULL-SCREEN FILE VIEWER -->
+<div id="fileViewer">
+  <div id="vBar">
+    <div id="vTitle">
+      <span id="vTitleText">عرض الملف</span>
+      <span class="vtag" id="vTag">HTML</span>
+    </div>
+    <div class="v-actions">
+      <button class="vbtn vbtn-dl"    id="vDlBtn"   onclick="triggerDownload()">⬇️ تحميل</button>
+      <button class="vbtn vbtn-close" onclick="closeViewer()">✕ إغلاق</button>
+    </div>
+  </div>
+  <div id="vError">
+    <div class="e-ico">😕</div>
+    <h3>تعذّر فتح الملف</h3>
+    <p>تأكد من وجود الملف على المسار التالي:</p>
+    <code id="vErrPath"></code>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button class="vbtn-retry" onclick="retryViewer()">🔄 إعادة المحاولة</button>
+      <button class="vbtn vbtn-dl" onclick="triggerDownload()">⬇️ تحميل</button>
+    </div>
+  </div>
+  <iframe id="vFrame" title="عارض الملف"></iframe>
+</div>
+
+<script src="assets/js/courses-config.js"></script>
+<script>
+// ══════════════════════════════════════════════
+//  المتغيرات العامة
+// ══════════════════════════════════════════════
+var currentPath = '';
+var folderName  = '';
+var coursePathPrefix = '';  // مثال: courses/أجهزة المختبرات الطبية أو courses/123/اسم المقرر
+
+// ══════════════════════════════════════════════
+//  قراءة المقرر من الـ URL
+// ══════════════════════════════════════════════
+var params = new URLSearchParams(location.search);
+var courseId = decodeURIComponent(params.get('id') || '');
+
+// ابحث في الـ config
+var config = null;
+for (var i = 0; i < COURSES_CONFIG.length; i++) {
+  if (COURSES_CONFIG[i].folder === courseId) {
+    config = COURSES_CONFIG[i];
+    break;
+  }
+}
+
+if (location.protocol === 'file:') {
+  showError(
+    'المشروع لا يعمل بفتح الملف مباشرة (file://).<br><br>' +
+    'شغّل سيرفر محلي ثم افتح الرابط من المتصفح، مثلاً:<br>' +
+    '<code style="display:block;margin-top:8px;padding:8px;background:#f1f5f9;border-radius:8px">python -m http.server 8000</code>' +
+    'ثم: <code>http://localhost:8000</code>'
+  );
+} else if (!courseId) {
+  showError('لم يتم تحديد المقرر.');
+} else {
+  folderName = courseId;
+  resolveCoursePathPrefix(function() { renderCourse(); });
+}
+
+// ══════════════════════════════════════════════
+//  مسار المقرر (مباشر أو داخل فولدر خارجي)
+// ══════════════════════════════════════════════
+function resolveCoursePathPrefix(done) {
+  if (config && config.pathPrefix) {
+    coursePathPrefix = config.pathPrefix.replace(/\\/g, '/').replace(/\/+$/, '');
+    done();
+    return;
+  }
+
+  fetch('courses/courses-registry.json')
+    .then(function(r) { return r.ok ? r.json() : []; })
+    .then(function(registry) {
+      var entry = null;
+      if (Array.isArray(registry)) {
+        for (var i = 0; i < registry.length; i++) {
+          if (registry[i].folder === folderName) {
+            entry = registry[i];
+            break;
+          }
+        }
+      }
+      coursePathPrefix = (entry && entry.pathPrefix)
+        ? entry.pathPrefix.replace(/\\/g, '/').replace(/\/+$/, '')
+        : ('courses/' + folderName);
+      done();
+    })
+    .catch(function() {
+      coursePathPrefix = 'courses/' + folderName;
+      done();
+    });
+}
+
+function courseFilePath() {
+  var parts = coursePathPrefix.split('/');
+  for (var i = 0; i < arguments.length; i++) parts.push(arguments[i]);
+  return parts.map(encodeURIComponent).join('/');
+}
+
+// ══════════════════════════════════════════════
+//  بناء صفحة المقرر
+// ══════════════════════════════════════════════
+function renderCourse() {
+  var c = config || {};
+  var DEFAULT_COLORS = [
+    { color:"linear-gradient(135deg,#dbeafe,#bfdbfe)", iconBg:"#eff6ff" },
+  ];
+  var color  = c.color  || DEFAULT_COLORS[0].color;
+  var iconBg = c.iconBg || DEFAULT_COLORS[0].iconBg;
+  var icon   = c.icon   || '📘';
+  var code   = c.code   || '';
+  var cat    = c.category || '';
+  var desc   = c.description || '';
+
+  document.title = folderName + ' – EduPortal';
+  buildPageHTML(color, iconBg, icon, code, cat, desc);
+}
+
+function buildPageHTML(color, iconBg, icon, code, cat, desc) {
+  var c = config || {};
+
+  // HTML الصفحة
+  var html =
+    '<div class="breadcrumb">' +
+      '<a href="index.html">الرئيسية</a>' +
+      '<span class="sep">›</span>' +
+      '<span>' + folderName + '</span>' +
+    '</div>' +
+
+    // Course header
+    '<div class="course-top">' +
+      '<div class="course-icon-box" style="background:' + color + '">' + icon + '</div>' +
+      '<div class="course-info-text">' +
+        (code ? '<div class="ccode">' + code + '</div>' : '') +
+        '<h1>' + folderName + '</h1>' +
+        (desc ? '<p>' + desc + '</p>' : '') +
+        '<div class="course-chips">' +
+          (cat ? '<div class="chip">📂 ' + cat + '</div>' : '') +
+        '</div>' +
+      '</div>' +
+    '</div>' +
+
+    // Tabs wrapper
+    '<div class="tabs-wrap">' +
+      '<div class="tabs-bar">' +
+        '<button class="tab-btn active" data-tab="content">📄 المحتوى</button>' +
+        '<button class="tab-btn" data-tab="details">📋 التفاصيل</button>' +
+        '<button class="tab-btn" data-tab="refs">📚 المراجع</button>' +
+        '<button class="tab-btn" data-tab="quizzes">✏️ الكويزات <span class="tab-count" id="qCount">–</span></button>' +
+        '<button class="tab-btn" data-tab="activities">⚡ الأنشطة <span class="tab-count" id="aCount">–</span></button>' +
+      '</div>' +
+
+      // Tab: Content
+      '<div class="tab-panel active" id="tab-content">' +
+        '<div id="panel-content"><div class="loading-state" style="padding:24px"><div class="spinner"></div></div></div>' +
+      '</div>' +
+
+      // Tab: Details
+      '<div class="tab-panel" id="tab-details">' +
+        '<div id="panel-details"><div class="loading-state" style="padding:24px"><div class="spinner"></div></div></div>' +
+      '</div>' +
+
+      // Tab: References
+      '<div class="tab-panel" id="tab-refs">' +
+        '<div id="panel-refs"><div class="loading-state" style="padding:24px"><div class="spinner"></div></div></div>' +
+      '</div>' +
+
+      // Tab: Quizzes
+      '<div class="tab-panel" id="tab-quizzes">' +
+        '<div id="quizzesPanel"><div class="loading-state"><div class="spinner"></div><p>جار التحميل...</p></div></div>' +
+      '</div>' +
+
+      // Tab: Activities
+      '<div class="tab-panel" id="tab-activities">' +
+        '<div id="activitiesPanel"><div class="loading-state"><div class="spinner"></div><p>جار التحميل...</p></div></div>' +
+      '</div>' +
+
+    '</div>';
+
+  document.getElementById('pageContent').innerHTML = html;
+
+  // ══ Tabs
+  document.querySelectorAll('.tab-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+      document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  probeFile(getFileCandidates(c, 'content'), '📄', 'محتوى المقرر', 'panel-content');
+  probeFile(getFileCandidates(c, 'details'), '📋', 'تفاصيل المقرر', 'panel-details');
+  probeFile(getFileCandidates(c, 'refs'),    '📚', 'المراجع والمصادر', 'panel-refs');
+  loadFolderSection(['كويزات', 'quizzes'], 'quizzesPanel', 'qCount', '✏️', 'كويز');
+  loadFolderSection(['أنشطة', 'activities'], 'activitiesPanel', 'aCount', '⚡', 'نشاط');
+}
+
+function getFileCandidates(c, type) {
+  var folderBaseName = folderName;
+  var candidates;
+  if (type === 'content') {
+    candidates = ['المحتوى.html', 'محتوى المقرر.html', folderBaseName + '.html', 'content.html', 'المحتوى الدراسي.html', 'الدراسي.html'];
+    if (c.contentFile) candidates.unshift(c.contentFile);
+  } else if (type === 'details') {
+    candidates = [folderBaseName + '_details.html', 'details.html', 'التفاصيل.html', folderBaseName + '_detail.html'];
+    if (c.detailsFile) candidates.unshift(c.detailsFile);
+  } else {
+    candidates = ['المصادر.html', 'المراجع.html', 'المراجع والمصادر.html', folderBaseName + '_references.html', folderBaseName + '_المصادر.html', 'references.html', 'مراجع.html'];
+    if (c.referencesFile) candidates.unshift(c.referencesFile);
+  }
+  return candidates;
+}
+
+
+// ══════════════════════════════════════════════
+//  probeFile: يجرّب أسماء الملفات واحدة واحدة
+//  ويعرض أول واحد موجود
+// ══════════════════════════════════════════════
+function probeFile(candidates, icon, label, panelId) {
+  var panel = document.getElementById(panelId);
+  if (!panel) return;
+
+  function tryNext(i) {
+    if (i >= candidates.length) {
+      panel.innerHTML =
+        '<div class="empty">' +
+          '<div class="e-ico">📭</div>' +
+          '<p>لم يتم العثور على الملف.<br>' +
+          '<small style="color:#94a3b8">الأسماء المجرَّبة: ' + candidates.join(' / ') + '</small></p>' +
+        '</div>';
+      return;
+    }
+    var path = courseFilePath(candidates[i]);
+    fetch(path)
+      .then(function(r) {
+        if (r.ok) {
+          panel.innerHTML =
+            '<div class="file-list">' +
+              buildFileCard(label, icon, path) +
+            '</div>';
+        } else {
+          tryNext(i + 1);
+        }
+      })
+      .catch(function() { tryNext(i + 1); });
+  }
+  tryNext(0);
+}
+
+// ══════════════════════════════════════════════
+//  loadFolderSection: يقرأ فولدر كويزات/أنشطة
+//  ويبني accordion تلقائياً
+// ══════════════════════════════════════════════
+function loadFolderSection(folderNames, panelId, countId, icon, unitLabel) {
+  unitLabel = unitLabel || 'عنصر';
+  var panel   = document.getElementById(panelId);
+  var countEl = document.getElementById(countId);
+  if (!panel) return;
+
+  function tryFolder(i) {
+    if (i >= folderNames.length) {
+      // كل الأسماء فشلت → فولدر مش موجود
+      panel.innerHTML =
+        '<div class="empty">' +
+          '<div class="e-ico">📭</div>' +
+          '<p>لم يُعثر على فولدر ' + folderNames.join(' أو ') + '<br>' +
+          '<small style="color:#94a3b8">أضف فولدر quizzes/فئة/كويز/ملف.html ثم شغّل: python scripts/generate-manifests.py</small></p>' +
+        '</div>';
+      if (countEl) countEl.textContent = '0';
+      return;
+    }
+
+    fetch(courseFilePath(folderNames[i], 'manifest.json'))
+      .then(function(r) {
+        if (r.ok) return r.json();
+        throw new Error('not found');
+      })
+      .then(function(manifest) {
+        if (manifest && Array.isArray(manifest)) {
+          renderAccordionFromManifest(manifest, folderNames[i], panelId, countId, icon, unitLabel);
+        } else {
+          tryFolder(i + 1);
+        }
+      })
+      .catch(function() {
+        // manifest مش موجود هنا → جرّب الاسم التاني
+        tryFolder(i + 1);
+      });
+  }
+
+  tryFolder(0);
+}
+
+// ══════════════════════════════════════════════
+//  manifest.json — متداخل (فئة → items) أو مسطّح (قديم)
+// ══════════════════════════════════════════════
+function formatFolderLabel(name) {
+  return (name || '').replace(/_/g, ' ');
+}
+
+function countManifestItems(manifest) {
+  var n = 0;
+  manifest.forEach(function(entry) {
+    if (entry.items && entry.items.length) n += entry.items.length;
+    else if (entry.files && entry.files.length) n += 1;
+  });
+  return n;
+}
+
+function renderAccordionFromManifest(manifest, sectionFolder, panelId, countId, icon, unitLabel) {
+  unitLabel = unitLabel || 'عنصر';
+  var panel   = document.getElementById(panelId);
+  var countEl = document.getElementById(countId);
+
+  if (countEl) countEl.textContent = countManifestItems(manifest);
+
+  if (!manifest.length) {
+    panel.innerHTML = '<div class="empty"><div class="e-ico">📭</div><p>لا توجد عناصر</p></div>';
+    return;
+  }
+
+  var html = '<div class="accordion">';
+  manifest.forEach(function(entry, gi) {
+    if (entry.items && entry.items.length) {
+      html += buildCategoryAccordion(entry, sectionFolder, icon, gi === 0, unitLabel);
+    } else if (entry.files && entry.files.length) {
+      html += buildFlatGroupAccordion(entry, sectionFolder, icon, gi === 0, unitLabel);
+    }
+  });
+  html += '</div>';
+  panel.innerHTML = html;
+
+  panel.querySelectorAll('.acc-head').forEach(function(h) {
+    h.addEventListener('click', function(e) {
+      e.stopPropagation();
+      h.closest('.acc-item').classList.toggle('open');
+    });
+  });
+}
+
+function buildCategoryAccordion(category, sectionFolder, icon, open, unitLabel) {
+  var inner = '';
+  category.items.forEach(function(item) {
+    (item.files || []).forEach(function(fname) {
+      var path = courseFilePath(sectionFolder, category.name, item.name, fname);
+      var label = formatFolderLabel(item.name);
+      if ((item.files || []).length > 1 && fname !== 'generated_quiz.html') {
+        label += ' — ' + formatFolderLabel(fname.replace(/\.html$/i, ''));
+      }
+      inner += buildFileCard(label, '📄', path);
+    });
+  });
+
+  return (
+    '<div class="acc-item' + (open ? ' open' : '') + '">' +
+      '<div class="acc-head">' +
+        '<div class="acc-title">' +
+          '<div class="acc-ico">' + icon + '</div>' +
+          '<span class="acc-title-text">' + formatFolderLabel(category.name) + '</span>' +
+        '</div>' +
+        '<div class="acc-right">' +
+          '<span class="acc-count">' + category.items.length + ' ' + unitLabel + '</span>' +
+          '<span class="acc-arr">▼</span>' +
+        '</div>' +
+      '</div>' +
+      '<div class="acc-body"><div class="acc-inner">' + inner + '</div></div>' +
+    '</div>'
+  );
+}
+
+function buildFlatGroupAccordion(group, sectionFolder, icon, open, unitLabel) {
+  var filesHtml = (group.files || []).map(function(fname) {
+    var path = courseFilePath(sectionFolder, group.name, fname);
+    return buildFileCard(formatFolderLabel(fname.replace(/\.html$/i, '')), '📄', path);
+  }).join('');
+
+  return (
+    '<div class="acc-item' + (open ? ' open' : '') + '">' +
+      '<div class="acc-head">' +
+        '<div class="acc-title">' +
+          '<div class="acc-ico">' + icon + '</div>' +
+          '<span class="acc-title-text">' + formatFolderLabel(group.name) + '</span>' +
+        '</div>' +
+        '<div class="acc-right">' +
+          '<span class="acc-count">' + (group.files || []).length + '</span>' +
+          '<span class="acc-arr">▼</span>' +
+        '</div>' +
+      '</div>' +
+      '<div class="acc-body"><div class="acc-inner">' + filesHtml + '</div></div>' +
+    '</div>'
+  );
+}
+
+// من الـ config مباشرة
+function renderAccordionFromConfig(groups, sectionFolder, panelId, countId, icon) {
+  var manifest = groups.map(function(g) {
+    return {
+      name:  g.title || g.id || g.name,
+      files: (g.files||[]).map(function(f){ return f.file || f; })
+    };
+  });
+  renderAccordionFromManifest(manifest, sectionFolder, panelId, countId, icon);
+}
+
+// ══════════════════════════════════════════════
+//  بطاقة الملف
+// ══════════════════════════════════════════════
+function buildFileCard(name, icon, path) {
+  var pSafe = path.replace(/\\/g,'/');
+  var pEsc  = pSafe.replace(/'/g,"\\'");
+  var nEsc  = (name||'').replace(/'/g,"\\'");
+  var fname = decodeURIComponent(pSafe.split('/').pop()).replace(/\.html$/i,'');
+
+  return (
+    '<div class="file-card">' +
+      '<div class="file-left">' +
+        '<div class="file-ico">' + icon + '</div>' +
+        '<div>' +
+          '<div class="file-name">' + (name||fname) + '</div>' +
+          '<div class="file-meta">HTML</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="file-actions">' +
+        '<button class="btn-view" onclick="openViewer(\'' + pEsc + '\',\'' + nEsc + '\')">👁️ عرض</button>' +
+        '<button class="btn-dl"   onclick="downloadFile(\'' + pEsc + '\',\'' + nEsc + '\')">⬇️ تحميل</button>' +
+      '</div>' +
+    '</div>'
+  );
+}
+
+// ══════════════════════════════════════════════
+//  VIEWER: عارض الملف Full-Screen
+// ══════════════════════════════════════════════
+function openViewer(path, name) {
+  currentPath = path;
+  var viewer  = document.getElementById('fileViewer');
+  var frame   = document.getElementById('vFrame');
+  var errBox  = document.getElementById('vError');
+
+  document.getElementById('vTitleText').textContent = name || decodeURIComponent(path.split('/').pop());
+  errBox.classList.remove('show');
+  frame.style.display = 'block';
+  frame.src = '';
+
+  frame.onload = function() {
+    try {
+      var body = frame.contentDocument && frame.contentDocument.body;
+      if (body) {
+        var txt = (body.innerText || '').toLowerCase().trim();
+        if (!body.innerHTML.trim() || txt === 'not found' || txt.indexOf('cannot get') === 0) {
+          showVError(path, frame, errBox);
+        }
+      }
+    } catch(e) { /* cross-origin = ملف HTML عادي = OK */ }
+  };
+  frame.onerror = function() { showVError(path, frame, errBox); };
+  frame.src = path;
+
+  viewer.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function showVError(path, frame, errBox) {
+  frame.style.display = 'none';
+  document.getElementById('vErrPath').textContent = decodeURIComponent(path);
+  errBox.classList.add('show');
+}
+
+function retryViewer() {
+  if (currentPath) openViewer(currentPath, document.getElementById('vTitleText').textContent);
+}
+
+function closeViewer() {
+  document.getElementById('fileViewer').classList.remove('open');
+  document.getElementById('vFrame').src = '';
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeViewer();
+});
+
+// ══════════════════════════════════════════════
+//  DOWNLOAD: تحميل حقيقي بـ fetch + blob
+// ══════════════════════════════════════════════
+function downloadFile(path, name) {
+  var btn = event.currentTarget;
+  var orig = btn ? btn.innerHTML : '';
+  if (btn) { btn.innerHTML = '⏳ جار التحميل...'; btn.disabled = true; }
+
+  fetch(path)
+    .then(function(r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.blob();
+    })
+    .then(function(blob) {
+      var url = URL.createObjectURL(blob);
+      var a   = document.createElement('a');
+      a.href  = url;
+      // اسم الملف الحقيقي من المسار، مع decode
+      var rawName = decodeURIComponent(path.split('/').pop());
+      a.download = name ? (name + '.html') : rawName;
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(function() { URL.revokeObjectURL(url); a.remove(); }, 2000);
+      if (btn) { btn.innerHTML = '✅ تم!'; setTimeout(function(){ btn.innerHTML=orig; btn.disabled=false; },1500); }
+    })
+    .catch(function(err) {
+      if (btn) { btn.innerHTML = orig; btn.disabled = false; }
+      alert('تعذّر تحميل الملف:\n' + decodeURIComponent(path) + '\n\nتأكد أن الملف موجود على هذا المسار.');
+    });
+}
+
+function triggerDownload() {
+  if (currentPath) {
+    var name = document.getElementById('vTitleText').textContent;
+    downloadFile(currentPath, name);
+  }
+}
+
+function showError(msg) {
+  document.getElementById('pageContent').innerHTML =
+    '<div style="text-align:center;padding:80px 20px;color:#64748b">' +
+      '<div style="font-size:3rem">😕</div>' +
+      '<h2 style="margin:16px 0 8px;color:#0f172a">' + msg + '</h2>' +
+      '<a href="index.html" class="btn-back" style="display:inline-flex;margin-top:16px">← عُد للرئيسية</a>' +
+    '</div>';
+}
+</script>
+</body>
+</html>

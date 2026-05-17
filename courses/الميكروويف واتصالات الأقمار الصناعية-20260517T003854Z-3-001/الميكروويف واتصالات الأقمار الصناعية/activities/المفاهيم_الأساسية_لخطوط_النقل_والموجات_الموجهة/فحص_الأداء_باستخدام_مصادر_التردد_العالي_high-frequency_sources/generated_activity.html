@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تحدي تقييم جودة الأداء باستخدام مصادر التردد</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تحدي تقييم جودة الأداء باستخدام مصادر التردد</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">ينظم المتدربون مسابقة تحدي لتحفيز المنافسة في تقييم جودة الإشارة عبر استخدام مصادر التردد العالي لموجات مختلفة، ليتمكنوا من التمييز وتحديد أنسب الموجات بناءً على نتائج الفحص الدقيقة.</p>
+        <ul class="obj-list"><li>تطبيق مهارات تركيب وربط مصادر التردد مع الموجات الموجهة</li><li>القيام بإجراء قياسات عملية لخصائص الإشارة باستخدام أجهزة متخصصة</li><li>تحليل البيانات المستخرجة من الفحوصات لتقييم الأداء بشكل تنافسي</li><li>اختيار الأفضل بين مصادر التردد اعتماداً على المعايير الفنية والجودة</li><li>تنمية مهارات العمل الجماعي والتواصل في سياق تنافس تحدي</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>مصادر تردد عالية (مثل كلايسترون، ديود غون، IMPATT)</li><li>محولات موجة coax-to-waveguide</li><li>محلل شبكة متجه (VNA)</li><li>مقياس قوة إشارة</li><li>أجهزة قياس الطيف</li><li>لوحة تسجيل بيانات تنافسية</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد وتحفيز المنافسة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بشرح مفهوم التحدي وأهدافه بشكل يشجع إثارة المنافسة لدى المتدربين</li><li>يتم تقسيم المتدربين إلى فرق متساوية العدد مع شرح دور كل متدرب في الفريق</li><li>عرض موجز إلى أهمية مصادر التردد العالي في فحص الأداء وأثرها على جودة الإشارة</li><li>توضيح قواعد المسابقة، مع التركيز على الدقة والسرعة في إجراء الفحوصات</li><li>توزيع الأدوات والمعدات اللازمة لكل فريق مع شرح مختصر للاستخدام الآمن</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الاستعداد الفني للمحطات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>كل فريق يختار الموجة الموجهة التي سيعمل عليها من بين الخيارات المتاحة</li><li>يقوم الفريق بتركيب المصدر المناسب وربطه بطريقة صحيحة مع الموجه باستخدام المحولات</li><li>التأكد من مطابقة المعاوقة في الوصلات لتفادي فقدان الإشارة</li><li>إجراء معايرة مبدئية للأجهزة مثل محلل الشبكة ومقياس القوة</li><li>اختبار المكونات والتأكد من جاهزيتها لإجراء الفحص</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">إجراء عمليات الفحص والتقييم</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ كل فريق بتوليد الإشارة عبر المصدر واختبارها ضمن نطاق التردد المحدد</li><li>يقوم الفريق بقياس معاملات الانتشار S-parameters ومدى الانعكاس والتشوه</li><li>تسجيل قراءات القدرة، الفقدان، استقطاب الإشارة، وVSWR بدقة</li><li>مقارنة النتائج مع المعايير المرجعية لتقييم جودة الأداء</li><li>توثيق الملاحظات الفنية التي قد تؤثر على النتائج</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل النتائج وصياغة التوصيات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>كل فريق يُجهز تقريراً قصيراً يعرض فيه نتائج الفحص مع البيانات المجمعة</li><li>مناقشة الفرق للنتائج مع التركيز على العوامل التقنية التي أدت إلى اختلاف الأداء</li><li>تحديد نقاط القوة والضعف في اختيار واستخدام مصادر التردد المختلفة</li><li>اقتراح تحسينات للتصميم أو طريقة الفحص بناءً على البيانات</li><li>تحضير العروض التقديمية النهائية للدفاع عن تقييم الفريق</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تقييم نهائي وتحديد الفريق الفائز</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقدم كل فريق عرضه النهائي أمام المدرب والزملاء مع شرح منهجية التقييم</li><li>المحكمون يقيّمون العروض استناداً إلى معايير مثل الدقة، الابتكار، وسلامة الإجراءات</li><li>منح نقاط لكل فريق لتعزيز المنافسة وتحفيز الالتزام</li><li>إعلان الفريق صاحب الأداء الأفضل وتقديم شهادات تقدير رمزية</li><li>نقاش ختامي يسلط الضوء على الدروس المستفادة من التحدي ويشجع التفكير النقدي</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تفسر تأثير نوع مصدر التردد المستخدم على جودة الإشارة المقاسة في الموجات الموجهة، ولماذا يعد هذا التأثير مهماً في تصميم أنظمة الاتصالات الفضائية؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تمثيل ترميز وفك ترميز الصوت</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تمثيل ترميز وفك ترميز الصوت</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">ينقل النشاط مفهوماً عملياً لتأثير التمثيل الصوتي وترميزه وفك ترميزه على جودة الصوت في الاتصالات الخلوية، من خلال تجسيد أدوار فنية وإنسانية تعكس حقائق تقنية معقدة.</p>
+        <ul class="obj-list"><li>يشرح المتدربون دور كل مكون من مصدر الصوت، جهاز الترميز، قناة الاتصال، وجهاز فك الترميز في نقل الصوت.</li><li>يُدرك المتدربون تأثير الترميز وفك الترميز على جودة ونقاء الصوت عبر قنوات الاتصال المحدودة.</li><li>يُجسد المتدربون فهمهم لتقنيات الترميز بطريقة تفاعلية وتنظيمية تدعم التعلم النشط.</li><li>يحاكي المشاركون التحديات التي تواجهها عمليات الترميز في بيئات مختلفة من الاتصالات.</li><li>يُطور المتدربون مهارات التعاون والتواصل أثناء لعب الأدوار المعقدة مع الحفاظ على دقة سياق الاتصال.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>بطاقات أدوار توضح مهام &#x27;مصدر الصوت&#x27;، &#x27;جهاز الترميز&#x27;، &#x27;قناة الاتصال&#x27;، و&#x27;جهاز فك الترميز&#x27;</li><li>أوراق تقييم جودة الصوت</li><li>معدات تسجيل صوتي بسيطة (هاتف ذكي أو جهاز تسجيل)</li><li>مساحة مفتوحة للحركة والتفاعل الجماعي</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد: تهيئة المتدربين للمهمة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقدم المدرب شرحًا موجزًا عن ترميز الكلام ودوره في الاتصالات الخلوية مع التركيز على المكونات الأربعة الرئيسية.</li><li>يقسم المتدربين إلى مجموعات مكونة من 4 أفراد، كل منهم يتلقى بطاقة دور محددة (مصدر الصوت، جهاز الترميز، قناة الاتصال، جهاز فك الترميز).</li><li>يوضح المدرب كيف ستتم عملية لعب الأدوار وأهمية التعاون لتجسيد تأثير الترميز والفك.</li><li>يقوم المشاركون بتبادل الأفكار داخل مجموعاتهم بخصوص كيفية تمثيل دورهم بناءً على المهام المعطاة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف دور مصدر الصوت وجهاز الترميز</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يمثل &#x27;مصدر الصوت&#x27; بإصدار رسائل صوتية محددة (مثل كلمات أو جمل قصيرة)، ويتم تسجيلها بشكل واضح.</li><li>يتلقى &#x27;جهاز الترميز&#x27; هذه الرسائل ليُجسد عملية تحويل الصوت إلى رموز رقمية مضغوطة ويقوم بإرسال &#x27;رسالة مشفرة&#x27; تتضمن تغييرات مقصودة تحاكي الضياع أو التشويش.</li><li>يتفاعل أعضاء المجموعة مع المدرب لمناقشة كيف يمكن تحسين أو تأكيد دقة التمثيل.</li><li>يتلقى المشاركون ملاحظات فورية لتحسين تمثيل دور الترميز خصوصًا تأثيره على جودة الصوت.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">محاكاة قناة الاتصال وفك الترميز</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يلعب &#x27;قناة الاتصال&#x27; دورًا في تغيير أو تشويش الكود الرقمي الصادر من جهاز الترميز بما يحاكي الضغوط الحقيقية للقنوات مثل التشويش والتداخل.</li><li>يقوم &#x27;جهاز فك الترميز&#x27; بمحاولة تفسير وتحويل الرموز المستقبلة إلى صوت مسموع، مع إبراز الحالات التي يحدث فيها فقدان جودة.</li><li>يعمل الفريق على تسجيل الصوت المفكك ومقارنته بالأصلي لتحديد أثر الترميز والفك والقناة.</li><li>يتبادل المشاركون بياناتهم ويقارنون كيف أثر كل دور على النتيجة النهائية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل التحديات واستراتيجيات التحسين</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يناقش المشاركون التحديات التي ظهرت خلال اللعب ودور كل مكون في فقدان أو تحسين جودة الصوت.</li><li>يقترح المتدربون طرقًا ممكنة لتحسين عمليتي الترميز والفك لتقليل التشويش وضمان وضوح أكبر.</li><li>يقوم المدرب بتوضيح كيفية تطبيق هذه الاستراتيجيات في شبكات GSM الحقيقية مع أمثلة عملية.</li><li>يتم إعادة تمثيل مشاهد معينة مع تطبيق التحسينات المقترحة لتقييم الفرق.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق: استخلاص الدروس وربطها بالتطبيق العملي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يجتمع المشاركون في حلقة نقاش حول تجربتهم الشخصية وملاحظاتهم حول تأثير الترميز على جودة الاتصال.</li><li>يطلب المدرب من كل مجموعة عرض ملخص لدورهم وكيف ساهم في جودة الصوت.</li><li>يقدم المدرب تلخيصًا تربطيًا يربط بين تجربة لعب الأدوار والنقاط الفنية المهمة في مفهوم ترميز الكلام وفعاليته.</li><li>يتم تشجيع المشاركين على طرح أسئلة ختامية وتبادل الرؤى.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يؤثر اختيار طريقة الترميز وفك الترميز في أنظمة GSM على جودة الصوت وتجربة المستخدم، خاصة في بيئات الاتصالات الخلوية عالية الازدحام؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

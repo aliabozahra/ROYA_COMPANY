@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تحليل إشارات طبية باستخدام فورييه</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تحليل إشارات طبية باستخدام فورييه</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">ينمي هذا النشاط مهارة تطبيق تحويل فورييه في تحليل إشارات طبية لاستخلاص الأطياف المختلفة وتفسير النتائج لتحديد حالات علاجية دقيقة.</p>
+        <ul class="obj-list"><li>يطبق تحويل فورييه باستخدام برمجية الماتلاب لتحليل الإشارات الطبية.</li><li>يستخلص الأطياف الترددية من الإشارات ويحضر الرسومات البيانية المتعلقة.</li><li>يفسر الأطياف لتحديد الحالات الطبية ذات الصلة.</li><li>يتخذ قرارات علاجية مبنية على تحليل النتائج.</li><li>يستخدم نتائج التحليل لتقديم توصيات عملية دقيقة.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تحليلي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>برمجية الماتلاب مع حزمة Signal Processing Toolbox</li><li>بيانات إشارة طبية محملة (مثل ملفات .mat)</li><li>كمبيوتر مزود ببرمجية الماتلاب</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والإعداد النظري</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>شرح موجز عن أهمية تحويل فورييه في التصوير الطبي ودوره في تحليل الإشارات.</li><li>مراجعة أساسيات تحويل فورييه وكيفية توليد الأطياف مع الأمثلة البسيطة.</li><li>تهيئة المتدربين نفسياً بأنهم سيتعاملون مع حالة طبية حقيقية تحتاج لتفسير دقيق.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحميل البيانات الطبية وإعداد البيئة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>توزيع ملفات الإشارة الطبية على المتدربين وتحميلها في الماتلاب.</li><li>تسليط الضوء على بيانات الإشارة التي سيتم تحليلها، مع التحدث عن طبيعة الإشارة (مثلاً إشارة من جهاز MRI).</li><li>إعداد الأكواد الأساسية في الماتلاب لتحضير الإشارة للتحليل.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تطبيق تحويل فورييه واستخلاص الأطياف</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تنفيذ دالة fft على الإشارة لتحويلها من المجال الزمني إلى الترددي.</li><li>حساب وتعديل الطيف الترددي باستخدام الدوال abs و fftshift أو غيرها.</li><li>رسم الأطياف البيانية بمساعدة المتدربين ومناقشة ما تمثل القمم الترددية في الرسم.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تفسير النتائج الطبية من الأطياف</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تحليل الذروات والطيف الترددي مع تمييز الخصائص المرتبطة بحالة المريض.</li><li>مقارنة النتائج بالطيف النموذجي لحالات أخرى لتحديد التشوهات أو الإشارات المرضية.</li><li>مناقشة كيف تؤثر هذه النتائج في التشخيص الطبي وتقديم توصيات علاجية أو متابعة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تطبيق التعديلات والتحدي العملي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تشجيع المتدربين على تعديل الإشارة بإضافة ضوضاء أو ترددات أخرى ومراقبة التغير في الأطياف.</li><li>تحدي المتدربين في تفسير تغييرات الطيف الناتجة عن التعديلات وشرح آثارها على التشخيص.</li><li>استخدام تقنيات فلترة بسيطة عبر الماتلاب لتحسين جودة الإشارة وإعادة تفسير الطيف.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق والتقييم</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تلخيص النقاط الأساسية المكتسبة خلال النشاط، والتأكيد على أهمية التحويل الفورييه في الحملات الطبية.</li><li>مراجعة تأثير تحليل الطيف في اتخاذ قرارات علاجية دقيقة وموثوقة.</li><li>فتح الحوار مع المتدربين للسؤال عن الصعوبات التي واجهوها وطرق تحسين التحليل مستقبلاً.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكنك تمييز الذروات الحقيقية في طيف الإشارة الطبية عن الإشارات الزائفة الناتجة عن التشويش باستخدام تحويل فورييه، وماذا ستكون خطواتك لتحسين دقة التشخيص بناءً على هذه التمييزات؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

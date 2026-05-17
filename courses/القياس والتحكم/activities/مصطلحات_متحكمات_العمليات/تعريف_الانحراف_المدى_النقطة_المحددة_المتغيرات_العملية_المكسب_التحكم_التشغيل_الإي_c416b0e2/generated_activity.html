@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نظام التحكم التفاعلي الصناعي</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">نظام التحكم التفاعلي الصناعي</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يقوم المتدربون بتجسيد أدوار عناصر نظام تحكم صناعي لتفهم كيفية تفاعل الانحراف، المدى، النقطة المحددة وأنواع التحكم المختلفة مع المكسب لتحسين أداء النظام.</p>
+        <ul class="obj-list"><li>يشرح المتدربون وظيفة كل عنصر في نظام التحكم من خلال لعب الدور.</li><li>يحسبون تأثير الانحراف والكيب على أداء النظام.</li><li>يطبقون مفاهيم التحكم التشغيل/الإيقاف، المتدرج الثنائي، وPID في سيناريو مباشر.</li><li>يتعاونون مع الفرق لتحقيق التوازن وتحسين النظام بشكل عملي.</li><li>يحللون ديناميكية النظام بناءً على سلوك الأدوار والعلاقات بين العناصر.</li><li>يستخلصون استنتاجات حول تأثير المكسب في الاستجابة والاستقرار.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>بطاقات أدوار تعليمية</li><li>لوحة قياس تفاعلية (أجهزة رقمية أو برمجية محاكاة)</li><li>مساحة عمل للتمثيل الحي</li><li>مخططات توضيحية لأنواع التحكم والمكسب</li><li>بطاقات موقف تحكم متنوعة</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والإعداد</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>شرح موجز حول أهمية الأنظمة التحكمية ومفاهيم الانحراف، المدى، النقطة المحددة، والمكسب.</li><li>توزيع الأدوار على المتدربين (متحكم تشغيل/إيقاف، متحكم متدرج ثنائي، متحكم PID، عنصر المدى، عنصر المكسب، عنصر الإنحراف، المتغيرات العملية).</li><li>توضيح سيناريو نظام صناعي تمثيلي وتوزيع الأدوات والمواد اللازمة للتمثيل.</li><li>التأكيد على دور كل متدرب ومسؤولياته ضمن التفاعل.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف أدوار النظام</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ كل متدرب بتمثيل دوره، مع توضيح كيف يظهر الدور في النظام (مثلاً كيف يحسب الانحراف أو يُعدل المكسب).</li><li>محاكاة موجزة حول استجابة كل عنصر لسيناريو بسيط (مثل ارتفاع درجة الحرارة أو تغير في المتغيرات).</li><li>المتدربون يتفاعلون شفهيًا لحل مشكلة انحراف مبدئية بسيطة.</li><li>مدرب يوجه أسئلة تحفيزية لتحفيز النقاش حول تأثير كل عنصر.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تنفيذ سيناريو التحكم التفاعلي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>بدء سيناريو ديناميكي عالي التفاعل يتضمن تغيرات في النقطة المحددة والمدى.</li><li>يعمل المتحكمون بأنواعهم من خلال تفعيل الأدوار، تعديل مخرجاتهم وفقًا للانحراف والمكسب.</li><li>المتغيرات العملية (مثل الحرارة أو الضغط) تمثّل بواسطة متدربين أو أجهزة محاكاة تتحرك وتؤثر في الأدوار.</li><li>يبني الفريق استراتيجية مشتركة لتحقيق تحكم أمثل بالنظام عن طريق المناقشة والتعديل الحي للمعاملات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل الأداء وتقييم ديناميكية النظام</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تُجمع ملاحظات الأداء من كل متدرب بناء على سلوك دوره خلال السيناريو.</li><li>يُناقش الفريق تأثير المكسب والأنواع المختلفة للتحكم على ثبات النظام واستجابته.</li><li>يتم رسم خرائط أو مخططات توضح العلاقة بين الانحراف، المكسب، والنقطة المحددة.</li><li>تُقيم كيفية تعامل النظام مع التغيرات ومدى قدرة المتدربين على تعديل المتحكمات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التغذية الراجعة والإغلاق</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>إجراء نقاش عام بين المتدربين حول تجاربهم والدروس المستفادة.</li><li>استعراض المفاهيم الرئيسة وتأكيد فهم دور كل عنصر في تحسين الأداء.</li><li>تشجيع طرح أفكار لتطوير وتحسين نماذج التحكم في سيناريوهات مستقبلية.</li><li>تلخيص أهمية التفاعل الحي مع المفاهيم النظرية ودوره في تعميق الفهم.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف أثر تمثيلك للدور المحدد على فهمك لتأثير الانحراف والمكسب وأنواع التحكم في ديناميكية النظام؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

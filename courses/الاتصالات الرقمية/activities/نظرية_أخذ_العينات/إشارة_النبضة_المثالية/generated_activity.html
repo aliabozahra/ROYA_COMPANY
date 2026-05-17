@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>محاكاة تفاعلية لإشارة النبضة</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">محاكاة تفاعلية لإشارة النبضة</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يهدف هذا النشاط إلى تمكين المتدرب من فهم عملي لكيفية عمل إشارة النبضة المثالية وتأثيراتها داخل الدوائر الإلكترونية من خلال تفاعل مباشر.</p>
+        <ul class="obj-list"><li>يتفاعل المتدرب مع محاكاة إشارة النبضة المثالية ويعدل خصائصها.</li><li>يرسم المتدرب استجابة دائرة إلكترونية لإشارة نبضة مغيرة.</li><li>يشرح المتدرب أثر تغيير خصائص النبضة على تشغيل الدائرة.</li><li>يطبق المتدرب مفاهيم النبضة المثالية في تصميم دوائر توقيت وحصول عينة.</li><li>يقيم المتدرب تأثير التشويه في الإشارة وطرق تحسينها.</li><li>يكتسب المتدرب قدرة على استخدام أدوات المحاكاة الرقمية بفعالية.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">عملي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>حاسوب محمول أو جهاز لوحي مزود بمحاكاة إلكترونية تفاعلية لإشارات النبضة</li><li>برمجية محاكاة دوائر رقمية (مثل MATLAB Simulink أو Proteus)</li><li>جهاز عرض لتوضيح مفاهيم الدوائر والنبضات</li><li>أوسيلوسكوب افتراضي ضمن البرنامج لمحاكاة قياس الإشارة</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تمهيد تعريفي حول النبضة المثالية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يعرض المدرب فيديو تعريفي قصير يوضح مفهوم إشارة النبضة المثالية وخصائصها النظرية.</li><li>يناقش المدرب المتدربين حول أهمية النبضة المثالية في الدوائر الرقمية ونظرية أخذ العينات.</li><li>يقدم المدرب أمثلة واقعية من دوائر التوقيت وأنظمة الاتصالات التي تستخدم هذه الإشارات.</li><li>يطرح أسئلة تحفيزية لتهيئة المتدربين لاستكشاف الوظائف العملية لهذه الإشارات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف المحاكاة التفاعلية لإشارة النبضة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يوجه المدرب المتدربين إلى فتح البرنامج التفاعلي للمحاكاة على أجهزتهم.</li><li>يشرح كيفية التحكم في خصائص إشارة النبضة مثل العرض، السعة، والتردد داخل المحاكاة.</li><li>يطلب من المتدربين تعديل هذه القيم وتجربة تأثيراتها على إشارة النبضة داخل الدائرة الرقمية الافتراضية.</li><li>يشجع المدرب المتدربين على تدوين ملاحظات حول تغيرات الاستجابة نتيجة التعديلات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل استجابة الدوائر العملية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يوضح المدرب الدوائر الاختبارية المرتبطة بإشارة النبضة مثل فليب-فلوب وأخذ العينات.</li><li>يطلب من المتدربين توصيل إشارة النبضة إلى هذه الدوائر عبر المحاكاة.</li><li>يحث المتدربين على مراقبة وتحليل كيف تستجيب الدوائر لكل تعديل في خصائص النبضة.</li><li>يقوم الجميع بمقارنة النتائج ومناقشة الأسباب الفنية وراء كل اختلاف في الاستجابة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تطبيق عملي على توليد الإشارات وتسجيلها</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يوزن المتدربون برامج أردوينو أو نماذج محاكاة أخرى لإظهار كيفية توليد نبضة مثالية فعلية مبسطة.</li><li>يدير المدرب تجربة حية باستخدام البرمجية توضح أخذ عينات من إشارة تم توليدها بالنبضة.</li><li>يطلب المدرب من المتدربين تفسير النتائج ومطابقة النظرية بالتجربة.</li><li>يناقش الفريق كيف أن إعداد النبضة يؤثر على جودة وأداء النظام بالكامل.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحدي تفاعلي وتحسين الأداء</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقدم المدرب تحدياً للمتدربين بتصميم دائرة رقمية تستجيب لنبضة مثالية معينة تحقق شروط توقيت محددة.</li><li>يتيح البرنامج التفاعلي للمتدربين اختبار تصميماتهم وتحليل الأداء والتشويه الناشئ.</li><li>يحفز المدرب المتدربين على تعديل تصميماتهم وتحسين النتائج بناءً على الملاحظات.</li><li>يناقش الجميع الاستراتيجيات المُتبعة لحل مشكلات التداخل وتحسين دقة النبضة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تغذية راجعة وإغلاق مفاهيمي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يراجع المدرب مع المتدربين أبرز التعلميات والاستنتاجات التي خرجوا بها من المحاكاة والتطبيقات.</li><li>يحفز المدرب المتدربين على تبادل الخبرات الشخصية حول التحديات التي واجهتهم والحلول.</li><li>يربط المدرب المعرفة النظرية بالتطبيقات العملية وأهميتها في سوق العمل ومستقبل الاتصالات.</li><li>يختتم بإيجاز عن أهمية استخدام المحاكاة في التعلم ويطرح السؤال الختامي للنقاش.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تؤثر التغيرات في خصائص إشارة النبضة المثالية على أداء الدوائر الرقمية المختلفة، وما هي التدابير الممكن اتباعها لتقليل التشويه وتحسين دقة الإشارة؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

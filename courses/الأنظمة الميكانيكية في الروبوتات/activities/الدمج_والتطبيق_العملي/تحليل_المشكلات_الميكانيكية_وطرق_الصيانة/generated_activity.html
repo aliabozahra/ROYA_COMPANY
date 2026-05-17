@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أدوار فنيي الصيانة الميكانيكية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">أدوار فنيي الصيانة الميكانيكية</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يركز هذا النشاط على تمثيل مواقف عملية تمكّن المتدرب من تجربة دور فني صيانة في مواجهة أعطال ميكانيكية مختلفة.</p>
+        <ul class="obj-list"><li>تحليل دقيق لمشاكل الأعطال الميكانيكية.</li><li>تحديد الأسباب الرئيسية للأعطال في بيئة صناعية محاكاة.</li><li>تنفيذ حلول صيانة فعالة ومتنوعة بناءً على الحالة.</li><li>تنمية مهارات التواصل واتخاذ القرار تحت الضغط.</li><li>تطوير العمل الجماعي والتعاون بين الفرق الفنية.</li><li>زيادة الثقة والجاهزية للتعامل مع الأعطال الحقيقية.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>بيئات محاكاة الروبوتات الميكانيكية</li><li>أدوات محاكاة الصيانة (مفكات، مفاتيح، حساسات افتراضية)</li><li>أوراق سيناريوهات الأعطال</li><li>بطاقات أدوار المتدربين</li><li>ساعة توقيت</li><li>لوح ملاحظات تفاعلي إلكتروني</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتحضير</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بتعريف المتدربين بمفهوم النشاط وأهميته في صيانة الأنظمة الميكانيكية للروبوتات.</li><li>عرض موجز لسيناريوهات أعطال محددة تم إعدادها مسبقًا، مع تحديد الأدوار: فني صيانة، مراقب جودة، مسؤول التواصل.</li><li>توزيع بطاقات الأدوار على المتدربين وتوضيح مسؤوليات كل دور في النشاط.</li><li>شرح قواعد اللعب والتواصل ضمن الفرق لضمان التفاعل الفعّال وتبادل المعلومات.</li><li>تنظيم المتدربين في فرق صغيرة مع تخصيص مكان لكل فريق للعمل والتشخيص.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الاستكشاف والتحليل</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>توزيع سيناريو عطل محدد على كل فريق مع معلومات أولية عن حالة الروبوت.</li><li>يبدأ الفريق بفحص شامل (محاكاة) للروبوت لتحديد علامات العطل وأعراضه من الاهتزازات، التآكل، التسرب، والتشوهات الهيكلية.</li><li>فتح نقاش داخلي في الفريق لتعريف أسباب العطل المحتملة بناءً على المعلومات الفنية.</li><li>إجراء تواصل دوري بين أعضاء الفريق لتبادل الملاحظات وتعديل فرضيات التحليل.</li><li>تقديم تقرير مبدئي يحتوي على تشخيص المشكلة وخطة مبدئية للإصلاح.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التطبيق والتنفيذ</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>انتقال المتدربين إلى مرحلة تمثيل الحلول بإجراءات صيانة محددة متوافقة مع التشخيص.</li><li>محاكاة تنفيذ خطوات الصيانة مثل شد البراغي، استبدال أختام، تنظيف الأجزاء أو استبدال قطع الغيار الإفتراضية.</li><li>تطبيق إجراءات الاختبار الميداني للتحقق من فاعلية الإصلاح ومراقبة استقرار النظام.</li><li>التعامل مع تحديات اصطناعية مضافة (مثلاً ظهور خلل جديد أثناء الإصلاح) لتعزيز مهارات اتخاذ القرار تحت الضغط.</li><li>توثيق الإجراءات المتخذة والمخرجات لكل سيناريو كتابة وشفهياً ضمن الفريق.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التغذية الراجعة والمراجعة الجماعية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>إجراء جلسة نقاش بعد انتهاء مراحل اللعب حيث يعرض كل فريق تجربته وحلوله.</li><li>استقبال تعليقات المدرب ونظير الفريق لتعزيز التعلم من الخبرات المختلفة.</li><li>تحليل نقاط القوة والضعف في أداء الفرق خاصة في التواصل وتحليل العطل وحلوله.</li><li>تبادل الأفكار حول كيفية تحسين الإجراءات الفنية والتواصلية في سيناريوهات مماثلة.</li><li>إنهاء النشاط بتلخيص الدروس المستفادة وأهم النقاط المتعلقة بالصيانة الفعالة والتواصل تحت الضغط.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن لتجارب لعب الأدوار في تشخيص وإصلاح الأعطال الميكانيكية أن تعزز قدرتك على اتخاذ قرارات صيانة فعّالة وسريعة في بيئة عمل حقيقية؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

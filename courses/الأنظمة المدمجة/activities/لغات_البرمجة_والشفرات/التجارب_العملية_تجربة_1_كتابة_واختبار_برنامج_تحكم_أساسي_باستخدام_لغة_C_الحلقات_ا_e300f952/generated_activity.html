@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>برنامج التحكم العملي واختباره</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">برنامج التحكم العملي واختباره</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يهدف هذا النشاط إلى تطبيق مهارات البرمجة العملية بلغة C لكتابة برنامج تحكم أساسي مع اختبار وظائفه فعلياً على جهاز مادي، مما يعزز الفهم العملي للبرمجة الزمن الحقيقي.</p>
+        <ul class="obj-list"><li>كتابة برنامج يتحكم في جهاز مادي باستخدام حلقات وشروط وأنواع بيانات مناسبة.</li><li>تنفيذ البرنامج على جهاز مدمج حقيقي واختبار استجابته عبر أدوات تحكم فعلية.</li><li>تشخيص أخطاء البرمجة من خلال اختبار الوظائف وتصحيحها مباشرة.</li><li>تطوير حس برمجي ميداني يرابط بين الكود والسلوك الواقعي للجهاز.</li><li>تعزيز ثقة المتدرب في التعامل مع الأنظمة المدمجة وأدوات المحاكاة والاختبار.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">عملي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>جهاز Arduino أو STM32 مدمج</li><li>بيئة تطوير متكاملة (IDE) مثل Arduino IDE أو Keil</li><li>حساسات فعلية (مثلاً حساس ضوء أو زر ضغط)</li><li>مكونات إخراج (مثلاً LED، محرك صغير)</li><li>أدوات اختبار وتشخيص مثل محاكي Proteus أو SimulIDE</li><li>الحاسوب المحمول الموصّل بالجهاز</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد للتجربة العملية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بتقديم مفهوم البرمجة الزمن الحقيقي وأهميتها في التحكم الفعلي بالجهاز.</li><li>يتم شرح العناصر الأساسية التي سيستخدمها المتدربون: أنواع البيانات، الحلقات، الشروط.</li><li>عرض سريع للبيئة التطويرية والأدوات المستخدمة مع توضيح وظائف كل أداة.</li><li>تهيئة المتدربين نفسياً بحثهم على التركيز على الربط الواقعي بين البرمجة والهاردوير.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">كتابة برنامج التحكم الأساسي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدرب بكتابة كود بلغة C يتحكم في إخراج الجهاز (مثلاً تشغيل LED بناءً على ضغط زر).</li><li>المدرب يوجه المتدربين لصياغة الحلقات الأساسية والشرط if-else المناسبة للتحكم الحسي.</li><li>يتم اختيار أنواع البيانات الصحيحة لكل متغير مرتبط بالتحكم.</li><li>يتم تهيئة المتدربين لتعزيز التنظيم في الكود واتباع البنية المنطقية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحميل البرنامج وتشغيله على الجهاز المادي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>المتدربون يقومون بترجمة البرنامج وتحميله على لوحة Arduino أو STM32.</li><li>توصيل الحساسات والمشغلات الجهاز بحسب دائرة مُعدة مسبقاً.</li><li>مراقبة سلوك الجهاز أثناء تنفيذ البرنامج وملاحظة الأوامر الحقيقية.</li><li>تشجيع المشاركين على تدوين ملاحظات حول أي اختلافات أو أخطاء تظهر.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">اختبار الوظائف وتصحيح الأخطاء</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>استخدام أدوات المحاكاة لمقارنة سلوك البرنامج المتوقع مع الفعلي.</li><li>تنفيذ اختبارات وحدة تفصيلية على الوظائف الأساسية للبرنامج عبر محاكيات وبرنامج تصحيح أخطاء.</li><li>تحديد نقاط الخلل من خلال مراقبة السجلات والقيم المتغيرة داخل الحلقات والشروط.</li><li>تصحيح الأخطاء بشكل مباشر على الكود وإعادة تحميله على الجهاز لتقييم التحسين.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل الأداء العملي وقابلية التطوير</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>مناقشة النتائج التي تحصل عليها كل متدرب من اختبارات الوظائف.</li><li>تحليل مدى استقرار البرنامج وكفاءته في إدارة الموارد والتحكم الحقيقي.</li><li>توجيه المتدربين لاقتراح تحسينات عملية على الكود ودائرة التحكم.</li><li>تشجيع التفكير في التطبيقات العملية الأكبر المبنية على هذا البرنامج الأساسي.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق والتغذية الراجعة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>فتح حوار مع المتدربين حول التحديات التي واجهوها خلال النشاط.</li><li>جمع ملاحظات حول الجوانب التي أثرت في فهم البرمجة الزمن الحقيقي.</li><li>تقديم ملخص يربط بين الخطوات العملية والتقنيات البرمجية المستخدمة.</li><li>طرح سؤال تحفيزي يساعد المتدربين على التفكير في ما تعلموه وكيف يمكن تطبيقه مستقبلاً.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن لتحسين شروط الحلقات في برنامج التحكم الأساسي تقليل استهلاك موارد الجهاز المدمج وتحسين استجابته في الزمن الحقيقي؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

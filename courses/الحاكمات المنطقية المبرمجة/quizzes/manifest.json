@@ -1,0 +1,330 @@
+[
+  {
+    "name": "أجهزة_الإدخال_الإخراج",
+    "items": [
+      {
+        "name": "أجهزة_الإخراج",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "أجهزة_الإدخال",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "أمثلة_على_التطبيقات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "التبديلات_الداخلية",
+    "items": [
+      {
+        "name": "أمثلة_على_البرامج",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "التبديلات_المدعومة_بالبطارية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "التعيين_وإعادة_التعيين",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "العملية_ذات_الطلقة_الواحدة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "برامج_التدرج_السلم",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تبديل_التحكم_الرئيسي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مفهوم_التبديلات_الداخلية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "التنقل_تغيير_مسار_تنفيذ_البرنامج_والاستدعاء_الفرعي",
+    "items": [
+      {
+        "name": "الإجراءات_الفرعية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "التوجيه",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "الحاكمات_في_التطبيقات_الصناعية",
+    "items": [
+      {
+        "name": "أنظمة_PLC",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الأمان",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الأنظمة_التي_يتم_التحكم_فيها_بالمرحلات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الإمداد_والسحب",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "البرامج",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "التحكم_المنطقي_القابل_للبرمجة_PLC",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الحاكمات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "العتاد",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "النظم_التي_يتم_التحكم_فيها_بالمعالج_الدقيق",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "بنية_PLC",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "الطرق_البرمجية_IL_و_SFC_و_ST",
+    "items": [
+      {
+        "name": "النصوص_المنظمة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "قوائم_التعليمات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مخططات_الوظائف_التسلسلية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "المفاهيم_الرقمية_المتعلقة_بتشغيل_PLC",
+    "items": [
+      {
+        "name": "PLC_بيانات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الأرقام_المشفرة_بالنظام_الثنائي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الأرقام_في_الأنظمة_الثنائية،_والثمانية،_والسداسية_عشر،_والمشفرة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الأنظمة_المنطقية_التوافقية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الأنظمة_المنطقية_المتسلسلة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الحسابات_الثنائية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "النظام_الثنائي_والسداسي_عشر",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "نظام_الثنائي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "برمجة_المخطط_المتدرج_Ladder_والكتل_الوظيفية_Functional_Block",
+    "items": [
+      {
+        "name": "أمثلة_على_البرامج",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "إدخال_البرامج",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "التثبيت",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الكتل_الوظيفية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الوظائف_المنطقية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "برمجة_التدرج_في_PLC",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مخرجات_متعددة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مخططات_التدرج",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "تعلم_معالجة_الإدخال_الإخراج_في_PLC",
+    "items": [
+      {
+        "name": "أمثلة_على_الأنظمة_التجارية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الاتصالات_عن_بُعد",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الشبكات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "عناوين_الإدخال_الإخراج",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "معالجة_الإشارة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "معالجة_المدخلات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "وحدات_الإدخال_الإخراج",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  }
+]

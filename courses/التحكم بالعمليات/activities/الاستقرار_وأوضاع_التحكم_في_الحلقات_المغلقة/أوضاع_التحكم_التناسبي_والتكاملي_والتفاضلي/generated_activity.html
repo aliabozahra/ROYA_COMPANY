@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تجربة ضبط معامل تناسبي عملي</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تجربة ضبط معامل تناسبي عملي</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يطبق المتدرب تجربة عملية ضبط الوضع التناسبي لجهاز تحكم لملاحظة تأثير تغير المعامل على الاستجابة.</p>
+        <ul class="obj-list"><li>يطبق خطوات ضبط المعامل التناسبي عملياً على الجهاز.</li><li>يراقب تغييرات الاستجابة الناتجة عن ضبط المعامل.</li><li>يحلل تأثير المعامل التناسبي على سرعة واستقرار النظام.</li><li>يحدد أفضل قيمة معاملات تحقق استجابة مستقرة وسريعة.</li><li>يوازن بين سرعة الاستجابة وتقليل التذبذب العملي.</li><li>يستخدم أدوات القياس والتسجيل لمتابعة الأداء الفعلي.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">عملي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>جهاز تحكم تناسبي عملي مزود بمقاييس استجابة</li><li>أداة قياس استجابة النظام (مثل راسم الذبذبة أو حساسات قياس الإشارة)</li><li>حاسوب محمول أو جهاز تسجيل بيانات</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بشرح مبسط للغرض من التمرين وأهمية الوضع التناسبي.</li><li>يعرض المدرب نموذجاً عملياً لجهاز تحكم يعتمد على الوضع التناسبي فقط.</li><li>يوضح المدرب للمتدربين كيفية قراءة القيم وقياس الاستجابة باستخدام الأدوات.</li><li>يهيئ المدرب المتدربين نفسياً للتحكم العملي ويحفزهم على الملاحظة الدقيقة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الاستكشاف الأولي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يحدد كل متدرب قيمة ابتدائية لمعلمة التناسب Kp على الجهاز.</li><li>يطبق المتدرب النظام ويلاحظ الاستجابة الأولية للجهاز في الوقت الحقيقي.</li><li>يقيس المتدرب سرعة الاستجابة وزمن الوصول للاستقرار ومدى التذبذب.</li><li>يسجل المتدرب كل ملاحظة بدقة لاستخدامها في مرحلة التحليل الموالي.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التطبيق العملي والتعديل</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يعدل المتدرب قيمة المعامل التناسبي Kp تدريجياً إلى الأعلى وفق خطة محددة.</li><li>يراقب المتدرب تأثير التعديلات على استجابة النظام فورياً.</li><li>يقوم بعمل تسجيل بياني بالوسائل المتاحة لقياس التغير في الاستجابة.</li><li>يكرر المتدرب التعديل عدة مرات للحصول على مدى تأثير واسع للمعامل.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التحليل والمقارنة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يجتمع المتدربون لمناقشة تأثير التغيرات في Kp على استقرار النظام.</li><li>يحلل المتدربون أسباب التذبذبات أو البطء في الاستجابة بناءً على الملاحظات.</li><li>يوجه المدرب أسئلة توجيهية للمساعدة في استنتاج العلاقة بين المعامل والاستجابة.</li><li>يشارك كل متدرب تجربته والنتائج التي حصل عليها لتعميم الفائدة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التثبيت والتقييم</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدرب باختيار القيمة المثلى للمعامل التناسبي Kp لضبط الاستجابة.</li><li>يطبق المتدرب الضبط النهائي ويشاهد الاستجابة المثلى للنظام.</li><li>يقوم كل متدرب بتوثيق إعداداته النهائية ونتائج الإختبار.</li><li>يحصل المتدربون على تغذية راجعة فورية من المدرب حول أدائهم وخطواتهم العملية.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يؤثر تغيير معامل التناسب في تحسين استقرار واستجابة نظام التحكم عملياً، وما التحديات التي يمكن مواجهتها عند ضبط هذا المعامل؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

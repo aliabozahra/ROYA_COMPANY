@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تجربة قياس استجابة التردد BJT</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تجربة قياس استجابة التردد BJT</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">ينفذ المتدرب تجربة عملية لقياس استجابة التردد وتسجيل الترددات عند -3 ديسيبل. تكتسب المتدربة قدرة على:</p>
+        <ul class="obj-list"><li>ضبط أدوات القياس ومعدات المختبر بدقة.</li><li>تسجيل البيانات والترددات الحدية بدقة باستخدام الأوسيلوسكوب ومولد الإشارات.</li><li>تحليل منحنى الاستجابة الترددية وربط النتائج بالنظرية لاستخلاص استنتاجات عملية.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">عملي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>مولد إشارات (Signal Generator)</li><li>مذبذب رقمي (Oscilloscope)</li><li>مكبر BJT جاهز (ترانزستور NPN مثل 2N3904)</li><li>مقياس متعدد (Multimeter)</li><li>لوح تجارب (Breadboard)</li><li>مصدر طاقة 12 فولت</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والإعداد النظري</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يرحب المدرب بالمتدربين ويشرح هدف التجربة وأهميتها في التطبيق العملي لمفاهيم الاستجابة الترددية.</li><li>يُراجع المدرب مع المتدربين مفاهيم الترددات الحدية عند -3 ديسيبل وعلاقتها بالتصميم العملي للمكبر.</li><li>يتعرف المتدرب على الأدوات والمعدات المستخدمة مع التركيز على كيفية ضبط مولد الإشارات والأوسيلوسكوب للدقة.</li><li>يناقش الجميع أهمية الدقة في إعداد التجربة لتجنب الأخطاء والتحقق من النقاط الأساسية في الدائرة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تجميع الدائرة وضبطها</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدرب بتجميع دائرة مكبر BJT على لوح التجارب بوضع الترانزستور والمقاومات والمكثفات بشكل صحيح.</li><li>يربط المتدرب مصادر الطاقة ويستخدم المقياس المتعدد لقياس جهدي قاعدة الترانزستور والإيمتر للتأكد من نقطة التشغيل الصحيحة.</li><li>يوصل المتدرب مولد الإشارات بدائرة الإدخال ويضبط تردد إشارة جيبية على 1 كيلوهرتز بحجم 1 فولت قمة إلى قمة.</li><li>يضبط المتدرب الأوسيلوسكوب لعرض الإشارة المدخلة والمخرجة ويلاحظ التماثل والتغير في السعة أثناء التشغيل.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الاستكشاف والقياسات العملية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المتدرب بتغيير تردد الإشارة بشكل تدريجي من 10 هرتز إلى 1 ميغاهرتز مع تسجيل كل قيمة تردد.</li><li>يقيس المتدرب الجهد الخارج لكل تردد ويستخدم لمسح استجابة التردد وتحديد نقاط -3 ديسيبل حيث ينخفض الكسب إلى 70.7% من القيمة الأعظمية.</li><li>يسجل المتدرب القراءات في جدول شامل يحتوي على التردد، الجهد الخارج، الكسب بالديسيبل.</li><li>يركز المتدرب أثناء القياس على دقة القراءة واستخدام وظيفة الأوسيلوسكوب المناسبة لضبط الذروة بدقة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل البيانات وتفسير الاستجابة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يدرس المتدرب منحنى الكسب مقابل التردد من البيانات المسجلة ويحدد نطاق الترددات الحدية.</li><li>يناقش المتدرب آثار المكثفات والمكونات الطفيلية على شكل الاستجابة الترددية الفعلية مقارنة بالحسابات النظرية.</li><li>يشرح المتدرب الفرق بين الترددات الحدية المنخفضة والعالية وأسباب اختلافها في الدائرة العملية.</li><li>يشارك المتدرب بملاحظات حول أهمية ضبط التحيز والاتصال الأرضي لتقليل الضوضاء وتحسين القياس.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التحدي العملي: تحسين استجابة الدائرة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يتلقى المتدرب تحدياً لتعديل قيم المكثفات أو مقاومات التحيز لتحسين عرض النطاق الترددي بناءً على النتائج السابقة.</li><li>يعد المتدرب التعديلات اللازمة على اللوحة ويكرر القياسات لمقارنة تأثير التغيير على نقاط -3 ديسيبل.</li><li>يقوم المتدرب بتوثيق التحسينات أو المشكلات التي تمت معالجتها ويحلل سبب تأثير التعديلات.</li><li>يتبادل المتدربون خبراتهم في الفرق حول استراتيجيات تحسين الدائرة وتحليل النتائج.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التغذية الراجعة والإغلاق</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يعرض المدرب النقاط المهمة التي يجب الانتباه إليها أثناء تنفيذ التجربة والقياس الدقيق.</li><li>يشارك المتدربون تحديات واجهوها وكيف تم التعامل معها، مع تلقي تعليقات فنية من المدرب.</li><li>يتم تلخيص أهم المفاهيم المكتسبة ويُشجع المتدربون على ربط هذه الخبرة بالتطبيقات المهنية المستقبلية.</li><li>يغلق المدرب النشاط بتوجيهات حول الدراسة الذاتية وتجارب أخرى مقترحة لتوطيد المهارة.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تفسر التغير في استجابة التردد عند نقاط -3 ديسيبل بالاعتماد على تأثير المكثفات والسعات الطفيلية في مكبر BJT؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

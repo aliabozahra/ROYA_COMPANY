@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تجميع واختبار مكبرات التغذية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تجميع واختبار مكبرات التغذية</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يتيح هذا النشاط للمتدرب فرصة تطبيق عملي مباشر لتجميع دوائر مكبرات BJT و FET مع تطبيقات التغذية الراجعة السالبة والموجبة، مما يعمق فهمه لأداء واستقرار الدوائر الإلكترونية.</p>
+        <ul class="obj-list"><li>يبني قدرة المتدرب على تركيب الدوائر الإلكترونية بدقة باستخدام المكونات الصحيحة وأدوات القياس.</li><li>يُنمّي مهارات قياس وتحليل أداء المكبرات بتطبيق التغذية الراجعة المختلفة.</li><li>يعزز الوعي بأساليب تجنب الأخطاء الشائعة أثناء بناء الدوائر المختبرية.</li><li>يُطوّر قدرة المتدرب على تفسير نتائج قياسات الاستجابة الترددية وجودة الإشارة.</li><li>يشجع التفكير النقدي في اختيار القيم الأنسب لعناصر التغذية الراجعة لتحقيق الاستقرار والكسب المطلوب.</li><li>يُرسّخ مفاهيم الاستقرار والاهتزاز في دوائر الإلكترونيات العملية.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">100 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">عملي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>لوحة تجارب (Breadboard)</li><li>مقاومات بقيم متنوعة (1kΩ، 10kΩ، 100kΩ، 47kΩ، 1MΩ)</li><li>مكثفات (0.1μF، 10μF)</li><li>ترانزستورات 2N3904 و2N3819</li><li>مولد إشارة وظيفي</li><li>مولتي ميتر رقمي</li><li>أوسيلوسكوب</li><li>أسلاك توصيل معزولة</li><li>مصدر طاقة متغير 0-15 فولت</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد للتجربة المختبرية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بشرح موجز عن أهمية التغذية الراجعة وتأثيرها في دوائر المكبرات.</li><li>يُذكر المتدربين بالأمان والسلامة خلال العمل في المختبر.</li><li>يتم مراجعة مكونات الأدوات والمعدات المطلوبة، مع التأكد من صلاحيتها قبل بدء العمل.</li><li>يناقش المدرب المتدربين حول التحدي: تحويل المخططات النظرية لدوائر عملية مستقرة.</li><li>يوزع المدرب مجموعات العمل ويُحدد الأدوار بين أفراده لتفعيل التعلم التعاوني.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تجميع دائرة مكبر BJT مع التغذية الراجعة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدرب بتركيب الترانزستور 2N3904 على لوحة التجارب وفقًا للمخطط.</li><li>يربط المقاومات المناسبة حسب التصميم لضبط التحيز والتيار.</li><li>يضيف المتدرب حلقة التغذية الراجعة السالبة باستخدام المقاومة والمكثف الصحيحين.</li><li>يقوم بتوصيل مولد الإشارة ومصدر الطاقة وفحص الإشارات باستخدام الأوسيلوسكوب.</li><li>يراقب المتدرب التغيرات على شكل الإشارة مع تغيير قيم التغذية الراجعة ويُدون الملاحظات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تجميع دائرة مكبر FET مع تطبيق التغذية الراجعة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يركب المتدرب الترانزستور 2N3819 في التكوين الصحيح على لوحة التجارب.</li><li>يربط المقاومات المطلوبة لتحيز عمل الدائرة وفصل البوابة.</li><li>يضيف حلقة التغذية الراجعة السالبة والموجبة مع مراقبة التغير في الأداء.</li><li>يقوم بقياس الجهد والتيار عند النقاط الرئيسية باستخدام المولتي ميتر.</li><li>يركز على مراقبة تأثير التغذية الراجعة على الضوضاء والاستقرار باستخدام الأوسيلوسكوب.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">مراقبة تسجيل النتائج وتحليل الأداء</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يجمع المتدرب بيانات الاستجابة الترددية والكسب الكلي للدائرتين.</li><li>يستخدم الأوسيلوسكوب لتسجيل شكل الإشارة ومدى التشوه الحاصل.</li><li>يساعد المدرب المتدربين في حساب معاملات الكسب THD وتأثير التغذية السالبة والموجبة.</li><li>يناقش الفريق أسباب استقرار أو عدم استقرار الدوائر وأثر التغييرات الحاصلة.</li><li>يُشجع المدرب المتدربين على تبادل الاستنتاجات وربطها بالمفاهيم النظرية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحدي تحسين الاستقرار العملي للدائرة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُطلب من المتدربين تعديل قيم التغذية الراجعة ضمن نطاق الآمن لتحسين الاستقرار.</li><li>يجرب المتدربون إضافة مكثفات تعويضية لتحسين الاستجابة الترددية.</li><li>يقيس المتدرب التأثيرات الناتجة ويقارن الأداء قبل وبعد التعديل.</li><li>يُحفّز المدرب المتدربين على التفكير في كيفية تطبيق هذه التحسينات في دوائر معقدة.</li><li>يتم إغلاق النشاط بنقاش حول دور التغذية الراجعة في تصميم الدوائر العملية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق والتقييم الذاتي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يجري المتدربون مناقشة ختامية حول تجاربهم والتحديات التي واجهوها.</li><li>ينقسم المتدربون لمجموعات صغيرة لكتابة ملخص قصير عن الدروس المستفادة.</li><li>يقدم المدرب تغذية راجعة مباشرة ويجيب على أسئلة المشاركين.</li><li>يُشجع المتدربون على اقتراح أفكار لتطوير التجربة التقنية.</li><li>يختتم النشاط بتحديد خطوات متقدمة لتطوير مهارات المختبرات الإلكترونية.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تؤثر قيم عناصر التغذية الراجعة على استقرار وأداء دوائر مكبرات BJT وFET في الظروف العملية، وكيف يمكن للملاحظة العملية أن توجه تحسينات التصميم؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تجربة بناء وتحليل دوائر Op-Amp</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تجربة بناء وتحليل دوائر Op-Amp</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">تتبنى هذه النشاطات تجربة عملية تركز على تحضير وتنفيذ تجارب مختبرية لدوائر التفاضل والتكامل مع تحليل مفصل للنتائج.</p>
+        <ul class="obj-list"><li>تطبيق خطوات بناء دوائر التفاضل والتكامل باستخدام مكبر العمليات.</li><li>قياس وتحليل الإشارات الناتجة باستخدام أدوات القياس المختلفة.</li><li>استخدام الملتيميتر، الأوسيلوسكوب، ومولد الإشارات لفحص أداء الدوائر.</li><li>تفسير النتائج العملية وربطها بالنماذج النظرية.</li><li>التعرف على أسباب الانحرافات وتحليلها بفعالية.</li><li>اقتراح تحسينات بناءً على تحليل البيانات لتعزيز الدقة.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">عملي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>مكبر العمليات LM741</li><li>مقاومات ومكثفات بالقيم المحددة (10 كيلو أوم، 0.1 ميكروفاراد، 1 ميغا أوم)</li><li>لوحة تجارب (Breadboard)</li><li>أسلاك توصيل</li><li>مولد إشارة (Function Generator)</li><li>أوسيلوسكوب</li><li>ملتيميتر رقمي</li><li>نظارات واقية</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يرحب المدرب بالمتدربين ويشرح هدف التجربة بتركيز على أهمية الدوائر التفاضلية والمدمجة.</li><li>يقدم المدرب مختصرًا للمكونات الأساسية مثل مكبر العمليات، المقاومات، والمكثفات، مع عرض للعلاقات الرياضية المتعلقة بالدارات.</li><li>يتم تحفيز المتدربين لتخيّل العواقب عند تركيب دائرة بطريقة عشوائية لتوضيح أهمية الدقة في الإعداد.</li><li>يوضح المدرب أدوات العمل والتدابير الوقائية المطلوبة لضمان السلامة.</li><li>يناقش المشاركون بشكل تفاعلي أهمية الربط بين النظرية والتطبيق العملي.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">بناء دائرة التفاضل</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يوزع المدرب على المتدربين المكونات حسب المخطط التفصيلي.</li><li>يشرح المدرب كيفية توصيل مصادر الطاقة بشكل صحيح إلى المكبر (pin 7 وpin 4) مع تعليمات إضافة مكثفات التصفية.</li><li>يرشد المدرب المشاركين إلى توصيل المكثف C1 إلى المدخل المعكوس (pin 2) والمقاومة R_f بين الخرج (pin 6) والمدخل نفسه.</li><li>يتم ربط المدخل غير المعكوس (pin 3) بالأرضي لضمان استقرار الدائرة.</li><li>يضيف المتدربون مقاومة 1 كيلو أوم للسلسلة في المدخل للحد من الترددات العالية.</li><li>يتم فحص التوصيلات باستخدام الملتيميتر لتجنب الدوائر القصيرة أو الأخطاء قبل التشغيل.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">بناء دائرة التكامل</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يطلب المدرب تفكيك بعض التوصيلات مع الحفاظ على سلامة المكونات.</li><li>يركز المدرب على تبديل مواقع المكثف والمقاومة وفق المخطط الخاص بدائرة التكامل.</li><li>يتأكد المشاركون من توصيل مصدر الطاقة بشكل دقيق كما في المرحلة السابقة.</li><li>يربط المتدربون المكثف C1 بالمدخل المعكوس والمقاومة R_f في الحلقة الراجعة بين الخرج والمدخل.</li><li>يتم إضافة المقاومة المتوازية 1 ميغا أوم على المكثف لمنع التشبع.</li><li>يقوم الفريق بفحص التوصيلات والتأكد من قصور الدوائر باستخدام الملتيميتر.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">اختبار وقياس الأداء</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يشغل المدرب مولد الإشارات لتغذية الدائرتين بإشارة جيبية 1 كيلو هرتز.</li><li>يشرح المدرب كيفية استخدام الأوسيلوسكوب لعرض الإشارات عند مدخل ومخرج الدوائر.</li><li>يقوم المشاركون بقياس الجهد والتيار باستخدام الملتيميتر عبر نقاط محددة في الدوائر.</li><li>يغير المتدربون تردد الإشارة تدريجيًا ويلاحظون تأثير ذلك على الإشارة الخارجة.</li><li>يسجل المشاركون القراءات والملاحظات بدقة لمقارنتها مع النظريات.</li><li>يتم جمع البيانات من جميع الفرق لتقسيمها وتحليلها لاحقًا.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل النتائج العملية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدربون بتحليل البيانات المسجلة بمقارنة الإشارات الخارجة مع القيم النظرية المتوقعة.</li><li>يتعرف المشاركون على أسباب أي انحرافات أو تشويش تم رصده أثناء القياس.</li><li>يناقش المدرب معهم تأثير المكونات غير المثالية والأثر الطفيلي على أداء الدوائر.</li><li>يتم عرض كيفية حساب الخطأ النسبي وتقييم دقة النتائج.</li><li>يقترح المتدربون حلولاً لتحسين الدوائر بناءً على تحليلهم، مثل تحسين مقاومات التغذية الراجعة.</li><li>يعزز المدرب أهمية هذه التحليلات في الربط ما بين النظرية والتطبيق الميداني.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التغذية الراجعة والإغلاق</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يجري المدرب جلسة حوارية مع المتدربين لمشاركة التحديات التي واجهوها خلال النشاط.</li><li>يوجه المدرب أسئلة تفاعلية لتعميق الفهم وتثبيت المفاهيم.</li><li>يتم تقديم ملخص شامل لنقاط التعلم الأساسية مع التأكيد على أهمية التطبيق العملي الدقيق.</li><li>يحث المدرب المتدربين على التفكير بكيفية توظيف المهارات المكتسبة في بيئة العمل المستقبلية.</li><li>يتم توزيع كتيب أو مرجع رقمي يحتوي على المخططات والملاحظات المهمة لمتابعة التعلم.</li><li>ينهي المدرب النشاط بتشجيع المتدربين على الاستمرار في تطوير مهاراتهم العملية والتقنية.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تفسر الانحرافات التي قد تحدث بين النتائج العملية والنظرية في دوائر التفاضل والتكامل، وما هي الإجراءات التي يمكن اتخاذها لتحسين دقة هذه الدوائر في التجارب المستقبلية؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رحلة تصميم شبكة الألياف البصرية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">رحلة تصميم شبكة الألياف البصرية</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">فعّل مهارات تحليلية وعملية من خلال تصميم وبناء شبكة ألياف بصرية نموذجية تجمع بين الفيزياء والتقنيات الحديثة.</p>
+        <ul class="obj-list"><li>تصميم نظام ألياف بصریة يتمتع بكفاءة نقل عالية.</li><li>حساب زاوية القبول والزاوية الحرجة بناءً على معاملات الانكسار.</li><li>تحليل تأثير التشتت والامتصاص على جودة الإشارة.</li><li>تطبيق تقنيات التلجيم والموصلات لتحسين الربط.</li><li>استخدام التلميع لتقليل خسائر الانعكاس.</li><li>تنفيذ اختبارات عملية لمحاكاة سيناريوهات الشبكة.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">100 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>أطقم ألياف بصرية تتضمن ألياف زجاجية، موصلات SC, LC, ST</li><li>أجهزة قياس زاوية السقوط والانعكاس (مقاييس الانكسار، زوايا القبول)</li><li>محطات عمل تشبه مختبر الاتصالات البصرية مع Fusion Splicer</li><li>أجهزة ليزر ومحاكيات انتقال الضوء</li><li>أدوات تلميع يدوية وآلية</li><li>برمجيات محاكاة (مثل MATLAB أو برنامج مخصص لمحاكاة الألياف)</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بعرض فيديو تشويقي يوضح أهمية الألياف البصرية في الاتصالات الحديثة.</li><li>يشرح المشاركون مناقشة تفاعلية لمفهوم الضوء كموجة وجسيم.</li><li>يوجه المدرب أسئلة استكشافية للربط بين الفيزياء والتطبيقات العملية.</li><li>يشجع المدرب المشاركين على التفكير في تحديات نشر شبكات الألياف.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف ظواهر الضوء في الألياف</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المشاركون بقياس معامل الانكسار لعينة من الألياف باستخدام الجهاز المتوفر.</li><li>يطبق المشاركون قانون ستيل لحساب زاوية الانكسار وزاوية القبول على العينات.</li><li>ينفذ المشاركون تجارب عملية لقياس الزاوية الحرجة بانعكاس داخلي كلي.</li><li>يناقش الفريق تأثير معاملات الانكسار على جودة النقل ومسافات الاتصال.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تصميم نموذج شبكة ألياف بصريّة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقسم المشاركون إلى فرق لتصميم شبكة تلبي معايير معينة (مسافة النقل، نوع الألياف، مصادر الضوء).</li><li>يستخدم الفريق برمجيات المحاكاة لتعديل معاملات الانكسار والنماذج لتحسين الأداء.</li><li>يقوم الفريق بحساب الفتح العددي وزاوية القبول الملائمة لشبكتهم.</li><li>يقدم كل فريق تصورًا تخطيطيًا مع تبرير حاسوبي للتصميم.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تنفيذ التلجيم والموصلات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُعرض فيديو تفصيلي يشرح تقنيات التلجيم بالذوبان والميكانيكي.</li><li>يقوم المشاركون بتلجيم ألياف باستخدام Fusion Splicer تحت إشراف المدرب.</li><li>يمارس المشاركون تركيب وصيانة الموصلات SC وLC وST.</li><li>يقيس الفريق خسائر الربط قبل وبعد التلميع لزيادة الإدراك العملي.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل وتحسين جودة الشبكة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يجري المشاركون قياسات عملية لتأثير التشتت والامتصاص على إشارة الإرسال.</li><li>يطبق الفريق تقنيات تلميع مختلفة ويقارن النتائج العملية.</li><li>يناقش المشاركون كيف تؤثر هذه العوامل على النقل ويقترحون حلولاً مبتكرة.</li><li>يعد كل فريق تقريرًا مختصرًا عن النتائج والتوصيات لتحسين تصميم الشبكة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق والتقييم</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>ينعكس المشاركون على رحلة التعلم ويشاركون أبرز المكتسبات.</li><li>يطرح المدرب أسئلة لمناقشة كيف يمكن تطبيق المعرفة في مواقف مهنية حقيقية.</li><li>يقدم المشاركون عرضًا موجزًا حول تصميم شبكتهم وتقنيات التنفيذ.</li><li>يختتم المدرب بتلخيص النقاط الأساسية ويوجه المتدربين لاستمرار التعلم الذاتي.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن أن يؤثر اختيار معاملات الانكسار والزاوية الحرجة على كفاءة نقل البيانات في شبكة ألياف بصرية عملية؟ وما الحلول التي يمكن تطبيقها لتقليل الخسائر الناتجة؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

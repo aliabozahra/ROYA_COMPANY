@@ -1,0 +1,208 @@
+[
+  {
+    "name": "أساسيات_أنظمة_الاتصالات_الخلوية_وتطورها",
+    "items": [
+      {
+        "name": "التطبيقات_العملية_في_تحليل_بنية_الشبكات_الخلوية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التعرف_على_استراتيجيات_التصميم_الخلوي_وأنواع_الخلايا",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التعرف_على_مكونات_بروتوكولات_GSM_والقنوات_المنطقية_Logical_Channels",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التعرف_على_مكونات_تراكيب_قنوات_GSM_والبنى_متعددة_الإطارات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التعرف_على_مكونات_نظام_TETRA_وخصائصه",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التعرف_على_مكونات_هندسة_نظام_GSM_GSM_System_Architecture",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تعريف_مفهوم_ترميز_الكلام_في_GSM",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "النماذج_المختلفة_للأنظمة_الخلوية",
+    "items": [
+      {
+        "name": "التطبيقات_العملية_في_شبكات_WCDMA",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "بناء_وتخطيط_رفع_LTE_باستخدام_SC-FDMA",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تحليل_OFDM_و_SINR_في_WCDMA",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تحليل_التبديلات_في_WCDMA",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تحليل_التحكم_في_القدرة_Power_Control_في_WCDMA",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تحليل_وتخطيط_أنظمة_الوصول_المتعدد_CDMA_TDMA_FDMA_SDMA",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تحليل_وتخطيط_وبناء_ميزانية_الرابط_في_WCDMA",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تخطيط_عامل_تحميل_الرفع_في_خلية_WCDMA_3G",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "خصائص_القنوات_اللاسلكية",
+    "items": [
+      {
+        "name": "التطبيقات_العملية_لاستخدام_التنوع_الترددي_في_الأنظمة_المحمولة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التعرف_على_مكونات_مكاسب_الهوائيات_وتأثيرها",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تحليل_الاضطراب_في_نمط_إشعاع_المحمول",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تحليل_خصائص_انتشار_WCDMA",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تحليل_سلامة_هوائيات_BTS",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تحليل_طيف_إشارة_GSM_واشتقاقه",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تحليل_كفاءة_عرض_النطاق_الترددي",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تقنيات_التنوع_الترددي_المكاني_الزمني_الاستقطابي",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "معايير_وتقنيات_الاتصالات_اللاسلكية",
+    "items": [
+      {
+        "name": "التعرف_على_أنواع_الهوائيات_المختلفة_الهواتف_المحمولة_السيارات_BTS",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التعرف_على_القنوات_الفيزيائية_وقنوات_النقل",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التعرف_على_قنوات_الحركة_والتحكم_في_WCDMA",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التعرف_على_مكونات_نظام_UMTS_3G",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تحليل_OFDM_في_الجيل_الرابع_G4",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تحليل_رفع_LTE_باستخدام_SC-FDMA",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تحليل_مقارنة_سعة_الرفع_بين_WCDMA_و_LTE",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تصنيف_مخططات_التعديل_الرقمي_في_G2_BPSK_QPSK_FSK_MSK_GMSK",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  }
+]

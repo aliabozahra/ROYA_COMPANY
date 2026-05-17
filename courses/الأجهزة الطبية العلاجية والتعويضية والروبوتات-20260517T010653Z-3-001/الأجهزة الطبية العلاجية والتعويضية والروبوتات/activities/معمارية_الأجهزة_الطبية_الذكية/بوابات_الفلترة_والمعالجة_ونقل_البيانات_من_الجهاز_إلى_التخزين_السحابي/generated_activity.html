@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تجربة تطبيق فلترة بيانات سحابية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تجربة تطبيق فلترة بيانات سحابية</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يهدف هذا النشاط إلى تطوير مهارات المشاركين في تطبيق عملي لكيفية فلترة البيانات الأولية وتحليلها ثم محاكاة نقلها إلى نموذج تخزين سحابي، مما يعزز الفهم العملي للبوابات في الأجهزة الطبية الذكية.</p>
+        <ul class="obj-list"><li>يطبق المشاركون خطوات جمع وتحويل البيانات الأولية.</li><li>يستخدمون خوارزميات فلترة لإزالة الضوضاء من البيانات.</li><li>يقومون بتحليل البيانات المصفاة لاستخراج الميزات الهامة.</li><li>يقومون بمحاكاة عملية نقل البيانات إلى نموذج السحابة.</li><li>يفهمون أهمية بوابات الفلترة في تحسين دقة البيانات.</li><li>يعززون مهاراتهم العملية في معالجة البيانات ونقلها.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>برنامج محاكاة بيانات طبية مع واجهة فلترة وتحليل</li><li>حاسوب محمول متصل بشبكة محاكاة سحابية</li><li>أجهزة استشعار افتراضية لجمع بيانات أولية</li><li>نموذج تخزين سحابي تجريبي</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتعريف بالبيانات الأولية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بتقديم شرح مبسط عن مصدر البيانات الأولية واهميتها.</li><li>يعرض المدرب تدفق إشارات كهربائية حقيقية أولية تشمل ضوضاء وتداخل.</li><li>يطلب من المشاركين ملاحظة التحديات في التعامل مع البيانات الأولية.</li><li>يناقش المجموعة أهمية الفلترة لتحسين جودة البيانات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تجميع وتحويل البيانات الرقمية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يرافق المدرب المشاركين لجمع بيانات أولية عبر الأجهزة الافتراضية.</li><li>يشرح كيفية تمثيل الإشارات التناظرية رقمياً باستخدام الأدوات.</li><li>ينفذ المشاركون خطوات تحويل البيانات ويلاحظون النتيجة الأولية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تطبيق خوارزميات الفلترة وإزالة الضوضاء</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يشرح المدرب خوارزميات فلترة مختلفة (منخفضة وعالية التردد).</li><li>يقوم المشاركون بتعديل معاملات الخوارزميات أثناء التطبيق.</li><li>يلاحظ المشاركون تأثير الفلترة على الرسم البياني للإشارات.</li><li>يُحفز المدرب المشاركين لمقارنة اختلافات قبل وبعد الفلترة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل البيانات المصفاة واستخراج الميزات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يدير المدرب جلسة تركز على اجراء تحليل البيانات المفلترة.</li><li>يوجه المشاركون لاستخدام التقنيات مثل تحويل فورييه السريع.</li><li>يستخلص المشاركون ميزات واضحة مثل معدل النبض ومستويات الأكسجين.</li><li>يناقش الجميع كيف تؤثر الفلترة على دقة التحليل.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">محاكاة نقل البيانات إلى التخزين السحابي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يساعد المدرب المشاركين في ربط الأجهزة الافتراضية بنموذج السحابة.</li><li>يشرح البروتوكولات المستخدمة في النقل مثل MQTT و HTTPS.</li><li>يقوم المشاركون بإرسال البيانات المفلترة للمخزن السحابي التجريبي.</li><li>يحاكي الفريق استجابة السحابة وتأمين البيانات.</li><li>يختبر المشاركون التعامل مع سيناريوهات فقدان بيانات أو تأخير.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التقييم الختامي والتغذية الراجعة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يطلب المدرب من المشاركين تقديم تقييماتهم لتجربة الفلترة والنقل.</li><li>يقوم المدرب بإعطاء ملاحظات حول أداء كل مشارك.</li><li>يناقش المشاركون التحديات التي واجهوها وكيف تغلبوا عليها.</li><li>يختتم النشاط بالتأكيد على أهمية الفلترة ونقل البيانات في الأجهزة الطبية.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تسهم بوابات الفلترة في ضمان دقة البيانات المنقولة إلى التخزين السحابي، وما تأثير ذلك على التشخيص الطبي؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>محاكاة ديناميكا مسخّن التغذية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">محاكاة ديناميكا مسخّن التغذية</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">بناءً على استخدام برنامج المحاكاة التفاعلي لعرض سلوك ديناميكا مسخّن التغذية، يكون المتدرب قادرًا على:</p>
+        <ul class="obj-list"><li>محاكاة التغيرات الديناميكية في درجة حرارة مسخّن التغذية بتغيير المعاملات.</li><li>تفسير تأثير الاضطرابات المختلفة على استقرار النظام.</li><li>تصميم سيناريوهات تحكم تناسبي وتكاملي فعالة لمواجهة التغيرات.</li><li>تحليل سلوك النظام من خلال مراقبة المتغيرات الحرارية والزمنية.</li><li>تقدير زمن الاستجابة وتأثير الكسب والثابت الزمني في التحكم.</li><li>توظيف أدوات المحاكاة للتحكم وتحسين الأداء الصناعي.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>برنامج محاكاة ديناميكا مسخّن التغذية متوافق مع MATLAB/Simulink</li><li>حاسوب محمول أو مكتبي مزود بالبرنامج</li><li>أدوات قياس ومعايرة رقمية داخل البرنامج</li><li>لوحة بيانات بصرية أمامية لعرض المتغيرات</li><li>متابعة عبر واجهة مستخدم تفاعلية</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يرحب المدرب بالمتدربين ويشرح أهمية فهم ديناميكا مسخّن التغذية في الأنظمة الصناعية.</li><li>يقدم المدرب نظرة عامة مختصرة على دور المسخّن وتأثير المتغيرات الحرارية والزمنية في التحكم.</li><li>يتم عرض واجهة برنامج المحاكاة مع توضيح الادوات والخيارات المتاحة للمحاكاة.</li><li>يوضح المدرب أهداف النشاط وكيفية تحقيق تجربة تفاعلية تركز على جوانب ديناميكية.</li><li>يتم توزيع المتدربين إلى مجموعات صغيرة لاستخدام البرنامج مع الدعم الفني.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف تأثير المعاملات الديناميكية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تتمكن كل مجموعة من إعادة ضبط نموذج المسخّن الافتراضي إلى حالة ابتدائية موحدة.</li><li>يقوم المتدربون بتغيير معاملات الكسب الحراري والثابت الزمني للتأخير ضمن البرنامج.</li><li>يلاحظ المتدربون تأثير كل تعديل في الزمن المستغرق لاستجابة المسخّن ودرجة الحرارة الناتجة.</li><li>يسجل الفريق ملاحظاته على كيفية تغير استقرار النظام مع تغير المعاملات.</li><li>يقوم المدرب بتوجيه تساؤلات تحفز التفكير حول سبب حدوث كل تغيير.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">محاكاة اضطرابات نظام المسخّن</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يضيف المتدربون اضطرابات مختلفة مثل تغيرات مفاجئة في معدل تدفق السائل أو تغييرات في الطاقة المدخلة.</li><li>يراقبون النظام ضبط المتحكم PID استجابة لهذه الاضطرابات عبر أدوات المحاكاة.</li><li>يقوم الفريق بتحليل مدى سرعة استقرار النظام ووجود تذبذبات أو انحرافات.</li><li>يستخدم المتدربون خاصية إعادة تشغيل المحاكاة بتغير المعاملات لتحسين استقرار النظام.</li><li>يشارك كل فريق نتائج تحليله والخبرات المكتسبة مع باقي المجموعات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تصميم وتطبيق سيناريو تحكم تفاعلي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُكلف المتدربون بإعداد سيناريو تحكم يتضمن متحكم PID مع معاملات تناسب مستوى الاستجابة والتكامل المشتق.</li><li>يطبقون سيناريو للتحكم ويشغلون المحاكاة لاختبار رد فعل النظام في وجود اضطرابات متغيرة.</li><li>يحاول الفريق ضبط المعاملات للحد من التذبذبات وتحقيق استقرار سريع.</li><li>يُجري المتدربون تجارب متكررة مع توثيق مراحل الاستجابة وتحسين الأداء.</li><li>يتلقى المتدربون تغذية راجعة فورية من البرنامج ولدى المدرب حول فاعلية كل تصميم.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تقييم النتائج والتعلم النقدي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تجتمع المجموعات لمناقشة تحديات الديناميكا التي واجهوها في المحاكاة.</li><li>يقارن المتدربون النتائج التي حصلوا عليها مع المفاهيم النظرية لديناميكا المسخّن.</li><li>يُجري المدرب جلسة تفاعلية لاستعراض حلول التحكم ومناقشة السيناريوهات المختلفة.</li><li>يتم تحفيز المتدربين على اقتراح تحسينات مستقبلية في تصميم أنظمة التحكم للمسخّن.</li><li>يناقش الفريق كيفية توظيف هذه الخبرات في بيئات صناعية واقعية لتعزيز الأداء والكفاءة.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تؤثر التغيرات في معاملات الكسب والثابت الزمني للمسخّن على استقرار النظام، وما هي الاستراتيجيات الفعالة التي يمكن تطبيقها لضبط متحكم PID لمواجهة هذه التحديات؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تعيين معاملات PID عمليًا</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تعيين معاملات PID عمليًا</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يعاير المتدرب معاملات المتحكم PID عمليًا باستخدام تجربة ميدانية وفق طريقة زيجلر-نيكولز، ليكتسب مهارات تطبيقية في ضبط وتحليل استجابة الأنظمة الصناعية.</p>
+        <ul class="obj-list"><li>يُجري تجربة قياس استجابة نظام تحكم الحلقة المفتوحة باستخدام معدات فعلية.</li><li>يحلل بيانات الاستجابة لتحديد الزمن الميت والربح الثابت.</li><li>يحسب معاملات PID الأولية استنادًا إلى طريقة زيجلر-نيكولز للحلقة المفتوحة.</li><li>يضبط المعاملات عمليًا ويراقب التغير في استقرار النظام.</li><li>يعزز مهارات التعامل مع أنظمة التحكم الصناعية الواقعية ويربط النظرية بالتطبيق.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">عملي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>نظام تحكم صناعي مع إمكانية تطبيق إدخال خطوي</li><li>أجهزة قياس مثل مقياس الجهد ومستشعرات الخرج</li><li>لوحات تحكم PID رقمية أو برمجية</li><li>حاسوب محمول مع برنامج MATLAB أو محاكيات مشابهة</li><li>أوراق تسجيل بيانات الملاحظة</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد للعمل الميداني</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يشرح المدرب أهداف التجربة وأهمية طريقة زيجلر-نيكولز في تعيين معاملات PID.</li><li>يعرض المدرب نموذج النظام الذي سيُجرى عليه الاختبار، موضحًا حالة الحلقة المفتوحة.</li><li>يتم مراجعة مكونات النظام والأدوات المستخدمة مع التأكيد على إجراءات السلامة.</li><li>يتم تحفيز المتدربين على طرح أسئلة لفهم طبيعة التجربة ومتطلباتها بشكل دقيق.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">إجراء التجربة وقياس الاستجابة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُشغّل النظام في وضع الحلقة المفتوحة بدون تغذية راجعة.</li><li>يطبق المتدربون إشارة دخلية خطوية صغيرة (مثل زيادة جهد بنسبة 10%).</li><li>يراقب المتدربون خرج النظام بوساطة أجهزة القياس ويسجلون البيانات بدقة.</li><li>يحدد المتدربون الزمن الميت (Td) ونسبة الربح الثابت (K) من خلال مراقبة المنحنيات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">حساب معاملات المتحكم الأولية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يحسب المتدربون معامل الربح التناسبي (Kp) المبدئي بناءً على بيانات الاستجابة.</li><li>يقوم المتدرب برفع قيمة Kp تدريجيًا حتى الوصول إلى حد التذبذب المستمر المسجل.</li><li>يلاحظ المتدربون التذبذب ويسجلون قيمة Kp الحرج (Ku) والدورة الزمنية (Tu).</li><li>يضبط المدرب ويوجه المتدربين لتأكيد قياسات Ku وTu بدقة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تعيين معاملات PID واختبارها</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يستخدم المتدربون جدول زيجلر-نيكولز لتحويل Ku وTu إلى Kp وTi وTd.</li><li>يدخل المتدربون القيم المحسوبة في وحدة التحكم الرقمية أو البرمجية.</li><li>يغلق المتدرب النظام في الحلقة المغلقة لاختبار استجابة النظام للإشارات الجديدة.</li><li>يراقب المتدربون استقرار النظام ومدى تحسنه عبر الاستجابة المختبرة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التعديل والتحسين العملي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يلاحظ المتدربون سلوك النظام في ظروف تشغيل فعلية ويحددون المشكلات مثل التذبذب الزائد.</li><li>يُعدل المتدربون قيم Kp وTi وTd تجريبيًا استجابة لملاحظاتهم العملية تحت إشراف المدرب.</li><li>يكرر المتدربون عملية الاختبار حتى الوصول لاستقرار وأداء مقبولين.</li><li>يُناقش الفريق الدروس المستفادة وكيفية الربط بين النظرية والواقع الصناعي.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن تفسير أثر تعديل كل من معاملات Kp وTi وTd على استجابة نظام التحكم الصناعي في ضوء تجربتك العملية؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

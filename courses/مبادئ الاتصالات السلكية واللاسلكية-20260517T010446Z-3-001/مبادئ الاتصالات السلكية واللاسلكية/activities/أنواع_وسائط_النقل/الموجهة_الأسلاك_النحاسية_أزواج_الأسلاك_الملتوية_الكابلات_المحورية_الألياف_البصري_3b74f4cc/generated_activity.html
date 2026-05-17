@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>محاكاة ديناميكية لوسائط النقل الموجهة</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">محاكاة ديناميكية لوسائط النقل الموجهة</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">نشاط تطبيقي موجه لتصميم محاكاة تفاعلية توضح الفروق العملية في إرسال واستقبال البيانات عبر وسائط نقل موجهة.</p>
+        <ul class="obj-list"><li>فهم تفاعلي لخصائص الأزواج الملتوية والألياف البصرية</li><li>تحليل الفرق في الأداء والتداخل بين كابلات مختلفة</li><li>تطبيق مفاهيم التداخل والتشويش في سيناريوهات محاكاة</li><li>تعزيز مهارات اختيار الوسائط المناسبة حسب بيئة النقل</li><li>تنمية قدرة المتدرب على تفسير نتائج المحاكاة عملياً</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>برنامج محاكاة اتصال شبكي تفاعلي</li><li>أجهزة حاسوب أو لوحات تفاعلية</li><li>بيانات سيناريوهات بيئية صناعية ومكتبية</li><li>مستندات شرح خصائص الوسائط</li><li>محددات سيناريو مهنية للتحديات</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتعارف على الوسائط</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يرحب المدرب بالمتدربين ويشرح الهدف من النشاط.</li><li>يتم عرض موجز تفاعلي للوسائط السلكية الموجهة مع شرح مختصر.</li><li>يُوزع دليل مختصر للخصائص التقنية لكل وسيط.</li><li>يُشجع المتدربون على طرح توقعاتهم الشخصية حول أداء كل وسيط في سيناريوهات مختلفة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف المحاكاة العملية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدربون بتشغيل برنامج المحاكاة على أجهزتهم.</li><li>يُطلب من المتدربين التفاعل مع إعدادات المحاكاة المختلفة، مثل اختيار نوع الوسيط ومسافة النقل.</li><li>تلاحظ المحاكاة تأثيرات التداخل والتشويش على نقل البيانات.</li><li>المتدربون يوثقون النتائج الأولية باستخدام أدوات المحاكاة عبر خرائط وأرقام أداء.</li><li>المدرب يوجه أسئلة تحفيزية لتعميق الفهم أثناء الاستكشاف.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل الفروق وتأثير البيئة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يجري المتدربون تجربة سيناريوهات متعددة تمثل بيئات مختلفة (مكتبية، صناعية).</li><li>يُطلب منهم ملاحظة الفروقات في الأداء داخل المحاكاة بين الأزواج الملتوية والألياف البصرية.</li><li>يقوم المتدربون بتفسير أسباب التداخل والتشويش بناءً على خصائص الوسائط.</li><li>تجري مناقشة موحدة لتمييز تأثير الظروف البيئية على جودة النقل.</li><li>يُطلَب من المتدربين مقارنة النتائج بمواصفات واقعية وتقييم مدى دقة المحاكاة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تطبيق التحديات العملية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقسم المدرب المتدربين إلى مجموعات لتحليل مشكلات محاكاة معقدة.</li><li>تُعطى للمجموعات تحديات مثل اختيار الوسيط الأمثل لحالة بيئة مع تداخل كهربائي عالي.</li><li>تستخدم المحاكاة لابتكار حلول وتحسين إعدادات نقل البيانات.</li><li>تقدم المجموعات عرضًا مختصرًا لحلولها وتفسيراتها العملية.</li><li>المدرب يقدم تغذية راجعة بناءة لتعزيز الفهم التطبيقي.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق والتقويم الذاتي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المدرب بمناقشة ختامية مع المتدربين لتلخيص أهم النتائج.</li><li>يُطلب من المتدربين تقييم تجربتهم من خلال استبيان تفاعلي.</li><li>يناقش المتدربون كيف يمكن توظيف تعلمهم في التطبيقات العملية المستقبلية.</li><li>يتم توزيع ملخص تفاعلي يحتوي على نقاط أساسية وأمثلة تطبيقية لتعزيز الذاكرة.</li><li>تحفيز المتدربين على البحث والتعلم المستمر خارج إطار النشاط.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن اختيار أفضل وسيط نقل موجه في بيئة صناعية عالية التداخل لضمان جودة وأمان نقل البيانات؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

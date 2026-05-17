@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تحليل أعطال المايكروتوم العملية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تحليل أعطال المايكروتوم العملية</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يركز هذا النشاط على تعزيز مهارات تشخيص الأعطال الفعلية في أجهزة المايكروتوم وتطبيق حلول مناسبة لضمان استمرارية عمل الجهاز بدقة.</p>
+        <ul class="obj-list"><li>يحدد المتدرب أعراض الأعطال التقنية الشائعة في المايكروتوم.</li><li>يستخدم أساليب تحليلية لاستكشاف أسباب الأعطال في مكونات الجهاز.</li><li>يحصر الحلول العملية القابلة للتطبيق لإصلاح الأعطال وضبط الجهاز.</li><li>يطبق إجراءات الصيانة السريعة اللازمة للحفاظ على جودة القطع.</li><li>يقيم فعالية الحلول المتخذة ويقترح تحسينات مستمرة.</li><li>يتواصل بشكل مهني مع الفريق الفني لمناقشة المشكلات المعقدة.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تحليلي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>حالات أعطال مكتوبة ومرفقة بمعينات بصرية</li><li>جهاز مايكروتوم فعلي أو نموذج مبسط</li><li>أدوات تشخيص مثل مفكات، ميكرومتر، مقياس حرارة</li><li>أدوات إعلامية: شاشة لعرض فيديوهات وحالات حقيقية</li><li>أوراق تدوين الملاحظات</li><li>مخططات تفصيلية لأجزاء الجهاز</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتحضير الفكري</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بعرض مقطع فيديو قصير يوضح أهمية المايكروتوم ودوره في المختبر.</li><li>يطرح المدرب أسئلة تحفيزية عن تجارب المتدربين السابقة مع أعطال المايكروتوم.</li><li>يقوم المشاركون بتدوين توقعاتهم لأسباب تعطل الجهاز بناءً على معرفتهم الأولى.</li><li>يناقش المدرب ملخصًا سريعًا لأنواع الشفرات الرئيسية والآليات المتعلقة بها.</li><li>يتم توزيع كتيبات تعليمية مصغرة تتضمن أبرز الأعطال المتكررة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف وتحليل حالات الأعطال</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقسم المدرب المشاركين إلى مجموعات صغيرة، ويوزع على كل مجموعة حالة عطل مكتوبة مفصلة.</li><li>تقوم كل مجموعة بتحليل حالتها من حيث وصف العطل، الأعراض الظاهرة، والتأثير على جودة القطع.</li><li>يستخدم المشاركون أدوات التشخيص المرفقة لفحص النموذج أو الجهاز الحقيقي، مع ملاحظة المؤشرات الضوئية أو الصوتية.</li><li>تقوم كل مجموعة بتحديد مكونات الجهاز المحتملة المتأثرة بالعطل.</li><li>يتبادل المشاركون بين المجموعات معلوماتهم للوصول لفهم أكثر عمقًا لكل حالة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحديد الأسباب والحلول العملية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم كل فريق بتوثيق الأسباب الكامنة وفق نتائج تحليلهم الدقيق.</li><li>يناقش المشاركون الحلول التقنية والوقائية لإصلاح العطل، مدعومة بالمراجع التقنية.</li><li>يتم تحضير قائمة بأفضل الممارسات في الصيانة والتشخيص المرتبطة بكل نوع عطل.</li><li>يتناول المتدربون أهمية ضبط المايكروتوم بعد إصلاح الأعطال للحفاظ على الأداء الأمثل.</li><li>تجري جلسة استشارية مع المدرب لتسليط الضوء على الحلول وتقييم مدى فعاليتها.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تطبيق سيناريوهات حقيقية وحل المشكلات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُعرض لكل مجموعة سيناريو عملي يحتوي على مشاكل مركبة تتطلب تفاعل مباشر مع الجهاز.</li><li>ينفذ المشاركون خطوات التشخيص الفعلية وتحديد السبب الجذري باستخدام الجهاز أو النموذج.</li><li>تُطبق الحلول العملية في الموقع، مع مراقبة النتائج والتحكم في جودة القطع.</li><li>توثيق كل خطوات العمل والصعوبات التي واجهوها أثناء التطبيق.</li><li>يناقش الفريق مع المدرب الحلول البديلة والإجراءات الوقائية المستقبلية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التغذية الراجعة والتقييم المعمق</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يعرض كل فريق أمام الجميع نتائج تحليله وحلوله، مصحوبة بملاحظات وأدلة تطبيقية.</li><li>يطرح المدرب أسئلة مفتوحة تستحث التفكير النقدي حول القرارات المتخذة.</li><li>يتم تبادل الآراء بين المشاركين حول أفضل الحلول والعقبات التي ظهرت.</li><li>يجري تقييم شامل لمهارات التشخيص وحل المشكلات بشكل فردي ونوعي.</li><li>يقدم المدرب ملخصًا نهائيًا يربط بين المعرفة النظرية والمهارات العملية المكتسبة.</li><li>يقوم المتدربون بوضع خطة شخصية لتعزيز مهارات التشخيص والصيانة.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن أن تؤثر الصيانة الدورية الدقيقة على تقليل الأعطال الشائعة في المايكروتوم وضمان دقة تحضير العينات؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

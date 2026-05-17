@@ -1,0 +1,423 @@
+[
+  {
+    "name": "أجهزة_التصوير_بالأشعة_السينية",
+    "items": [
+      {
+        "name": "أجزاء_وحدة_التصوير_بالأشعة_السينية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "إنتاج_أشعة_السينية_وأنواع_مولدات_الأشعة_السينية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تركيب_جهاز_التصوير_بالأشعة_السينية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "صيانة_جهاز_التصوير_بالأشعة_السينية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "الأنظمة_الخطية_المتصلة_غير_المعتمدة_على_الزمن",
+    "items": [
+      {
+        "name": "الصفات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "خواص_الاستجابة_للمدخلات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "عملية_الضرب_التلافيفي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "الأنظمة_المتقطعة",
+    "items": [
+      {
+        "name": "الإشارات_المتقطعة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الفلاتر_و_الأنظمة_الرقمية_واستجابتها",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "المحولات_من_المتناظر_إلى_الرقمي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تحويل_ز",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تحويل_فورييه_في_الأنظمة_المتقطعة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "خواص_الأنظمة_المتقطعة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "الأنظمة_والإشارات_المتصلة",
+    "items": [
+      {
+        "name": "الأنظمة_المتصلة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الإشارات_المتصلة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "التحويلات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "التطبيق_باستخدام_برمجية_الماتلاب",
+    "items": [
+      {
+        "name": "تطبيق_فلتر_رقمي_على_إشارة_تم_تحميلها",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تطبيق_فلتر_رقمي_على_صورة_تم_تحميلها",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "رسم_الأطياف_المختلفة_عن_طريق_تحويل_فورييه",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "التطورات_في_تكنولوجيا_التصوير_الطبي",
+    "items": [
+      {
+        "name": "SPECT_CT_PET_CT_DEXA_SPECT_System",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "التطورات_الحديثة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مقدمة_عن_تطورات_التصوير_الطبي_التداخل_PET_MR",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "السلامة_من_الإشعاعات_المنبعثة",
+    "items": [
+      {
+        "name": "التأثيرات_البيولوجية_للإشعاعات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مراقبة_الإشعاعات_وأجهزة_الحماية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "الصور",
+    "items": [
+      {
+        "name": "إعادة_بناء_الصور",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الصور_الرقمية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الصور_الملونة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "العمليات_الأساسية_في_معالجة_الصور",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "العمليات_الجبرية_في_الصور",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مفهوم_الصور_كإشارات_متصلة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "الماموجرافي",
+    "items": [
+      {
+        "name": "أجزاء_الماموجرافي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مبدأ_الماموجرافي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "تقييم_نوعية_التصوير_الطبي",
+    "items": [
+      {
+        "name": "تقييم_مستوي_غرفة_التصوير_المظلمة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "عوامل_مستو_نوعية_التصوير_الطبي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مستلزمات_تحسين_نوعية_أداء_معالج_التصوير",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "معالجة_فلم_التصوير_المبدأ،_والأنواع،_وأجزاء_المعالج،_والصيانة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "جهاز_التصوير_بالأمواج_فوق_الصوتية",
+    "items": [
+      {
+        "name": "أجزاء_جهاز_التصوير_بالأمواج_فوق_الصوتية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "صيانة_جهاز_التصوير_بالأمواج_فوق_الصوتية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مبدأ_جهاز_التصوير_بالأمواج_فوق_الصوتية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "معايرة_جهاز_التصوير_بالأمواج_فوق_الصوتية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "جهاز_الذراع_C",
+    "items": [
+      {
+        "name": "أجزاء_جهاز_الذراع_C",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "صيانة_جهاز_الذراع_C",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مبدأ_جهاز_الذراع_C",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "جهاز_الرنين_المغناطيسي",
+    "items": [
+      {
+        "name": "أنواع_المغانط_المستخدمة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مبادئ_جهاز_الرنين_المغناطيسي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "جهاز_الـ_CT",
+    "items": [
+      {
+        "name": "أجزاء_جهاز_ال_CT",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مبدأ_توليد_الصور",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مبدأ_جهاز_ال_CT",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "متسلسلة_فوربيه",
+    "items": [
+      {
+        "name": "الثوابت",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الصفات_والتحليل",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الطيف_المعتمد_على_التردد",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "محلول_فورييه",
+    "items": [
+      {
+        "name": "أنواع_الأطياف_المشتقة_من_محلول_فورييه",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "التعريف_والخواص",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "عملية_أخذ_العينات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "محول_لابلاس",
+    "items": [
+      {
+        "name": "التعريف_والخواص",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "دراسة_استجابة_الأنظمة_باستخدام_لابلاس",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تجربة معايرة الأجهزة العملية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تجربة معايرة الأجهزة العملية</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">ينفذ المتدرب تجربة عملية مباشرة في مختبر المعايرة تركز على ضبط جهاز قياس واكتساب فهم معمق للأساليب المختلفة للمعايرة.</p>
+        <ul class="obj-list"><li>يطبق طرق المعايرة المباشرة والفارقية والآلية عمليًا.</li><li>يفسر بيانات المعايرة والمسائل المتعلقة بدقة القياس.</li><li>يتعرف على التحديات الواقعية أثناء عملية المعايرة.</li><li>يحسن مهارات التعامل مع أجهزة القياس في بيئة مختبرية.</li><li>يحدد أهمية كل مرحلة في تحقيق معايرة دقيقة وموثوقة.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">عملي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>جهاز قياس حراري (Thermocouple)</li><li>مولد إشارات كهربائية</li><li>حمام مائي ذو نقاط تجمد وغليان</li><li>جهاز ضغط قياسي</li><li>حاسوب مع برنامج معايرة آلي</li><li>دفتر تسجيل نتائج المعايرة</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتحضير</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يرحب المدرب بالمتدربين ويشرح أهمية المعايرة والدقة في القياسات الصناعية.</li><li>يعرض المدرب فيديو قصير يوضح دور المعايرة في سلامة العمليات والإنتاج.</li><li>يتم تعريف المتدربين على الأدوات والمعدات المستخدمة في المختبر.</li><li>يشرح المدرب خطوات الأمان المختبرية والإجراءات التنظيمية المطلوبة.</li><li>يطلب المدرب من المتدربين تحضير محطة العمل وتوزيع المعدات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الاستكشاف الميداني للأدوات وتقنيات المعايرة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يفحص المتدربون جهاز القياس الحراري وجهاز الضغط القياسي مع شرح وظائفهما.</li><li>يعرض المدرب كيفية تطبيق الإشارات القياسية على الأجهزة.</li><li>يقوم المتدربون بقياس قيم أولية دون ضبط لتحديد الانحرافات المبدئية.</li><li>يناقش الفريق المشكلات المتعلقة بالحساسات في البيئات الحقيقية.</li><li>يوضح المدرب الفرق بين الطرق المختلفة للمعايرة والمواقف المناسبة لكل منها.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التطبيق العملي للمعايرة المباشرة والفارقية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يطبق المتدربون المعايرة المباشرة باستخدام حمام مائي مع نقاط 0°C و100°C.</li><li>يقارن المتدربون قراءات الحساس مع القيم القياسية ويحسبون معامل التصحيح.</li><li>يتعلم المتدربون إجراء المعايرة الفارقية على حساس ضغط باستخدام مضخة فراغ.</li><li>يقوم المتدربون بتسجيل النتائج وشرح أسباب التفاوت في القياسات.</li><li>ينتهي الجزء بتقييم ذاتي ومناقشة التحديات التي واجهها المتدربون.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">المعايرة الآلية باستخدام البرمجيات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يشرح المدرب مبدأ عمل المعايرة الآلية وبرمجيات التحكم.</li><li>يرابط المتدربون الأجهزة مع الحاسوب ويشغلون برنامج المعايرة الآلي.</li><li>ينفذ الفريق خطوات المعايرة بتتابع نقاط قياس متعددة وفق البرنامج.</li><li>يتم تحليل الناتج الإلكتروني وتوثيق شهادة المعايرة الرقمية.</li><li>يتم مناقشة ميزات وعيوب المعايرة الآلية مقارنة الطرق التقليدية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التقييم والتحليل والتغذية الراجعة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يعرض كل متدرب نتائج المعايرة التي قام بها مع مناقشة الفروق والتصحيحات.</li><li>يناقش المدرب الأخطاء الشائعة التي يمكن أن تحدث أثناء المعايرة.</li><li>يُجرى جلسة اسئلة وأجوبة لتوضيح المفاهيم النظرية والعملية.</li><li>يكلف المدرب المتدربين بتحليل حالة عملية تعرض لعطل بسبب معايرة خاطئة.</li><li>يلخص المدرب النقاط الرئيسية ويشجع المتدربين على تطبيق ما تعلموه.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تؤثر دقة المعايرة وصحة إجراءاتها على جودة وسلامة المنتجات الصناعية التي تعتمد على أجهزة القياس؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ابتكار ترميز رقمي تفاعلي عملي</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">ابتكار ترميز رقمي تفاعلي عملي</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">هذا النشاط التدريبي يعزز مهارة ابتكار حلول ترميزية رقمية عملية تفاعلية من خلال تجربة مستقلة ومبتكرة قابلة للتطبيق.</p>
+        <ul class="obj-list"><li>ابتكار نموذج ترميز رقمي عملي باستخدام مفاهيم الترميز الأحادي والثنائي القطبية.</li><li>تصميم تنفيذ عملي لتسلسل ترميزي يوضح مزايا وعيوب كل طريقة.</li><li>تحليل تأثير التعديلات في الترميز على جودة الإشارة واستقراريتها.</li><li>تطوير حل مبتكر يعبر عن رحلة تعلم متكاملة في مجال تعديل ترميز النبضات.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">عملي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>لوحات إلكترونية تجريبية (Breadboards)</li><li>مجموعات دوائر ترميز أحادي وثنائي القطبية</li><li>مولدات إشارة وبرمجيات محاكاة</li><li>أجهزة قياس الجهد والتردد (أوسيلوسكوب)</li><li>أدوات تصميم رسم بياني</li><li>أوراق أسئلة نقدية وتوجيهية</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يرحب المدرب بالمتدربين ويشرح لهم أهمية الترميز الأحادي والثنائي القطبية في الاتصالات الرقمية.</li><li>يعرض المدرب شرحاً تفاعلياً باستخدام عروض بصرية حيوية لتحفيز فضول المتدربين وفهمهم لأساسيات الترميز.</li><li>يطلب من المتدربين التفكير في مثال يومي بسيط يمثل ترميز البيانات الرقمية في الحياة العملية.</li><li>يشجع المدرب المتدربين على مشاركة توقعاتهم وأسئلتهم حول الطرق المختلفة لترميز الإشارات.</li><li>يوجه المدرب نقاشاً قصيراً لتحديد أهمية الابتكار والتفاعل في تعلم مهارات الترميز العملي.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الاستكشاف العملي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقسم المتدربين إلى مجموعات صغيرة ويزود كل مجموعة بلوحات إلكترونية ومكونات ترميز أحادي وثنائي القطبية.</li><li>يطلب من كل مجموعة اختبار توليد اشارات ترميز أحادي القطبية باستخدام تسلسلات بت محددة وتجربة قياس الإشارة عبر الأوسيلوسكوب.</li><li>يحفز المدرب المتدربين على ملاحظة خصائص الإشارة، كالجهد والتردد وانتقال النبضات.</li><li>يتم توجيه المتدربين لتوثيق نتائج التجربة ومشاركة ملاحظاتهم أولاً حول مزايا وصعوبات الترميز الأحادي القطبية.</li><li>يطلب المدرب من المجموعات تكرار التجربة باستخدام الترميز ثنائي القطبية ومقارنة النتائج بتلك الخاصة بالأحادي.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التطبيق الإبداعي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يكلف المدرب كل مجموعة باختراع طريقة ابتكارية للترميز تجمع بين مزايا الأحادي والثنائي القطبية وتقليل عيوبهما.</li><li>يشجع المدرب استخدام الأدوات والموارد المتاحة لتطوير نموذج عملي أو برمجي يحاكي الفكرة الجديدة.</li><li>يتبادل المتدربون ملاحظاتهم حول الأفكار التي تم تصميمها ويوجه المدرب جلسة عصف ذهني لتحسين التصميمات.</li><li>يوجه المدرب كل مجموعة لتطبيق نموذجها وقياس النتائج بدقة باستخدام الأجهزة التقنية.</li><li>يطلب من كل مجموعة إعداد عرض قصير يوضح فكرتها المبتكرة، تطبيقها العملي، والنتائج المحققة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التحليل ومراجعة الأداء</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقدم كل فريق عرضاً لتحليله الخاص حول نموذج الترميز المُبتكر والشرح التفصيلي للنتائج والتحديات التي واجهوها.</li><li>يقوم المدرب بإثارة نقاش بنّاء يركز على مدى تحقيق الأهداف التعليمية، توضيح النقاط القوية والضعف في الحلول.</li><li>يتم تحليل الفروقات في كفاءة الإشارات، استقرارها، ومقاومتها للضوضاء بناءً على التجارب العملية.</li><li>يناقش المدرب أهمية دمج المعرفة النظرية مع تطبيقات الحياة الواقعية لتطوير مهارات متقدمة في تعديل ترميز النبضات.</li><li>يطلب المدرب من المتدربين كتابة تقييم قصير يعبرون فيه عن تعلمهم وكيف يمكنهم الاستفادة من التجربة في الميدان المهني.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التغذية الراجعة والإغلاق</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يوفر المدرب تغذية راجعة فورية للجماعات حول أدائهم، الابتكار، ومدى استثمار الموارد في تحقيق النتائج.</li><li>يشجع المدرب المتدربين على التفكير في التحديات المستقبلية في مجال الاتصالات الرقمية ودورهم كمبدعين.</li><li>يختتم المدرب النشاط بإعادة تأكيد أهمية التفكير الابتكاري والمهارات العملية في تعزيز قدرة المتدرب على التفرد.</li><li>يوجه المدرب المتدربين إلى مراجعة مصادر إضافية وحثهم على مواصلة البحث والتجربة في مجال تعديل الترميز.</li><li>يشكر المدرب المتدربين على مشاركتهم الفعالة ويحفزهم على تطبيق التجربة والمعرفة المكتسبة مستقبلاً.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن أن يؤثر دمج مزايا الترميز الأحادي والثنائي القطبية في نظام ترميز موحد على كفاءة نقل البيانات واستقرار الإشارات في بيئات الاتصالات المختلفة؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

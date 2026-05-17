@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>جلسة تفكير في المضخم التفاضلي</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">جلسة تفكير في المضخم التفاضلي</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يجمع النشاط تفكيراً حياً يُبرز أهمية المضخم التفاضلي في التطبيقات العملية، ويحفز المتدربات والمتدربين على تحليل أدواره في الدوائر الإلكترونية خلال حالات واقعية:</p>
+        <ul class="obj-list"><li>تحليل الخصائص الرئيسية للمضخم التفاضلي من خلال دراسات حالة مختلفة</li><li>تمييز تأثير الرفض المشترك والتضخيم التفاضلي على جودة الإشارة</li><li>تفسير الأدوار العملية للمضخم التفاضلي في التطبيقات التقنية</li><li>تقييم التحديات والحلول في تصميم الدوائر باستخدام المضخم التفاضلي</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تحليلي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>مجموعة حالات تطبيقية مكتوبة تحتوي على وصف وظيفي وتقني للمضخمات التفاضلية في مجالات مختلفة</li><li>لوحات عرض لتلخيص النقاط الرئيسية</li><li>أوراق ملاحظات للمتدربين</li><li>أدوات تواصل جماعي داخل القاعة (مثل جهاز عرض وسبورة)</li><li>نماذج رسومية توضيحية للدارات الإلكترونية</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد لجلسة التفكير</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>المدرب يرحب بالمتدربين ويوضح أهمية النشاط ودوره في تعميق الفهم النظري للمضخم التفاضلي</li><li>عرض صيغة السؤال الرئيسي: كيف ولماذا يلعب المضخم التفاضلي دوراً حاسماً في تحسين أداء الدوائر الإلكترونية؟</li><li>تشجيع المتدربين على التفكير بغرض الربط بين معرفتهم السابقة والمفاهيم الجديدة</li><li>توضيح سير الجلسة والخطوات المتوقعة، وتوزيع أوراق الحالات التطبيقية</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الاستكشاف الجماعي للحالات التطبيقية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تقسيم المتدربين إلى مجموعات صغيرة (4-5 أفراد لكل مجموعة)</li><li>توزيع حالات تطبيقية متنوعة توضح استخدامات المضخم التفاضلي في مجالات مثل الطبية، الاتصالات، والصناعية</li><li>يُطلب من كل مجموعة قراءة الحالة وتحديد الخصائص الوظيفية والتقنية للمضخم التفاضلي الموجود بها</li><li>كتابة الملاحظات وطرح الأسئلة الواضحة المتعلقة بكيفية تحقيق المضخم لأداءه المطلوب</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">النقاش التحليلي والتعمق في المفاهيم</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>كل مجموعة تعرض ملخصاً للحالة التي درستها، مع إبراز نقاط القوة والتحديات التقنية</li><li>الجميع يشارك في نقاش مفتوح يقوده المدرب لتحليل أهمية الرفض المشترك، المكسب، والحساسية</li><li>توضيح كيفية ارتباط هذه الخصائص بتطبيقات المضخم التفاضلي في تحسين جودة الإشارة ودقة القياسات</li><li>تحفيز التفكير النقدي عبر طرح سيناريوهات «ماذا لو» لتغيير مكونات الدائرة وتأثيرها</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">توليف الأفكار وتحديد الدروس المستفادة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>المدرب يلخص النقاط التحليلية الرئيسية من نقاش المجموعات</li><li>المتدربون يقومون بكتابة استنتاج شخصي يوضح دور المضخم التفاضلي في الدوائر الإلكترونية حسب فهمهم الحالي</li><li>طرح سؤال تحفيزي: كيف يمكن تحسين تصميم المضخم التفاضلي في سيناريو عملي معين بناءً على ما تم مناقشته؟</li><li>فتح المجال لمشاركة الأفكار والتوصيات المتبادلة بين المتدربين</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق والتقييم الذاتي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>عرض سريع من المدرب لأهمية الأنشطة التحليلية في توسيع الإدراك التقني</li><li>توجيه المتدربين لمراجعة أفكارهم قبل وبعد الجلسة</li><li>دعوة المتدربين لتقديم تغذية راجعة حول تجربة التعلم والمهارات المكتسبة</li><li>تحديد الخطوات المقبلة في مسار التعلم المبني على هذه الجلسة</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن للمضخم التفاضلي أن يحسن من أداء الدوائر الإلكترونية في ظل وجود الضوضاء المشتركة، وما هي التحديات التي قد تواجه مهندس الإلكترونيات عند تصميمه لضمان دقة واستقرار الإشارة؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

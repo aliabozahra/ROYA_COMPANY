@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مهندسو إرسال: قرارات نايكويست العملية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">مهندسو إرسال: قرارات نايكويست العملية</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">ينمي النشاط مهارات اتخاذ القرار العملي أثناء تطبيق نظرية نايكويست وأسسها في مواقف مهنية حقيقية.</p>
+        <ul class="obj-list"><li>يطبق المتدربون شروط وأسس نظرية نايكويست في سيناريوهات اختيار معدل العينات الصحيح.</li><li>يحللون أثر القرارات على جودة الإشارة الرقمية بمنظور مهني عملي.</li><li>يتواصلون بفاعلية في فرق هندسية لاتخاذ قرارات تقنية مشتركة.</li><li>يميزون حالات التشويه الناتج عن عدم الالتزام بالشروط ويقترحون حلولاً مناسبة.</li><li>يكسبون ثقة في استخدام المعرفة النظرية لإنقاذ الأنظمة الرقمية من الأخطاء التقنية.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>بطاقات سيناريو مهنية</li><li>استمارات اتخاذ القرار المهيكلة</li><li>لوحات صورية لمعدات المحطة الرقمية</li><li>سماعات لمعاينة العينات الصوتية</li><li>أجهزة عرض لتوضيح تأثير القرارات</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد: المدخل الهندسي للقرار</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بعرض تقديمي سريع يشرح الفكرة الجوهرية للنشاط وسياقه المهني.</li><li>يقدم المدرب ملخصًا حيًا لنظرية نايكويست وأسسها مركزًا على أهمية اتخاذ القرارات الصحيحة في المحطة الرقمية.</li><li>يقسم المدرب المتدربين إلى فرق مهندسين صغيرة ويشرح أدوار كل منهم ضمن المحطة.</li><li>يوزع المدرب بطاقات سيناريو تحتوي على تفاصيل مواقف واقعية تحتاج لاتخاذ قرارات تطبيقية.</li><li>يحفز المدرب المتدربين على التفكير في أهمية الدقة والفعالية في قراراتهم قبل بدء التمثيل.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الاستكشاف التفاعلي: دراسة المواقف العملية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تتناقش الفرق في سيناريوهاتهم الموزعة والتي تشمل معطيات مثل ترددات الإشارة، مواصفات الأجهزة، ومتطلبات الأداء.</li><li>يقوم كل فريق بجمع المعلومات التقنية وحساب معدلات العينات المقترحة وفق نظرية نايكويست.</li><li>يحدد المتدربون القيود والمعوقات العملية مثل الموارد المحدودة أو الضوضاء البيئية.</li><li>يستخدمون الأدوات المرئية والسمعية لمعاينة تأثير معدلات العينات المختلفة على جودة الإشارة.</li><li>يتبادلون وجهات النظر داخل الفريق لإعداد توصيات مبدئية لقراراتهم التقنية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">اتخاذ القرار التمثيلي: اتخاذ موقف مهندس</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدربون بدور مهندسي المحطة ويعرضون قرارهم أمام الفرق الأخرى كأنهم في اجتماع هندسي.</li><li>يناقش كل فريق اختيار معدل العينات، سبب اختياره، وكيف يلبي شروط نايكويست الأساسية.</li><li>يركز المتدربون على شرح كيفية تجنب التشويه مثل الـ Aliasing عبر قراراتهم.</li><li>يستجيب الطلاب لاستفسارات الفرق الأخرى ويبررون قرارهم بأسس نظرية وتطبيقية.</li><li>يتم تسجيل القرارات على استمارات منظمة لترتيبها ومقارنتها لاحقًا.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">محاكاة التبعات: تجربة النتائج التقنية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يعرض المدرب أو يوزع مقاطع صوتية وتمثيلات رقمية توضح تأثير معدلات العينات المختلفة على الإشارة.</li><li>يقارن المتدربون بين نتائج قرارهم وقرارات الفرق الأخرى باستخدام الأدوات السمعية والبصرية.</li><li>يقومون بتحليل الأسباب وراء نجاح أو فشل القرارات على ضوء المعاينة.</li><li>يناقشون الكفاءة العملية والموارد المستخدمة في قراراتهم ويحاولون تحسينها.</li><li>تُبرز هذه المرحلة العلاقة بين القرار الفني وجودة الاتصالات الرقمية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التغذية الراجعة والبناء الجماعي للمعرفة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>ينسق المدرب جلسة تغذية راجعة حيث يشارك الفِرق ملاحظاتهم على آليات اتخاذ القرار.</li><li>يقدم المدرب أمثلة واقعية من واقع الصناعة تربط الخبرات المكتسبة بالنظريات.</li><li>يناقش الجميع كيفية تطبيق هذه القرارات في بيئات عمل حقيقية ومخاطر عدم الالتزام.</li><li>يحث المدرب المتدربين على اقتراح استراتيجيات متقدمة لتحسين قرارات العينة.</li><li>يختم المدرب بتلخيص النقاط الأساسية التي تثري فهم المتدربين لدور الهندسة التطبيقية.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكنك ربط قراراتك في هذا التمثيل مع الأسس النظرية لنظرية نايكويست لضمان جودة الاتصالات الرقمية؟ قدم شرحًا يوضح أهمية كل شرط من شروط أخذ العينات وتأثيرها على جودة الإشارة.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

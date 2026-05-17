@@ -1,0 +1,354 @@
+[
+  {
+    "name": "الاستجابة_الترددية_Frequency_Response",
+    "items": [
+      {
+        "name": "الاستجابة_الترددية_لدارات_مكبر_الصوت_باستخدام_BJT_و_FET",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الترددات_الحدية_السفلية_والعليا_عند_3_ديسيبل_lower_and_upper_3_dB_corner_frequen",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الثوابت_الزمنية_للدائرة_المفتوحة_والدائرة_القصيرة_Open_circuit_and_short_circuit",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تأثير_المكثفات_المختلفة_على_الاستجابة_الترددية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_1_استجابة_التردد_وتحديد_الترددات_الحدية_عند_3_ديسيبل_في_مكبر_BJT",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_2_دراسة_الاستجابة_الترددية_Frequency_Response_وعمل_مخطط_بود_لمكبرا",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "عرض_النطاق_الترددي_للنطاق_المتوسط_mid_band_bandwidth",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مخطط_بود_Bode_plot",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "التغذية_الراجعة_والاستقرار_Feedback_and_Stability",
+    "items": [
+      {
+        "name": "negative_and_positive_feedback",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "استقرار_المضخم_amplifier_stability",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تأثير_التغذية_الراجعة_على_كل_من_amplifier_gain_bandwidth_input_and_output_resist",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_1_دراسة_تأثير_التغذية_الراجعة_السالبة_والموجبة_في_دوائر_مكبرات_BJT",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_2_التحليل_التجريبي_والعملي_لاستقرار_الـ_amplifier_مع_وبدون_التغذية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "طوبولوجيات_التغذية_الراجعة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "المؤقتات",
+    "items": [
+      {
+        "name": "المؤقت_أحادي_الاستقرار",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "المؤقت_عديم_الاستقرار",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "المكونات_الداخلية_للمؤقت_555",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_1_صميم_وتحليل_دارة_المذبذب_الحر_Astable_باستخدام_المؤقت_555",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_2_تصميم،_حساب_،_وقياس_دارة_المؤقت_555_الوضع_أحادي_الاستقرار_لتوليد",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "المذبذبات_الجيبية",
+    "items": [
+      {
+        "name": "العناصر_الأساسية_لدائرة_المذبذب",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_1_تصميم_وتحليل_دارة_مذبذب_جسر_وين_Wein_Bridge_باستخدام_مكبر_العملي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_1_صميم_وتحليل_مذبذب_الإزاحة_phase_shift_oscillator_في_زاوية_الطور_",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "خصائص_المذبذبات_البلورة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مذبذب_الإزاحة_في_زاوية_الطور",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "المضخمات_التفاضلية_ومتعددة_المراحل_Differential_and_Multistage_Amplifiers",
+    "items": [
+      {
+        "name": "الكسب_التفاضلي_وكسب_النمط_المشترك_differential_and_common_mode_gains",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_1_تصميم_وتحليل_الدارة_المكافئة_للإشارة_الصغيرة_لمكبرات_BJT_و_FET",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_2_قياس_وتحليل_نسبة_رفض_الإشارة_المشتركة_CMRR_في_دارات_المكبر_التفا",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تعريف_المضخمات_التفاضلية_Definition_of_differential_amplifiers",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "خصائص_النقل_بالتيار_المستمر_DC_transfer_characteristics",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "دائرة_الإشارة_الصغيرة_المكافئة_وتحليلها_small_signal_equivalent_circuit_and_anal",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "زوج_تفاضلي_أساسي_باستخدام_الترانزستورات_basic_BJT_FET_differential_pair",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "نسبة_رفض_النمط_المشترك_CMRR_Common_Mode_Rejection_Ratio",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "تأثيرات_التحميل_والشبكات_ثنائية_المنافذ",
+    "items": [
+      {
+        "name": "Active_Filters",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "Differentiators_and_Integrators",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "أنواع_الـ_opamps",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "المكبر_الجامع",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_1_تحليل_دوائر_مكبر_العمليات_المفاضلة_والمدمجة_Analysis_of_Op_Amp_D",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_2_تحليل_دوائر_مرشح_التمرير_المنخفض_والعالي_high_pass_and_low_pass_",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تكوينات_Op_Amp_الأساسية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مقارنة_بين_المكبر_العاكس_وغير_العاكس_Inverting_and_non_inverting",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "مكبر_BJT",
+    "items": [
+      {
+        "name": "التحليل_الخطي_لدارات_مكبر_الصوت_باستخدام_BJT_linear_analysis_of_BJT_amplifier_ci",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الدائرة_المكافئة_للتيار_المتناوب_AC_equivalent_circuit_للترانزستورات_BJT_transis",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_1_تحديد_عناصر_الدائرة_المكافئة_الصغيرة_Small_signal_parameters",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_2_تحليل_تأثير_نقطة_التشغيل_على_خطية_مكبر_الصوت_باستخدام_ترانزستور",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تكوينات_مكبرات_الصوت_باستخدام_BJT_الباعث_المشترك،_المجمع_المشترك،_القاعدة_المشتر",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تكوينات_مكبرات_الصوت_متعددة_المراحل_باستخدام_BJT_multistage_BJT_amplifiers_confi",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "مكبر_FET",
+    "items": [
+      {
+        "name": "التحليل_الخطي_لدارات_مكبر_الصوت_باستخدام_FET",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الدائرة_المكافئة_للتيار_المتناوب_AC_للترانزستورات_FET",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_1_بناء_مكبر_صوت_ثنائي_المراحل_باستخدام_FET",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تجربة_العملية_2_تأثير_مكثفات_الربط_بين_المراحل_في_مكبر_FET",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تكوينات_مكبرات_الصوت_FET_common_drain_common_source_common_gate",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تكوينات_مكبرات_الصوت_متعددة_المراحل_باستخدام_FET",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  }
+]

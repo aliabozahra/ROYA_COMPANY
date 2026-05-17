@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>الآلات الكهربائية الخاصة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --white:#fff;--bg:#F1F5F9;--border:#E2E8F0;
+  --text:#1E293B;--muted:#64748B;--light:#94A3B8;
+  --font:'Tajawal',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh}
+
+/* ── HERO ── */
+.hero{
+  background:var(--white);
+  border-bottom:1px solid var(--border);
+  padding:44px 40px 32px;
+}
+.hero-inner{
+  max-width:1100px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:flex-end;
+  flex-wrap:wrap;gap:20px;
+}
+.eyebrow{
+  font-size:11px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--light);margin-bottom:8px;
+}
+.hero h1{font-size:clamp(20px,3vw,30px);font-weight:700;line-height:1.25;margin-bottom:4px}
+.hero p{font-size:14px;color:var(--muted)}
+.stats{display:flex;gap:14px}
+.stat{
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:12px;padding:12px 20px;text-align:center;
+}
+.stat b{display:block;font-size:24px;font-weight:700}
+.stat span{font-size:12px;color:var(--muted);margin-top:2px;display:block}
+
+/* ── SEARCH ── */
+.search-wrap{max-width:1100px;margin:20px auto 0;padding:0 40px}
+.search{
+  width:100%;background:var(--white);border:1.5px solid var(--border);
+  border-radius:10px;padding:11px 18px;font-family:var(--font);
+  font-size:15px;color:var(--text);outline:none;direction:rtl;
+  transition:border-color .2s,box-shadow .2s;
+}
+.search::placeholder{color:var(--light)}
+.search:focus{border-color:#94A3B8;box-shadow:0 0 0 3px #94A3B820}
+
+/* ── LAYOUT ── */
+.layout{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  max-width:1100px;
+  margin:24px auto 0;
+  padding:0 40px 80px;
+  gap:28px;
+  align-items:start;
+}
+
+/* ── SIDEBAR ── */
+.sidebar{
+  position:sticky;top:20px;
+  background:var(--white);border:1px solid var(--border);
+  border-radius:12px;padding:12px 10px;
+  box-shadow:0 1px 8px #64748B12;
+}
+.sb-title{
+  font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--light);padding:2px 10px 10px;
+  border-bottom:1px solid var(--border);margin-bottom:6px;
+}
+.nav-item{
+  display:flex;align-items:center;gap:8px;
+  padding:8px 10px;border-radius:8px;
+  text-decoration:none;color:var(--muted);
+  font-size:12.5px;font-weight:500;
+  transition:all .15s;margin-bottom:2px;
+}
+.nav-item:hover{background:var(--bg);color:var(--acc)}
+.dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.nav-lbl{flex:1;line-height:1.35}
+.nav-cnt{
+  font-size:11px;background:var(--bg);border:1px solid var(--border);
+  color:var(--muted);padding:1px 6px;border-radius:20px;flex-shrink:0;
+}
+
+/* ── UNIT SECTION ── */
+.unit-section{margin-bottom:40px;scroll-margin-top:20px}
+
+.unit-header{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 20px;border-radius:10px 10px 0 0;
+  border-bottom:1px solid var(--border);
+}
+.unit-num{
+  width:32px;height:32px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;flex-shrink:0;
+}
+.unit-name{font-size:17px;font-weight:700;line-height:1.2}
+.unit-count{font-size:12px;color:var(--muted);display:block;margin-top:2px}
+
+/* ── REFS LIST ── */
+.refs-list{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-top:none;
+  border-radius:0 0 10px 10px;
+  overflow:hidden;
+}
+
+.ref-row{
+  display:flex;align-items:center;gap:16px;
+  padding:14px 20px;
+  border-bottom:1px solid var(--border);
+  text-decoration:none;color:inherit;
+  transition:background .15s;
+  cursor:pointer;
+}
+.ref-row:last-child{border-bottom:none}
+.ref-row:hover{background:#F8FAFC}
+
+.ref-num{
+  width:30px;height:30px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;flex-shrink:0;
+  border:1px solid;
+  align-self:flex-start;margin-top:2px;
+}
+
+.ref-body{flex:1;min-width:0}
+
+.ref-cite{
+  font-size:14px;line-height:1.7;color:var(--text);
+  font-weight:400;word-break:break-word;
+}
+.cite-before{color:var(--text)}
+.cite-url{
+  margin-top:6px;
+}
+.cite-url a{
+  color:#2563EB;text-decoration:underline;
+  text-decoration-color:#2563EB40;
+  word-break:break-all;
+  font-size:13px;
+}
+
+.ref-arrow{
+  font-size:16px;flex-shrink:0;
+  opacity:0;transition:opacity .15s;
+  margin-right:4px;
+}
+.ref-row:hover .ref-arrow{opacity:1}
+
+/* ── RESPONSIVE ── */
+@media(max-width:760px){
+  .layout{grid-template-columns:1fr;padding:0 12px 60px;gap:16px}
+  .sidebar{position:static;display:flex;flex-wrap:wrap;gap:4px;padding:10px}
+  .sb-title{width:100%}
+  .hero,.search-wrap{padding-left:16px;padding-right:16px}
+  .ref-row{padding:12px 14px;gap:10px}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">المراجع والمصادر</div>
+      <h1>الآلات الكهربائية الخاصة</h1>
+      <p>مجموعة شاملة من المصادر العلمية والتقنية</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>171</b><span>مرجع</span></div>
+      <div class="stat"><b>4</b><span>وحدة</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="search-wrap">
+  <input class="search" id="q"
+    placeholder="🔍  ابحث في العنوان أو المصدر…"
+    oninput="doFilter(this.value)">
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sb-title">الوحدات</div>
+    
+        <a href="#u0" class="nav-item" style="--acc:#EA580C">
+          <span class="dot" style="background:#EA580C"></span>
+          <span class="nav-lbl">محركات المصاعد والسلالم الكهربائية</span>
+          <span class="nav-cnt">34</span>
+        </a>
+        <a href="#u1" class="nav-item" style="--acc:#16A34A">
+          <span class="dot" style="background:#16A34A"></span>
+          <span class="nav-lbl">محركات طاقة الرياح وتوربينات الرياح</span>
+          <span class="nav-cnt">36</span>
+        </a>
+        <a href="#u2" class="nav-item" style="--acc:#2563EB">
+          <span class="dot" style="background:#2563EB"></span>
+          <span class="nav-lbl">المحركات الكهربائية في المركبات الهجينة</span>
+          <span class="nav-cnt">75</span>
+        </a>
+        <a href="#u3" class="nav-item" style="--acc:#9333EA">
+          <span class="dot" style="background:#9333EA"></span>
+          <span class="nav-lbl">الآلات الخطية Linear Electric Machines</span>
+          <span class="nav-cnt">26</span>
+        </a>
+  </aside>
+  <main>
+      <section class="unit-section" id="u0">
+        <div class="unit-header" style="border-right:4px solid #EA580C;background:#FFF7ED">
+          <div class="unit-num" style="background:#FED7AA;color:#9A3412">01</div>
+          <div>
+            <h2 class="unit-name" style="color:#EA580C">محركات المصاعد والسلالم الكهربائية</h2>
+            <span class="unit-count">34 مرجع</span>
+          </div>
+        </div>
+        <div class="refs-list">
+          
+          <a class="ref-row" href="https://agyadtech.com/%D9%83%D9%84-%D9%85%D8%A7-%D9%8A%D8%AE%D8%B5-%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%84%D9%85-%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A%D8%A9-%D9%88%D8%B9%D9%88%D8%A7%D9%85%D9%84-%D8%A7%D9%84/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">1</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">agyadtech.com. (2026). كل ما يخص السلالم الكهربائية وعوامل الأمان بها - مصاعد أجياد التقنية - Agyad Elevators.</div><div class="cite-url"><a href="https://agyadtech.com/%D9%83%D9%84-%D9%85%D8%A7-%D9%8A%D8%AE%D8%B5-%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%84%D9%85-%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A%D8%A9-%D9%88%D8%B9%D9%88%D8%A7%D9%85%D9%84-%D8%A7%D9%84/" target="_blank" rel="noopener">https://agyadtech.com/%D9%83%D9%84-%D9%85%D8%A7-%D9%8A%D8%AE%D8%B5-%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%84%D9%85-%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A%D8%A9-%D9%88%D8%B9%D9%88%D8%A7%D9%85%D9%84-%D8%A7%D9%84/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.appa.org/elevator-systems" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">2</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">appa.org. (2026). Elevator Systems - APPA.</div><div class="cite-url"><a href="https://www.appa.org/elevator-systems" target="_blank" rel="noopener">https://www.appa.org/elevator-systems</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://du-sur.com/%D8%A7%D9%84%D8%B3%D9%84%D9%85-%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A-%D8%A3%D9%86%D9%88%D8%A7%D8%B9%D9%87%D8%8C-%D9%85%D9%8A%D8%B2%D8%A7%D8%AA%D9%87-%D9%88%D8%B9%D9%8A%D9%88%D8%A8/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">3</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">du-sur.com. (2024). السلم الكهربائي: أنواعه ميزاته و عيوبه 2024 - شركة دسر للمصاعد والسلالم المتحركة.</div><div class="cite-url"><a href="https://du-sur.com/%D8%A7%D9%84%D8%B3%D9%84%D9%85-%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A-%D8%A3%D9%86%D9%88%D8%A7%D8%B9%D9%87%D8%8C-%D9%85%D9%8A%D8%B2%D8%A7%D8%AA%D9%87-%D9%88%D8%B9%D9%8A%D9%88%D8%A8/" target="_blank" rel="noopener">https://du-sur.com/%D8%A7%D9%84%D8%B3%D9%84%D9%85-%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A-%D8%A3%D9%86%D9%88%D8%A7%D8%B9%D9%87%D8%8C-%D9%85%D9%8A%D8%B2%D8%A7%D8%AA%D9%87-%D9%88%D8%B9%D9%8A%D9%88%D8%A8/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://elevators-egyptlifts.com/%D8%AA%D8%B9%D8%B1%D9%81-%D8%B9%D9%84%D9%89-%D8%A7%D9%84%D9%85%D8%B5%D8%B9%D8%AF-%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">4</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">elevators-egyptlifts.com. (2025). تعرف على المصعد الكهربائي.</div><div class="cite-url"><a href="https://elevators-egyptlifts.com/%D8%AA%D8%B9%D8%B1%D9%81-%D8%B9%D9%84%D9%89-%D8%A7%D9%84%D9%85%D8%B5%D8%B9%D8%AF-%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A/" target="_blank" rel="noopener">https://elevators-egyptlifts.com/%D8%AA%D8%B9%D8%B1%D9%81-%D8%B9%D9%84%D9%89-%D8%A7%D9%84%D9%85%D8%B5%D8%B9%D8%AF-%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.energy.gov/energysaver/electric-vehicles-and-chargers" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">5</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">energy.gov. (2026). Electric Vehicles and Chargers.</div><div class="cite-url"><a href="https://www.energy.gov/energysaver/electric-vehicles-and-chargers" target="_blank" rel="noopener">https://www.energy.gov/energysaver/electric-vehicles-and-chargers</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.epa.gov/power-sector/electric-power-sector-basics" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">6</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">epa.gov. (2022). Electric Power Sector Basics | US EPA.</div><div class="cite-url"><a href="https://www.epa.gov/power-sector/electric-power-sector-basics" target="_blank" rel="noopener">https://www.epa.gov/power-sector/electric-power-sector-basics</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://en.wikipedia.org/wiki/Electric_power" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">7</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">en.wikipedia.org. (2024). Electric power - Wikipedia.</div><div class="cite-url"><a href="https://en.wikipedia.org/wiki/Electric_power" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Electric_power</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="http://m.safe-elevators.com/news/basic-knowledge-of-escalators-85314595.html" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">8</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">m.safe-elevators.com. (2025). Basic Knowledge Of Escalators - Industry Knowledge - News.</div><div class="cite-url"><a href="http://m.safe-elevators.com/news/basic-knowledge-of-escalators-85314595.html" target="_blank" rel="noopener">http://m.safe-elevators.com/news/basic-knowledge-of-escalators-85314595.html</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://news.egylifts.com/posts/1986" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">9</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">news.egylifts.com. (2026). اعرف أكثر عن مكونات المصعد الأساسية - أخبار مصاعد مصر.</div><div class="cite-url"><a href="https://news.egylifts.com/posts/1986" target="_blank" rel="noopener">https://news.egylifts.com/posts/1986</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://sincede.com/ar/a-simple-intro-to-motorized-operating-mechanism/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">10</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">sincede.com. (2025). مقدمة بسيطة لآلية التشغيل الآلية - سينسيدي.</div><div class="cite-url"><a href="https://sincede.com/ar/a-simple-intro-to-motorized-operating-mechanism/" target="_blank" rel="noopener">https://sincede.com/ar/a-simple-intro-to-motorized-operating-mechanism/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://ttilift.com/ar/%D8%A7%D9%84%D9%85%D8%B5%D8%B9%D8%AF-%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">11</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">ttilift.com. (2024). المصعد الكهربائي: كل ما تريد معرفته عن هذه الأداة المفيدة.</div><div class="cite-url"><a href="https://ttilift.com/ar/%D8%A7%D9%84%D9%85%D8%B5%D8%B9%D8%AF-%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A/" target="_blank" rel="noopener">https://ttilift.com/ar/%D8%A7%D9%84%D9%85%D8%B5%D8%B9%D8%AF-%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://waelelevators.com/%D8%A3%D9%86%D9%88%D8%A7%D8%B9-%D9%83%D9%86%D8%AA%D8%B1%D9%88%D9%84-%D8%A7%D9%84%D9%85%D8%B5%D8%A7%D8%B9%D8%AF/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">12</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">waelelevators.com. (2025). أنواع كنترول المصاعد | أنظمة التحكم الحديثة للمصاعد.</div><div class="cite-url"><a href="https://waelelevators.com/%D8%A3%D9%86%D9%88%D8%A7%D8%B9-%D9%83%D9%86%D8%AA%D8%B1%D9%88%D9%84-%D8%A7%D9%84%D9%85%D8%B5%D8%A7%D8%B9%D8%AF/" target="_blank" rel="noopener">https://waelelevators.com/%D8%A3%D9%86%D9%88%D8%A7%D8%B9-%D9%83%D9%86%D8%AA%D8%B1%D9%88%D9%84-%D8%A7%D9%84%D9%85%D8%B5%D8%A7%D8%B9%D8%AF/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://alcoarabia.com/%D9%87%D9%84-%D8%AA%D8%B9%D9%84%D9%85-%D9%83%D9%8A%D9%81-%D8%AA%D8%AE%D8%AA%D8%A7%D8%B1-%D8%A7%D9%84%D9%85%D8%B5%D8%B9%D8%AF-%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B3%D8%A8-%D9%84%D9%85%D9%86%D8%B2%D9%84/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">13</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">alcoarabia.com. (2026). هل تعلم كيف تختار المصعد المناسب لمنزلك أو مشروعك التجاري إليك الدليل الشامل - الكو العربية - افضل شركة صيانه مصاعد.</div><div class="cite-url"><a href="https://alcoarabia.com/%D9%87%D9%84-%D8%AA%D8%B9%D9%84%D9%85-%D9%83%D9%8A%D9%81-%D8%AA%D8%AE%D8%AA%D8%A7%D8%B1-%D8%A7%D9%84%D9%85%D8%B5%D8%B9%D8%AF-%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B3%D8%A8-%D9%84%D9%85%D9%86%D8%B2%D9%84/" target="_blank" rel="noopener">https://alcoarabia.com/%D9%87%D9%84-%D8%AA%D8%B9%D9%84%D9%85-%D9%83%D9%8A%D9%81-%D8%AA%D8%AE%D8%AA%D8%A7%D8%B1-%D8%A7%D9%84%D9%85%D8%B5%D8%B9%D8%AF-%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B3%D8%A8-%D9%84%D9%85%D9%86%D8%B2%D9%84/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://ar.fuxingmotor.com/news/Motoroverloadphenomenon,causesandpreventivemeasures/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">14</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">ar.fuxingmotor.com. (2025). الحمل الزائد للمحرك: الظاهرة والأسباب والتدابير الوقائية.</div><div class="cite-url"><a href="https://ar.fuxingmotor.com/news/Motoroverloadphenomenon,causesandpreventivemeasures/" target="_blank" rel="noopener">https://ar.fuxingmotor.com/news/Motoroverloadphenomenon,causesandpreventivemeasures/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://chunomotor.com/ar/the-relationship-between-motor-power-speed-and-torque/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">15</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">chunomotor.com. (2022). العلاقة بين قوة المحرك والسرعة وعزم الدوران - الشركة المصنعة للمحركات الكهربائية - الجودة المتميزة والوصول العالمي.</div><div class="cite-url"><a href="https://chunomotor.com/ar/the-relationship-between-motor-power-speed-and-torque/" target="_blank" rel="noopener">https://chunomotor.com/ar/the-relationship-between-motor-power-speed-and-torque/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.gian-transmission.com/ar/%D8%AF%D9%84%D9%8A%D9%84-%D8%A7%D8%AE%D8%AA%D9%8A%D8%A7%D8%B1-%D8%A7%D9%84%D9%85%D8%AD%D8%B1%D9%83%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D8%B1%D9%88%D8%B3%D9%8A%D8%A9-%D9%85%D8%B7%D8%A7%D8%A8%D9%82%D8%A9/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">16</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">gian-transmission.com. (2026). دليل اختيار المحركات التروسية: مطابقة القدرة وعزم الدوران والسرعة - Gian Transmission.</div><div class="cite-url"><a href="https://www.gian-transmission.com/ar/%D8%AF%D9%84%D9%8A%D9%84-%D8%A7%D8%AE%D8%AA%D9%8A%D8%A7%D8%B1-%D8%A7%D9%84%D9%85%D8%AD%D8%B1%D9%83%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D8%B1%D9%88%D8%B3%D9%8A%D8%A9-%D9%85%D8%B7%D8%A7%D8%A8%D9%82%D8%A9/" target="_blank" rel="noopener">https://www.gian-transmission.com/ar/%D8%AF%D9%84%D9%8A%D9%84-%D8%A7%D8%AE%D8%AA%D9%8A%D8%A7%D8%B1-%D8%A7%D9%84%D9%85%D8%AD%D8%B1%D9%83%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D8%B1%D9%88%D8%B3%D9%8A%D8%A9-%D9%85%D8%B7%D8%A7%D8%A8%D9%82%D8%A9/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.kocwaylift.com/news/several-technical-problems-to-be-paid-attentio-70769149.html" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">17</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">kocwaylift.com. (2023). No title.</div><div class="cite-url"><a href="https://www.kocwaylift.com/news/several-technical-problems-to-be-paid-attentio-70769149.html" target="_blank" rel="noopener">https://www.kocwaylift.com/news/several-technical-problems-to-be-paid-attentio-70769149.html</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://momah.gov.sa/sites/default/files/2022-02/%D8%A3%D8%AF%D8%A7%D8%A9%20%D8%A7%D9%84%D8%A5%D8%B5%D8%AF%D8%A7%D8%B1%20%2B%20%D8%AF%D9%84%D9%8A%D9%84%20%D8%AA%D8%B5%D9%85%D9%8A%D9%85%20%D8%A7%D9%84%D9%85%D8%B5%D8%A7%D8%B9%D8%AF%20%D9%88%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%84%D9%85%20%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D9%8A%D9%94%D9%8A%D8%A9.pdf" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">18</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">momah.gov.sa. (2021). No title.</div><div class="cite-url"><a href="https://momah.gov.sa/sites/default/files/2022-02/%D8%A3%D8%AF%D8%A7%D8%A9%20%D8%A7%D9%84%D8%A5%D8%B5%D8%AF%D8%A7%D8%B1%20%2B%20%D8%AF%D9%84%D9%8A%D9%84%20%D8%AA%D8%B5%D9%85%D9%8A%D9%85%20%D8%A7%D9%84%D9%85%D8%B5%D8%A7%D8%B9%D8%AF%20%D9%88%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%84%D9%85%20%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D9%8A%D9%94%D9%8A%D8%A9.pdf" target="_blank" rel="noopener">https://momah.gov.sa/sites/default/files/2022-02/%D8%A3%D8%AF%D8%A7%D8%A9%20%D8%A7%D9%84%D8%A5%D8%B5%D8%AF%D8%A7%D8%B1%20%2B%20%D8%AF%D9%84%D9%8A%D9%84%20%D8%AA%D8%B5%D9%85%D9%8A%D9%85%20%D8%A7%D9%84%D9%85%D8%B5%D8%A7%D8%B9%D8%AF%20%D9%88%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%84%D9%85%20%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D9%8A%D9%94%D9%8A%D8%A9.pdf</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://sirelmarifa.com/%D8%A7%D9%84%D9%81%D8%B1%D9%82-%D8%A8%D9%8A%D9%86-%D8%A7%D9%84%D9%85%D8%B5%D8%B9%D8%AF-%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A-%D9%88%D8%A7%D9%84%D9%87%D9%8A%D8%AF%D8%B1%D9%88%D9%84/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">19</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">sirelmarifa.com. (2025). الفرق بين المصعد الكهربائي والهيدروليكي – sirelmarifa.com.</div><div class="cite-url"><a href="https://sirelmarifa.com/%D8%A7%D9%84%D9%81%D8%B1%D9%82-%D8%A8%D9%8A%D9%86-%D8%A7%D9%84%D9%85%D8%B5%D8%B9%D8%AF-%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A-%D9%88%D8%A7%D9%84%D9%87%D9%8A%D8%AF%D8%B1%D9%88%D9%84/" target="_blank" rel="noopener">https://sirelmarifa.com/%D8%A7%D9%84%D9%81%D8%B1%D9%82-%D8%A8%D9%8A%D9%86-%D8%A7%D9%84%D9%85%D8%B5%D8%B9%D8%AF-%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A-%D9%88%D8%A7%D9%84%D9%87%D9%8A%D8%AF%D8%B1%D9%88%D9%84/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.sunrisemotor-cn.com/ar/What-type-of-motor-is-used-in-elevator-lift.html" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">20</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">sunrisemotor-cn.com. (2025). ما هو نوع المحرك المستخدم في مصعد المصعد.</div><div class="cite-url"><a href="https://www.sunrisemotor-cn.com/ar/What-type-of-motor-is-used-in-elevator-lift.html" target="_blank" rel="noopener">https://www.sunrisemotor-cn.com/ar/What-type-of-motor-is-used-in-elevator-lift.html</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.apexlifts.com/all-you-need-to-know-lift-machines-geared-vs-gearless/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">21</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">apexlifts.com. (2026). All you need to know: Lift Machines - Geared vs Gearless - Apex Lifts.</div><div class="cite-url"><a href="https://www.apexlifts.com/all-you-need-to-know-lift-machines-geared-vs-gearless/" target="_blank" rel="noopener">https://www.apexlifts.com/all-you-need-to-know-lift-machines-geared-vs-gearless/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://insights.made-in-china.com/Comparing-Gearless-and-Geared-Elevator-Motors-Which-Meets-Your-Building-s-Needs_barfIYqvvnDH.html" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">22</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">insights.made-in-china.com. (2024). Comparing Gearless and Geared Elevator Motors: Which Meets Your Buildings Needs.</div><div class="cite-url"><a href="https://insights.made-in-china.com/Comparing-Gearless-and-Geared-Elevator-Motors-Which-Meets-Your-Building-s-Needs_barfIYqvvnDH.html" target="_blank" rel="noopener">https://insights.made-in-china.com/Comparing-Gearless-and-Geared-Elevator-Motors-Which-Meets-Your-Building-s-Needs_barfIYqvvnDH.html</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://news.egylifts.com/posts/1670" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">23</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">news.egylifts.com. (2026). اعرف أكثر عن مميزات وفوائد مصاعد الجر - أخبار مصاعد مصر.</div><div class="cite-url"><a href="https://news.egylifts.com/posts/1670" target="_blank" rel="noopener">https://news.egylifts.com/posts/1670</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://waelelevators.com/%D9%85%D8%B5%D8%A7%D8%B9%D8%AF-%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A%D8%A9/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">24</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">waelelevators.com. (2025). أفضل 5 أنواع مصاعد كهربائية | مقارنة بين الأنواع والمزايا.</div><div class="cite-url"><a href="https://waelelevators.com/%D9%85%D8%B5%D8%A7%D8%B9%D8%AF-%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A%D8%A9/" target="_blank" rel="noopener">https://waelelevators.com/%D9%85%D8%B5%D8%A7%D8%B9%D8%AF-%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A%D8%A9/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.xizi-ec.com/Gearless-Elevator-Traction-Machine-High-Efficiency-Solutions-for-Modern-Vertical.html" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">25</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">xizi-ec.com. (2025). Gearless Elevator Traction Machine: High-Efficiency Solutions for Modern Vertical Transportation.</div><div class="cite-url"><a href="https://www.xizi-ec.com/Gearless-Elevator-Traction-Machine-High-Efficiency-Solutions-for-Modern-Vertical.html" target="_blank" rel="noopener">https://www.xizi-ec.com/Gearless-Elevator-Traction-Machine-High-Efficiency-Solutions-for-Modern-Vertical.html</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.calstatela.edu/publicsafety/elevator-entrapment-procedures" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">26</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">calstatela.edu. (2026). Elevator Entrapment Procedures | Cal State LA.</div><div class="cite-url"><a href="https://www.calstatela.edu/publicsafety/elevator-entrapment-procedures" target="_blank" rel="noopener">https://www.calstatela.edu/publicsafety/elevator-entrapment-procedures</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://elkoelevators.com/elevator-maintenance-checklist/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">27</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">elkoelevators.com. (2023). صيانة المصعد - قائمة فحص الأعطال  شركة مصاعد الكو.</div><div class="cite-url"><a href="https://elkoelevators.com/elevator-maintenance-checklist/" target="_blank" rel="noopener">https://elkoelevators.com/elevator-maintenance-checklist/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://jackwinsafety.com/ar/%D9%86%D8%B5%D8%A7%D8%A6%D8%AD-%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%A9-%D9%81%D9%8A-%D8%A7%D9%84%D9%85%D8%B5%D8%A7%D8%B9%D8%AF/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">28</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">jackie chen. (2025). نصائح السلامة في المصاعد: يجب على الركاب والعمال معرفتها.</div><div class="cite-url"><a href="https://jackwinsafety.com/ar/%D9%86%D8%B5%D8%A7%D8%A6%D8%AD-%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%A9-%D9%81%D9%8A-%D8%A7%D9%84%D9%85%D8%B5%D8%A7%D8%B9%D8%AF/" target="_blank" rel="noopener">https://jackwinsafety.com/ar/%D9%86%D8%B5%D8%A7%D8%A6%D8%AD-%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%A9-%D9%81%D9%8A-%D8%A7%D9%84%D9%85%D8%B5%D8%A7%D8%B9%D8%AF/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.monhealth.com/Uploads/Public/Documents/1MSO/Elevator%20Safety%20Training%20-%20MHMC.pdf" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">29</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">monhealth.com. (2028). No title.</div><div class="cite-url"><a href="https://www.monhealth.com/Uploads/Public/Documents/1MSO/Elevator%20Safety%20Training%20-%20MHMC.pdf" target="_blank" rel="noopener">https://www.monhealth.com/Uploads/Public/Documents/1MSO/Elevator%20Safety%20Training%20-%20MHMC.pdf</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.nyc.gov/site/buildings/safety/elevator-safety.page" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">30</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">nyc.gov. (2025). elevator-safety.</div><div class="cite-url"><a href="https://www.nyc.gov/site/buildings/safety/elevator-safety.page" target="_blank" rel="noopener">https://www.nyc.gov/site/buildings/safety/elevator-safety.page</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://oklahoma.gov/labor/safety-and-health/safety-standards/elevator/industry-notices/notice--updated-elevator-safety-standards-for-oklahoma-city.html" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">31</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">oklahoma.gov. (2025). NOTICE: Updated Elevator Safety Standards for Oklahoma City.</div><div class="cite-url"><a href="https://oklahoma.gov/labor/safety-and-health/safety-standards/elevator/industry-notices/notice--updated-elevator-safety-standards-for-oklahoma-city.html" target="_blank" rel="noopener">https://oklahoma.gov/labor/safety-and-health/safety-standards/elevator/industry-notices/notice--updated-elevator-safety-standards-for-oklahoma-city.html</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://sfc-ltd.com.sa/elevator-accidents-causes-and-prevention/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">32</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">sfc-ltd.com.sa. (2025). حوادث المصاعد: الأسباب والوقاية - شركة سفك المحدودة.</div><div class="cite-url"><a href="https://sfc-ltd.com.sa/elevator-accidents-causes-and-prevention/" target="_blank" rel="noopener">https://sfc-ltd.com.sa/elevator-accidents-causes-and-prevention/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://ttilift.com/ar/%D9%85%D9%81%D8%AA%D8%A7%D8%AD-%D8%B7%D9%88%D8%A7%D8%B1%D8%A6-%D8%A7%D9%84%D9%85%D8%B5%D8%B9%D8%AF/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">33</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">ttilift.com. (2024). ما هو مفتاح طوارئ المصعد مفتاح مصعد كهربائي.</div><div class="cite-url"><a href="https://ttilift.com/ar/%D9%85%D9%81%D8%AA%D8%A7%D8%AD-%D8%B7%D9%88%D8%A7%D8%B1%D8%A6-%D8%A7%D9%84%D9%85%D8%B5%D8%B9%D8%AF/" target="_blank" rel="noopener">https://ttilift.com/ar/%D9%85%D9%81%D8%AA%D8%A7%D8%AD-%D8%B7%D9%88%D8%A7%D8%B1%D8%A6-%D8%A7%D9%84%D9%85%D8%B5%D8%B9%D8%AF/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.voelevator.com/what-is-an-elevator-inspection-your-guide-to-safety-and-compliance/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#EA580C;background:#FED7AA;border-color:#FED7AA">34</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">voelevator.com. (2025). Elevator Inspection Guide: What It Is  Why It Matters.</div><div class="cite-url"><a href="https://www.voelevator.com/what-is-an-elevator-inspection-your-guide-to-safety-and-compliance/" target="_blank" rel="noopener">https://www.voelevator.com/what-is-an-elevator-inspection-your-guide-to-safety-and-compliance/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#EA580C">↗</span>
+          </a>
+        </div>
+      </section>
+      <section class="unit-section" id="u1">
+        <div class="unit-header" style="border-right:4px solid #16A34A;background:#F0FDF4">
+          <div class="unit-num" style="background:#BBF7D0;color:#14532D">02</div>
+          <div>
+            <h2 class="unit-name" style="color:#16A34A">محركات طاقة الرياح وتوربينات الرياح</h2>
+            <span class="unit-count">36 مرجع</span>
+          </div>
+        </div>
+        <div class="refs-list">
+          
+          <a class="ref-row" href="https://www.asme.org/topics-resources/content/vertical-axis-wind-turbines-work-well-together" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">1</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">asme.org. (2024). Vertical-Axis Wind Turbines Promise Higher Efficiency   - ASME.</div><div class="cite-url"><a href="https://www.asme.org/topics-resources/content/vertical-axis-wind-turbines-work-well-together" target="_blank" rel="noopener">https://www.asme.org/topics-resources/content/vertical-axis-wind-turbines-work-well-together</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://attaqa.net/2025/10/21/%D8%AA%D9%88%D8%B1%D8%A8%D9%8A%D9%86-%D8%B1%D9%8A%D8%A7%D8%AD-%D8%A8%D8%B4%D9%81%D8%B1%D8%A7%D8%AA-%D9%88%D8%B2%D9%86%D9%87%D8%A7-%D8%A3%D8%AE%D9%81-35-%D9%83%D9%8A%D9%81%D9%8A%D8%A9-%D8%A7%D9%84/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">2</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">attaqa.net. (2026). توربين رياح بشفرات وزنها أخف 35.. كيفية التصنيع والمميزات - الطاقة.</div><div class="cite-url"><a href="https://attaqa.net/2025/10/21/%D8%AA%D9%88%D8%B1%D8%A8%D9%8A%D9%86-%D8%B1%D9%8A%D8%A7%D8%AD-%D8%A8%D8%B4%D9%81%D8%B1%D8%A7%D8%AA-%D9%88%D8%B2%D9%86%D9%87%D8%A7-%D8%A3%D8%AE%D9%81-35-%D9%83%D9%8A%D9%81%D9%8A%D8%A9-%D8%A7%D9%84/" target="_blank" rel="noopener">https://attaqa.net/2025/10/21/%D8%AA%D9%88%D8%B1%D8%A8%D9%8A%D9%86-%D8%B1%D9%8A%D8%A7%D8%AD-%D8%A8%D8%B4%D9%81%D8%B1%D8%A7%D8%AA-%D9%88%D8%B2%D9%86%D9%87%D8%A7-%D8%A3%D8%AE%D9%81-35-%D9%83%D9%8A%D9%81%D9%8A%D8%A9-%D8%A7%D9%84/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://attaqa.net/2025/06/19/%D8%AA%D9%88%D8%B1%D8%A8%D9%8A%D9%86%D8%A7%D8%AA-%D8%B1%D9%8A%D8%A7%D8%AD-%D8%AF%D9%88%D9%86-%D8%B4%D9%81%D8%B1%D8%A7%D8%AA-%D8%AA%D9%86%D8%AA%D8%AC-%D8%A3%D9%83%D8%A8%D8%B1-%D9%82%D8%AF%D8%B1-%D9%85/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">3</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">attaqa.net. (2026). توربينات رياح دون شفرات تنتج أكبر قدر من الكهرباء.. كيف تعمل - الطاقة.</div><div class="cite-url"><a href="https://attaqa.net/2025/06/19/%D8%AA%D9%88%D8%B1%D8%A8%D9%8A%D9%86%D8%A7%D8%AA-%D8%B1%D9%8A%D8%A7%D8%AD-%D8%AF%D9%88%D9%86-%D8%B4%D9%81%D8%B1%D8%A7%D8%AA-%D8%AA%D9%86%D8%AA%D8%AC-%D8%A3%D9%83%D8%A8%D8%B1-%D9%82%D8%AF%D8%B1-%D9%85/" target="_blank" rel="noopener">https://attaqa.net/2025/06/19/%D8%AA%D9%88%D8%B1%D8%A8%D9%8A%D9%86%D8%A7%D8%AA-%D8%B1%D9%8A%D8%A7%D8%AD-%D8%AF%D9%88%D9%86-%D8%B4%D9%81%D8%B1%D8%A7%D8%AA-%D8%AA%D9%86%D8%AA%D8%AC-%D8%A3%D9%83%D8%A8%D8%B1-%D9%82%D8%AF%D8%B1-%D9%85/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.energy.gov/cmei/systems/articles/optimized-carbon-fiber-composites-wind-turbine-blade-design" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">4</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">energy.gov. (2026). Optimized Carbon Fiber Composites in Wind Turbine Blade Design.</div><div class="cite-url"><a href="https://www.energy.gov/cmei/systems/articles/optimized-carbon-fiber-composites-wind-turbine-blade-design" target="_blank" rel="noopener">https://www.energy.gov/cmei/systems/articles/optimized-carbon-fiber-composites-wind-turbine-blade-design</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.inverter.com/vertical-or-horizontal-wind-turbines-which-is-better?srsltid=AfmBOorkdlTm03NhdrCcS4rQ2awrqUmrKWd-8nAfSlUWHQ_wiTpQLLan" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">5</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">inverter.com. (2023). Vertical or Horizontal Wind Turbines, Which is better.</div><div class="cite-url"><a href="https://www.inverter.com/vertical-or-horizontal-wind-turbines-which-is-better?srsltid=AfmBOorkdlTm03NhdrCcS4rQ2awrqUmrKWd-8nAfSlUWHQ_wiTpQLLan" target="_blank" rel="noopener">https://www.inverter.com/vertical-or-horizontal-wind-turbines-which-is-better?srsltid=AfmBOorkdlTm03NhdrCcS4rQ2awrqUmrKWd-8nAfSlUWHQ_wiTpQLLan</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://jmhpower.com/ar/blade-types-for-wind-turbine/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">6</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">jmhpower. (2025). أنواع شفرات توربينات الرياح - JMHPOWER.</div><div class="cite-url"><a href="https://jmhpower.com/ar/blade-types-for-wind-turbine/" target="_blank" rel="noopener">https://jmhpower.com/ar/blade-types-for-wind-turbine/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://jmhpower.com/ar/whats-the-difference-between-vertical-and-horizontal-wind-turbines/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">7</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">jmhpower. (2025). ما الفرق بين توربينات الرياح الرأسية والأفقية - JMHPOWER.</div><div class="cite-url"><a href="https://jmhpower.com/ar/whats-the-difference-between-vertical-and-horizontal-wind-turbines/" target="_blank" rel="noopener">https://jmhpower.com/ar/whats-the-difference-between-vertical-and-horizontal-wind-turbines/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.sciencedirect.com/science/article/abs/pii/S014102962500015X" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">8</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">sciencedirect.com. (2026). ScienceDirect.</div><div class="cite-url"><a href="https://www.sciencedirect.com/science/article/abs/pii/S014102962500015X" target="_blank" rel="noopener">https://www.sciencedirect.com/science/article/abs/pii/S014102962500015X</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://bolandnewenergy.com/ar/parts-of-a-wind-turbine/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">9</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">Bolandnewenergy.com. (2024). أجزاء توربينات الرياح - بولاند للطاقة.</div><div class="cite-url"><a href="https://bolandnewenergy.com/ar/parts-of-a-wind-turbine/" target="_blank" rel="noopener">https://bolandnewenergy.com/ar/parts-of-a-wind-turbine/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.cnrockwill.com/ar/new-energy-solutions/wind-energy-converter-system-solution" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">10</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">Cnrockwill.com. (2026). حلول نظام تحويل طاقة الرياح - مجموعة Rockwill Electric - Rockwill الكهربائية.</div><div class="cite-url"><a href="https://www.cnrockwill.com/ar/new-energy-solutions/wind-energy-converter-system-solution" target="_blank" rel="noopener">https://www.cnrockwill.com/ar/new-energy-solutions/wind-energy-converter-system-solution</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.e3s-conferences.org/articles/e3sconf/pdf/2024/77/e3sconf_icsget2024_01008.pdf" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">11</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">E3s-conferences.org. (2024). No title.</div><div class="cite-url"><a href="https://www.e3s-conferences.org/articles/e3sconf/pdf/2024/77/e3sconf_icsget2024_01008.pdf" target="_blank" rel="noopener">https://www.e3s-conferences.org/articles/e3sconf/pdf/2024/77/e3sconf_icsget2024_01008.pdf</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://pmgenerators.com/pmgenerator/permanent-magnet-synchronous-generators/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">12</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">Harshit Singh. (2024). Permanent Magnet Synchronous Generator Solutions.</div><div class="cite-url"><a href="https://pmgenerators.com/pmgenerator/permanent-magnet-synchronous-generators/" target="_blank" rel="noopener">https://pmgenerators.com/pmgenerator/permanent-magnet-synchronous-generators/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.laeg-en.com/ar/permanent-magnet-motor-what-it-is-and-how-it-works-explained" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">13</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">Laeg-en.com. (2025). ما هو المحرك ذو المغناطيس الدائم وكيف يعمل.</div><div class="cite-url"><a href="https://www.laeg-en.com/ar/permanent-magnet-motor-what-it-is-and-how-it-works-explained" target="_blank" rel="noopener">https://www.laeg-en.com/ar/permanent-magnet-motor-what-it-is-and-how-it-works-explained</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.molewater.com/ar/how-a-pure-steam-generator-works" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">14</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">Molewater.com. (2025). كيف يعمل مولد البخار النقي - مولووتر.</div><div class="cite-url"><a href="https://www.molewater.com/ar/how-a-pure-steam-generator-works" target="_blank" rel="noopener">https://www.molewater.com/ar/how-a-pure-steam-generator-works</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10183028/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">15</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">Pmc.ncbi.nlm.nih.gov. (2023). Optimal low voltage ride through of wind turbine doubly fed induction generator based on bonobo optimization algorithm - PMC.</div><div class="cite-url"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10183028/" target="_blank" rel="noopener">https://pmc.ncbi.nlm.nih.gov/articles/PMC10183028/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.stanfordmagnets.com/permanent-magnet-generator-an-overview.html" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">16</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">Stanfordmagnets.com. (2022). Permanent Magnet Generator: An Overview.</div><div class="cite-url"><a href="https://www.stanfordmagnets.com/permanent-magnet-generator-an-overview.html" target="_blank" rel="noopener">https://www.stanfordmagnets.com/permanent-magnet-generator-an-overview.html</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://attaqa.net/2026/02/24/%D9%85%D8%B3%D8%AA%D9%82%D8%A8%D9%84-%D8%B7%D8%A7%D9%82%D8%A9-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%AD-%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9-%D9%85%D8%B5%D8%B1%D9%8A%D8%A9-%D8%AA%D8%AD%D8%B3%D9%85-%D8%A7%D9%84/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">17</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">attaqa.net. (2026). مستقبل طاقة الرياح.. دراسة مصرية تحسم المقارنة بين أبرز أنظمة التوليد - الطاقة.</div><div class="cite-url"><a href="https://attaqa.net/2026/02/24/%D9%85%D8%B3%D8%AA%D9%82%D8%A8%D9%84-%D8%B7%D8%A7%D9%82%D8%A9-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%AD-%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9-%D9%85%D8%B5%D8%B1%D9%8A%D8%A9-%D8%AA%D8%AD%D8%B3%D9%85-%D8%A7%D9%84/" target="_blank" rel="noopener">https://attaqa.net/2026/02/24/%D9%85%D8%B3%D8%AA%D9%82%D8%A8%D9%84-%D8%B7%D8%A7%D9%82%D8%A9-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%AD-%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9-%D9%85%D8%B5%D8%B1%D9%8A%D8%A9-%D8%AA%D8%AD%D8%B3%D9%85-%D8%A7%D9%84/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://ar.fuxingmotor.com/news/Inductionmotorsvs.synchronousmotorsprinciples,characteristicsandapplications/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">18</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">ar.fuxingmotor.com. (2024). المحركات الحثية مقابل المحركات المتزامنة: المبادئ والخصائص والتطبيقات.</div><div class="cite-url"><a href="https://ar.fuxingmotor.com/news/Inductionmotorsvs.synchronousmotorsprinciples,characteristicsandapplications/" target="_blank" rel="noopener">https://ar.fuxingmotor.com/news/Inductionmotorsvs.synchronousmotorsprinciples,characteristicsandapplications/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.dw.com/ar/%D8%B7%D8%A7%D9%82%D8%A9-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%AD-%D9%83%D9%8A%D9%81%D9%8A%D8%A9-%D8%A8%D9%86%D8%A7%D8%A1-%D8%AA%D9%88%D8%B1%D8%A8%D9%8A%D9%86%D8%A7%D8%AA-%D8%A8%D9%83%D9%81%D8%A7%D8%A1%D8%A9-%D8%A3%D9%83%D8%A8%D8%B1/a-74397175" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">19</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">dw.com. (2025). طاقة الرياح: كيفية بناء توربينات بكفاءة أكبر.</div><div class="cite-url"><a href="https://www.dw.com/ar/%D8%B7%D8%A7%D9%82%D8%A9-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%AD-%D9%83%D9%8A%D9%81%D9%8A%D8%A9-%D8%A8%D9%86%D8%A7%D8%A1-%D8%AA%D9%88%D8%B1%D8%A8%D9%8A%D9%86%D8%A7%D8%AA-%D8%A8%D9%83%D9%81%D8%A7%D8%A1%D8%A9-%D8%A3%D9%83%D8%A8%D8%B1/a-74397175" target="_blank" rel="noopener">https://www.dw.com/ar/%D8%B7%D8%A7%D9%82%D8%A9-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%AD-%D9%83%D9%8A%D9%81%D9%8A%D8%A9-%D8%A8%D9%86%D8%A7%D8%A1-%D8%AA%D9%88%D8%B1%D8%A8%D9%8A%D9%86%D8%A7%D8%AA-%D8%A8%D9%83%D9%81%D8%A7%D8%A1%D8%A9-%D8%A3%D9%83%D8%A8%D8%B1/a-74397175</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.energy.gov/cmei/systems/how-wind-turbine-works-text-version" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">20</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">energy.gov. (2026). How a Wind Turbine Works - Text Version.</div><div class="cite-url"><a href="https://www.energy.gov/cmei/systems/how-wind-turbine-works-text-version" target="_blank" rel="noopener">https://www.energy.gov/cmei/systems/how-wind-turbine-works-text-version</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.energy.gov/cmei/articles/wind-turbines-bigger-better" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">21</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">energy.gov. (2026). Wind Turbines: the Bigger, the Better.</div><div class="cite-url"><a href="https://www.energy.gov/cmei/articles/wind-turbines-bigger-better" target="_blank" rel="noopener">https://www.energy.gov/cmei/articles/wind-turbines-bigger-better</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.pretapower.com/ar/solar-vs-wind-energy-comparison-2025-which-is-the-smarter-investment/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">22</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">hbowa. (2025). Solar vs Wind Energy Comparison 2025: Smarter Investment.</div><div class="cite-url"><a href="https://www.pretapower.com/ar/solar-vs-wind-energy-comparison-2025-which-is-the-smarter-investment/" target="_blank" rel="noopener">https://www.pretapower.com/ar/solar-vs-wind-energy-comparison-2025-which-is-the-smarter-investment/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.powerhome.com/frequency-control-system-for-wind-turbine" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">23</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">powerhome.com. (2025). Frequency Control System for Wind Turbine.</div><div class="cite-url"><a href="https://www.powerhome.com/frequency-control-system-for-wind-turbine" target="_blank" rel="noopener">https://www.powerhome.com/frequency-control-system-for-wind-turbine</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.sciencedirect.com/science/article/pii/S2352484722016870" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">24</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">sciencedirect.com. (2026). ScienceDirect.</div><div class="cite-url"><a href="https://www.sciencedirect.com/science/article/pii/S2352484722016870" target="_blank" rel="noopener">https://www.sciencedirect.com/science/article/pii/S2352484722016870</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://smartservo.org/wind-turbine-efficiency-comp-en/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">25</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">smartservo.org. (2021). Comparison of the efficiency of various wind turbines – horizontalvertical axis.</div><div class="cite-url"><a href="https://smartservo.org/wind-turbine-efficiency-comp-en/" target="_blank" rel="noopener">https://smartservo.org/wind-turbine-efficiency-comp-en/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://eolios.net/%D8%A7%D9%84%D9%87%D9%88%D8%A7%D8%A1-%D9%88%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%AD/%D9%85%D8%AD%D8%A7%D9%83%D8%A7%D8%A9-cfd-%D8%A8%D8%AF%D9%8A%D9%84-%D9%84%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1-%D9%86%D9%81%D9%82-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%AD/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">26</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">eolios.net. (2024). محاكاة CFD: بديل لاختبار نفق الرياح.</div><div class="cite-url"><a href="https://eolios.net/%D8%A7%D9%84%D9%87%D9%88%D8%A7%D8%A1-%D9%88%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%AD/%D9%85%D8%AD%D8%A7%D9%83%D8%A7%D8%A9-cfd-%D8%A8%D8%AF%D9%8A%D9%84-%D9%84%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1-%D9%86%D9%81%D9%82-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%AD/" target="_blank" rel="noopener">https://eolios.net/%D8%A7%D9%84%D9%87%D9%88%D8%A7%D8%A1-%D9%88%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%AD/%D9%85%D8%AD%D8%A7%D9%83%D8%A7%D8%A9-cfd-%D8%A8%D8%AF%D9%8A%D9%84-%D9%84%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1-%D9%86%D9%81%D9%82-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%AD/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://osea.org.sy/%D8%AA%D8%AD%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%82%D8%B1%D8%A7%D8%B1-%D8%A7%D9%84%D8%B9%D8%A7%D8%A8%D8%B1-%D9%84%D9%84%D9%85%D9%8F%D9%88%D9%84%D8%AF%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">27</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">Gaith Hobbi. (2026). تحليل الاستقرار العابر للمولدات التزامنية عند ربط المزارع الريحية على شبكة النقل الكهربائية - نقابة المهندسين - سوريا.</div><div class="cite-url"><a href="https://osea.org.sy/%D8%AA%D8%AD%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%82%D8%B1%D8%A7%D8%B1-%D8%A7%D9%84%D8%B9%D8%A7%D8%A8%D8%B1-%D9%84%D9%84%D9%85%D9%8F%D9%88%D9%84%D8%AF%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA/" target="_blank" rel="noopener">https://osea.org.sy/%D8%AA%D8%AD%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%82%D8%B1%D8%A7%D8%B1-%D8%A7%D9%84%D8%B9%D8%A7%D8%A8%D8%B1-%D9%84%D9%84%D9%85%D9%8F%D9%88%D9%84%D8%AF%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://ieeexplore.ieee.org/document/10988635/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">28</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">ieeexplore.ieee.org. (2044). IEEE Xplore - Unable to Load Page.</div><div class="cite-url"><a href="https://ieeexplore.ieee.org/document/10988635/" target="_blank" rel="noopener">https://ieeexplore.ieee.org/document/10988635/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://ieeexplore.ieee.org/iel7/6287639/10005208/10144775.pdf" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">29</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">ieeexplore.ieee.org. (2044). IEEE Xplore - Unable to Load Page.</div><div class="cite-url"><a href="https://ieeexplore.ieee.org/iel7/6287639/10005208/10144775.pdf" target="_blank" rel="noopener">https://ieeexplore.ieee.org/iel7/6287639/10005208/10144775.pdf</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://link.springer.com/chapter/10.1007/978-981-16-7393-1_21" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">30</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">link.springer.com. (2022). Modelling and Analysis of Vector Controlled Doubly Fed Induction Generator (DFIG).</div><div class="cite-url"><a href="https://link.springer.com/chapter/10.1007/978-981-16-7393-1_21" target="_blank" rel="noopener">https://link.springer.com/chapter/10.1007/978-981-16-7393-1_21</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://link.springer.com/article/10.1007/s13369-026-11084-6" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">31</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">link.springer.com. (2026). Simulation Modeling and Evaluation of Intelligent Controller for DFIG Wind Power Systems Connected to Grid - Arabian Journal for Science and Engineering.</div><div class="cite-url"><a href="https://link.springer.com/article/10.1007/s13369-026-11084-6" target="_blank" rel="noopener">https://link.springer.com/article/10.1007/s13369-026-11084-6</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://opal-rt.atlassian.net/wiki/spaces/PSPS/pages/1551833799/Wind+Farm+-+Doubly-Fed+Induction+Generator+DFIG+Average+Model" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">32</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">opal-rt.atlassian.net. (2025). Wind Farm - Doubly-Fed Induction Generator (DFIG) Average Model - SPS Software - Smart Power Simulations Software - OPAL-RT.</div><div class="cite-url"><a href="https://opal-rt.atlassian.net/wiki/spaces/PSPS/pages/1551833799/Wind+Farm+-+Doubly-Fed+Induction+Generator+DFIG+Average+Model" target="_blank" rel="noopener">https://opal-rt.atlassian.net/wiki/spaces/PSPS/pages/1551833799/Wind+Farm+-+Doubly-Fed+Induction+Generator+DFIG+Average+Model</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.researchgate.net/figure/DFIG-model-in-Matlab-Simulink_fig2_268447003" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">33</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">researchgate.net. (2026). ResearchGate - Temporarily Unavailable.</div><div class="cite-url"><a href="https://www.researchgate.net/figure/DFIG-model-in-Matlab-Simulink_fig2_268447003" target="_blank" rel="noopener">https://www.researchgate.net/figure/DFIG-model-in-Matlab-Simulink_fig2_268447003</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.researchgate.net/figure/Schematic-of-Flow-Around-a-Rotor-Blade_fig1_228731286" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">34</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">researchgate.net. (2026). ResearchGate - Temporarily Unavailable.</div><div class="cite-url"><a href="https://www.researchgate.net/figure/Schematic-of-Flow-Around-a-Rotor-Blade_fig1_228731286" target="_blank" rel="noopener">https://www.researchgate.net/figure/Schematic-of-Flow-Around-a-Rotor-Blade_fig1_228731286</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.researchgate.net/figure/Stator-winding-faults-of-Induction-Motor_fig1_312331302" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">35</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">researchgate.net. (2026). ResearchGate - Temporarily Unavailable.</div><div class="cite-url"><a href="https://www.researchgate.net/figure/Stator-winding-faults-of-Induction-Motor_fig1_312331302" target="_blank" rel="noopener">https://www.researchgate.net/figure/Stator-winding-faults-of-Induction-Motor_fig1_312331302</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.sciencedirect.com/science/article/pii/S2405844022002961" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#16A34A;background:#BBF7D0;border-color:#BBF7D0">36</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">sciencedirect.com. (2026). ScienceDirect.</div><div class="cite-url"><a href="https://www.sciencedirect.com/science/article/pii/S2405844022002961" target="_blank" rel="noopener">https://www.sciencedirect.com/science/article/pii/S2405844022002961</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#16A34A">↗</span>
+          </a>
+        </div>
+      </section>
+      <section class="unit-section" id="u2">
+        <div class="unit-header" style="border-right:4px solid #2563EB;background:#EFF6FF">
+          <div class="unit-num" style="background:#BFDBFE;color:#1E40AF">03</div>
+          <div>
+            <h2 class="unit-name" style="color:#2563EB">المحركات الكهربائية في المركبات الهجينة</h2>
+            <span class="unit-count">75 مرجع</span>
+          </div>
+        </div>
+        <div class="refs-list">
+          
+          <a class="ref-row" href="https://attaqa.net/2024/11/25/%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%87%D8%AC%D9%8A%D9%86%D8%A9-%D9%88%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A%D8%A9-%D8%A3%D9%8A%D9%87%D9%85%D8%A7-%D8%A3/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">1</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">attaqa.net. (2026). السيارات الهجينة والكهربائية.. أيهما أفضل لمواجهة ارتفاع الطلب على النحاس - الطاقة.</div><div class="cite-url"><a href="https://attaqa.net/2024/11/25/%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%87%D8%AC%D9%8A%D9%86%D8%A9-%D9%88%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A%D8%A9-%D8%A3%D9%8A%D9%87%D9%85%D8%A7-%D8%A3/" target="_blank" rel="noopener">https://attaqa.net/2024/11/25/%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%87%D8%AC%D9%8A%D9%86%D8%A9-%D9%88%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A%D8%A9-%D8%A3%D9%8A%D9%87%D9%85%D8%A7-%D8%A3/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.caranddriver.com/features/a70290315/how-hybrid-cars-work/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">2</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">caranddriver.com. (2026). Everything You Wonder About Hybrid Cars, Including How They Actually Work.</div><div class="cite-url"><a href="https://www.caranddriver.com/features/a70290315/how-hybrid-cars-work/" target="_blank" rel="noopener">https://www.caranddriver.com/features/a70290315/how-hybrid-cars-work/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.consumerreports.org/cars/hybrids-evs/how-do-hybrid-cars-work-a1034181509/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">3</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">consumerreports.org. (2026). How Do Hybrid Cars Work - Consumer Reports.</div><div class="cite-url"><a href="https://www.consumerreports.org/cars/hybrids-evs/how-do-hybrid-cars-work-a1034181509/" target="_blank" rel="noopener">https://www.consumerreports.org/cars/hybrids-evs/how-do-hybrid-cars-work-a1034181509/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.epa.gov/greenvehicles/electric-plug-hybrid-electric-vehicles" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">4</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">epa.gov. (2024). Electric  Plug-In Hybrid Electric Vehicles | US EPA.</div><div class="cite-url"><a href="https://www.epa.gov/greenvehicles/electric-plug-hybrid-electric-vehicles" target="_blank" rel="noopener">https://www.epa.gov/greenvehicles/electric-plug-hybrid-electric-vehicles</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.icartea.com/news/hybrid-cars-have-5-types" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">5</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">icartea.com. (2024). أفضل 5 أنواع من السيارات الهجينة معرفة السيارات.</div><div class="cite-url"><a href="https://www.icartea.com/news/hybrid-cars-have-5-types" target="_blank" rel="noopener">https://www.icartea.com/news/hybrid-cars-have-5-types</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.aljazeera.net/motors/2026/3/3/%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%87%D8%AC%D9%8A%D9%86%D8%A9-%D8%AB%D9%88%D8%B1%D8%A9-%D9%81%D9%8A-%D8%B9%D8%A7%D9%84%D9%85-%D8%A7%D9%84%D9%82%D9%8A%D8%A7%D8%AF%D8%A9" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">6</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">aljazeera.net. (2026). إبراهيم عبد الوهاب. السيارات الهجينة.. أداء رياضي وصمت كهربائي يغيران قواعد اللعبة.</div><div class="cite-url"><a href="https://www.aljazeera.net/motors/2026/3/3/%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%87%D8%AC%D9%8A%D9%86%D8%A9-%D8%AB%D9%88%D8%B1%D8%A9-%D9%81%D9%8A-%D8%B9%D8%A7%D9%84%D9%85-%D8%A7%D9%84%D9%82%D9%8A%D8%A7%D8%AF%D8%A9" target="_blank" rel="noopener">https://www.aljazeera.net/motors/2026/3/3/%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%87%D8%AC%D9%8A%D9%86%D8%A9-%D8%AB%D9%88%D8%B1%D8%A9-%D9%81%D9%8A-%D8%B9%D8%A7%D9%84%D9%85-%D8%A7%D9%84%D9%82%D9%8A%D8%A7%D8%AF%D8%A9</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.moje-auto.pl/ar/%D8%A7%D9%84%D9%85%D9%82%D8%A7%D9%84/%D9%85%D8%A7-%D9%87%D9%8A-%D8%A3%D9%86%D9%88%D8%A7%D8%B9-%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%87%D8%AC%D9%8A%D9%86%D8%A9-mhev-hev-phev-reev/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">7</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">moje-auto.pl. (2026). ما هي أنواع السيارات الهجينة الموجودة mHEV HEV PHEV REEV - moje-auto.pl.</div><div class="cite-url"><a href="https://www.moje-auto.pl/ar/%D8%A7%D9%84%D9%85%D9%82%D8%A7%D9%84/%D9%85%D8%A7-%D9%87%D9%8A-%D8%A3%D9%86%D9%88%D8%A7%D8%B9-%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%87%D8%AC%D9%8A%D9%86%D8%A9-mhev-hev-phev-reev/" target="_blank" rel="noopener">https://www.moje-auto.pl/ar/%D8%A7%D9%84%D9%85%D9%82%D8%A7%D9%84/%D9%85%D8%A7-%D9%87%D9%8A-%D8%A3%D9%86%D9%88%D8%A7%D8%B9-%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%87%D8%AC%D9%8A%D9%86%D8%A9-mhev-hev-phev-reev/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.pitstoparabia.com/ar/news/difference-between-hybrid-electric-vehicle?srsltid=AfmBOorv7-Mls4hT8U8-YN81734GMz7fcqb6iFsyjhb_Pnicz6Em_BJi" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">8</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">pitstoparabia.com. (2026). الفرق بين السيارة الهجينة والكهربائية.</div><div class="cite-url"><a href="https://www.pitstoparabia.com/ar/news/difference-between-hybrid-electric-vehicle?srsltid=AfmBOorv7-Mls4hT8U8-YN81734GMz7fcqb6iFsyjhb_Pnicz6Em_BJi" target="_blank" rel="noopener">https://www.pitstoparabia.com/ar/news/difference-between-hybrid-electric-vehicle?srsltid=AfmBOorv7-Mls4hT8U8-YN81734GMz7fcqb6iFsyjhb_Pnicz6Em_BJi</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://syarah.com/carsguide/plug-in-hybrid-vs-electric/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">9</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">syarah.com. (2024). الفرق بين السيارة الهجينة القابلة للشحن والكهربائية | دليل سيارة.</div><div class="cite-url"><a href="https://syarah.com/carsguide/plug-in-hybrid-vs-electric/" target="_blank" rel="noopener">https://syarah.com/carsguide/plug-in-hybrid-vs-electric/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://syarah.com/carsguide/hybrid-engine/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">10</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">syarah.com. (2024). ما هو محرك الهايبرد وكيف يعمل مع أبرز الميزات والعيوب.</div><div class="cite-url"><a href="https://syarah.com/carsguide/hybrid-engine/" target="_blank" rel="noopener">https://syarah.com/carsguide/hybrid-engine/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://yasserdrive.com/%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%87%D8%AC%D9%8A%D9%86%D8%A9/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">11</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">yasserdrive.com. (2026). Yasser Mohandes. السيارات الهجينة - Yasser Drive.</div><div class="cite-url"><a href="https://yasserdrive.com/%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%87%D8%AC%D9%8A%D9%86%D8%A9/" target="_blank" rel="noopener">https://yasserdrive.com/%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%87%D8%AC%D9%8A%D9%86%D8%A9/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.arabsauto.com/dht/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">12</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">arabsauto.com. (2024). ما هو ناقل الحركة الهجين المخصص DHT | Arabs Auto.</div><div class="cite-url"><a href="https://www.arabsauto.com/dht/" target="_blank" rel="noopener">https://www.arabsauto.com/dht/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.bachrodtchevy.com/how-hybrid-cars-work-rockford-elgin-il.html" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">13</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">bachrodtchevy.com. (2026). How Hybrid Cars Work: Ultimate Guide to Hybrid Vehicle Technology.</div><div class="cite-url"><a href="https://www.bachrodtchevy.com/how-hybrid-cars-work-rockford-elgin-il.html" target="_blank" rel="noopener">https://www.bachrodtchevy.com/how-hybrid-cars-work-rockford-elgin-il.html</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.bonnenbatteries.com/ar/hybrid-battery-packs-the-future-of-energy-storage-with-ab-cell-integration/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">14</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">Bonnen Battery. (2025). مجموعات البطاريات الهجينة: تخزين الطاقة مع تكامل الخلية A  B..</div><div class="cite-url"><a href="https://www.bonnenbatteries.com/ar/hybrid-battery-packs-the-future-of-energy-storage-with-ab-cell-integration/" target="_blank" rel="noopener">https://www.bonnenbatteries.com/ar/hybrid-battery-packs-the-future-of-energy-storage-with-ab-cell-integration/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.bosch-mobility.com/en/solutions/powertrain/hybrid/high-voltage-hybrid-systems/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">15</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">bosch-mobility.com. (2025). High-voltage hybrid.</div><div class="cite-url"><a href="https://www.bosch-mobility.com/en/solutions/powertrain/hybrid/high-voltage-hybrid-systems/" target="_blank" rel="noopener">https://www.bosch-mobility.com/en/solutions/powertrain/hybrid/high-voltage-hybrid-systems/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.byduae.ae/ar/news/how-electric-car-engine-works/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">16</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">byduae.ae. (2026). كيف يعمل محرك السيارات الكهربائية | بي واي دي.</div><div class="cite-url"><a href="https://www.byduae.ae/ar/news/how-electric-car-engine-works/" target="_blank" rel="noopener">https://www.byduae.ae/ar/news/how-electric-car-engine-works/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.gtake.com/ar/industry-news/the-critical-role-of-inverter-technology-in-electric-vehicles/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">17</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">gtake.com. (2025). الدور الحاسم لتقنية العاكس في المركبات الكهربائية - GTAKE.</div><div class="cite-url"><a href="https://www.gtake.com/ar/industry-news/the-critical-role-of-inverter-technology-in-electric-vehicles/" target="_blank" rel="noopener">https://www.gtake.com/ar/industry-news/the-critical-role-of-inverter-technology-in-electric-vehicles/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://syarah.com/carsguide/hybrid-cars-operate-electricity-and-fuel/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">18</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">syarah.com. (2024). تعمل السيارات الهجين بنظام خاص من خلال تقنيات الكهرباء والوقود, إليك التفاصيل | دليل سيارة.</div><div class="cite-url"><a href="https://syarah.com/carsguide/hybrid-cars-operate-electricity-and-fuel/" target="_blank" rel="noopener">https://syarah.com/carsguide/hybrid-cars-operate-electricity-and-fuel/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://en.wikipedia.org/wiki/Hybrid_electric_vehicle" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">19</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">en.wikipedia.org. (2022). Hybrid electric vehicle - Wikipedia.</div><div class="cite-url"><a href="https://en.wikipedia.org/wiki/Hybrid_electric_vehicle" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Hybrid_electric_vehicle</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://autozone-mag.com/news/11588" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">20</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">autozone-mag.com. (2026). Autozone  - منظومة هايبرد جديدة من فولكس فاجن - بثلاثة محركات.</div><div class="cite-url"><a href="https://autozone-mag.com/news/11588" target="_blank" rel="noopener">https://autozone-mag.com/news/11588</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.panoxdisplay.com/ar/knowledge/what-is-controller-board-used-car.html" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">21</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">panoxdisplay.com. (2025). ما هي استخدامات لوحة التحكم في السيارة.</div><div class="cite-url"><a href="https://www.panoxdisplay.com/ar/knowledge/what-is-controller-board-used-car.html" target="_blank" rel="noopener">https://www.panoxdisplay.com/ar/knowledge/what-is-controller-board-used-car.html</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.greencars.com/greencars-101/plug-in-hybrid-best-practices" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">22</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">greencars.com. (2025). Plug-In Hybrid Best Practices | GreenCars.</div><div class="cite-url"><a href="https://www.greencars.com/greencars-101/plug-in-hybrid-best-practices" target="_blank" rel="noopener">https://www.greencars.com/greencars-101/plug-in-hybrid-best-practices</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.jaguar-maroc.com/ar/electric-cars/plug-in-hybrid" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">23</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">jaguar-maroc.com. (2026). شرح للسيارات الكهربائية الهجينة | Jaguar | Jaguar.</div><div class="cite-url"><a href="https://www.jaguar-maroc.com/ar/electric-cars/plug-in-hybrid" target="_blank" rel="noopener">https://www.jaguar-maroc.com/ar/electric-cars/plug-in-hybrid</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.jaguar-qatar.com/ar/owners/ev-ownership/phev-driving-modes" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">24</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">jaguar-qatar.com. (2026). أوضاع قيادة السيارات الكهربائية الهجينة (PHEV) | Jaguar | جاكوار قطر.</div><div class="cite-url"><a href="https://www.jaguar-qatar.com/ar/owners/ev-ownership/phev-driving-modes" target="_blank" rel="noopener">https://www.jaguar-qatar.com/ar/owners/ev-ownership/phev-driving-modes</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.jaguar-saudi.com/ar/ownership/ev-ownership/phev-driving-modes" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">25</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">jaguar-saudi.com. (2026). أوضاع قيادة السيارات الكهربائية الهجينة (PHEV) | Jaguar | جاكوار السعودية.</div><div class="cite-url"><a href="https://www.jaguar-saudi.com/ar/ownership/ev-ownership/phev-driving-modes" target="_blank" rel="noopener">https://www.jaguar-saudi.com/ar/ownership/ev-ownership/phev-driving-modes</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.landrover-iraq.com/ar/phev/driving-modes" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">26</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">landrover-iraq.com. (2022). أوضاع القيادة | دليل قيادة السيارة الكهربائية الهجينة القابلة للشحن (PHEV) | رينج روڤر | لاند روڤر  العراق.</div><div class="cite-url"><a href="https://www.landrover-iraq.com/ar/phev/driving-modes" target="_blank" rel="noopener">https://www.landrover-iraq.com/ar/phev/driving-modes</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://mag.toyota.co.uk/hybrid-driving-tips-for-best-fuel-economy/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">27</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">mag.toyota.co.uk. (2022). Toyota Blog. Hybrid driving tips for best fuel economy.</div><div class="cite-url"><a href="https://mag.toyota.co.uk/hybrid-driving-tips-for-best-fuel-economy/" target="_blank" rel="noopener">https://mag.toyota.co.uk/hybrid-driving-tips-for-best-fuel-economy/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.moje-auto.pl/ar/%D8%A7%D9%84%D9%85%D9%82%D8%A7%D9%84/%D8%A7%D8%AC%D8%AA%D9%85%D8%A7%D8%B9%D8%A7%D8%AA/%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%87%D8%AC%D9%8A%D9%86%D8%A9/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">28</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">moje-auto.pl. (2026). السيارة الهجينة – كيف يعمل نظام تجديد الطاقة.</div><div class="cite-url"><a href="https://www.moje-auto.pl/ar/%D8%A7%D9%84%D9%85%D9%82%D8%A7%D9%84/%D8%A7%D8%AC%D8%AA%D9%85%D8%A7%D8%B9%D8%A7%D8%AA/%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%87%D8%AC%D9%8A%D9%86%D8%A9/" target="_blank" rel="noopener">https://www.moje-auto.pl/ar/%D8%A7%D9%84%D9%85%D9%82%D8%A7%D9%84/%D8%A7%D8%AC%D8%AA%D9%85%D8%A7%D8%B9%D8%A7%D8%AA/%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%87%D8%AC%D9%8A%D9%86%D8%A9/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.pitstoparabia.com/ar/news/b-gear-hybrid-cars?srsltid=AfmBOoqxVQo-hE0ZweuEJW8GeYzV2UidxEItdlgPH5o2ZP3ZmWtrcZBW" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">29</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">pitstoparabia.com. (2026). فهم سيارات Gear Hybrid: كل شيء عن B Gear.</div><div class="cite-url"><a href="https://www.pitstoparabia.com/ar/news/b-gear-hybrid-cars?srsltid=AfmBOoqxVQo-hE0ZweuEJW8GeYzV2UidxEItdlgPH5o2ZP3ZmWtrcZBW" target="_blank" rel="noopener">https://www.pitstoparabia.com/ar/news/b-gear-hybrid-cars?srsltid=AfmBOoqxVQo-hE0ZweuEJW8GeYzV2UidxEItdlgPH5o2ZP3ZmWtrcZBW</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.gtake.com/ar/industry-news/what-comprises-an-ev-powertrain/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">30</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">Gtake.com. (2025). ما هي مكونات نظام نقل الحركة في السيارات الكهربائية - GTAKE.</div><div class="cite-url"><a href="https://www.gtake.com/ar/industry-news/what-comprises-an-ev-powertrain/" target="_blank" rel="noopener">https://www.gtake.com/ar/industry-news/what-comprises-an-ev-powertrain/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://kahraba4u.com/%D8%A7%D9%84%D9%85%D8%AD%D8%B1%D9%83-%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">31</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">Kahraba4u.com. (2024). المحرك الكهربائي ومبدأ عمله.</div><div class="cite-url"><a href="https://kahraba4u.com/%D8%A7%D9%84%D9%85%D8%AD%D8%B1%D9%83-%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A/" target="_blank" rel="noopener">https://kahraba4u.com/%D8%A7%D9%84%D9%85%D8%AD%D8%B1%D9%83-%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.sciencedirect.com/science/article/pii/S1110016823007226" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">32</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">Sciencedirect.com. (2026). ScienceDirect.</div><div class="cite-url"><a href="https://www.sciencedirect.com/science/article/pii/S1110016823007226" target="_blank" rel="noopener">https://www.sciencedirect.com/science/article/pii/S1110016823007226</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.set-science.com/pdf_view.php?cacryn=ISAS-WINTER-2022&cid=89&pid=15&fv=SETSCI_ISAS-WINTER-2022_0089_0015" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">33</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">Set-science.com. (2061). No title.</div><div class="cite-url"><a href="https://www.set-science.com/pdf_view.php?cacryn=ISAS-WINTER-2022&cid=89&pid=15&fv=SETSCI_ISAS-WINTER-2022_0089_0015" target="_blank" rel="noopener">https://www.set-science.com/pdf_view.php?cacryn=ISAS-WINTER-2022&cid=89&pid=15&fv=SETSCI_ISAS-WINTER-2022_0089_0015</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.user-manual.renault.com/ar/content/renault-koleos/practical-advice/almsahr" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">34</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">User-manual.renault.com. (2025). المصاهر | دليل المستخدم.</div><div class="cite-url"><a href="https://www.user-manual.renault.com/ar/content/renault-koleos/practical-advice/almsahr" target="_blank" rel="noopener">https://www.user-manual.renault.com/ar/content/renault-koleos/practical-advice/almsahr</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://en.wikipedia.org/wiki/Switched_reluctance_linear_motor" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">35</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">Wikipedia. (2024). Switched reluctance linear motor - Wikipedia.</div><div class="cite-url"><a href="https://en.wikipedia.org/wiki/Switched_reluctance_linear_motor" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Switched_reluctance_linear_motor</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://dspace.univ-guelma.dz/jspui/bitstream/123456789/13453/1/BENTOUMI_AMIR%20DJIHAD%20EDDINE.pdf" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">36</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">Dspace.univ-guelma.dz. (2046). No title.</div><div class="cite-url"><a href="https://dspace.univ-guelma.dz/jspui/bitstream/123456789/13453/1/BENTOUMI_AMIR%20DJIHAD%20EDDINE.pdf" target="_blank" rel="noopener">https://dspace.univ-guelma.dz/jspui/bitstream/123456789/13453/1/BENTOUMI_AMIR%20DJIHAD%20EDDINE.pdf</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://ieeexplore.ieee.org/document/10445504/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">37</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">Ieeexplore.ieee.org. (2043). IEEE Xplore - Unable to Load Page.</div><div class="cite-url"><a href="https://ieeexplore.ieee.org/document/10445504/" target="_blank" rel="noopener">https://ieeexplore.ieee.org/document/10445504/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://evolutionflight.com/permanent-magnet-synchronous-motors/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">38</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">Andrew Lashmar. (2025). A Guide to Permanent Magnet Synchronous Motors.</div><div class="cite-url"><a href="https://evolutionflight.com/permanent-magnet-synchronous-motors/" target="_blank" rel="noopener">https://evolutionflight.com/permanent-magnet-synchronous-motors/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://ar.enmotor.com/permanent-magnet-motor/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">39</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">ar.enmotor.com. (2022). محرك مغناطيسي دائم  PMAC Motors  محركات مغناطيسية منخفضة السرعة - شركة Qingdao Enneng Motor Co.  Ltd.</div><div class="cite-url"><a href="https://ar.enmotor.com/permanent-magnet-motor/" target="_blank" rel="noopener">https://ar.enmotor.com/permanent-magnet-motor/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.hfmotions.com/ar/why-bldc-pmsm-motor/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">40</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">hfmotions.com. (2023). لماذا محرك BLDCPMSM - حركة التردد العالي.</div><div class="cite-url"><a href="https://www.hfmotions.com/ar/why-bldc-pmsm-motor/" target="_blank" rel="noopener">https://www.hfmotions.com/ar/why-bldc-pmsm-motor/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://hsmagnet.com/ar/2023/04/18/%D8%A7%D9%84%D9%81%D8%B1%D9%82-%D8%A8%D9%8A%D9%86-%D9%85%D8%AD%D8%B1%D9%83%D8%A7%D8%AA-bldc-%D9%88-pmsm/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">41</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">Jacky Wang. (2026). محركات BLDC مقابل محركات PMSM: ما هو الفرق الرئيسي.</div><div class="cite-url"><a href="https://hsmagnet.com/ar/2023/04/18/%D8%A7%D9%84%D9%81%D8%B1%D9%82-%D8%A8%D9%8A%D9%86-%D9%85%D8%AD%D8%B1%D9%83%D8%A7%D8%AA-bldc-%D9%88-pmsm/" target="_blank" rel="noopener">https://hsmagnet.com/ar/2023/04/18/%D8%A7%D9%84%D9%81%D8%B1%D9%82-%D8%A8%D9%8A%D9%86-%D9%85%D8%AD%D8%B1%D9%83%D8%A7%D8%AA-bldc-%D9%88-pmsm/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.lumsyn.com/ar/articles-news/synchronous-reluctance-motor-synrm" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">42</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">lumsyn.com. (2024). محرك الممانعة المتزامن (SynRM) مقابل PMSM مقابل المحرك التعريفي.</div><div class="cite-url"><a href="https://www.lumsyn.com/ar/articles-news/synchronous-reluctance-motor-synrm" target="_blank" rel="noopener">https://www.lumsyn.com/ar/articles-news/synchronous-reluctance-motor-synrm</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12011299/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">43</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">pmc.ncbi.nlm.nih.gov. (2025). Research on simulation of permanent magnet synchronous motor in full speed range - PMC.</div><div class="cite-url"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12011299/" target="_blank" rel="noopener">https://pmc.ncbi.nlm.nih.gov/articles/PMC12011299/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.parkingpreheater.com/news/introduction-to-permanent-magnet-synchronous-m-79003327.html" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">44</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">parkingpreheater.com. (2026). No title.</div><div class="cite-url"><a href="https://www.parkingpreheater.com/news/introduction-to-permanent-magnet-synchronous-m-79003327.html" target="_blank" rel="noopener">https://www.parkingpreheater.com/news/introduction-to-permanent-magnet-synchronous-m-79003327.html</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://hsmagnet.com/ar/2025/11/24/%D9%85%D9%82%D8%AF%D9%85%D8%A9-%D8%B9%D9%86-%D8%A7%D9%84%D9%85%D8%AD%D8%B1%D9%83%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D8%AA%D8%B2%D8%A7%D9%85%D9%86%D8%A9-%D8%B0%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D8%BA%D9%86/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">45</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">hsmagnet.com. (2026). محرك متزامن ذو مغناطيس دائم: مبدأ العمل المزايا والتطبيقات | HSMAGNET.</div><div class="cite-url"><a href="https://hsmagnet.com/ar/2025/11/24/%D9%85%D9%82%D8%AF%D9%85%D8%A9-%D8%B9%D9%86-%D8%A7%D9%84%D9%85%D8%AD%D8%B1%D9%83%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D8%AA%D8%B2%D8%A7%D9%85%D9%86%D8%A9-%D8%B0%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D8%BA%D9%86/" target="_blank" rel="noopener">https://hsmagnet.com/ar/2025/11/24/%D9%85%D9%82%D8%AF%D9%85%D8%A9-%D8%B9%D9%86-%D8%A7%D9%84%D9%85%D8%AD%D8%B1%D9%83%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D8%AA%D8%B2%D8%A7%D9%85%D9%86%D8%A9-%D8%B0%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D8%BA%D9%86/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.researchgate.net/figure/The-ideal-torque-characteristic-curves-for-the-PMSM-motor_fig3_308821510" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">46</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">researchgate.net. (2026). No title.</div><div class="cite-url"><a href="https://www.researchgate.net/figure/The-ideal-torque-characteristic-curves-for-the-PMSM-motor_fig3_308821510" target="_blank" rel="noopener">https://www.researchgate.net/figure/The-ideal-torque-characteristic-curves-for-the-PMSM-motor_fig3_308821510</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.sciencedirect.com/science/article/pii/S2405844024020498" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">47</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">sciencedirect.com. (2026). No title.</div><div class="cite-url"><a href="https://www.sciencedirect.com/science/article/pii/S2405844024020498" target="_blank" rel="noopener">https://www.sciencedirect.com/science/article/pii/S2405844024020498</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://itg-motor.com/what-is-a-permanent-magnet-synchronous-motor/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">48</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">thienhuong.pham. (2025). What is a Permanent Magnet Synchronous Motor.</div><div class="cite-url"><a href="https://itg-motor.com/what-is-a-permanent-magnet-synchronous-motor/" target="_blank" rel="noopener">https://itg-motor.com/what-is-a-permanent-magnet-synchronous-motor/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://hzkuvo.com/ar/%D8%A7%D9%84%D9%85%D8%B9%D8%B1%D9%81%D8%A9/%D9%85%D8%B6%D8%AE%D8%A9-%D8%B4%D9%85%D8%B3%D9%8A%D8%A9-%D9%84%D9%84%D8%B1%D9%8A-%D8%A7%D9%84%D8%B2%D8%B1%D8%A7%D8%B9%D9%8A-%D9%81%D9%8A-%D8%A7%D9%84%D8%A2%D8%A8%D8%A7%D8%B1-%D8%A7%D9%84%D8%B9%D9%85/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">49</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">hzkuvo.com. (2025). حلول المضخات الشمسية للآبار العميقة والمياه السطحية والري الزراعي - KUVO.</div><div class="cite-url"><a href="https://hzkuvo.com/ar/%D8%A7%D9%84%D9%85%D8%B9%D8%B1%D9%81%D8%A9/%D9%85%D8%B6%D8%AE%D8%A9-%D8%B4%D9%85%D8%B3%D9%8A%D8%A9-%D9%84%D9%84%D8%B1%D9%8A-%D8%A7%D9%84%D8%B2%D8%B1%D8%A7%D8%B9%D9%8A-%D9%81%D9%8A-%D8%A7%D9%84%D8%A2%D8%A8%D8%A7%D8%B1-%D8%A7%D9%84%D8%B9%D9%85/" target="_blank" rel="noopener">https://hzkuvo.com/ar/%D8%A7%D9%84%D9%85%D8%B9%D8%B1%D9%81%D8%A9/%D9%85%D8%B6%D8%AE%D8%A9-%D8%B4%D9%85%D8%B3%D9%8A%D8%A9-%D9%84%D9%84%D8%B1%D9%8A-%D8%A7%D9%84%D8%B2%D8%B1%D8%A7%D8%B9%D9%8A-%D9%81%D9%8A-%D8%A7%D9%84%D8%A2%D8%A8%D8%A7%D8%B1-%D8%A7%D9%84%D8%B9%D9%85/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.aljazeera.net/science/2025/10/24/%D8%A8%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D8%A7%D9%85-%D9%81%D9%8A%D8%B2%D9%8A%D8%A7%D8%A1-%D8%A7%D9%84%D9%86%D8%A7%D9%86%D9%88-%D8%A7%D8%A8%D8%AA%D9%83%D8%A7%D8%B1-%D8%A3%D9%88%D9%84" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">50</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">aljazeera.net. (2025). باستخدام فيزياء النانو.. ابتكار أول محرك كهربائي خال من المكونات المعدنية.</div><div class="cite-url"><a href="https://www.aljazeera.net/science/2025/10/24/%D8%A8%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D8%A7%D9%85-%D9%81%D9%8A%D8%B2%D9%8A%D8%A7%D8%A1-%D8%A7%D9%84%D9%86%D8%A7%D9%86%D9%88-%D8%A7%D8%A8%D8%AA%D9%83%D8%A7%D8%B1-%D8%A3%D9%88%D9%84" target="_blank" rel="noopener">https://www.aljazeera.net/science/2025/10/24/%D8%A8%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D8%A7%D9%85-%D9%81%D9%8A%D8%B2%D9%8A%D8%A7%D8%A1-%D8%A7%D9%84%D9%86%D8%A7%D9%86%D9%88-%D8%A7%D8%A8%D8%AA%D9%83%D8%A7%D8%B1-%D8%A3%D9%88%D9%84</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.cn-delixi.com/ar/news/contactor-explained-working-principle-types-applications-and-selection-guide/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">51</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">cn-delixi.com. (2025). شرح الملامس: مبدأ العمل الأنواع التطبيقات ودليل الاختيار - Delixi Electric.</div><div class="cite-url"><a href="https://www.cn-delixi.com/ar/news/contactor-explained-working-principle-types-applications-and-selection-guide/" target="_blank" rel="noopener">https://www.cn-delixi.com/ar/news/contactor-explained-working-principle-types-applications-and-selection-guide/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://dronebotworkshop.com/dc-motor-drivers/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">52</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">dronebotworkshop.com. (2022). Driving DC Motors with Microcontrollers | DroneBot Workshop.</div><div class="cite-url"><a href="https://dronebotworkshop.com/dc-motor-drivers/" target="_blank" rel="noopener">https://dronebotworkshop.com/dc-motor-drivers/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://edutec4all.org/%D8%A7%D9%84%D9%85%D8%AA%D8%AD%D9%83%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%AF%D9%82%D9%8A%D9%82%D8%A9-microcontroller-%D9%85%D8%A7%D9%87%D9%8A-%D9%85%D9%83%D9%88%D9%86%D8%A7%D8%AA%D9%87%D8%A7-%D9%88/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">53</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">edutec4all.org. (2026). المتحكمات الدقيقة Microcontroller ماهي مكوناتها ومميزاتها – تقنيات التعليم للجميع.</div><div class="cite-url"><a href="https://edutec4all.org/%D8%A7%D9%84%D9%85%D8%AA%D8%AD%D9%83%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%AF%D9%82%D9%8A%D9%82%D8%A9-microcontroller-%D9%85%D8%A7%D9%87%D9%8A-%D9%85%D9%83%D9%88%D9%86%D8%A7%D8%AA%D9%87%D8%A7-%D9%88/" target="_blank" rel="noopener">https://edutec4all.org/%D8%A7%D9%84%D9%85%D8%AA%D8%AD%D9%83%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%AF%D9%82%D9%8A%D9%82%D8%A9-microcontroller-%D9%85%D8%A7%D9%87%D9%8A-%D9%85%D9%83%D9%88%D9%86%D8%A7%D8%AA%D9%87%D8%A7-%D9%88/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://electronics.stackexchange.com/questions/726390/choosing-mcu-for-motor-control" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">54</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">electronics.stackexchange.com. (2024). Choosing MCU for motor control.</div><div class="cite-url"><a href="https://electronics.stackexchange.com/questions/726390/choosing-mcu-for-motor-control" target="_blank" rel="noopener">https://electronics.stackexchange.com/questions/726390/choosing-mcu-for-motor-control</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.gtake.com/ar/industry-news/differences-between-torque-control-and-speed-control/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">55</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">gtake.com. (2025). الفرق بين التحكم في عزم الدوران والتحكم في السرعة في محركات التردد المتغير (VFDs) - GTAKE.</div><div class="cite-url"><a href="https://www.gtake.com/ar/industry-news/differences-between-torque-control-and-speed-control/" target="_blank" rel="noopener">https://www.gtake.com/ar/industry-news/differences-between-torque-control-and-speed-control/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.hptuners.com/ar/articles/what-is-core-ecu/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">56</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">hptuners.com. (2024). ما هو CORE ECU – HP Tuners.</div><div class="cite-url"><a href="https://www.hptuners.com/ar/articles/what-is-core-ecu/" target="_blank" rel="noopener">https://www.hptuners.com/ar/articles/what-is-core-ecu/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://ieeexplore.ieee.org/document/11293774/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">57</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">ieeexplore.ieee.org. (2046). IEEE Xplore - Unable to Load Page.</div><div class="cite-url"><a href="https://ieeexplore.ieee.org/document/11293774/" target="_blank" rel="noopener">https://ieeexplore.ieee.org/document/11293774/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.jkongmotor.com/how-to-improve-positioning-accuracy-of-stepper-motors-in-industrial-equipment.html" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">58</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">jkongmotor.com. (2026). How To Improve Positioning Accuracy of Stepper Motors in Industrial Equipment - JKONGMOTOR.</div><div class="cite-url"><a href="https://www.jkongmotor.com/how-to-improve-positioning-accuracy-of-stepper-motors-in-industrial-equipment.html" target="_blank" rel="noopener">https://www.jkongmotor.com/how-to-improve-positioning-accuracy-of-stepper-motors-in-industrial-equipment.html</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://mawdoo3.com/%D8%AA%D8%B9%D8%B1%D9%8A%D9%81_%D8%A3%D9%86%D8%B8%D9%85%D8%A9_%D8%A7%D9%84%D8%AA%D8%AD%D9%83%D9%85_%D9%88%D8%A2%D9%84%D9%8A%D8%A9_%D8%B9%D9%85%D9%84%D9%87%D8%A7" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">59</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">mawdoo3.com. (2022). تعريف أنظمة التحكم وآلية عملها - موضوع.</div><div class="cite-url"><a href="https://mawdoo3.com/%D8%AA%D8%B9%D8%B1%D9%8A%D9%81_%D8%A3%D9%86%D8%B8%D9%85%D8%A9_%D8%A7%D9%84%D8%AA%D8%AD%D9%83%D9%85_%D9%88%D8%A2%D9%84%D9%8A%D8%A9_%D8%B9%D9%85%D9%84%D9%87%D8%A7" target="_blank" rel="noopener">https://mawdoo3.com/%D8%AA%D8%B9%D8%B1%D9%8A%D9%81_%D8%A3%D9%86%D8%B8%D9%85%D8%A9_%D8%A7%D9%84%D8%AA%D8%AD%D9%83%D9%85_%D9%88%D8%A2%D9%84%D9%8A%D8%A9_%D8%B9%D9%85%D9%84%D9%87%D8%A7</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://net3lem.com/types-and-applications-of-control-systems/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">60</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">net3lem.com. (2023). أنواع وتطبيقات أنظمة التحكم.</div><div class="cite-url"><a href="https://net3lem.com/types-and-applications-of-control-systems/" target="_blank" rel="noopener">https://net3lem.com/types-and-applications-of-control-systems/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.parkingpreheater.com/news/detailed-explanation-of-automobile-motor-contr-80018212.html" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">61</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">parkingpreheater.com. (2026). No title.</div><div class="cite-url"><a href="https://www.parkingpreheater.com/news/detailed-explanation-of-automobile-motor-contr-80018212.html" target="_blank" rel="noopener">https://www.parkingpreheater.com/news/detailed-explanation-of-automobile-motor-contr-80018212.html</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://petro-news.com/122860/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">62</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">petro-news.com. (2026). الإضافات البترولية .. 7 أنواع رئيسية تعزز كفاءة الوقود وتحمي المحركات.</div><div class="cite-url"><a href="https://petro-news.com/122860/" target="_blank" rel="noopener">https://petro-news.com/122860/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://vesselautomation.com/what-is-the-vfds-vector-control/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">63</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">vesselautomation.com. (2021). Dziuba, M. What is the VFDs Vector Control.</div><div class="cite-url"><a href="https://vesselautomation.com/what-is-the-vfds-vector-control/" target="_blank" rel="noopener">https://vesselautomation.com/what-is-the-vfds-vector-control/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.xcqd.com/ar/news/pneumatic-control-system-guide-types-applications-industry/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">64</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">xcqd.com. (2025). ما هو نظام التحكم الهوائي الدليل الكامل الأنواع والتطبيقات.</div><div class="cite-url"><a href="https://www.xcqd.com/ar/news/pneumatic-control-system-guide-types-applications-industry/" target="_blank" rel="noopener">https://www.xcqd.com/ar/news/pneumatic-control-system-guide-types-applications-industry/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://ar.hanguangelectric.com/news/do-you-know-the-5-control-methods-of-frequency-converters.html" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">65</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">ar.hanguangelectric.com. (2024). هل تعرف الطرق الخمس للتحكم في محولات التردد.</div><div class="cite-url"><a href="https://ar.hanguangelectric.com/news/do-you-know-the-5-control-methods-of-frequency-converters.html" target="_blank" rel="noopener">https://ar.hanguangelectric.com/news/do-you-know-the-5-control-methods-of-frequency-converters.html</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://ar.veichi.com/knowledge/v-f-control.html" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">66</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">ar.veichi.com. (2023). No title.</div><div class="cite-url"><a href="https://ar.veichi.com/knowledge/v-f-control.html" target="_blank" rel="noopener">https://ar.veichi.com/knowledge/v-f-control.html</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.diamondbarelectric.com/insights/selecting-the-right-electric-motor-for-your-facility/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">67</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">Diamondbarelectric.com. (2024). Key factors in selecting the right electric motor for your facility - Diamond Bar Electric, Inc.</div><div class="cite-url"><a href="https://www.diamondbarelectric.com/insights/selecting-the-right-electric-motor-for-your-facility/" target="_blank" rel="noopener">https://www.diamondbarelectric.com/insights/selecting-the-right-electric-motor-for-your-facility/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://en.wikipedia.org/wiki/Electric_motor" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">68</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">en.wikipedia.org. (2022). Electric motor - Wikipedia.</div><div class="cite-url"><a href="https://en.wikipedia.org/wiki/Electric_motor" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Electric_motor</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://grandex.de/ar/%D9%85%D9%82%D8%A7%D8%B1%D9%86%D8%A9-%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A%D8%A9-%D9%85%D9%82%D8%A7%D8%A8%D9%84-%D8%B3%D9%8A%D8%A7/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">69</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">grandex.de. (2026). السيارات الكهربائية مقابل سيارات الغاز: مقارنة أيهما مناسب لك | غراندكس.</div><div class="cite-url"><a href="https://grandex.de/ar/%D9%85%D9%82%D8%A7%D8%B1%D9%86%D8%A9-%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A%D8%A9-%D9%85%D9%82%D8%A7%D8%A8%D9%84-%D8%B3%D9%8A%D8%A7/" target="_blank" rel="noopener">https://grandex.de/ar/%D9%85%D9%82%D8%A7%D8%B1%D9%86%D8%A9-%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D8%A6%D9%8A%D8%A9-%D9%85%D9%82%D8%A7%D8%A8%D9%84-%D8%B3%D9%8A%D8%A7/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.hella.com/techworld/ae-ar/%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%B1%D8%A7%D8%AD%D8%A9/%D8%A7%D9%84%D8%AA%D9%88%D8%AC%D9%87%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9-%D9%84%D9%84%D8%AA%D9%86%D9%82%D9%84-%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D9%8A%D9%8A-84796/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">70</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">hella.com. (2023). ستهيمن هذه التوجهات التقنية على التنقل الكهربائي في عام 2023. | HELLA.</div><div class="cite-url"><a href="https://www.hella.com/techworld/ae-ar/%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%B1%D8%A7%D8%AD%D8%A9/%D8%A7%D9%84%D8%AA%D9%88%D8%AC%D9%87%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9-%D9%84%D9%84%D8%AA%D9%86%D9%82%D9%84-%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D9%8A%D9%8A-84796/" target="_blank" rel="noopener">https://www.hella.com/techworld/ae-ar/%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%B1%D8%A7%D8%AD%D8%A9/%D8%A7%D9%84%D8%AA%D9%88%D8%AC%D9%87%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9-%D9%84%D9%84%D8%AA%D9%86%D9%82%D9%84-%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8%D8%A7%D9%8A%D9%8A-84796/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.hydraflu.com/ar/%D8%A7%D9%84%D8%AF%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D8%B4%D8%A7%D9%85%D9%84-%D9%84%D8%AA%D8%B9%D9%84%D9%85-%D8%A3%D9%86%D9%88%D8%A7%D8%B9-%D8%A7%D9%84%D9%85%D8%AD%D8%B1%D9%83%D8%A7%D8%AA-%D8%A7%D9%84/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">71</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">hydraflu.com. (2024). الدليل الشامل لتعلم أنواع المحركات الكهربائية - أيها هو المناسب لك - Hydraflu Hydraulic CO.</div><div class="cite-url"><a href="https://www.hydraflu.com/ar/%D8%A7%D9%84%D8%AF%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D8%B4%D8%A7%D9%85%D9%84-%D9%84%D8%AA%D8%B9%D9%84%D9%85-%D8%A3%D9%86%D9%88%D8%A7%D8%B9-%D8%A7%D9%84%D9%85%D8%AD%D8%B1%D9%83%D8%A7%D8%AA-%D8%A7%D9%84/" target="_blank" rel="noopener">https://www.hydraflu.com/ar/%D8%A7%D9%84%D8%AF%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D8%B4%D8%A7%D9%85%D9%84-%D9%84%D8%AA%D8%B9%D9%84%D9%85-%D8%A3%D9%86%D9%88%D8%A7%D8%B9-%D8%A7%D9%84%D9%85%D8%AD%D8%B1%D9%83%D8%A7%D8%AA-%D8%A7%D9%84/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://insights.made-in-china.com/sa/Types-of-5000W-Electric-Motors-Which-is-Right-for-Your-Power-Needs_ITUAXabuqJiK.html" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">72</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">insights.made-in-china.com. (2024). أنواع المحركات الكهربائية بقوة 5000 واط: أيها يناسب احتياجاتك من الطاقة.</div><div class="cite-url"><a href="https://insights.made-in-china.com/sa/Types-of-5000W-Electric-Motors-Which-is-Right-for-Your-Power-Needs_ITUAXabuqJiK.html" target="_blank" rel="noopener">https://insights.made-in-china.com/sa/Types-of-5000W-Electric-Motors-Which-is-Right-for-Your-Power-Needs_ITUAXabuqJiK.html</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://ns1.almerja.com/more.php?idm=269547" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">73</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">ns1.almerja.com. (2025). هل المحرك الأكبر دائما الأفضل للسيارة.</div><div class="cite-url"><a href="https://ns1.almerja.com/more.php?idm=269547" target="_blank" rel="noopener">https://ns1.almerja.com/more.php?idm=269547</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://oswos.com/electric-motor/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">74</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">oswos.com. (2026). Electric Motor Types and Comparison.</div><div class="cite-url"><a href="https://oswos.com/electric-motor/" target="_blank" rel="noopener">https://oswos.com/electric-motor/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+          <a class="ref-row" href="https://syarah.com/carsguide/electric-car-motors/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#2563EB;background:#BFDBFE;border-color:#BFDBFE">75</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">syarah.com. (2024). محرك السيارات الكهربائية دليل شامل | دليل سيارة.</div><div class="cite-url"><a href="https://syarah.com/carsguide/electric-car-motors/" target="_blank" rel="noopener">https://syarah.com/carsguide/electric-car-motors/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#2563EB">↗</span>
+          </a>
+        </div>
+      </section>
+      <section class="unit-section" id="u3">
+        <div class="unit-header" style="border-right:4px solid #9333EA;background:#FDF4FF">
+          <div class="unit-num" style="background:#E9D5FF;color:#6B21A8">04</div>
+          <div>
+            <h2 class="unit-name" style="color:#9333EA">الآلات الخطية Linear Electric Machines</h2>
+            <span class="unit-count">26 مرجع</span>
+          </div>
+        </div>
+        <div class="refs-list">
+          
+          <a class="ref-row" href="https://www.arageek.com/l/%D9%85%D8%A7-%D8%A7%D9%84%D9%81%D8%B1%D9%82-%D8%A8%D9%8A%D9%86-%D8%A7%D9%84%D8%AD%D8%B1%D9%83%D8%A9-%D8%A7%D9%84%D8%AF%D8%A7%D8%A6%D8%B1%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D8%AF%D9%88%D8%B1%D8%A7%D9%86" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#9333EA;background:#E9D5FF;border-color:#E9D5FF">1</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">arageek.com. (2023). ما الفرق بين الحركة الدائرية والدورانية.</div><div class="cite-url"><a href="https://www.arageek.com/l/%D9%85%D8%A7-%D8%A7%D9%84%D9%81%D8%B1%D9%82-%D8%A8%D9%8A%D9%86-%D8%A7%D9%84%D8%AD%D8%B1%D9%83%D8%A9-%D8%A7%D9%84%D8%AF%D8%A7%D8%A6%D8%B1%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D8%AF%D9%88%D8%B1%D8%A7%D9%86" target="_blank" rel="noopener">https://www.arageek.com/l/%D9%85%D8%A7-%D8%A7%D9%84%D9%81%D8%B1%D9%82-%D8%A8%D9%8A%D9%86-%D8%A7%D9%84%D8%AD%D8%B1%D9%83%D8%A9-%D8%A7%D9%84%D8%AF%D8%A7%D8%A6%D8%B1%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D8%AF%D9%88%D8%B1%D8%A7%D9%86</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#9333EA">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.assemblymag.com/articles/98605-five-trends-driving-the-use-of-electric-linear-actuators" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#9333EA;background:#E9D5FF;border-color:#E9D5FF">2</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">assemblymag.com. (2024). Five Trends Driving the Use of Electric Linear Actuators.</div><div class="cite-url"><a href="https://www.assemblymag.com/articles/98605-five-trends-driving-the-use-of-electric-linear-actuators" target="_blank" rel="noopener">https://www.assemblymag.com/articles/98605-five-trends-driving-the-use-of-electric-linear-actuators</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#9333EA">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.besfoc.com/ar/how-to-convert-rotational-motion-to-linear-motion.html" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#9333EA;background:#E9D5FF;border-color:#E9D5FF">3</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">besfoc.com. (2025). كيفية تحويل الحركة الدورانية إلى حركة خطية - Besfoc.</div><div class="cite-url"><a href="https://www.besfoc.com/ar/how-to-convert-rotational-motion-to-linear-motion.html" target="_blank" rel="noopener">https://www.besfoc.com/ar/how-to-convert-rotational-motion-to-linear-motion.html</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#9333EA">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.fuyumotion.com/ar/news/what-is-linear-motion-design-engineering-technical-summary/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#9333EA;background:#E9D5FF;border-color:#E9D5FF">4</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">fuyumotion.com. (2022). What is Linear Motion Design Engineering Technical Summary.</div><div class="cite-url"><a href="https://www.fuyumotion.com/ar/news/what-is-linear-motion-design-engineering-technical-summary/" target="_blank" rel="noopener">https://www.fuyumotion.com/ar/news/what-is-linear-motion-design-engineering-technical-summary/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#9333EA">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.fuyumotion.com/ar/news/linear-motors-vs-beltball-screwrack-pinion-drive-systems/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#9333EA;background:#E9D5FF;border-color:#E9D5FF">5</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">fuyumotion.com. (2025). Linear Motors vs BeltBall ScrewRack  Pinion Drive Systems.</div><div class="cite-url"><a href="https://www.fuyumotion.com/ar/news/linear-motors-vs-beltball-screwrack-pinion-drive-systems/" target="_blank" rel="noopener">https://www.fuyumotion.com/ar/news/linear-motors-vs-beltball-screwrack-pinion-drive-systems/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#9333EA">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.globalspec.com/learnmore/motion_controls/motors/linear_motors" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#9333EA;background:#E9D5FF;border-color:#E9D5FF">6</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">globalspec.com. (2025). GlobalSpec.</div><div class="cite-url"><a href="https://www.globalspec.com/learnmore/motion_controls/motors/linear_motors" target="_blank" rel="noopener">https://www.globalspec.com/learnmore/motion_controls/motors/linear_motors</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#9333EA">↗</span>
+          </a>
+          <a class="ref-row" href="https://irisdynamics.com/articles/smart-linear-motors-explained" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#9333EA;background:#E9D5FF;border-color:#E9D5FF">7</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">irisdynamics.com. (2023). Smart Linear Motors: Explained.</div><div class="cite-url"><a href="https://irisdynamics.com/articles/smart-linear-motors-explained" target="_blank" rel="noopener">https://irisdynamics.com/articles/smart-linear-motors-explained</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#9333EA">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.rollon.com/usa/en/your-challenges/linear-actuators-what-they-are-and-how-to-choose-them/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#9333EA;background:#E9D5FF;border-color:#E9D5FF">8</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">rollon.com. (2026). What are Linear Actuators How Do They Work.</div><div class="cite-url"><a href="https://www.rollon.com/usa/en/your-challenges/linear-actuators-what-they-are-and-how-to-choose-them/" target="_blank" rel="noopener">https://www.rollon.com/usa/en/your-challenges/linear-actuators-what-they-are-and-how-to-choose-them/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#9333EA">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.tolomatic.com/products/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#9333EA;background:#E9D5FF;border-color:#E9D5FF">9</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">tolomatic.com. (2026). Linear Motion System Products | Tolomatic.</div><div class="cite-url"><a href="https://www.tolomatic.com/products/" target="_blank" rel="noopener">https://www.tolomatic.com/products/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#9333EA">↗</span>
+          </a>
+          <a class="ref-row" href="https://agriculture.hunterirrigation.com/ar/news/2024/01/16/mknt-nzm-ry-khty-fy-lzr-lhdyth" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#9333EA;background:#E9D5FF;border-color:#E9D5FF">10</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">agriculture.hunterirrigation.com. (2024). Access Denied.</div><div class="cite-url"><a href="https://agriculture.hunterirrigation.com/ar/news/2024/01/16/mknt-nzm-ry-khty-fy-lzr-lhdyth" target="_blank" rel="noopener">https://agriculture.hunterirrigation.com/ar/news/2024/01/16/mknt-nzm-ry-khty-fy-lzr-lhdyth</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#9333EA">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.adhmt.com/ar/how-to-select-press-brake-controller/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#9333EA;background:#E9D5FF;border-color:#E9D5FF">11</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">adhmt.com. (2025). دليل اختيار وحدة التحكم في مكبس الثني - ADH Machine Tool.</div><div class="cite-url"><a href="https://www.adhmt.com/ar/how-to-select-press-brake-controller/" target="_blank" rel="noopener">https://www.adhmt.com/ar/how-to-select-press-brake-controller/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#9333EA">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.electricaltechnology.org/2022/07/linear-induction-motor.html" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#9333EA;background:#E9D5FF;border-color:#E9D5FF">12</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">Electrical Technology. (2026). Linear Induction Motor: Working, Types and Applications.</div><div class="cite-url"><a href="https://www.electricaltechnology.org/2022/07/linear-induction-motor.html" target="_blank" rel="noopener">https://www.electricaltechnology.org/2022/07/linear-induction-motor.html</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#9333EA">↗</span>
+          </a>
+          <a class="ref-row" href="https://en.wikipedia.org/wiki/Linear_motor" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#9333EA;background:#E9D5FF;border-color:#E9D5FF">13</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">en.wikipedia.org. (2024). Linear motor - Wikipedia.</div><div class="cite-url"><a href="https://en.wikipedia.org/wiki/Linear_motor" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Linear_motor</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#9333EA">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.explainthatstuff.com/linearmotor.html" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#9333EA;background:#E9D5FF;border-color:#E9D5FF">14</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">explainthatstuff.com. (2025). How do linear motors work A simple introduction.</div><div class="cite-url"><a href="https://www.explainthatstuff.com/linearmotor.html" target="_blank" rel="noopener">https://www.explainthatstuff.com/linearmotor.html</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#9333EA">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.hydraflu.com/ar/%D8%A7%D9%84%D8%AF%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D8%B4%D8%A7%D9%85%D9%84-%D9%84%D8%AA%D8%B9%D9%84%D9%85-%D8%A3%D9%86%D9%88%D8%A7%D8%B9-%D8%A7%D9%84%D9%85%D8%AD%D8%B1%D9%83%D8%A7%D8%AA-%D8%A7%D9%84/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#9333EA;background:#E9D5FF;border-color:#E9D5FF">15</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">Hydraflu. (2024). الدليل الشامل لتعلم أنواع المحركات الكهربائية - أيها هو المناسب لك - Hydraflu Hydraulic CO..</div><div class="cite-url"><a href="https://www.hydraflu.com/ar/%D8%A7%D9%84%D8%AF%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D8%B4%D8%A7%D9%85%D9%84-%D9%84%D8%AA%D8%B9%D9%84%D9%85-%D8%A3%D9%86%D9%88%D8%A7%D8%B9-%D8%A7%D9%84%D9%85%D8%AD%D8%B1%D9%83%D8%A7%D8%AA-%D8%A7%D9%84/" target="_blank" rel="noopener">https://www.hydraflu.com/ar/%D8%A7%D9%84%D8%AF%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D8%B4%D8%A7%D9%85%D9%84-%D9%84%D8%AA%D8%B9%D9%84%D9%85-%D8%A3%D9%86%D9%88%D8%A7%D8%B9-%D8%A7%D9%84%D9%85%D8%AD%D8%B1%D9%83%D8%A7%D8%AA-%D8%A7%D9%84/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#9333EA">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.holrymotor.com/ar/principles-of-brushless-dc-bldc-motors-and-the-correct-way-to-use-them.html" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#9333EA;background:#E9D5FF;border-color:#E9D5FF">16</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">holrymotor.com. (2024). مبادئ محركات التيار المستمر بدون فرش (BLDC) والطريقة الصحيحة لاستخدامها - هولري.</div><div class="cite-url"><a href="https://www.holrymotor.com/ar/principles-of-brushless-dc-bldc-motors-and-the-correct-way-to-use-them.html" target="_blank" rel="noopener">https://www.holrymotor.com/ar/principles-of-brushless-dc-bldc-motors-and-the-correct-way-to-use-them.html</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#9333EA">↗</span>
+          </a>
+          <a class="ref-row" href="https://itg-motor.com/linear-synchronous-motors-working-principle-advantages-and-applications/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#9333EA;background:#E9D5FF;border-color:#E9D5FF">17</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">itg-motor.com. (2026). thienhuong.pham. Linear Synchronous Motors: Working Principle, Advantages, and Applications - ITG.</div><div class="cite-url"><a href="https://itg-motor.com/linear-synchronous-motors-working-principle-advantages-and-applications/" target="_blank" rel="noopener">https://itg-motor.com/linear-synchronous-motors-working-principle-advantages-and-applications/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#9333EA">↗</span>
+          </a>
+          <a class="ref-row" href="https://janhenvalve.com/ar/%D9%85%D9%82%D8%A7%D8%B1%D9%86%D8%A9-%D8%A8%D9%8A%D9%86-%D8%A7%D9%84%D9%85%D8%B4%D8%BA%D9%84%D8%A7%D8%AA-%D8%A7%D9%84%D9%87%D9%88%D8%A7%D8%A6%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#9333EA;background:#E9D5FF;border-color:#E9D5FF">18</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">janhenvalve.com. (2025). qhh. أساسيات المحركات: المحركات الهوائية مقابل المحركات الكهربائية مقابل المحركات الهيدروليكية -.</div><div class="cite-url"><a href="https://janhenvalve.com/ar/%D9%85%D9%82%D8%A7%D8%B1%D9%86%D8%A9-%D8%A8%D9%8A%D9%86-%D8%A7%D9%84%D9%85%D8%B4%D8%BA%D9%84%D8%A7%D8%AA-%D8%A7%D9%84%D9%87%D9%88%D8%A7%D8%A6%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8/" target="_blank" rel="noopener">https://janhenvalve.com/ar/%D9%85%D9%82%D8%A7%D8%B1%D9%86%D8%A9-%D8%A8%D9%8A%D9%86-%D8%A7%D9%84%D9%85%D8%B4%D8%BA%D9%84%D8%A7%D8%AA-%D8%A7%D9%84%D9%87%D9%88%D8%A7%D8%A6%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D9%83%D9%87%D8%B1%D8%A8/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#9333EA">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.smoothmotor.com/ar/a-news-linear-stepper-motors-for-optical-systems-a-clear-choice" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#9333EA;background:#E9D5FF;border-color:#E9D5FF">19</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">smoothmotor.com. (2023). المحركات الخطية للأنظمة البصرية: خيار واضح | محرك سلس.</div><div class="cite-url"><a href="https://www.smoothmotor.com/ar/a-news-linear-stepper-motors-for-optical-systems-a-clear-choice" target="_blank" rel="noopener">https://www.smoothmotor.com/ar/a-news-linear-stepper-motors-for-optical-systems-a-clear-choice</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#9333EA">↗</span>
+          </a>
+          <a class="ref-row" href="https://arabicpost.net/%D8%AA%D8%AD%D9%84%D9%8A%D9%84%D8%A7%D8%AA/2022/11/02/%D8%A7%D9%84%D9%82%D8%B7%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D8%BA%D9%86%D8%A7%D8%B7%D9%8A%D8%B3%D9%8A%D8%A9/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#9333EA;background:#E9D5FF;border-color:#E9D5FF">20</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">arabicpost.net. (2026). الصين تبتكر قطارا يقترب من سرعة الصوت.. إليك كيف يعمل ولماذا تعد تقنيته خطوة نحو استيطان الكواكب.</div><div class="cite-url"><a href="https://arabicpost.net/%D8%AA%D8%AD%D9%84%D9%8A%D9%84%D8%A7%D8%AA/2022/11/02/%D8%A7%D9%84%D9%82%D8%B7%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D8%BA%D9%86%D8%A7%D8%B7%D9%8A%D8%B3%D9%8A%D8%A9/" target="_blank" rel="noopener">https://arabicpost.net/%D8%AA%D8%AD%D9%84%D9%8A%D9%84%D8%A7%D8%AA/2022/11/02/%D8%A7%D9%84%D9%82%D8%B7%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D8%BA%D9%86%D8%A7%D8%B7%D9%8A%D8%B3%D9%8A%D8%A9/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#9333EA">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.fuyumotion.com/ar/news/the-advantages-of-using-precision-linear-motors/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#9333EA;background:#E9D5FF;border-color:#E9D5FF">21</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">fuyumotion.com. (2024). The Advantages of Using Precision Linear Motors.</div><div class="cite-url"><a href="https://www.fuyumotion.com/ar/news/the-advantages-of-using-precision-linear-motors/" target="_blank" rel="noopener">https://www.fuyumotion.com/ar/news/the-advantages-of-using-precision-linear-motors/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#9333EA">↗</span>
+          </a>
+          <a class="ref-row" href="https://irisdynamics.com/articles/fully-integrated-linear-motors-saving-engineers-dev-time-and-money" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#9333EA;background:#E9D5FF;border-color:#E9D5FF">22</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">irisdynamics.com. (2025). Fully Integrated Linear Motors: Saving Engineers Valuable Development Time  Money.</div><div class="cite-url"><a href="https://irisdynamics.com/articles/fully-integrated-linear-motors-saving-engineers-dev-time-and-money" target="_blank" rel="noopener">https://irisdynamics.com/articles/fully-integrated-linear-motors-saving-engineers-dev-time-and-money</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#9333EA">↗</span>
+          </a>
+          <a class="ref-row" href="https://sinadrives.com/en/linear-motor-technology-advantages-and-applications-in-industry/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#9333EA;background:#E9D5FF;border-color:#E9D5FF">23</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">Jasmin. (2025). Linear Motor: Technology, Advantages, and Applications in Industry.</div><div class="cite-url"><a href="https://sinadrives.com/en/linear-motor-technology-advantages-and-applications-in-industry/" target="_blank" rel="noopener">https://sinadrives.com/en/linear-motor-technology-advantages-and-applications-in-industry/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#9333EA">↗</span>
+          </a>
+          <a class="ref-row" href="https://play.google.com/store/apps/details?id=com.rpm_revolutions&hl=ar" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#9333EA;background:#E9D5FF;border-color:#E9D5FF">24</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">play.google.com. (2025). RPM Revolutions Calculator - التطبيقات على Google Play.</div><div class="cite-url"><a href="https://play.google.com/store/apps/details?id=com.rpm_revolutions&hl=ar" target="_blank" rel="noopener">https://play.google.com/store/apps/details?id=com.rpm_revolutions&hl=ar</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#9333EA">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.thk.com/jp/en/journal/products/article-01112023-1.html" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#9333EA;background:#E9D5FF;border-color:#E9D5FF">25</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">thk.com. (2023). Examining the Workings of the Linear Motor through Its Features and ApplicationsProduct JournalTHK JournalTHK Official Web Site JapanEnglish.</div><div class="cite-url"><a href="https://www.thk.com/jp/en/journal/products/article-01112023-1.html" target="_blank" rel="noopener">https://www.thk.com/jp/en/journal/products/article-01112023-1.html</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#9333EA">↗</span>
+          </a>
+          <a class="ref-row" href="https://www.xcqd.com/ar/news/top-10-uses-of-pneumatic-components-in-industrial-automation/" target="_blank" rel="noopener">
+            <span class="ref-num" style="color:#9333EA;background:#E9D5FF;border-color:#E9D5FF">26</span>
+            <div class="ref-body">
+              <p class="ref-cite"><div class="cite-before">xcqd.com. (2026). أهم 10 استخدامات للمكونات الهوائية في الأتمتة الصناعية.</div><div class="cite-url"><a href="https://www.xcqd.com/ar/news/top-10-uses-of-pneumatic-components-in-industrial-automation/" target="_blank" rel="noopener">https://www.xcqd.com/ar/news/top-10-uses-of-pneumatic-components-in-industrial-automation/</a></div></p>
+            </div>
+            <span class="ref-arrow" style="color:#9333EA">↗</span>
+          </a>
+        </div>
+      </section></main>
+</div>
+
+<script>
+function doFilter(q){
+  q = q.trim().toLowerCase();
+  document.querySelectorAll('.ref-row').forEach(r => {
+    r.style.display = (!q || r.textContent.toLowerCase().includes(q)) ? '' : 'none';
+  });
+  document.querySelectorAll('.unit-section').forEach(s => {
+    const vis = [...s.querySelectorAll('.ref-row')].some(r => r.style.display !== 'none');
+    s.style.display = vis ? '' : 'none';
+  });
+  // re-number visible rows per section
+  document.querySelectorAll('.unit-section').forEach(s => {
+    let n = 1;
+    s.querySelectorAll('.ref-row').forEach(r => {
+      if (r.style.display !== 'none') {
+        r.querySelector('.ref-num').textContent = n++;
+      }
+    });
+  });
+}
+</script>
+</body>
+</html>

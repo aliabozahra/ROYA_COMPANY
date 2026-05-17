@@ -1,0 +1,171 @@
+[
+  {
+    "name": "أنظمة_النقل_الخطي_والدقيق",
+    "items": [
+      {
+        "name": "أنظمة_الرف_والمسنن_Rack_and_Pinion",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "اللوالب_المحورية_واللولب_الكروي_Lead_Ball_Screws",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تطبيقات_الحركة_الدقيقة_في_الروبوتات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "محركات_هارمونيك_Harmonic_Drives",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مقارنة_بين_الدقة_وكفاءة_الأنظمة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "أنظمة_النقل_الدوراني",
+    "items": [
+      {
+        "name": "اختيار_نظام_النقل_المناسب_حسب_التطبيق",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "التروس_مستقيمة،_مخروطية،_كوكبية،_حلزونية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "السلاسل_تركيبها،_مميزاتها_وعيوبها",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "السيور_والبكرات_أنواعها،_شدها،_كفاءتها",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "حسابات_نسبة_النقل_والسرعة_والعزم",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "التحليل_الميكانيكي",
+    "items": [
+      {
+        "name": "الاحتكاك_وتأثيره_على_الأداء",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الفجوة_العكسية_Backlash_أسبابها_وحلولها",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الكفاءة_الميكانيكية_حساب_الخسائر_الميكانيكية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تأثير_الصلابة_على_استقرار_ودقة_الحركة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تحليل_القوى_والعزوم_في_الأنظمة_المركبة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "الدمج_والتطبيق_العملي",
+    "items": [
+      {
+        "name": "اختبارات_الأداء_والاستجابة_والدقة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تجميع_نظام_ميكانيكي_فرعي_متكامل",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تحليل_المشكلات_الميكانيكية_وطرق_الصيانة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تفكيك_نظام_روبوتي_حقيقي_وتحليل_أجزائه",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "عرض_مشاريع_تطبيقية_ونهائية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "المحامل_والمحاور_Bearings_and_shafts",
+    "items": [
+      {
+        "name": "أنواع_المفاصل_الدوارة،_الخطية،_المفصلية_الهجينة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "المحامل_Bearings_كروية،_انزلاقية،_أسطوانية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "المحاور_Shafts_الحمل،_العزم،_الانحناء",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "حساب_العزم_وتحليل_القوة_المؤثرة_في_المفاصل",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  }
+]

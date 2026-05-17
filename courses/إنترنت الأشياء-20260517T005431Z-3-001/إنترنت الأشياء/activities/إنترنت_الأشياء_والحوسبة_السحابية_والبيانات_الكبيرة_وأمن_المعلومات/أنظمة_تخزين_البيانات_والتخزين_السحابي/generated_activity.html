@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>محاكاة شبكة التخزين السحابي</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">محاكاة شبكة التخزين السحابي</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">ينظّم هذا النشاط رحلة تعلمية تبدأ بتهيئة المتدربين لفهم التمثيل التفاعلي بين أجهزة إنترنت الأشياء، الشبكة، والتخزين السحابي، لفهم ديناميكية تدفق البيانات.</p>
+        <ul class="obj-list"><li>يطبق المتدربون أدوار مختلفة لأجهزة إنترنت الأشياء والشبكة وخوادم التخزين السحابي.</li><li>يُجسّد المتدربون عمليات نقل وتخزين البيانات بشكل تفاعلي.</li><li>يُناقش المتدربون سيناريوهات نقل البيانات ويحللون تحدياتها.</li><li>يُلاحظ المتدربون أثر تصميم الشبكة في نقل البيانات وجودتها.</li><li>يُطوّر المتدربون مهارات التعاون والتواصل أثناء التمثيل العملي.</li><li>يُمكّن المتدربون من الربط بين النظرية والتطبيق في التخزين السحابي.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>بطاقات أدوار تمثل أجهزة إنترنت الأشياء، وحدود الشبكة، وخوادم التخزين</li><li>مساحات محددة تمثل أجزاء الشبكة السحابية (الأجهزة، الشبكة، والتخزين)</li><li>أوراق ملونة للمعلومات والبيانات التي سيتم تمثيلها</li><li>ساعات توقيت لتدفق البيانات وإرسالها</li><li>ألواح بيضاء لعرض التدفق وتحليل الأداء</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتوجيه</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بتقديم مفهوم التخزين السحابي ودوره في إنترنت الأشياء بشكل مبسط.</li><li>يوضح المدرب الهدف من النشاط وكيف سيتم تمثيل الأدوار.</li><li>يقسم المدرب المتدربين إلى مجموعات صغيرة: أجهزة إنترنت الأشياء، الشبكة، وخوادم التخزين.</li><li>يوزع المدرب بطاقات الأدوار مع شرح مهام كل دور ومساحات التمثيل.</li><li>يُهيئ المدرب المتدربين للانخراط في المحاكاة بتوضيح قواعد اللعب وأهمية التعاون.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تمثل أجهزة إنترنت الأشياء</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يمثل المتدربون دور أجهزة إنترنت الأشياء (مثلاً مستشعرات حرارة، كاميرات).</li><li>يُعد المتدربون بيانات (بطاقات معلومات ملونة) تمثل قراءات الأجهزة.</li><li>يُرسل المتدربون هذه البيانات إلى المتدربين في دور الشبكة بشكل متتابع.</li><li>يتعلم المتدربون كيفية توليد البيانات وتوقيت إرسالها بشكل يحاكي الواقع.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">دور الشبكة في نقل البيانات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يتولى مجموعة من المتدربين دور الشبكة، يتلقون البيانات من أجهزة إنترنت الأشياء.</li><li>يحدد المتدربون في الشبكة طرق التوجيه الصحيحة لنقل البيانات إلى خوادم التخزين.</li><li>يُحاكي المتدربون في الشبكة التأخيرات وحالات فقدان البيانات أو الدورات المكررة.</li><li>يُسجل المتدربون أحداث نقل البيانات ويبلغون الخوادم بها وفق البروتوكولات المفترضة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">محاكاة خوادم التخزين السحابي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم متدربو الخوادم باستقبال البيانات من الشبكة.</li><li>يخزن المتدربون البيانات الواردة باستخدام نظام محاكاة بسيط (بطاقات أو رموز).</li><li>يتتبع المتدربون تدفق البيانات ويحددون حالات النجاح والفشل في التخزين.</li><li>يُجهزون المتدربون ملخصًا لحالة البيانات المخزنة ويستعدون لعرض النتائج.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">المراجعة والتغذية الراجعة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يعرض كل فريق تجربته ويدير نقاشًا حول التحديات التي واجهها.</li><li>يحاور المدرب المتدربين حول كيف أثرت أدوارهم في جودة وموثوقية التخزين.</li><li>يتم تحليل الأخطاء المحتملة وحلولها العملية في سلاسة تدفق البيانات.</li><li>يتلقى المتدربون تغذية راجعة من المدرب وزملائهم لتحسين فهمهم.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق والتلخيص</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُجري المدرب توضيحات ختامية تربط النشاط بالمفاهيم النظرية في التخزين السحابي.</li><li>يُحفّز المتدربون على التفكير في تطبيقات الحياة الواقعية لهذه العمليات.</li><li>يناقش المدرب أهمية التنسيق والتقنيات المستخدمة في بيئات إنترنت الأشياء.</li><li>يُختم النشاط بسؤال تفاعلي لقياس مدى استيعاب المتدربين للفكرة الجوهرية.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تساهم ديناميكية التمثيل العملي بين أجهزة إنترنت الأشياء، الشبكة، وخوادم التخزين السحابي في تعزيز فهمك لآليات نقل وتخزين البيانات؟ وما التحديات التي تعتقد أنها الأكثر تأثيراً في جودة هذه العمليات؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

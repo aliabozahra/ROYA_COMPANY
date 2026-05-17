@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>محاكاة تأثير التدوير المستمر PID</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">محاكاة تأثير التدوير المستمر PID</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يُعد هذا النشاط رحلة تفاعلية تمكن المتدرب من استكشاف طريقة التدوير المستمر لتعيين معاملات المتحكم PID، مستخدماً محاكاة رقمية تسمح بتعديل المعاملات ورؤية تأثيرها الحي على النظام.</p>
+        <ul class="obj-list"><li>تطبيق مبدأ زيجلر-نيكولز في تعديل معاملات التحكم التناسبي.</li><li>ملاحظة تأثير التعديلات على الاستقرار ودورة التذبذب في الزمن الحقيقي.</li><li>تنمية مهارة التحليل التجريبي للبيانات الناتجة عن المحاكاة.</li><li>تقييم الاتزان النظامي بناءً على التغييرات التجريبية.</li><li>تعزيز الربط بين النظرية التطبيقية وسلوك النظام الرقمي.</li><li>كتابة تقرير نتائج مختصر يوضح الأفكار والتوصيات المكتسبة.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>برنامج محاكاة رقمية PID مع واجهة تعديل معاملات دوائر متعددة</li><li>لوحة تحكم تفاعلية لاختيار وإدارة المعاملات</li><li>أدوات رسم بياني لبيان سلوك الاستجابة والزمن الحقيقي</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتوجيه الفني</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بالتعريف بمبدأ التدوير المستمر وأهميته في ضبط المتحكمات PID.</li><li>يشرح المدرب للمتدربين أهداف النشاط وأدوات المحاكاة المستخدمة.</li><li>يتم توزيع الأجهزة أو توفير وصول برمجي إلى بيئة المحاكاة الرقمية.</li><li>يتم عرض مثال مبدئي تم فيه ضبط نظام بسيط لتوضيح الواجهة التفاعلية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف النظام والمحاكاة الأساسية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدرب بتشغيل النظام في وضع التحكم التناسبي فقط مع ضبط قيم التكامل والاشتقاق صفر.</li><li>يبدأ بزيادة معامل الربح Kp تدريجياً حتى الوصول إلى حالة اهتزاز دوري مستقر.</li><li>يرصد المتدرب قيمة Ku والمدة Tu من خلال القراءة المباشرة للرسوم البيانية.</li><li>يدون المتدرب الملاحظات ويتشاركها ملاحظات زملائه مستخدماً أدوات التفاعل ضمن المحاكاة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تعديل وتعيين معاملات PID المتقدمة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يستخدم المتدرب القيم المسجلة Ku و Tu لتعديل Kp و Ti و Td باستخدام صيغ زيجلر-نيكولز داخل المحاكاة.</li><li>يقوم بتهيئة النظام باستخدام هذه المعاملات الجديدة ويشغل المحاكاة.</li><li>يراقب سلوك النظام ويقارن سرعة الاستجابة والاستقرار بالمرحلة السابقة.</li><li>يجري تعديلات دقيقة لتحسين الأداء مع ملاحظة النتائج في الزمن الحقيقي.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل النتائج والتأمل التطبيقي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُطلب من المتدربين تحليل بيانات المحاكاة من حيث الاستقرار، زمن الاستجابة وحجم الاهتزاز.</li><li>يناقش المتدربون كيف تؤثر التعديلات في كل معامل على سلوك النظام.</li><li>يناقش المدرب تحديات تطبيق التدوير المستمر في نظام تحكم معقد أو حقيقي.</li><li>تتم مشاركة التوصيات والاعتبارات المهنية لتضمين المحاكاة في البيئات الصناعية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التقييم الختامي والإغلاق</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدربون بملء تقرير قصير يلخص تجربتهم ويصف المعاملات المستخدمة والنتائج.</li><li>يقدم كل متدرب عرضًا موجزًا يعرض فيه أهم التعلمات والنتائج التي توصل إليها.</li><li>يوجه المدرب تغذية راجعة إيجابية تعزز الفهم وترحب بالأسئلة.</li><li>يتم اختتام النشاط بدعوة المتدربين لتطبيق المفاهيم في بيئة عملهم أو تدريبهم الحقيقي.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تساعدك نتائج المحاكاة في فهم دور كل معامل (Kp, Ti, Td) في تحقيق استقرار وتحسين أداء نظام التحكم باستخدام طريقة التدوير المستمر؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

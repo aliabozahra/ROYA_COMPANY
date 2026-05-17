@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تقمص دور فني تتبع أعطال</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تقمص دور فني تتبع أعطال</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يغوص المتدرب في دور فني صيانة يتعامل مع أعطال جهاز الغسيل الكلوي، يطبق منهجية تتبع الأعطال باستخدام نقاط الفحص الحرجة لإعادة الجهاز للعمل بكفاءة.</p>
+        <ul class="obj-list"><li>يطبق خطوات التشخيص التدريجي للعثور على أعطال جهاز الغسيل الكلوي.</li><li>يستخدم أدوات الفحص المختلفة مثل الدوبلر ومقياس التدفق بشكل عملي.</li><li>يحلل الأسباب الجذرية للعطل من خلال ملاحظة البيانات المؤشرة.</li><li>يخطط للإجراءات الإصلاحية وينفذ اختبارات التحقق بعد الإصلاح.</li><li>يتفاعل مع الزملاء والمتدربين في مواقف محاكاة واقعية لتعزيز مهارات التواصل.</li><li>يبني ثقافة السلامة المهنية ويطبق إجراءاتها خلال العمل.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>جهاز محاكاة الغسيل الكلوي</li><li>أجهزة دوبلر لقياس تدفق الدم</li><li>مقياس تدفق يدوي</li><li>أدوات قياس الضغط والمقاومة الكهربائية</li><li>نموذج إلكتروني لتسجيل الأعطال والبيانات</li><li>بطاقات سيناريوهات عطل مفصل</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تمهيد وتوجيه المتدربين</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يرحب المدرب بالمتدربين ويشرح هدف النشاط وأهميته في الواقع السريري.</li><li>يعرّف أدوار المتدربين الفنيين وأساسيات مهام تتبع الأعطال.</li><li>يشرح الأدوات المستخدمة ويؤكد على أهمية السلامة المهنية.</li><li>يقوم بعرض موجز لسيناريوهات أعطال مختلفة تركز على نقاط الفحص الحرجة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تنفيذ تقمص الأدوار في سيناريوهات أعطال متعددة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يوزع المدرب بطاقات السيناريو على المتدربين مع وصف لمشكلة معينة بالجهاز.</li><li>يقوم كل متدرب بأخذ دور فني صيانة ويبدأ بفحص الجهاز وفق منهجية الملاحظة والتقييم السريع.</li><li>يستخدم أدوات القياس لتشخيص المشكلة بدقة وفق خطوات الفحص التشخيصي التفصيلي.</li><li>يتواصل المتدرب مع زملائه لتبادل الملاحظات، محاكياً العمل الجماعي.</li><li>يسجل المتدرب البيانات ويحدد الأسباب الجذرية بالإعتماد على الأدلة المجمعة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تخطيط وتنفيذ الإصلاح والاختبار</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يضع المتدرب خطة لترتيب إجراءات الإصلاح اللازمة وفق نوع العطل المكتشف.</li><li>يقوم بتنفيذ إصلاح افتراضي باستخدام الأدوات، مع شرح الخطوات لمجموعة المتدربين.</li><li>ينفذ اختبار تشغيل كامل للجهاز بعد الإصلاح لنتحقق من كفاءة الأداء.</li><li>يراجع نتائج الاختبار مع فريق المحاكاة ويقرر هل تم حل المشكلة بنجاح.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تغذية راجعة وتحليل الأداء الجماعي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يجتمع المدرب مع المتدربين لمناقشة الأداء خلال التمرين.</li><li>يتم تحليل نقاط القوة والضعف في منهجية تتبع الأعطال واستخدام نقاط الفحص.</li><li>يتم تبادل آراء المتدربين حول التحديات التي واجهوها وكيفية تحسين عمل الفريق.</li><li>يختتم المدرب النشاط بتلخيص الاستراتيجيات العملية لنقل التجربة لحالات فعلية.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">بناءً على تجربتك في تقمص دور فني الصيانة، كيف يمكن تحسين التواصل بين أعضاء فريق الصيانة لضمان سرعة وكفاءة تتبع أعطال جهاز الغسيل الكلوي؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

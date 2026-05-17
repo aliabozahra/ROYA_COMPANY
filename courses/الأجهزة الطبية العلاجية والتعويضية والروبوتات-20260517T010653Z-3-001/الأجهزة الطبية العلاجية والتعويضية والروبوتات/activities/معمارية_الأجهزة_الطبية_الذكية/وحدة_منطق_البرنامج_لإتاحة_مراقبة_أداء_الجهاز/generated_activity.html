@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>صياغة منطق برمجي لمراقبة الأجهزة</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">صياغة منطق برمجي لمراقبة الأجهزة</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يبني المتدرب منطقًا برمجيًا مبسطًا لمراقبة جهاز طبي واتخاذ قرارات مبنية على شروط مختلفة لكشف الأعطال، مع التركيز على التفكير المنطقي ومهارات اتخاذ القرار البرمجي.</p>
+        <ul class="obj-list"><li>يطبق المتدرب مفهوم المنطق البرمجي في بناء خوارزميات مراقبة.</li><li>يحدد المتدرب شروط وبرمجيات كشف الأعطال بدقة.</li><li>يصمم المتدرب مخططًا منطقيًا يعكس تدفق القرارات في جهاز طبي.</li><li>يحسن المتدرب مهارات التفكير المنطقي وتحليل المشاكل البرمجية.</li><li>ينفذ المتدرب سيناريوهات كشف الأعطال برمجياً باستخدام شروط وقرارات.</li><li>يحلل المتدرب نتائج البرمجة ويعدل المنطق لتحسين الكشف والرد.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>حاسوب مزود ببيئة تطوير برمجيات (IDE) مثل Arduino IDE أو منفذ محاكاة</li><li>أوراق لرسم مخططات المنطق البرمجي (Flowcharts)</li><li>برمجيات محاكاة الدوائر أو الأجهزة الطبية الذكية (اختياري)</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتحفيز</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يضبط المدرب السياق ويوضح أهمية منطق البرنامج في مراقبة الأجهزة الطبية.</li><li>يعرض المدرب أمثلة حقيقية على أعطال تم الكشف عنها بواسطة المنطق البرمجي.</li><li>يشرك المدرب المتدربين بسؤالهم عن تجارب سابقة مع الأجهزة الطبية الذكية.</li><li>يحفز المتدربين على التفكير في كيفية اتخاذ قرارات برمجية لمراقبة الأداء.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف أسس المنطق البرمجي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقسم المدرب المتدربين لمجموعات صغيرة لمناقشة مكونات المنطق البرمجي (الإدخال، المعالجة، الإخراج).</li><li>يكلف المدرب كل مجموعة بتحديد شروط ممكنة قد تواجه جهازاً طبياً في المراقبة.</li><li>يرسم المتدربون مخططات تدفق أولية تستخدم بوابات منطقية مثل AND, OR, NOT.</li><li>يتبادل المتدربون أفكارهم ويستعرض المدرب تخطيطات المنطق مع توضيح المفاهيم.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تصميم منطق برمجي مبسط</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقدم المدرب شرحاً تفصيلياً لكيفية صياغة شروط مراقبة الأعطال برمجياً.</li><li>يرافق المدرب المتدربين في إنشاء منطق برمجي يحاكي مراقبة متغيرات الجهاز (مثل درجة الحرارة، الضغط).</li><li>ينشئ المتدربون خوارزميات شرطية بسيطة باستخدام اللغات البرمجية المسموح بها.</li><li>يستخدم المتدربون مخططات التدفق لتطوير تسلسل منطقي يربط القراءات بقرارات التنبيه أو الإغلاق.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التطبيق العملي والاختبار</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يفرض المدرب سيناريوهات مختلفة لأعطال محتملة على الجهاز.</li><li>يبرمج المتدربون المنطق الخاص بهم ليقوم بالكشف عن هذه الأعطال تلقائياً.</li><li>يختبر المتدربون وظائف المنطق البرمجي ويصححون الأخطاء والثغرات.</li><li>يناقش الجميع نتائج التقارير البرمجية ويقترحون تحسينات مستندة إلى الأداء.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التغذية الراجعة والتحليل</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يشرف المدرب على جلسة تحليل يتحدث فيها المتدربون عن تحديات المنطق البرمجي خلال النشاط.</li><li>يحلل المتدربون نقاط القوة والضعف في منطقهم المعدل.</li><li>يقترح المدرب تعديلات لتحسين دقة وكفاءة المنطق البرمجي.</li><li>ينهي المدرب النشاط بتلخيص المهارات المكتسبة ودورها في ضمان سلامة الأجهزة الطبية.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن للمنطق البرمجي أن يُحسن من عملية كشف الأعطال في الأجهزة الطبية الذكية، وما تأثير ذلك على سلامة المرضى والكفاءة التشغيلية؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

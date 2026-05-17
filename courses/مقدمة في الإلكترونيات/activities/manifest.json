@@ -1,0 +1,154 @@
+[
+  {
+    "name": "الترانزستور_ثنائي_القطبية_BJT",
+    "items": [
+      {
+        "name": "البنية_الفيزيائية_وآلية_العمل",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الترانزستور_كمفتاح_Switching_Applications",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الترانزستور_كمكبر_للتيارالجهد",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تطبيقات_عملية_وتجارب_مخبرية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "خصائص_التشغيل_منحنيات_I-V",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مناطق_التشغيل_Cut-off_Active_Saturation",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "الترانزستورات_ذات_المجال_FET__MOSFET",
+    "items": [
+      {
+        "name": "استخدام_الترانزستورات_في_دوائر_القدرة_والتحكم",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "البنية_الفيزيائية_لكل_من_JFET_و_MOSFET",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الفرق_بين_FET_و_BJT",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تطبيقات_MOSFET_كمكبر_ومفتاح",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "خصائص_التشغيل_I-V_Curves",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "الدايودات_وتطبيقاتها",
+    "items": [
+      {
+        "name": "الخصائص_الفيزيائية_للدايود_I-V_Characteristics",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الدايود_المثالي_والحقيقي",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الزيار_دايود_وخصائصه",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تجارب_عملية_على_دوائر_التقويم_والتنظيم",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "دوائر_التقويم_نصف_الموجة_الموجة_الكاملة_والجسر",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "مشاريع_عملية",
+    "items": [
+      {
+        "name": "العمل_على_بناء_مشاريع_ذات_طابع_عملي",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "ربط_العناصر_الإلكترونية_الأساسية_بدوائر_متقدمة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مشروع_FET_as_a_Voltage-Controlled_Resistor_4_تجربة_العملية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مشروع_Rectifier_Power_Supply_Using_Diode_and_Filter_1_تجربة_العملية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مشروع_Transistor_BJT_Switch_for_LED_Control_3_تجربة_العملية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مشروع_Voltage_Regulator_Circuit_Using_Zener_Diode_2_تجربة_العملية",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  }
+]

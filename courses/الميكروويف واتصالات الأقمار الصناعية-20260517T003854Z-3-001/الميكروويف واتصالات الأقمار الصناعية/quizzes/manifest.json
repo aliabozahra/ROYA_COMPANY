@@ -1,0 +1,289 @@
+[
+  {
+    "name": "المبادئ_الأساسية_للمدارات_والأقمار_الصناعية",
+    "items": [
+      {
+        "name": "أساسيات_ميكانيكا_المدارات_orbital_mechanics",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تجارب_عملية_لتقييم_استقرار_واستقبال_الإشارة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تحليل_الجاذبية_والسرعات_المدارية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تقييم_أنظمة_الإطلاق_launching_systems",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "حركة_الأقمار_الصناعية_الثابتة_والمنخفضة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "حساب_زوايا_الرؤية_look_angles_للأقمار_الصناعية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "المفاهيم_الأساسية_لخطوط_النقل_والموجات_الموجهة",
+    "items": [
+      {
+        "name": "التطبيقات_العملية_في_قياس_التوهين_والعوامل_الهندسية_للموجهات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تحليل_الأنماط_الموجية_mode_analysis_في_waveguides",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تصميم_تجارب_مختبرية_لرسم_نمط_الإشعاع_في_waveguides",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "حسابات_الخصائص_الكهربائية_وخسائر_الإشارة_في_waveguides",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "فحص_الأداء_باستخدام_مصادر_التردد_العالي_high_frequency_sources",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مفهوم_الموجهات_المستطيلة_والدائرية_rectangular_circular_waveguides",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "بنية_أنظمة_الاتصال_بالأقمار_الصناعية_ومكوناتها_الأرضية",
+    "items": [
+      {
+        "name": "تجارب_عملية_لتقييم_استقبال_الإشارة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تحليل_مسارات_الإشارة_والتغطية_الأرضية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "دور_محطات_الأرض_Earth_stations",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "ربط_شبكات_المحطات_الأرضية_بالأقمار_الصناعية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مكونات_القطاع_الأرضي_earth_segment",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مكونات_القطاع_الفضائي_space_segment",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "تحليل_وتصميم_الشبكات_الميكروويفية",
+    "items": [
+      {
+        "name": "إجراء_تجارب_لقياس_استجابة_التردد_ودراسة_الخسائر",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "اختبار_شبكات_التقسيم_والتجميع_power_dividing_combining_networks",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "بناء_شبكات_الرنانات_resonators_وتحليل_أدائها",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تحليل_التشتت_في_الشبكات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تصميم_دوائر_مطابقة_المعاوقة_impedance_matching_networks",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "مفهوم_S_parameters",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "تطبيقات_الأقمار_الصناعية_وحسابات_الروابط",
+    "items": [
+      {
+        "name": "البث_التلفزيوني_الملون_color_TV_transmission",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تأثير_الظروف_البيئية_على_أداء_الرابط",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تجارب_قياس_جودة_الإشارة_المستقبلة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تحليل_كفاءة_Direct_TV_Broadcast",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تطبيقات_GPS_و_VSATs_و_MSATs",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "ميزانية_الربط_الفضائي_satellite_link_budget",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "تقنيات_وخطوط_الإرسال_المستوية",
+    "items": [
+      {
+        "name": "التعرف_على_stripline_و_microstrip_line",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تحليل_توزيع_الحقل_الكهرومغناطيسي_في_microstrip_and_strip_lines",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تصميم_الدوائر_المتكاملة_عالية_التردد_باستخدام_خطوط_مستوية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تصميم_نماذج_محاكاة_simulation_models_لدوائر_microstrip",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تنفيذ_تجارب_مختبرية_لقياس_الخسائر_والفقد_في_microstrip_and_strip_lines",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "حساب_المعاوقة_المميزة_characteristic_impedance",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "مكونات_ودوائر_الميكروويف_المتقدمة",
+    "items": [
+      {
+        "name": "اختبار_الأداء_في_بيئة_مختبرية_lab_testing",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "استخدام_power_dividers_في_دوائر_التوزيع",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تحليل_directional_couplers_وطرق_استخدامها",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تصميم_الرنانات_resonators_وتطبيقاتها",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تقييم_استقرارية_المكونات_عند_الترددات_العالية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "نماذج_محاكاة_لدوائر_الميكروويف_المتقدمة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  }
+]

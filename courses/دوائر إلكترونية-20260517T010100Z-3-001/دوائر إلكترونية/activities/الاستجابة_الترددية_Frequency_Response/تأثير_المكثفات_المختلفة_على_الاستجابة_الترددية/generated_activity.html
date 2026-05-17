@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اختيار مكثفات لمكبرات تركيبية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">اختيار مكثفات لمكبرات تركيبية</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يقدم النشاط بيئة تعليمية تفاعلية لبناء قرار علمي مبني على تحليل سيناريوهات دوائر مكبرات تركيبية.</p>
+        <ul class="obj-list"><li>يُميّز المتدرب أنواع المكثفات المترابطة والتحميل والتجاوز المناسبة لكل سيناريو.</li><li>يحسن المتدرب مهارات اتخاذ القرار والتفكير النقدي في اختيار المكونات بناءً على فهم عملي ونظري.</li><li>يناقش المتدرب تأثير الخيارات على الاستجابة الترددية للدوائر.</li><li>يبرر المتدرب قرارات اختيار المكثفات معتمدًا على معطيات فنية متكاملة.</li><li>يُطبق المتدرب مفاهيم تأثير المكثفات المختلفة في دوائر مكبرات تركيبية.</li><li>يُعزز نشاط المشورة الجماعية لتحليل الخيارات وتبادل وجهات النظر.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تحليلي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>بطاقات سيناريوهات الدوائر</li><li>مخططات دوائر مكبرات تركيبية</li><li>جداول خصائص المكثفات</li><li>أجهزة عرض أو فيديو توضيحي</li><li>لوحة مناقشة تفاعلية</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد: فهم أساسيات المكثفات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بجلسة تفاعلية لتعريف أنواع المكثفات المستخدمة في المكبرات التركيبية.</li><li>يُعرض فيديو قصير يشرح دور وتأثير المكثفات المترابطة، الحمل، والتجاوز على الاستجابة الترددية.</li><li>يُطلب من المتدربين التعرف على خصائص المكثفات من خلال بطاقات تحتوي بيانات فنية متعلقة.</li><li>يناقش المتدربون في مجموعات صغيرة دور هذه المكثفات في دوائر المكبرات.</li><li>يجمع المدرب أبرز الملاحظات لتثبيت الفهم النظري.</li><li>ينتقل الفريق لتجهيز الأدوات الخاصة بالمراحل التالية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الاستكشاف: دراسة سيناريوهات الدوائر</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُوزع على كل مجموعة سيناريو دارة مكبر تركيبية تحتوي على تفاصيل تقنية مع تحديات مختلفة.</li><li>تُطلب من المجموعات تحديد المشكلات المحتملة المتعلقة بالمكثفات في كل سيناريو.</li><li>تُناقش الخصائص الحرجة مثل السعة، نوع المكثف، والتحيز وتأثيرها على الاستجابة الترددية.</li><li>تستخدم المجموعات جداول الخصائص لمقارنة الخيارات المتاحة.</li><li>تُجمع الملاحظات ويتم تحضير تقرير قصير عن السيناريو وتحدياته.</li><li>يُقدم كل فريق ملخصًا سريعًا للصف بأفكارهم واستنتاجاتهم الأولية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التحليل: تقييم الخيارات التقنية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُوجه المدرب المتدربين لتحليل تأثير كل نوع من المكثفات على أداء الدوائر المقدمة.</li><li>تُناقش المجموعات العلاقة بين اختيار المكثف ونطاق التردد والنقاط الحرجة في الاستجابة.</li><li>يُمارس المتدربون تبرير قرارات الاختيار بناءً على التحليل الفني.</li><li>يتم مناقشة مزايا وعيوب استخدام المكثفات الإلكتروليتية مقابل السيراميكية في كل سيناريو.</li><li>يُشجع المدرب على التفكير النقدي في الفروقات بين الخيارات.</li><li>يُعد كل گروهة قرارها النهائي مع استدلال مكتوب يُشار فيه إلى المراجع التقنية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التطبيق: اتخاذ القرار وتبريره</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تُعرض على كل مجموعة مجموعة من المكثفات وأهم خصائصها تطبيقًا عمليًا.</li><li>تُطالب المجموعات باختيار نوع المكثف المناسب لكل سيناريو من السيناريوهات المعطاة.</li><li>تُكتب قرارات المجموعات مع تبريرات فنية مدعمة.</li><li>يُناقش كل مجموعة مع بقية المتدربين أسباب اختيارهم مع تقديم الحجج العلمية والإجرائية.</li><li>يُشجع النقاش الجماعي على تبادل الآراء ومراجعة القرارات إن اقتضى الأمر.</li><li>يُوثق المدرب أبرز القرارات والتبريرات كمرجع لاحق.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التغذية الراجعة: مراجعة الأداء وتعزيز الفهم</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المدرب بإعطاء تقييم فني لقرارات المتدربين ومدى ملامستها للفهم العملي والنظري.</li><li>يُفتح حوار نقدي بين المتدربين حول التحديات التي واجهوها وكيف تغلبوا عليها.</li><li>يُطلب من المتدربين التفكير في كيفية تطبيق المعرفة المكتسبة في مواقف عملية حقيقية.</li><li>يُناقش المدرب بعض الأخطاء الشائعة في اختيار المكثفات وتأثيرها في الدوائر.</li><li>يتم توزيع ملخص ومرجع رقمي يحتوي معلومات حول أفضل الممارسات في اختيار المكثفات.</li><li>يُختم النشاط بتحفيز المتدربين على المتابعة والتعمق في تصميم الدوائر الإلكترونية.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تؤثر أنواع وقيم المكثفات المختلفة على الاستجابة الترددية للمكبرات التركيبية، ولماذا يعد اختيار المكثف المناسب حاسمًا لتحقيق أداء الدائرة المطلوب؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

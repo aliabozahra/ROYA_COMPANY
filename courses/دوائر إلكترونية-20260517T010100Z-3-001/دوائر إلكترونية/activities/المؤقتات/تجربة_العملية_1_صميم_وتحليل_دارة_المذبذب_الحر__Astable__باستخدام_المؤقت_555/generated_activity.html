@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تصميم وبناء مذبذب 555 عملي</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تصميم وبناء مذبذب 555 عملي</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">ينفذ المتدرب بناء فعلي لدائرة مذبذب حر بمؤقت 555 لقياس وتحليل تأثير مكونات الدائرة.</p>
+        <ul class="obj-list"><li>تصميم وتجميع دائرة مذبذب حر على لوحة اختبار.</li><li>استخدام الأوسيلوسكوب لقياس وإظهار شكل الموجة.</li><li>تحليل كيفية تأثير قيم المقاومات والمكثف على التردد والواجب الدوري.</li><li>فهم الأخطاء الشائعة وطرق تصحيحها عمليًا.</li><li>مقارنة النتائج العملية بالحسابات النظرية لتعزيز الفهم.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">عملي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>مجموعة مكونات دارة المذبذب 555 (555 timer IC، مقاومات، مكثفات، LED، أسلاك توصيل)</li><li>لوحة اختبار (Breadboard)</li><li>مقياس متعدد (Multimeter)</li><li>أوسيلوسكوب (Oscilloscope)</li><li>مصدر طاقة مستقر (5-15 فولت)</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تمهيد وتوعية بأساسيات الدارة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يشرح المدرب مكونات دارة المذبذب الحر بمؤقت 555 ووظيفة كل منها.</li><li>يعرض مثالاً عملياً على الصيغة الحسابية لتردد الدائرة والواجب الدوري.</li><li>يتفاعل المتدربون بطرح أسئلة لتوضيح المفاهيم النظرية.</li><li>يوضح المدرب أهمية ضبط القيم للحصول على التردد المطلوب ودور كل مكون.</li><li>يعرف المتدربين على أدوات المختبر المستخدمة بفعالية خلال النشاط.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تجميع الدارة على لوحة الاختبار</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدرب بتجهيز لوحة الاختبار منظمة مع شرح خطوات الربط الصحيح.</li><li>يربط المقاومات والمكثف والشريحة 555 حسب المخطط المدروس مع توضيح وضعية الأطراف.</li><li>يترابط الطرف الثاني مع السادس لتفعيل وضع astable بشكل صحيح وفق الخطوات المقدمة.</li><li>يضيف المتدرب مؤشر LED مقاوم للحد من التيار على مخرج الدائرة لعرض النبضات.</li><li>يتحقق المدرب من كل توصيل لضمان صحة البناء وأمان الجهاز قبل التشغيل.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">قياس الإشارات وتحليل النتائج</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يوضح المتدرب كيفية توصيل الأوسيلوسكوب لقياس إشارة الخرج من الطرف الثالث.</li><li>يقوم بقياس التردد والواجب الدوري وتسجيل القيم باستخدام الأوسيلوسكوب.</li><li>يلاحظ المتدرب شكل الموجة المربعة ويقوم بحساب التردد من البيانات.</li><li>يقارن النتائج العملية مع القيم النظرية المحسوبة بناءً على قيم المكونات.</li><li>يدون المتدرب ملاحظات حول أية تباينات أو اضطرابات في الإشارة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تجربة تعديل مكونات الدائرة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يتم تغيير قيمة مقاومة R2 أو المكثف C للحصول على تغييرات في التردد والواجب الدوري.</li><li>يقوم المتدرب بإعادة القياسات وتحليل تأثير التغييرات على أداء المذبذب.</li><li>يناقش المدرب المتدربين عن العلاقة بين القيم والتردد والأداء العام.</li><li>يعمق المتدرب فهمه لمنهجية تصميم الدوائر وتعديلها لتحقيق المتطلبات.</li><li>يستعرض الفريق الأمثلية والدقة المطلوبة في قيم المكونات لتطبيقات حقيقية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تصحيح الأخطاء واختبار الاستقرار</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يتم تعمد إدخال أخطاء شائعة مثل توصيل خاطئ أو قطع في الأسلاك.</li><li>يتعرف المتدرب على أثر هذه الأخطاء عبر المراقبة المباشرة.</li><li>يطبق استراتيجيات تصحيح الأخطاء التي تعلمها لإعادة الدارة للعمل.</li><li>يختبر المتدرب استقرار الإشارة عبر مراقبة ضوضاء وتغيرات التردد.</li><li>يتم تبادل الخبرات بين المتدربين لتعزيز مهارات التشخيص العملي.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">إغلاق ومناقشة تطبيقات عملية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يستعرض المدرب أهمية المذبذب الحر في دوائر التحكم والإشارات.</li><li>يناقش المتدربون كيف يمكن استخدام هذه الدائرة في محركات وأجهزة إنذار.</li><li>يوجه المدرب أسئلة تحفيزية لنقل التعلم إلى سياقات أخرى.</li><li>يجمع الفريق ملاحظات التعلم الشخصية ويحدد أولويات لتطوير المهارات.</li><li>يقدم المدرب ملخصًا يربط التطبيق العملي بالمعرفة النظرية اليديدة.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تؤثر تغييرات قيم مكونات الدائرة (R1 وR2 وC) على تردد وواجب دورة المذبذب الحر؟ وضح العلاقة بين القيم وكيف يمكن تحقيق استقرار الإشارة في الدوائر العملية.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

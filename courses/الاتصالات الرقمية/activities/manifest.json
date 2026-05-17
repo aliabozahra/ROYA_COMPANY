@@ -1,0 +1,388 @@
+[
+  {
+    "name": "التراسل_الرقمي",
+    "items": [
+      {
+        "name": "أنماط_الإرسال",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "ترميز_القناة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "حالات_الإرسال",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "التعدد_بالتقسيم_الزمني_TDM",
+    "items": [
+      {
+        "name": "أساسيات_التعدد_بالتقسيم_الزمني",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "أنظمة_الحامل_الرقمية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التعدد_بتقسيم_الزمن_مع_تعديل_ترميز_النبضات_PCM-TDM",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التعدد_بتقسيم_الزمن_مع_تعديل_سعة_النبضات_PAM-TDM",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "النظام_الأمريكي_T1",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "النظام_الأوروبي_E1",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "النظام_الهرمي_المتزامن",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تقنيات_التعدد",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "دائرة_مرسل_تعديل_التعدد_بتقسيم_الزمن_مع_تعديل_سعة_النبضات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "دائرة_مستقبل_تعديل_التعدد_بتقسيم_الزمن_مع_تعديل_سعة_النبضات",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "التعديل_الرقمي_البيئي",
+    "items": [
+      {
+        "name": "تعديل_إزاحة_التردد_FSK",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تعديل_إزاحة_السعة_ASK",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تعديل_إزاحة_الطور_PSK",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تعديل_الإزاحة_minima_الجاوسي_GMSK",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تعديل_الإزاحة_الدنيا_MSK",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تعديل_السعة_التعامدي_QAM",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "الصيغ_الرقمية_للصوت_والصورة_والفيديو",
+    "items": [
+      {
+        "name": "الصيغ_الرقمية_للصوت",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الصيغ_الرقمية_للصورة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الصيغ_الرقمية_للفيديو",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "ضغط_المعلومات",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "ترميز_المصدر",
+    "items": [
+      {
+        "name": "التعرف_على_تقنيات_الترميز",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التعرف_على_تقنيات_فك_الترميز",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "ترميز_غراي",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "ترميز_هامنغ",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "ترميز_هوفمان",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "طرق_ترميز_المصدر",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "تعديل_النبضات",
+    "items": [
+      {
+        "name": "أشكال_النبضات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تعديل_سعة_النبضات_PAM",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تعديل_عرض_النبضات_PWM",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تعديل_موقع_النبضات_PPM",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "تعديل_ترميز_النبضات_PCM",
+    "items": [
+      {
+        "name": "تطبيقات_نظام_تعديل_ترميز_النبضات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تعديل_ترميز_النبضات_التفاضلي_DPCM",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تقنيات_التعديل_الرقمي",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "عملية_الترميز_أحادي_وثنائي_القطبية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "عملية_التكمية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "فك_تعديل_ترميز_النبضات_PCM",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "فك_تعديل_ترميز_النبضات_التفاضلي_DPCM",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "مراحل_نظام_تعديل_ترميز_النبضات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "نسبة_الإشارة_إلى_الضوضاء_للنبضات_المكمية",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "تعديل_دلتا_DM",
+    "items": [
+      {
+        "name": "التعديل_الرقمي_في_النطاق_الأساسي",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تجربة_تعديل_دلتا_DM",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تعديل_ترميز_النبضات_التفاضلي",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تعديل_دلتا_DM",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تعديل_دلتا_المتكيف_ADM",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "فك_تعديل_دلتا",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "مقدمة_في_الاتصالات_الرقمية",
+    "items": [
+      {
+        "name": "أنواع_الإشارات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "إيجابيات_وسلبيات_الاتصالات_الرقمية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الترميز_الرقمي",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "المخطط_العام_لنظام_الاتصالات_الرقمية",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "نظرية_أخذ_العينات",
+    "items": [
+      {
+        "name": "إشارة_النبضة_المثالية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تحويل_فوريير",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "فكرة_أخذ_العينات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "نظرية_أخذ_العينات",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  }
+]

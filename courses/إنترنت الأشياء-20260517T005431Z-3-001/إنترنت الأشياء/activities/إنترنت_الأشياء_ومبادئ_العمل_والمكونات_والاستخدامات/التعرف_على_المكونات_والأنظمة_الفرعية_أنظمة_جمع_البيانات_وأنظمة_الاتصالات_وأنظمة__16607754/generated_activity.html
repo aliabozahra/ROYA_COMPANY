@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تجربة جمع وتحليل بيانات المستشعرات</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تجربة جمع وتحليل بيانات المستشعرات</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">بناء تجربة عملية تمكّن المتدرب من جمع بيانات فعلية باستخدام مستشعرات، ثم تحليلها لفهم ديناميكية عمل أنظمة IoT المتكاملة.</p>
+        <ul class="obj-list"><li>تطبيق أدوات جمع البيانات من مستشعرات حقيقية.</li><li>تحليل الإشارات وتحويلها إلى معلومات ذات معنى.</li><li>فهم تأثير دقة وموثوقية البيانات على عمل الأنظمة.</li><li>استخلاص استنتاجات عملية من نتائج التجربة.</li><li>تعزيز المهارات التقنية في التعامل مع أجهزة استشعار وأنظمة IoT.</li><li>تنمية التفكير النقدي في تفسير البيانات وتحليلها.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">عملي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>مجموعة مستشعرات (حرارة، رطوبة، ضوء)</li><li>لوحة تطوير Raspberry Pi أو Arduino</li><li>برنامج برمجة وجمع البيانات (مثل Python مع مكتبات متخصصة)</li><li>حاسوب لوحي أو حاسوب محمول للبرمجة والتحليل</li><li>شبكة Wi-Fi للاتصال ونقل البيانات</li><li>برمجيات تحليل بيانات بسيطة أو بيئة Graphical Dashboard</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد وتوجيه المهمة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>شرح أهداف النشاط وأهميته في فهم أنظمة جمع البيانات في IoT.</li><li>عرض موجز حول أنواع المستشعرات المستخدمة ووظائفها.</li><li>توضيح أهمية دقة المستشعرات واستهلاك الطاقة في تطبيقات الحياة الحقيقية.</li><li>تعريف الأدوات والبرمجيات المستخدمة وكيفية توصيل الأجهزة بيقظة.</li><li>تحفيز المتدربين بالتأكيد على التفاعل المباشر مع البيانات الحقيقية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">إعداد التجربة وتجميع البيانات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تنظيم مجموعات العمل وتوزيع الأدوات والمستشعرات.</li><li>توصيل المستشعرات بلوحة التطوير والتأكد من عملها بشكل صحيح.</li><li>كتابة أو تحميل برنامج لقراءة البيانات من المستشعرات وجمعها.</li><li>تنفيذ تجربة عملية لجمع بيانات البيئة المحيطة (درجة حرارة، رطوبة، ضوء) لفترة محددة.</li><li>ملاحظة وتحليل القيم الأولية والتأكد من صحة القراءات.</li><li>توثيق إجراءات الربط والبرمجة لجاهزية التحليل.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل البيانات التطبيقية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>نقل البيانات المجمعة إلى بيئة التحليل على الحاسوب.</li><li>استخدام أدوات تحليل إحصائية بسيطة لفهم توزيع وتحولات البيانات.</li><li>مقارنة قراءات المستشعرات بالقيم المرجعية أو المتوقعة.</li><li>تفسير تأثير الخصائص التقنية للمستشعر على الفروقات والقراءات.</li><li>مناقشة كيف تؤثر دقة المستشعر على نتائج النظام العملي.</li><li>استخلاص استنتاجات حول فعالية أنظمة جمع البيانات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التطبيق العملي وتحدي التحسين</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>دعوة المتدربين لتعديل إعدادات البرنامج أو المعايرة لتحسين جودة البيانات.</li><li>تشجيع تجربة طرق مختلفة للاتصال أو تخفيض استهلاك الطاقة أثناء الجمع.</li><li>محاكاة سيناريوهات واقعية (مثل تغيير ظروف البيئة) لملاحظة استجابة المستشعرات.</li><li>تقييم أثر التعديلات على جودة وأمان البيانات المجمعة.</li><li>مناقشة أمثلة تطبيقية حقيقية مرتبطة بالتجربة.</li><li>تقديم ملخصات في مجموعات حول التحسينات والتحديات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التغذية الراجعة والإغلاق</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>طرح أسئلة توجيهية لإثارة حركة التفكير نحو إيجاد حلول مستدامة.</li><li>مناقشة تجارب المتدربين وملاحظاتهم المتعلقة بالتجربة.</li><li>توضيح أهمية الدمج بين جمع البيانات، الاتصالات، وتحليل البيانات في بيئة IoT.</li><li>تأكيد دور التجربة الواقعية في ترسيخ المفاهيم التقنية.</li><li>توزيع مصادر تعليمية إضافية لتعميق الفهم.</li><li>إنهاء النشاط بتحفيز المتدربين على متابعة التعلم التطبيقي.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف تؤثر دقة وكفاءة استخدام المستشعرات في جودة البيانات المجمعة، وما هو تأثير هذه الجودة على فعالية أنظمة إنترنت الأشياء في الواقع العملي؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

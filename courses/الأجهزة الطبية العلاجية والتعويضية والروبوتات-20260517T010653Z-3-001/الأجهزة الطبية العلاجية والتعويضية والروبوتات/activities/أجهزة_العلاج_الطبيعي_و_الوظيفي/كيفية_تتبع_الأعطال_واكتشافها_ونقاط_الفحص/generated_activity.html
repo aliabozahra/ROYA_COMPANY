@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تتبع الأعطال بلعب الأدوار</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تتبع الأعطال بلعب الأدوار</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يركز هذا النشاط على توظيف توزيع الأدوار في سيناريو عملي، لتطبيق منهجيات تحديد الأعطال باستخدام نقاط الفحص المنهجية في بيئة محاكاة تجسد الواقع المهني.</p>
+        <ul class="obj-list"><li>يطبق المتدربون منهجيات الفحص المنظم لتشخيص الأعطال ضمن أدوار تخصصية.</li><li>يتطور التفاعل الجماعي والتواصل بين الفني والمشغل والمشرف في حل المشكلات.</li><li>تحسن مهارات المتدربين في رصد وتحليل الأعطال باستخدام أدوات قياس كهربائية وبرمجيات تشخيص.</li><li>ينمّي النشاط القدرة على اتخاذ قرارات مدروسة لحل الأعطال بسرعة ودقة.</li><li>يحفز التحدي الجماعي للارتقاء بتقنيات الصيانة الوقائية والتنسيق بين الفرق.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>جهاز طبي (محاكاة)</li><li>مقياس متعدد (ملتميتر)</li><li>بطاقات توزيع أدوار</li><li>برمجيات تشخيص أعطال محاكاة</li><li>لوحة نقاط الفحص الأساسية</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتحضير</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يرحب المدرب بالمتدربين ويشرح الهدف من النشاط وأهميته في الواقع المهني.</li><li>يعرض المدرب مفهوم تتبع الأعطال ونقاط الفحص الرئيسية بطريقة مختصرة وجذابة.</li><li>يقوم المدرب بتقسيم المتدربين إلى مجموعات صغيرة، ويوزع الأدوار (فني، مشغل، مشرف) على كل مجموعة.</li><li>يقدم المدرب الأدوات والمعدات اللازمة، ويشرح دور كل أداة في عملية التشخيص.</li><li>يوضح المدرب قواعد التواصل الفعال وأهمية التعاون الجماعي خلال النشاط.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الاستكشاف الأولي للمشكلة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ فريق العمل بفحص مظهر الجهاز الخارجي لتحديد أية أعطال بصرية محتملة.</li><li>يقوم الفني والمشغل بمراجعة نقاط الفحص الأساسية المعلنة على اللوحة المشتركة.</li><li>يسجل الفريق الملاحظات الأولية حول علامات العطل الظاهرة مثل أصوات غريبة أو ارتفاع حرارة الجهاز.</li><li>يناقش الفريق بشكل سريع الأسباب المحتملة بناءً على الفحص البصري وجمع المعلومات.</li><li>يبلغ الفريق المشرف بالنتائج الأولية لتوجيه الخطوات التالية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التشخيص وتحليل الأعطال</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم الفني باستخدام المقياس المتعدد لفحص الدوائر الكهربائية وقياس الجهد والمقاومة بدقة.</li><li>يدير المشغل برمجيات تشخيص الأعطال بمحاكاة متقدمة لقراءة رموز الخطأ وإشارات الأعطال.</li><li>يفصل الفريق اختبار المكونات بشكل جزئي لعزل جزء العطل بدقة (مثلاً المستشعرات، البطارية، المحركات).</li><li>يوثق الفريق البيانات والنتائج في سجل ملاحظات مشترك للاستفادة منها في مرحلة الحلول.</li><li>يتبادل الفريق المعلومات والافتراضات، مع التأكد من تطبيق إجراءات السلامة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التنسيق واتخاذ القرارات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يعقد الفريق اجتماعًا قصيرًا لتقييم التشخيص ومناقشة الخيارات المتاحة للحل.</li><li>يقدم كل عضو (فني، مشغل، مشرف) وجهة نظره ويقترح حلولًا عملية بناءً على الأدلة.</li><li>يقوم الفريق بالتوصل إلى قرار جماعي حول الإجراءات التي سيتم تنفيذها لإصلاح العطل.</li><li>يضبط المشرف خطة التنفيذ مع توزيع مهام واضحة لضمان التنسيق الفعال.</li><li>يجهز الفريق الأدوات والمكونات البديلة الضرورية للتطبيق العملي.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التطبيق والاختبار</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>ينفذ الفني استبدال المكونات أو إجراء الصيانة حسب الخطة المتفق عليها.</li><li>يقوم المشغل بتشغيل الجهاز تحت مراقبة المشرف لملاحظة تغيرات الأداء.</li><li>يُجري الفريق اختبارات وظيفية لضمان عودة الجهاز للعمل بكفاءة وأمان.</li><li>يسجل الفريق نتائج الاختبارات النهائية ويقارنها بالمعايير والصيانة الموصى بها.</li><li>يتلقى الفريق تغذية راجعة من المدرب حول الأداء والتنظيم والتواصل.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق والنقاش التفاعلي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يشارك كل عضو في الفريق تجربته الشخصية والدروس المكتسبة من النشاط.</li><li>يناقش المدرب التحديات التي واجهت الفرق ومناقشة الحلول البديلة الممكنة.</li><li>يتم تحديث سجل المتابعة بنقاط القوة والفرص للتحسين في تطبيق منهجيات التتبع.</li><li>يقدم المدرب نصائح للدمج العملي لمنهجيات تتبع الأعطال ونقاط الفحص في بيئة العمل الحقيقية.</li><li>يختم النشاط بتشجيع المتدربين على تبني التعاون الفعال وحل المشكلات بشكل جماعي.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن لتوزيع الأدوار وتطبيق منهجيات تتبع الأعطال أن يحسّن من سرعة ودقة تحديد وصيانة الأعطال في الأجهزة الطبية العلاجية؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

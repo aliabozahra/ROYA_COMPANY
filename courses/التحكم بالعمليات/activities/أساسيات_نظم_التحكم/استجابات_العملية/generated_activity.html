@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رحلة تحليل استجابات العمليات الصناعية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">رحلة تحليل استجابات العمليات الصناعية</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">ينطلق هذا النشاط من فكرة تدريبية مبتكرة تهدف إلى إعداد المتدرب قادرًا على:</p>
+        <ul class="obj-list"><li>تمييز أنواع استجابات العمليات المختلفة وتوصيف خصائصها.</li><li>تطبيق أساليب تحليل استجابات العمليات باستخدام أدوات تفاعلية عملية.</li><li>تحليل النتائج لاستنتاج مؤشرات الاستقرار والأداء.</li><li>تمييز تأثير معاملات النظام على سلوك الاستجابة وتفسيرها.</li><li>توظيف نتائج التحليل لتحسين تصميم أنظمة التحكم في بيئة صناعية افتراضية.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>برنامج محاكاة نظم تحكم صناعية تفاعلي</li><li>حساسات افتراضية وواجهات تحكم</li><li>نموذج صناعي افتراضي لتحليل الاستجابات</li><li>خرائط زمنية وترددية للتتبع</li><li>أجهزة قياس افتراضية (ركوردير)</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقدم المدرب ملخصًا تفاعليًا للمفهوم المركزي &quot;استجابات العمليات&quot; من خلال عرض واقعي بمساعدة فيديو تمهيدي.</li><li>يناقش المتدربون في مجموعات صغيرة أهمية الاستجابات في التحكم الصناعي بناءً على خبراتهم أو فهمهم السابق.</li><li>يطرح المدرب سيناريوهات حقيقية من الصناعة تحفز فضول المتدربين نحو كيفية تحليل هذه الاستجابات.</li><li>يُوضح المدرب الأهداف العملية للنشاط ويربطها بتطبيقات مهنية فعلية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف أنواع الاستجابات العملية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم المتدربون باستخدام البرنامج لفحص الاستجابة الدرجية والنبضية والصاعدة والجيببة على نماذج صناعية افتراضية مع تغيير المدخلات.</li><li>يسجل المتدربون ملاحظات عملية على كل نوع استجابة من حيث الشكل الزمني والتغيرات الفيزيائية المصاحبة.</li><li>يحفز المدرب التحليل التفاعلي بعرض أسئلة تحفيزية لتمييز خصائص كل استجابة وتأثير الثوابت الزمنية.</li><li>يُجري المدرب اختبارًا مختصرًا تفاعليًا عبر البرنامج لتعزيز التمييز بين أنواع الاستجابات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تحليل استجابات العمليات باستخدام أدوات تفاعلية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُوزّع على المتدربين أدوات القياس الافتراضية لالتقاط معايير مثل زمن الارتفاع، زمن الاستقرار، والارتداد.</li><li>يتعامل المتدربون مع بيانات حقيقية مسجلة على النظام الافتراضي ويستخدمون البرمجيات لتحليل الاستجابات حسابيًا.</li><li>يجب على كل متدرب تفسير نتائج التحليل وربطها بمبادئ الاستقرار والأداء في نظام تحكم معين.</li><li>يتبادل المتدربون ملاحظاتهم ويقارنون استراتيجيات التحليل التي اتبعوها.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تطبيق نتائج التحليل لتحسين النظام</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُكلف المتدربون بمحاكاة تعديل معاملات تحكم PID في النموذج الصناعي الافتراضي لخفض الارتداد وتحسين الاستقرار.</li><li>يُلاحظ المتدربون تأثير تعديل القيم على منحنيات الاستجابة ويقيسون الاختلافات.</li><li>يُدير المدرب جلسة مناقشة لتلخيص الحلول المبتكرة وتحليل أسباب نجاحها أو ضعفه.</li><li>يُشجع المتدربون على اقتراح أفكار مبتكرة لضبط الأنظمة اعتمادًا على دراسات الحالة المعطاة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التغذية الراجعة والإغلاق</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يعرض المدرب نتائج النشاط مجتمعة، ويربط التحليل العملي بالنظريات العلمية المعمول بها.</li><li>ينفذ المتدربون اختبارًا قصيرًا تقييميًا يعكس مهارات التحليل والتطبيق المكتسبة.</li><li>يُفتح حوار مفتوح لاستكشاف التحديات التي واجهوها وكيفية تجاوزها بإبداع.</li><li>يختتم المدرب النشاط بتوجيه توصيات للمتابعة العملية وتوظيف التعلم في مواقف صناعية حقيقية.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكنك توظيف فهمك لأنواع استجابات العمليات وتحليلها لتحسين أداء نظام تحكم صناعي فعلي؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تحدي تصميم دائرة تحكم LED</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تحدي تصميم دائرة تحكم LED</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يركز النشاط على تحفيز المتدربين لتصميم دائرة تحكم LED باستخدام BJT بطريقة مبتكرة وتنافسية لتحسين الكفاءة والابتكار.</p>
+        <ul class="obj-list"><li>يطبق المتدرب المبادئ العملية لاستخدام BJT في دوائر التحكم.</li><li>يحل المتدرب مشاكل التصميم بشكل سريع وابتكاري.</li><li>يُظهر المتدرب روح التعاون والتنافس ضمن فريق.</li><li>يصمم المتدرب دائرة تحكم LED فعالة باستخدام المكونات المتاحة.</li><li>يقيم المتدرب أداء التصاميم المنافسة ويستخلص نقاط القوة والضعف.</li><li>يستفيد المتدرب من التغذية الراجعة لتحسين تصاميمه.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">عملي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>لوحات تجارب Breadboard</li><li>ترانزستورات NPN (مثل 2N2222)</li><li>LED أحمر</li><li>مقاومات 220 أوم و1 كيلو أوم</li><li>مقاييس فولت وامبير (ميليميتر متعدد)</li><li>مصادر طاقة 5 فولت</li><li>لوحات وأدوات تركيب الدوائر الإلكترونية</li><li>أدوات قياس الوقت (ساعة توقيت)</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتحفيز</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يرحب المدرب بالمتدربين ويشرح أهمية BJT كمفتاح إلكتروني ودوره في التحكم بالدوائر.</li><li>يعرض المدرب فكرة التحدي: تصميم دائرة تحكم LED بواسطة BJT بأكثر كفاءة وابتكار ضمن شروط محددة.</li><li>يقوم المدرب بتقسيم المتدربين إلى فرق متساوية ويشرح قواعد التحدي ووقت التنفيذ.</li><li>يتعرف كل فريق على المواد والمكونات المتاحة ويبدأ التفكير المشترك في التصميم.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التخطيط والتصميم المبدئي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تجتمع فرق المتدربين لمناقشة أفكار التصميم الأولية مع التركيز على الكفاءة والابتكار.</li><li>يرسم كل فريق مخطط الدائرة الخاصة به مع تحديد مكونات المقاومة وترانزستور BJT.</li><li>يحرص كل فريق على التأكد من توافق التصميم مع شروط التشغيل والسلامة.</li><li>يراجع المدرب المخططات ويقدم ملاحظات سريعة لكل فريق لتحسين التصميم.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التنفيذ والبناء العملي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ كل فريق بتركيب الدائرة ضمن لوحة الخبرة (Breadboard) باستخدام المكونات.</li><li>يجري الفريق اختبارات أولية على الدائرة للتحقق من عملها وتشغيل LED بنجاح.</li><li>يقيس الفريق الجهود والتيارات لضمان تشغيل الترانزستور في حالة التشبع دون تلف.</li><li>تُشجع الفرق على تعديل مستويات المقاومة لتحسين استجابة الدائرة وكفاءتها.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الاختبار والمنافسة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تضع الفرق دوائرها أمام لجنة التحكيم أو بقية الفرق للمقارنة حسب معايير كفاءة التصميم والابتكار.</li><li>يقوم كل فريق بشرح مبدأ عمل دائرته والأفكار المبتكرة التي تم تطبيقها.</li><li>تُختبر الدوائر باستخدام سيناريوهات تشغيل مختلفة لقياس سرعة الاستجابة والاستقرار.</li><li>يُسجّل أداء كل دائرة ويتم تقييمها باستخدام نقاط محددة تشمل استهلاك الطاقة والتفاعل.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التغذية الراجعة والتحليل</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يجتمع المدرب مع الفرق لمناقشة نتائج التقييم ومشاركة الخبرات المكتسبة.</li><li>يوضح المدرب نقاط القوة والضعف في كل تصميم وآليات تحسين الدوائر.</li><li>يتم حث المتدربين على طرح حلول ممكنة لمشاكل الأداء التي واجهتهم خلال التحدي.</li><li>يحث المدرب الفرق على التفكير بكيفية تطبيق هذه الخبرات في مشاريع عملية متقدمة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق والتأمل</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقوم كل فريق بتلخيص تجربته وتوثيق الدروس المستفادة من التحدي.</li><li>يشارك المتدربون شعور النجاح وأهمية التعاون والتنافس في تطوير مهاراتهم.</li><li>يقدم المدرب شكرًا نهائيًا ويحفز المتدربين على الاستمرار في الابتكار والتعلم.</li><li>يوزع المدرب موارد إضافية ونماذج دوائر للتحفيز على مزيد من الدراسة والتطبيق.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن لتعديل مقاومة الأساس في دائرة BJT أن يؤثر على كفاءة وتحكم الدائرة في تشغيل LED؟ شرح أثر ذلك على حالات القطع والتشبع.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

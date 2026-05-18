@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تفاوض الموردين لسلسلة إمداد فعالة</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تفاوض الموردين لسلسلة إمداد فعالة</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يهدف هذا النشاط إلى تطوير مهارات التفاوض والتنسيق بين الموردين وشركات التصنيع لضمان سلسلة إمداد متزامنة وفعالة.</p>
+        <ul class="obj-list"><li>يطبق المتدرب أساليب تفاوض فعالة لتحقيق توافق بين الموردين وشركات التصنيع.</li><li>يبني المتدرب علاقات تواصل تعاونية تساهم في استمرارية تدفق الإمدادات.</li><li>يحلل المتدرب تحديات التنسيق في سلسلة الإمداد ويقترح حلول مبتكرة.</li><li>يُظهر المتدرب قدرة على تعديل الخطط والإجراءات وفقاً لمتغيرات الإنتاج.</li><li>يعزز المتدرب قدرته على بناء ثقة متبادلة في بيئة عمل رقمي.</li><li>يطور المتدرب مهارات استخدام أدوات رقمية لتبادل المعلومات بين الأطراف.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>بطاقات شخصيات لعب الأدوار (مورد، مدير تصنيع، منسق سلسلة إمداد)</li><li>منصات تواصل تفاعلية رقمية (شات أو محاكاة فيديو)</li><li>بيانات ومؤشرات سلسلة إمداد افتراضية</li><li>قوالب عقود ذكية رقمية</li><li>نماذج متابعة الأداء والجودة الرقمية</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يرحب المدرب بالمتدربين ويشرح أهمية مهارات التفاوض والتنسيق في سلاسل الإمداد الصناعية.</li><li>يعرض المدرب السيناريو الكلي للنشاط ويشرح دور كل شخصية في لعب الأدوار.</li><li>يقوم المدرب بتوزيع بطاقات الأدوار ويوضح قواعد التفاعل والتواصل بين الأدوار.</li><li>يتم توضيح الأدوات الرقمية المستخدمة وكيفية الوصول إليها للتواصل وتبادل المعلومات.</li><li>يجيب المدرب عن أسئلة المتدربين لتوجيههم نحو فهم المهام المطلوبة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف الدور</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقرأ كل متدرب بطاقة دوره بدقة ويتعرف على أهداف ومتطلبات ممثله.</li><li>يجري المتدربون مناقشات تمهيدية فردية داخل مجموعاتهم حسب أدوارهم لفهم المواقف المحتملة.</li><li>يحدد المدرب للمتدربين معوقات التواصل والتفاوض المتوقع مواجهتها.</li><li>ينفذ كل متدرب تجهيز شخصيته بوضع نقاط قوة وضعف وتأثيرها على التفاوض.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التفاوض والتنسيق التفاعلي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المتدربون الحوار التفاوضي باستخدام المنصة الرقمية في جلسات تفاعلية محاكية للواقع.</li><li>يبادل المتدربون توقعات الطلب، مستويات المخزون، ومشكلات الشحنات عبر القنوات المفتوحة.</li><li>يطبق المتدربون أساليب التفاوض لاحتواء النزاعات وتحقيق التوافق حول المواعيد والكمّيات.</li><li>يقوم كل متدرب برصد تفاعله وتوثيق قرارات التفاوض ضمن نماذج العقود الذكية.</li><li>يطالب المدرب بملاحظات فورية لتحسين التواصل ويحث على تعديل الخطط حسب المعلومات المتاحة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">محاكاة مواجهة التحديات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يُطرح سيناريو طارئ (مثل نقص مادة أولية أو تأخير شحنة) ويتطلب من الفرق تعديل اتفاقياتهم.</li><li>تتفاوض الفرق مجدداً تحت ضغوط الوقت للحد من تأثير المشكلة على الإنتاج.</li><li>تستخدم الفرق بيانات التوأم الرقمي لمحاكاة نتائج البدائل المقترحة.</li><li>يناقش المدرب مع المتدربين آليات دمج آلات الإنسان والتقنيات الرقمية في الحلول المقترحة.</li><li>يقيم المتدربون أداءهم في إدارة التغيير وتقديم الحلول التعاونية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التغذية الراجعة والإغلاق</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يقدم المدرب ملاحظات مركزة حول أداء المتدربين في التفاوض والتنسيق.</li><li>يشارك المتدربون تجاربهم ويحددون نقاط التعلم الرئيسية المكتسبة.</li><li>تتم مناقشة كيفية تطبيق مهارات التفاوض وتنسيق سلسة الإمداد في بيئة العمل الحقيقية.</li><li>يوجه المدرب استبيان ذاتي للمتدربين لتقييم تطور مهاراتهم.</li><li>يختم النشاط بتحديد خطوات عملية لتطوير مهارات التفاوض والتعاون في المستقبل.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يمكن للتعاون الفعال بين الموردين وشركات التصنيع عبر التفاوض والتنسيق المستمر أن يعزز مرونة واستدامة سلسلة الإمداد في سياق الصناعة 5.0؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

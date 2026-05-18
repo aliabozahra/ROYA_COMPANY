@@ -1,0 +1,509 @@
+[
+  {
+    "name": "أصحاب_المصلحة",
+    "items": [
+      {
+        "name": "الجمعيات_المهنية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الجهة_التنظيمية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الحكومات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "المؤسسات_التعليمية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "المنظمات_غير_الربحية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الموردين",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "محللو_السوق",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "منظمات_التصنيع",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "أنظمة_الإنتاج_السيبر-فيزيائية",
+    "items": [
+      {
+        "name": "التعريف",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الخصائص",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الدعم_والتدريب_للقوى_العاملة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الفوائد_والتطبيقات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الهندسة_المعمارية",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "إدارة_البيانات",
+    "items": [
+      {
+        "name": "تخزينها",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تصورها",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "جمع_البيانات",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "الأمن_السيبراني",
+    "items": [
+      {
+        "name": "الأمان_المتكامل",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التشفير",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التصريح",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "تحليل_المخاطر",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "التخصيص",
+    "items": [
+      {
+        "name": "التخصيص_الشامل_للعملاء",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الروبوتات_التعاونية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "توحيد_الذكاء_البشري_والحوسبة_الإدراكية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "دور_المصمم_البشري",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "التقنيات_الناشئة",
+    "items": [
+      {
+        "name": "Blockchain",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الحوسبة_الإدراكية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الذكاء_الاصطناعي",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الواقع_الافتراضي",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الواقع_المعزز",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "طباعة_ثلاثية_الأبعاد",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "واجهات_المستخدم_الصوتية",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "الحوسبة_السحابية",
+    "items": [
+      {
+        "name": "الأنواع_البرمجيات_كخدمة_Software_as_a_Service-_SaaS_والبنية_التحتية_كخدمة_Infras_26cb8bd9",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "فوائد_الحوسبة_السحابية_لإنترنت_الأشياء",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "العمليات_والحوكمة",
+    "items": [
+      {
+        "name": "إدارة_التحسين_الذاتي",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "العملاء",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "سلاسل_التوريد",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "القوة_العاملة",
+    "items": [
+      {
+        "name": "إدارة_التغيير",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "إعادة_هيكلة_المؤسسات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التدريب",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "العلاقة_بين_البطالة_التكنولوجية_والتعليم",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "توزيع_العمل",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "فجوة_المهارات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "وظائف_جديدة",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "بروتوكولات_الاتصال_اللاسلكية",
+    "items": [
+      {
+        "name": "Bluetooth",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "Light_Fidelity_LiFi",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "Low-Energy_Wireless",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "LPWAN",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "LTE-A",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "NFC",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "RFID",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "Thread",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "WiFi-Direct",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "Z-Wave",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "Zigbee",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "تحليلات_البيانات",
+    "items": [
+      {
+        "name": "البيانات_الضخمة_تدفقية_مكانية_زمنية_توصيفية_تنبؤية_وتحليلات_قاضية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "التعريف",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "توحيد_التقنيات",
+    "items": [
+      {
+        "name": "تقنيات_الأتمتة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "نقاط_التكامل",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "واجهات_التطبيق",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "عوامل_الدفع_للثورة_الصناعية_الرابعة_وخصائص_المصنع_الذكي",
+    "items": [
+      {
+        "name": "التكنولوجيا_الناشئة_مجالات_التأثير_للثورات_الصناعية_المهارات_القوى_العاملة_إدارة_7ca7dc74",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "جوانب_العصور_الصناعية_الحركة_الاجتماعية_وسائل_النقل_الطاقة_الأعمال_التجارية_الاق_df8ca847",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "خصائص_المصنع_الذكي_القابلية_للتوسعة_المرونة_التوصيلية_الكفاءة_الاستقلالية_السرعة_ff33f538",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "معايير_السلامة_الوظيفية",
+    "items": [
+      {
+        "name": "IEC_61508_الأجهزة_الكهربائية_والإلكترونية_والإلكترونيات_القابلة_للبرمجة",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "IEC_61511_العمليات_الصناعية",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "IEC_62061_الآلات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "IEC_62280_EN_50159_IEC_61784_الشبكات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "IEC_62443_الأمان",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "ISO_10218_الروبوتات_الصناعية",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "ميزات_إنترنت_الأشياء_IoT",
+    "items": [
+      {
+        "name": "الاتصالات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الحساسات",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "الذكاء_الاصطناعي_AI",
+        "files": [
+          "generated_activity.html"
+        ]
+      },
+      {
+        "name": "المنصات",
+        "files": [
+          "generated_activity.html"
+        ]
+      }
+    ]
+  }
+]

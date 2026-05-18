@@ -238,55 +238,43 @@ body {
     font-weight: bold;
 }
 
-/* Sources */
-.subtopic-sources {
-    margin-top: 15px;
-    padding: 10px;
+/* Unit-level sources (Word Style) */
+.unit-sources-container {
+    margin-top: 30px;
+    padding: 20px;
     background-color: #fafafa;
     border: 1px solid var(--border-color);
 }
 
 .sources-title {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 8px;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 12px;
     font-weight: bold;
-}
-
-.sources-group-label {
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: #666;
-    margin: 5px 0;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
 }
 
 .sources-list {
-    list-style: disc;
-    padding-right: 20px;
-    margin-bottom: 10px;
+    list-style: decimal; /* ترقيم المراجع بشكل منظم كملفات الوورد */
+    padding-right: 25px;
 }
 
 .sources-list li {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-size: 0.95rem;
-}
-
-.academic-ref {
     color: #444;
+    line-height: 1.5;
 }
 
-.sources-list--scraped a {
+/* تعديل مظهر رابط المرجع ليكون نصي وقابل للضغط */
+.sources-list a {
     color: var(--secondary-color);
-    text-decoration: underline;
-    word-break: break-all;
+    text-decoration: none;
 }
 
-/* Unit-level links */
-.unit-links {
-    margin-top: 20px;
-    padding: 15px;
-    background: #f9f9f9;
-    border: 1px solid var(--border-color);
+.sources-list a:hover {
+    text-decoration: underline;
 }
 
 /* Footer */
@@ -388,25 +376,6 @@ body {
 لنأخذ مثالاً واقعياً من مصنع تصنيع سيارات، حيث تستخدم نواقل بيانات لربط وحدة التحكم PLC بالمحركات والحساسات. يرسل PLC أوامر عبر كابلات إيثرنت صناعي، تنقل 100 ميغابت في الثانية، لضبط سرعة الذراع الروبوتي بدقة مليمترية. إذا حدث تشويش، يستخدم النظام نواقل احتياطية للتبديل التلقائي، مما يمنع التوقف. هذا السيناريو يظهر كيف تحول النواقل نظرية الاتصال إلى عملية يومية، ويمكن للمتدربين تجربته في محاكاة افتراضية.</h5>
 <p>في الختام، يمهد مفهوم نواقل البيانات الطريق لاستكشاف أنواعها المحددة في المحاور التالية، حيث سنرى كيف تختلف ميزاتها حسب التطبيق. هذا الأساس يمكن المدرب من توضيح كيفية اختيار النواقل المناسبة لأي نظام ميكاترونيكي.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(Tanenbaum، A. S.، &amp; Wetherall، D. J.، 2011). Computer Networks (5th ed.). Prentice Hall. [Book]</span></li>
-<li><span class="academic-ref">(IEEE، n.d.). Data Communication Interfaces. IEEE Standards Association. [Web]</span></li>
-<li><span class="academic-ref">(الجمال، أ.، 2020). أساسيات الاتصالات في الهندسة الميكاترونيكية. دار الجامعة للنشر. [كتاب]</span></li>
-<li><span class="academic-ref">(السيد، م.، 2018). نواقل البيانات وتطبيقاتها الصناعية. مجلة الهندسة الكهربائية، 45(2)، 120-135. [مقالة علمية]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.lenze.com/en-de/application-knowledge-base/article/280347/1" target="_blank" rel="noopener noreferrer">https://www.lenze.com/en-de/application-knowledge-base/article/280347/1</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Bus_(computing)" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Bus_(computing)</a></li>
-<li><a href="https://www.reddit.com/r/explainlikeimfive/comments/qowl8k/eli5_how_do_data_buses_work_in_computers/" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/explainlikeimfive/comments/qowl8k/eli5_how_do_data_buses_work_in_computers/</a></li>
-<li><a href="https://en.wikipedia.org/wiki/CAN_bus" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/CAN_bus</a></li>
-<li><a href="https://www.scribd.com/document/781886873/What-is-a-Computer-Bus-1" target="_blank" rel="noopener noreferrer">https://www.scribd.com/document/781886873/What-is-a-Computer-Bus-1</a></li>
-<li><a href="https://www.reddit.com/r/mechanics/comments/1h3sh55/odis_help/?tl=ar" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/mechanics/comments/1h3sh55/odis_help/?tl=ar</a></li>
-</ul>
-</div>
                         </div>
                         <div class="subtopic-container" id="unit-1-topic-1-subtopic-2">
                             <h4 class="subtopic-title">
@@ -436,25 +405,6 @@ body {
 <p>في تطبيق عملي، اعتبر نظام مراقبة في مصنع ميكاترونيكي: يستخدم ناقل Ethernet لنقل بيانات من حساسات الحرارة. هنا، يُحافظ على جهد 3.3 فولت وتيار 100 مللي أمبير، مع تردد 100 ميغاهرتز، لضمان نقل 10 ميغابت في الثانية دون تأخير. إذا زاد التردد، يحتاج النظام إلى فلاتر لتقليل الضوضاء، مما يظهر كيف تتفاعل هذه الخصائص.</p>
 <p>بهذا، نربط هذه المبادئ بالجوانب الرياضية التالية، حيث ستساعد في حسابات الفقدان والكفاءة بدقة أكبر.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(الجزيرة، أ.، 2015). نواقل البيانات: المبادئ والتطبيقات. جامعة القاهرة. [بحث]</span></li>
-<li><span class="academic-ref">(IEEE، n.d.). Physical Layer Fundamentals. IEEE Standards Association. [ويب]</span></li>
-<li><span class="academic-ref">(Smith, J.، 2020). Principles of Data Transmission in Mechatronics. IEEE Press. [كتاب]</span></li>
-<li><span class="academic-ref">(السيد، م.، 2018). فيزياء الاتصالات الكهربائية. دار النشر العلمية. [كتاب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.scribd.com/document/514069011/BUS" target="_blank" rel="noopener noreferrer">https://www.scribd.com/document/514069011/BUS</a></li>
-<li><a href="https://www.reddit.com/r/explainlikeimfive/comments/qowl8k/eli5_how_do_data_buses_work_in_computers/" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/explainlikeimfive/comments/qowl8k/eli5_how_do_data_buses_work_in_computers/</a></li>
-<li><a href="https://www.sciencedirect.com/science/article/pii/S2352484722016596" target="_blank" rel="noopener noreferrer">https://www.sciencedirect.com/science/article/pii/S2352484722016596</a></li>
-<li><a href="https://ar.wikipedia.org/wiki/%D9%81%D9%8A%D8%B2%D9%8A%D8%A7%D8%A1_%D9%86%D8%B8%D8%B1%D9%8A%D8%A9" target="_blank" rel="noopener noreferrer">https://ar.wikipedia.org/wiki/%D9%81%D9%8A%D8%B2%D9%8A%D8%A7%D8%A1_%D9%86%D8%B8%D8%B1%D9%8A%D8%A9</a></li>
-<li><a href="https://manara.edu.sy/downloads/files/1702807347_book.pdf" target="_blank" rel="noopener noreferrer">https://manara.edu.sy/downloads/files/1702807347_book.pdf</a></li>
-<li><a href="https://thefusionreport.substack.com/p/why-data-centers-are-switching-to" target="_blank" rel="noopener noreferrer">https://thefusionreport.substack.com/p/why-data-centers-are-switching-to</a></li>
-</ul>
-</div>
                         </div>
                         <div class="subtopic-container" id="unit-1-topic-1-subtopic-3">
                             <h4 class="subtopic-title">
@@ -488,24 +438,6 @@ body {
 في نظام روبوت ميكاترونيكي يتحكم في خط إنتاج، يُستخدم ترميز هامينغ لنقل أوامر الحركة عبر كابلات. إذا أضيفت ضوضاء كهربائية، يُكشف الكود الخطأ ويُصحح، محافظًا على دقة 99.9%. باستخدام تحويل فورييه، يُحلل المهندس الإشارة في برنامج MATLAB، مع تطبيق عينة نيقهيست لضبط المعدل، مما يضمن نقل سلس دون تأخير.</h5>
 <p>في الختام، تربط هذه المبادئ الرياضية بين نظرية النواقل وتطبيقاتها العملية، تمهيدًا لاستكشاف التقنيات المتقدمة في الوحدة القادمة.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(Proakis, J. G., &amp; Salehi, M., 2008). Digital communications (5th ed.). McGraw-Hill. [Book]</span></li>
-<li><span class="academic-ref">(الشامي، أ.، 2015). الاتصالات الرقمية: المبادئ والتطبيقات. دار الجامعة الجديدة. [كتاب]</span></li>
-<li><span class="academic-ref">(Haykin, S., 2001). Communication systems (4th ed.). John Wiley &amp; Sons. [Book]</span></li>
-<li><span class="academic-ref">(القحطاني، م.، 2020). نظرية المعلومات في الهندسة الكهربائية. مجلة الهندسة العربية، 45(2)، 112-130. [مقالة مجلة]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://en.wikipedia.org/wiki/Information_theory" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Information_theory</a></li>
-<li><a href="https://pld.cs.luc.edu/telecom/mnotes/modulation_transmission.html" target="_blank" rel="noopener noreferrer">https://pld.cs.luc.edu/telecom/mnotes/modulation_transmission.html</a></li>
-<li><a href="https://www.reddit.com/r/math/comments/yz0rrp/what_are_common_mathematical_ways_of_encoding/" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/math/comments/yz0rrp/what_are_common_mathematical_ways_of_encoding/</a></li>
-<li><a href="https://unhabitat.org/sites/default/files/2024/06/sourcebook_un-habitat_x_who_ar.pdf" target="_blank" rel="noopener noreferrer">https://unhabitat.org/sites/default/files/2024/06/sourcebook_un-habitat_x_who_ar.pdf</a></li>
-<li><a href="https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf" target="_blank" rel="noopener noreferrer">https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf</a></li>
-</ul>
-</div>
                         </div>
                     </div>
                     <div class="topic-container" id="unit-1-topic-2">
@@ -541,23 +473,6 @@ body {
 <h5 class="markdown-h5">خلاصة وارتباط بالمحاور التالية
 من خلال هذه التطبيقات، نرى كيف تحول نواقل البيانات النظرية إلى أدوات عملية في الميكاترونيكس. هذا يمهد لاستكشاف التصميم المتقدم، حيث يتعلم المتدربون كيفية دمجها في مشاريع حقيقية لتحقيق أتمتة فعالة.</h5>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(بولتون، و.، 2015). ميكاترونيكس: أنظمة التحكم الإلكتروني في الهندسة الميكانيكية والكهربائية. بيرسون. [كتاب]</span></li>
-<li><span class="academic-ref">(تاننباوم، أ.، 2017). هندسة الشبكات الحاسوبية. برنتيس هول. [كتاب]</span></li>
-<li><span class="academic-ref">(الشريف، ع.، 2020). نواقل البيانات في الأتمتة الصناعية. مجلة الهندسة الكهربائية، 45(2)، 112-130. [مقالة مجلة]</span></li>
-<li><span class="academic-ref">(الفحل، م.، 2018). الاتصالات الرقمية في أنظمة الميكاترونيكس. دار الجامعة للنشر والتوزيع. [كتاب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.electromate.com/news/post/guide-to-mechatronics-part-6-applications-of-mechatronic-subsystems" target="_blank" rel="noopener noreferrer">https://www.electromate.com/news/post/guide-to-mechatronics-part-6-applications-of-mechatronic-subsystems</a></li>
-<li><a href="https://manara.edu.sy/downloads/files/1611750115_StudyPlanForMechatronics.doc" target="_blank" rel="noopener noreferrer">https://manara.edu.sy/downloads/files/1611750115_StudyPlanForMechatronics.doc</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Bus_(computing)" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Bus_(computing)</a></li>
-<li><a href="https://en.wikipedia.org/wiki/CAN_bus" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/CAN_bus</a></li>
-</ul>
-</div>
                         </div>
                         <div class="subtopic-container" id="unit-1-topic-2-subtopic-2">
                             <h4 class="subtopic-title">
@@ -587,24 +502,6 @@ body {
 <p>تعتمد الألياف البصرية على نقل الضوء عبر ألياف زجاجية، مما يوفر عرض نطاق واسعًا ومقاومة كاملة للتداخل الكهرومغناطيسي. تناسب بيئات العمل الطويلة المدى والحساسة، مثل المنشآت النفطية أو المناجم، حيث تنقل بيانات تصل إلى 100 جيغابت في الثانية على كيلومترات. مثال عملي: في نظام ميكاترونيكي لمراقبة الآبار النفطية، تربط الألياف بين الحساسات البعيدة والمركز الرئيسي، متجاوزة الظروف القاسية كالحرارة العالية والرطوبة. للمتدربين، يبرز هذا النوع أهمية السلامة في البيئات الخطرة، مع تدريب على تركيب الموصلات الضوئية لضمان الدقة.</p>
 <p>في الختام، اختيار البيئة المناسبة يعتمد على توازن بين السرعة والموثوقية، مما يمهد لفهم أعمق للتصميم المتكامل في الوحدات التالية.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(Microsoft، n.d.). استراتيجيات تقسيم البيانات. Azure Architecture Center. [ويب]</span></li>
-<li><span class="academic-ref">(الزعبي، ٢٠١٥). هندسة الاتصالات الرقمية في الأنظمة الصناعية. دار النهضة العربية. [كتاب]</span></li>
-<li><span class="academic-ref">(العنزي، ٢٠١٨). نواقل البيانات في الميكاترونيكس: تطبيقات صناعية. جامعة الملك سعود. [بحث أكاديمي]</span></li>
-<li><span class="academic-ref">(Tanenbaum &amp; Wetherall، ٢٠١١). Computer Networks (5th ed.). Prentice Hall. [كتاب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://learn.microsoft.com/ar-sa/azure/architecture/best-practices/data-partitioning-strategies" target="_blank" rel="noopener noreferrer">https://learn.microsoft.com/ar-sa/azure/architecture/best-practices/data-partitioning-strategies</a></li>
-<li><a href="https://www.hilscher.com/service-support/glossary/bus-system" target="_blank" rel="noopener noreferrer">https://www.hilscher.com/service-support/glossary/bus-system</a></li>
-<li><a href="https://www.corning.com/in-building-networks/worldwide/en/home/applications/local-area-networks/harsh-environments.html" target="_blank" rel="noopener noreferrer">https://www.corning.com/in-building-networks/worldwide/en/home/applications/local-area-networks/harsh-environments.html</a></li>
-<li><a href="https://stellarcyber.ai/ar/learn/top-threat-intelligence-platforms/" target="_blank" rel="noopener noreferrer">https://stellarcyber.ai/ar/learn/top-threat-intelligence-platforms/</a></li>
-<li><a href="https://www.ibm.com/qa-ar/think/topics/database-security" target="_blank" rel="noopener noreferrer">https://www.ibm.com/qa-ar/think/topics/database-security</a></li>
-</ul>
-</div>
                         </div>
                     </div>
                     <div class="topic-container" id="unit-1-topic-3">
@@ -645,24 +542,6 @@ body {
 في مصنع سيارات آلي، يستخدم نظام تحكم بإشارات من حساسات الاهتزاز. بدون محولات، تتشوه الإشارات التناظرية أثناء النقل عبر 50 مترًا. يُثبت ADC لتحويلها إلى رقمية، ثم مضخم لتكبيرها قبل الوصول إلى PLC. هذا يقلل الأخطاء بنسبة 70%. المتدرب يجرب هذا في محاكاة، يلاحظ كيف يحافظ المكرر على الدقة في السلسلة الإنتاجية.</h5>
 <p>في الختام، تمهد أنواع معدات التحويل الطريق لفهم أجهزة الاتصال المتقدمة في الوحدة التالية، مما يعزز مهاراتكم في تصميم أنظمة ميكاترونكس فعالة.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(Haykin, S.، 2014). Digital Communication Systems. John Wiley &amp; Sons. [كتاب]</span></li>
-<li><span class="academic-ref">(الجندي، أ. م.، 2018). الاتصالات الرقمية في الهندسة الميكاترونيكية. دار الجامعة الجديدة. [كتاب]</span></li>
-<li><span class="academic-ref">(الحسن، ع.، 2020). أجهزة التحويل في أنظمة الاتصال. مجلة الهندسة الكهربائية، 45(2)، 120-135. [مقالة مجلة]</span></li>
-<li><span class="academic-ref">(الشريف، م.، n.d.). مبادئ التحويل الإشاري. موقع الجامعة التقنية. [ويب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.jotrin.com/technology/details/data-conversion-ics-bridging-the-gap-between-analog-and-digital-worlds?srsltid=AfmBOooJGwLvinpHzkfExUKO4IMPLAkyUhULwxwFHm3FZOb9UbYCSVK9" target="_blank" rel="noopener noreferrer">https://www.jotrin.com/technology/details/data-conversion-ics-bridging-the-gap-between-analog-and-digital-worlds?srsltid=AfmBOooJGwLvinpHzkfExUKO4IMPLAkyUhULwxwFHm3FZOb9UbYCSVK9</a></li>
-<li><a href="https://www.monolithicpower.com/en/learning/mpscholar/analog-to-digital-converters/introduction-to-adcs/types-of-adcs?srsltid=AfmBOoojQTxtBHzFDRR-QSxxpgVV1zuf9yyZbRT3_dy2POKmEA_NuyMr" target="_blank" rel="noopener noreferrer">https://www.monolithicpower.com/en/learning/mpscholar/analog-to-digital-converters/introduction-to-adcs/types-of-adcs?srsltid=AfmBOoojQTxtBHzFDRR-QSxxpgVV1zuf9yyZbRT3_dy2POKmEA_NuyMr</a></li>
-<li><a href="https://www.kdmsteel.com/ar/%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D9%81%D8%AA%D8%A7%D8%AD-%D8%A7%D9%84%D8%AC%D9%87%D8%AF-%D8%A7%D9%84%D9%85%D8%AA%D9%88%D8%B3%D8%B7/" target="_blank" rel="noopener noreferrer">https://www.kdmsteel.com/ar/%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D9%81%D8%AA%D8%A7%D8%AD-%D8%A7%D9%84%D8%AC%D9%87%D8%AF-%D8%A7%D9%84%D9%85%D8%AA%D9%88%D8%B3%D8%B7/</a></li>
-<li><a href="https://www.tutorialspoint.com/article/difference-between-transformer-and-amplifier" target="_blank" rel="noopener noreferrer">https://www.tutorialspoint.com/article/difference-between-transformer-and-amplifier</a></li>
-<li><a href="http://fertilizermachine-ae.com/5-conveying.html" target="_blank" rel="noopener noreferrer">http://fertilizermachine-ae.com/5-conveying.html</a></li>
-</ul>
-</div>
                         </div>
                         <div class="subtopic-container" id="unit-1-topic-3-subtopic-2">
                             <h4 class="subtopic-title">
@@ -696,23 +575,6 @@ body {
 <p>خذ مثالاً واقعياً من صناعة الروبوتات: في مصنع لتجميع السيارات، يُختار محول CAN-to-Ethernet لنقل بيانات المستشعرات. هنا، يُركز المهندس على دعم السرعة (حتى 1 ميغابت/ثانية) ومقاومة التداخل الكهرومغناطيسي (EMI). نتيجة، ينخفض وقت التوقف بنسبة 30%، كما أظهرت دراسات حالة. آخر مثال: في أنظمة المنازل الذكية، يُفضل محول Zigbee-to-WiFi لتوافقه مع الشبكات اللاسلكية، مع التركيز على استهلاك الطاقة المنخفض للأجهزة المحمولة.</p>
 <p>في الختام، هذا الاختيار ليس مجرد شراء، بل استثمار في استقرار النظام. يربط هذا المحور بالمرحلة التالية حول التركيب، حيث يصبح الاختيار الأساس للتنفيذ الناجح. من خلال هذه النصائح، يمكن للمتدربين بناء أنظمة ميكاترونيكس أكثر كفاءة.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(عبد الله، م.، 2019). نواقل البيانات وأجهزة التحويل: دليل عملي. مجلة الهندسة الكهربائية، 45(2)، 120-135. [مقالة مجلة]</span></li>
-<li><span class="academic-ref">(Smith, J., 2018). Data Converters in Mechatronics Systems. IEEE Press. [كتاب]</span></li>
-<li><span class="academic-ref">(السيد، أ.، 2020). أنظمة الاتصالات في الهندسة الميكاترونيكية. دار النشر العربية للعلوم. [كتاب]</span></li>
-<li><span class="academic-ref">(Recoil Audio, n.d.). Factors to Consider When Looking to Buy a Line Output Converter. Recoil Audio. [Web]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://arabacademy-sy.org/uploads/academy_publication/books/comm-dic.pdf" target="_blank" rel="noopener noreferrer">https://arabacademy-sy.org/uploads/academy_publication/books/comm-dic.pdf</a></li>
-<li><a href="https://www.mayoclinic.org/ar/diseases-conditions/adhd/diagnosis-treatment/drc-20350895" target="_blank" rel="noopener noreferrer">https://www.mayoclinic.org/ar/diseases-conditions/adhd/diagnosis-treatment/drc-20350895</a></li>
-<li><a href="https://www.eand.ae/ar/footer/about-us/media-centre/2024.html" target="_blank" rel="noopener noreferrer">https://www.eand.ae/ar/footer/about-us/media-centre/2024.html</a></li>
-<li><a href="https://recoilaudio.com/factors-to-consider-when-looking-to-buy-a-line-output-converter/" target="_blank" rel="noopener noreferrer">https://recoilaudio.com/factors-to-consider-when-looking-to-buy-a-line-output-converter/</a></li>
-</ul>
-</div>
                         </div>
                     </div>
                     <div class="topic-container" id="unit-1-topic-4">
@@ -746,25 +608,6 @@ body {
 <p>أهمية هذه المعايير تكمن في تعزيز الموثوقية والكفاءة التدريبية. أولاً، تقلل من الأعطال بنسبة تصل إلى 40% حسب دراسات صناعية، مما يوفر التكاليف. ثانياً، تدعم الامتثال لمعايير السلامة مثل ISO 13849، حيث يضمن الاختيار الدقيق حماية العمال. ثالثاً، في السياق التدريبي، تساعد المتدربين على بناء مهارات التحليل، كما في سيناريو عملي: تصميم ناقل لمحطة معالجة مياه مع تشويش عالي ورطوبة، حيث يُختار الألياف البصرية للمسافات الطويلة والـ RS-485 للمناطق المزدحمة.</p>
 <p>في الختام، يربط هذا المحور بين النظرية والتطبيق، ممهداً لمناقشة التنفيذ العملي في الوحدة التالية، ليصبح الاختيار أداة استراتيجية في يد المهندس الميكاترونيكس.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(القحطاني، م.، 2020). الاتصالات الصناعية في الميكاترونكس. دار النشر العربي للعلوم. [كتاب]</span></li>
-<li><span class="academic-ref">(السعدي، ع.، 2019). تطبيقات النواقل في البيئات الصناعية. مجلة الهندسة الكهربائية، 45(2)، 112-130. [مقالة علمية]</span></li>
-<li><span class="academic-ref">(IEEE، n.d.). Standards for Industrial Communication. IEEE Xplore. [موقع إلكتروني]</span></li>
-<li><span class="academic-ref">(Smith, J.، 2018). Industrial Data Communication Systems. Wiley. [كتاب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.sciencedirect.com/science/article/pii/S2210539525001786" target="_blank" rel="noopener noreferrer">https://www.sciencedirect.com/science/article/pii/S2210539525001786</a></li>
-<li><a href="https://www.helu.com/vn-en/how-to-select-correct-data-cables.html" target="_blank" rel="noopener noreferrer">https://www.helu.com/vn-en/how-to-select-correct-data-cables.html</a></li>
-<li><a href="https://www.bestconveyorbelt.com/lang/ar" target="_blank" rel="noopener noreferrer">https://www.bestconveyorbelt.com/lang/ar</a></li>
-<li><a href="https://ar.beausino.com/transmission-shafts/" target="_blank" rel="noopener noreferrer">https://ar.beausino.com/transmission-shafts/</a></li>
-<li><a href="https://www.geeksforgeeks.org/computer-networks/types-transmission-media/" target="_blank" rel="noopener noreferrer">https://www.geeksforgeeks.org/computer-networks/types-transmission-media/</a></li>
-<li><a href="https://electricschoolbusinitiative.org/equitable-deployment" target="_blank" rel="noopener noreferrer">https://electricschoolbusinitiative.org/equitable-deployment</a></li>
-</ul>
-</div>
                         </div>
                         <div class="subtopic-container" id="unit-1-topic-4-subtopic-2">
                             <h4 class="subtopic-title">
@@ -798,26 +641,51 @@ body {
 في السياق التدريبي، تساعد دراسة مثل هذه على تطوير مهارات التحليل لدى المتدربين. بدلًا من الاعتماد على النظرية، يتعلمون كيفية دمج عوامل مثل التكلفة (Profibus يكلف 500 دولار لكل عقدة) مع المتانة. على سبيل المثال، في تمرين عملي، يمكن للمتدربين محاكاة بيئة رطبة باستخدام برمجيات مثل MATLAB لاختبار النواقل افتراضيًا. هذا يربط المحور الحالي بما سيأتي لاحقًا في تصميم الشبكات الكاملة، مما يعزز الثقة في التعامل مع التحديات الصناعية.</h5>
 <p>باختصار، اختيار الناقل في بيئات التشغيل الصعبة يعتمد على توازن دقيق بين التحديات والحلول، كما رأينا في مصنع المعادن. هذا النهج يضمن أنظمة ميكاترونيكية موثوقة تدعم الإنتاج المستمر.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(Bender, K.، 2018). Industrial Communication Technology Handbook. IEEE Press. [كتاب]</span></li>
-<li><span class="academic-ref">(القحطاني، م. أ.، 2020). الاتصالات الصناعية في الهندسة الميكاترونيكية. الرياض: دار الملك سعود للنشر. [كتاب]</span></li>
-<li><span class="academic-ref">(Tanenbaum, A. S., &amp; Wetherall, D. J., 2011). Computer Networks (5th ed.). Upper Saddle River, NJ: Prentice Hall. [كتاب]</span></li>
-<li><span class="academic-ref">(السعدي، ع. ح.، 2019). تطبيقات الشبكات في الصناعات الثقيلة. عمان: دار المعرفة. [كتاب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.reddit.com/r/SASSWitches/comments/1epnx2e/just_moved_into_a_new_house_and_i_keep_getting/?tl=ar" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/SASSWitches/comments/1epnx2e/just_moved_into_a_new_house_and_i_keep_getting/?tl=ar</a></li>
-<li><a href="https://dorleco.com/can-bus-in-industrial-automation/" target="_blank" rel="noopener noreferrer">https://dorleco.com/can-bus-in-industrial-automation/</a></li>
-<li><a href="https://www.mdpi.com/2075-5309/14/8/2377" target="_blank" rel="noopener noreferrer">https://www.mdpi.com/2075-5309/14/8/2377</a></li>
-<li><a href="https://www.sciencedirect.com/science/article/pii/S0360544224013379" target="_blank" rel="noopener noreferrer">https://www.sciencedirect.com/science/article/pii/S0360544224013379</a></li>
-</ul>
-</div>
                         </div>
                     </div>
                 </div>
+
+                    <div class="unit-sources-container">
+                        <h4 class="sources-title">المراجع</h4>
+                        <ol class="sources-list">
+                    
+
+                                    <li><a href="https://thefusionreport.substack.com/p/why-data-centers-are-switching-to" target="_blank" rel="noopener noreferrer">Heumann, M. (2025). Why Data Centers Are Switching to High-Voltage DC Power</a></li>
+                                
+
+                                    <li><a href="https://www.sciencedirect.com/science/article/pii/S2352484722016596" target="_blank" rel="noopener noreferrer">sciencedirect.com. (2026). ScienceDirect</a></li>
+                                
+
+                                    <li><a href="https://www.csselectronics.com/pages/can-bus-simple-intro-tutorial" target="_blank" rel="noopener noreferrer">csselectronics.com. (2026). CAN Bus Explained - A Simple Intro 2026</a></li>
+                                
+
+                                    <li><a href="https://www.electromate.com/news/post/guide-to-mechatronics-part-6-applications-of-mechatronic-subsystems" target="_blank" rel="noopener noreferrer">electromate.com. (2024). Guide to Mechatronics - Part 6: Applications of Mechatronic Subsystems</a></li>
+                                
+
+                                    <li><a href="https://tractian.com/en/glossary/industrial-iot-sensors" target="_blank" rel="noopener noreferrer">tractian.com. (2026). Industrial IoT Sensors: Types, Applications and How They Work</a></li>
+                                
+
+                                    <li><a href="https://www.edge-ai-vision.com/2025/10/an-engineers-guide-on-data-and-control-buses-of-imaging-systems/" target="_blank" rel="noopener noreferrer">Brian Dipert. (2026). An Engineers Guide on Data and Control Buses of Imaging Systems - Edge AI and Vision Alliance</a></li>
+                                
+
+                                    <li><a href="https://www.eand.ae/ar/footer/about-us/media-centre/2024.html" target="_blank" rel="noopener noreferrer">eand.ae. (2026). Media Centre</a></li>
+                                
+
+                                    <li><a href="https://www.whathifi.com/advice/how-to-choose-and-set-stereo-amplifier" target="_blank" rel="noopener noreferrer">whathifi.com. (2026). How to choose and set up a stereo amplifier</a></li>
+                                
+
+                                    <li><a href="https://www.geeksforgeeks.org/computer-networks/types-transmission-media/" target="_blank" rel="noopener noreferrer">geeksforgeeks.org. (2026). Transmission Media in Computer Networks - GeeksforGeeks</a></li>
+                                
+
+                                    <li><a href="https://www.sciencedirect.com/science/article/pii/S0360544224013379" target="_blank" rel="noopener noreferrer">sciencedirect.com. (2026). No title</a></li>
+                                
+
+                                    <li><a href="https://www.sciencedirect.com/science/article/pii/S2210539525001786" target="_blank" rel="noopener noreferrer">sciencedirect.com. (2026). No title</a></li>
+                                
+
+                        </ol>
+                    </div>
+                    
             </section>
             <section class="unit-section" id="unit-2">
                 <div class="unit-header">
@@ -864,22 +732,6 @@ body {
 لتوضيح ذلك، اعتبر سيناريو حقيقي في مصنع سيارات: يستخدم نظام PLC (Programmable Logic Controller) بروتوكول Profinet لربط الروبوتات بالحساسات. هنا، يرسل الروبوت إشارة تحكم عبر الإطار: يبدأ برأس يحدد الوجهة، ثم بيانات الحركة، وينتهي بتحقق. إذا حدث خطأ في الاتصال، يعيد النظام الإرسال تلقائياً، مما يمنع توقف الخط. هذا التطبيق، المستوحى من حالات شركات مثل Siemens، يظهر كيف يحول البروتوكول الفوضى إلى تنسيق دقيق، مما يوفر ساعات عمل يومياً.</h5>
 <p>في الختام، يمثل فهم البروتوكول خطوة نحو إتقان الاتصالات في الميكاترونكس، حيث يربط بين النظرية والتطبيق لتحقيق أنظمة موثوقة. هذا يمهد لمناقشة دورها التفصيلي في تبادل البيانات في المحاور القادمة.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(Kurose, J. F., &amp; Ross, K. W., 2017). Computer networking: A top-down approach (7th ed.). Pearson. [Book]</span></li>
-<li><span class="academic-ref">(Tanenbaum, A. S., &amp; Wetherall, D. J., 2011). Computer networks (5th ed.). Pearson. [Book]</span></li>
-<li><span class="academic-ref">(الخالدي، ع.، 2018). أساسيات الشبكات في الميكاترونكس. مطبعة التقدم، عمان. [كتاب]</span></li>
-<li><span class="academic-ref">(السعيد، م.، 2020). بروتوكولات الاتصال في الأنظمة المدمجة والصناعية. دار الجامعة الجديدة، بيروت. [كتاب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://en.wikipedia.org/wiki/Communication_protocol" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Communication_protocol</a></li>
-<li><a href="https://www.ibm.com/think/topics/data-exchange" target="_blank" rel="noopener noreferrer">https://www.ibm.com/think/topics/data-exchange</a></li>
-<li><a href="https://www.geeksforgeeks.org/system-design/communication-protocols-in-system-design/" target="_blank" rel="noopener noreferrer">https://www.geeksforgeeks.org/system-design/communication-protocols-in-system-design/</a></li>
-</ul>
-</div>
                         </div>
                         <div class="subtopic-container" id="unit-2-topic-1-subtopic-2">
                             <h4 class="subtopic-title">
@@ -908,21 +760,6 @@ body {
 <p>في الختام، تُشكل أدوار البروتوكولات أساسًا للكفاءة في الأنظمة الصناعية، مما يمهد لفهم التطبيقات المتقدمة في الوحدة التالية.</p>
 <p>(عدد الكلمات: 752)</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(الشريف، أ. م.، 2020). بروتوكولات الاتصال في الأنظمة الصناعية. دار الجامعة الجديدة. [كتاب]</span></li>
-<li><span class="academic-ref">(القحطاني، س. ح.، 2018). الأنظمة المدمجة والميكاترونكس: تطبيقات الشبكات. منشورات الملك سعود. [كتاب]</span></li>
-<li><span class="academic-ref">(Kurose, J. F., &amp; Ross, K. W., 2017). Computer Networking: A Top-Down Approach (7th ed.). Pearson. [Book]</span></li>
-<li><span class="academic-ref">(Tanenbaum, A. S., &amp; Wetherall, D. J., 2011). Computer Networks (5th ed.). Prentice Hall. [Book]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://lab.wallarm.com/what/%D9%85%D8%A7-%D9%87%D9%88-%D8%A8%D8%B1%D9%88%D8%AA%D9%88%D9%83%D9%88%D9%84-coap%D8%9F-%D9%85%D8%B9%D9%86%D8%A7%D9%87-%D9%88%D8%A8%D9%86%D9%8A%D8%AA%D9%87/?lang=ar" target="_blank" rel="noopener noreferrer">https://lab.wallarm.com/what/%D9%85%D8%A7-%D9%87%D9%88-%D8%A8%D8%B1%D9%88%D8%AA%D9%88%D9%83%D9%88%D9%84-coap%D8%9F-%D9%85%D8%B9%D9%86%D8%A7%D9%87-%D9%88%D8%A8%D9%86%D9%8A%D8%AA%D9%87/?lang=ar</a></li>
-<li><a href="https://www.reddit.com/r/PLC/comments/1rst50v/built_my_own_industrial_control_platform_after/?tl=ar" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/PLC/comments/1rst50v/built_my_own_industrial_control_platform_after/?tl=ar</a></li>
-</ul>
-</div>
                         </div>
                     </div>
                     <div class="topic-container" id="unit-2-topic-2">
@@ -964,25 +801,6 @@ body {
 <p>في الختام، يرتبط هذا التفريق بالمحاور التالية حول أنواع البروتوكولات، حيث يصبح الناقل قاعدة لاختيار التقنيات المناسبة. هذا الفهم يمكن المتدربين من بناء أنظمة اتصال قوية، جاهزة للتحديات الصناعية.</p>
 <p>(عدد الكلمات التقريبي: 752)</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(Tanenbaum, A. S., &amp; Wetherall, D. J., 2011). Computer Networks (5th ed.). Prentice Hall. [Book]</span></li>
-<li><span class="academic-ref">(Kurose, J. F., &amp; Ross, K. W., 2020). Computer Networking: A Top-Down Approach (8th ed.). Pearson. [Book]</span></li>
-<li><span class="academic-ref">(الزعبي، م.، 2015). بروتوكولات الاتصال في الشبكات الصناعية. دار النهضة العربية. [كتاب]</span></li>
-<li><span class="academic-ref">(العريضي، خ.، n.d.). دليل الاتصالات في الميكاترونيكس. موقع الجمعية السعودية للهندسة. [Web]</span></li>
-<li><span class="academic-ref">(السيد، أ.، 2018). الأنظمة المدمجة: الاتصالات والتحكم. جامعة القاهرة للنشر. [كتاب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://en.wikipedia.org/wiki/OSI_model" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/OSI_model</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Bus_(computing)" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Bus_(computing)</a></li>
-<li><a href="https://www.geeksforgeeks.org/computer-networks/open-systems-interconnection-model-osi/" target="_blank" rel="noopener noreferrer">https://www.geeksforgeeks.org/computer-networks/open-systems-interconnection-model-osi/</a></li>
-<li><a href="https://www.momar.tech/2014/05/networking-protocols.html" target="_blank" rel="noopener noreferrer">https://www.momar.tech/2014/05/networking-protocols.html</a></li>
-<li><a href="https://www.ibm.com/sa-ar/think/topics/osi-model" target="_blank" rel="noopener noreferrer">https://www.ibm.com/sa-ar/think/topics/osi-model</a></li>
-</ul>
-</div>
                         </div>
                         <div class="subtopic-container" id="unit-2-topic-2-subtopic-2">
                             <h4 class="subtopic-title">
@@ -1019,23 +837,6 @@ body {
 في مصنع لتجميع الإلكترونيات، يربط ناقل RS-232 بين PLC وأجهزة الاستشعار، بينما يدير بروتوكول RS-232 التواصل التسلسلي. إذا ارتفع درجة الحرارة، يرسل الاستشعار إشارة عبر الناقل، ويترجمها البروتوكول إلى أمر إيقاف. هذا السيناريو يظهر كيف يعمل الاثنان معًا لمنع الأعطال، مع توفير بيانات تسجيل للصيانة الوقائية.</h5>
 <p>خلاصةً، يعزز هذا التكامل قدرة الأنظمة المدمجة على مواجهة التحديات الصناعية، مما يمهد لاستكشاف بروتوكولات محددة في المحاور التالية.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(Kurose, J. F., &amp; Ross, K. W., 2017). Computer networking: A top-down approach (7th ed.). Pearson. [كتاب]</span></li>
-<li><span class="academic-ref">(السعيد، م.، 2020). بروتوكولات الاتصال في الأنظمة المدمجة والصناعية. دار النهضة العربية. [كتاب]</span></li>
-<li><span class="academic-ref">(القحطاني، ع.، 2018). أنظمة الاتصالات الميكاترونيكية: من النظرية إلى التطبيق. جامعة الملك سعود. [كتاب]</span></li>
-<li><span class="academic-ref">(Tanenbaum, A. S., &amp; Wetherall, D. J., 2011). Computer networks (5th ed.). Prentice Hall. [كتاب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.geeksforgeeks.org/computer-organization-architecture/what-is-a-computer-bus/" target="_blank" rel="noopener noreferrer">https://www.geeksforgeeks.org/computer-organization-architecture/what-is-a-computer-bus/</a></li>
-<li><a href="https://vocational.edu.iq/wp-content/uploads/2024/01/%D8%B4%D8%A8%D9%83%D8%A7%D8%AA-%D8%A7%D9%84%D8%AD%D8%A7%D8%B3%D9%88%D8%A8-%D8%AB%D8%A7%D9%86%D9%8A-%D8%A8%D8%B9%D8%AF-%D8%A7%D9%84%D8%AA%D8%B9%D8%AF%D9%8A%D9%84-18-5-2023.pdf" target="_blank" rel="noopener noreferrer">https://vocational.edu.iq/wp-content/uploads/2024/01/%D8%B4%D8%A8%D9%83%D8%A7%D8%AA-%D8%A7%D9%84%D8%AD%D8%A7%D8%B3%D9%88%D8%A8-%D8%AB%D8%A7%D9%86%D9%8A-%D8%A8%D8%B9%D8%AF-%D8%A7%D9%84%D8%AA%D8%B9%D8%AF%D9%8A%D9%84-18-5-2023.pdf</a></li>
-<li><a href="https://www.embien.com/automotive-insights/in-vehicle-connectivity-guide-to-automotive-bus-protocols" target="_blank" rel="noopener noreferrer">https://www.embien.com/automotive-insights/in-vehicle-connectivity-guide-to-automotive-bus-protocols</a></li>
-<li><a href="https://ar.wikipedia.org/wiki/%D8%A7%D8%AA%D8%B5%D8%A7%D9%84_%D8%B9%D9%86_%D8%A8%D8%B9%D8%AF" target="_blank" rel="noopener noreferrer">https://ar.wikipedia.org/wiki/%D8%A7%D8%AA%D8%B5%D8%A7%D9%84_%D8%B9%D9%86_%D8%A8%D8%B9%D8%AF</a></li>
-</ul>
-</div>
                         </div>
                     </div>
                     <div class="topic-container" id="unit-2-topic-3">
@@ -1087,22 +888,6 @@ body {
 فكر في سيناريو حقيقي: تصميم لوحة تحكم لروبوت ميكاتروني يستخدم I2C لربط حساس للضوء (مثل TSL2561) مع متحكم Arduino. يقوم المتحكم بتهيئة الاتصال عبر مكتبة Wire.h، ثم يرسل عنوان الحساس (0x39). يُقرأ قيمة الضوء كل 100 مللي ثانية، وإذا تجاوزت حدًا معينًا، يُفعل LED. هذا التطبيق يُظهر كيف يُحسن I2C من استهلاك الطاقة بنسبة 70% مقارنة بالتواصل المتوازي، مع الحفاظ على الدقة في بيئة صناعية.</h5>
 <p>في الختام، يُعد I2C أساسًا لفهم الاتصالات المتقدمة في الميكاترونيكس، ممهدًا لبرتوكولات أكثر تعقيدًا مثل SPI في الوحدات القادمة.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(GeeksforGeeks, 2025). I2C Communication Protocol. GeeksforGeeks. [Web]</span></li>
-<li><span class="academic-ref">(عبد الله، س. ح.، 2020). بروتوكولات الشبكات في الهندسة الميكاترونية. مجلة الهندسة الكهربائية، 45(2)، 112-130. [مقالة مجلة]</span></li>
-<li><span class="academic-ref">(Tanenbaum, A. S., &amp; Wetherall, D. J., 2011). Computer Networks (5th ed.). Pearson. [كتاب]</span></li>
-<li><span class="academic-ref">(القحطاني، م. أ.، 2018). أنظمة الاتصال الرقمية في الإلكترونيات المدمجة. دار النشر العلمي. [كتاب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.geeksforgeeks.org/computer-organization-architecture/i2c-communication-protocol/" target="_blank" rel="noopener noreferrer">https://www.geeksforgeeks.org/computer-organization-architecture/i2c-communication-protocol/</a></li>
-<li><a href="https://electronics-go.com/articles/i2c-protocol/" target="_blank" rel="noopener noreferrer">https://electronics-go.com/articles/i2c-protocol/</a></li>
-<li><a href="https://halabtech.com/%D9%81%D9%87%D9%85-%D8%A8%D8%B1%D9%88%D8%AA%D9%88%D9%83%D9%88%D9%84-i2c-%D9%88-%D8%B9%D9%84%D8%A7%D9%82%D8%AA%D9%87-%D9%81%D9%8A-%D8%B5%D9%8A%D8%A7%D9%86%D8%A9-%D8%A7%D9%84%D9%87%D9%88%D8%A7%D8%AA/" target="_blank" rel="noopener noreferrer">https://halabtech.com/%D9%81%D9%87%D9%85-%D8%A8%D8%B1%D9%88%D8%AA%D9%88%D9%83%D9%88%D9%84-i2c-%D9%88-%D8%B9%D9%84%D8%A7%D9%82%D8%AA%D9%87-%D9%81%D9%8A-%D8%B5%D9%8A%D8%A7%D9%86%D8%A9-%D8%A7%D9%84%D9%87%D9%88%D8%A7%D8%AA/</a></li>
-</ul>
-</div>
                         </div>
                         <div class="subtopic-container" id="unit-2-topic-3-subtopic-2">
                             <h4 class="subtopic-title">
@@ -1135,21 +920,6 @@ body {
 تُبرز هذه الأمثلة أهمية I2C في بناء أنظمة موثوقة. أولاً، توفر التوافق مع حساسات متعددة، مما يقلل التكاليف في التصميم. ثانيًا، تدعم السرعة في جمع البيانات، حيث تتعامل مع 127 جهازًا على ناقل واحد. ثالثًا، تُعزز السلامة في التطبيقات الصناعية، مثل الكشف المبكر عن الأعطال. في التدريب، يمكن للمتدربين تجربة هذه الحساسات في مختبر، حيث يبنون دائرة بسيطة لقراءة بيانات، مما يعمق الفهم العملي. هذا يربط النظرية بالتطبيق، ويعد الطلاب لمشروعات حقيقية في الميكاترونكس.</h5>
 <p>في الختام، تُظهر تطبيقات I2C مع الحساسات كيف يصبح الناقل أداة أساسية للابتكار، ممهدة لمحاور متقدمة حول الاتصالات اللاسلكية.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(القحطاني، أ.، 2020). بروتوكولات الاتصال في الأنظمة المدمجة. دار الثقافة العربية. [كتاب]</span></li>
-<li><span class="academic-ref">(عبد الرحمن، م.، 2022). تطبيقات الحساسات في الميكاترونكس. مجلة الهندسة العربية، 45(2)، 112-130. [مقالة بحثية]</span></li>
-<li><span class="academic-ref">(LabJack Corporation, n.d.). I2C Sensor Examples. LabJack Public Support Documentation. [Web]</span></li>
-<li><span class="academic-ref">(Smith, J., 2018). Embedded Systems Interfacing with I2C Protocol. IEEE Press. [كتاب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://support.labjack.com/docs/i2c-sensor-examples" target="_blank" rel="noopener noreferrer">https://support.labjack.com/docs/i2c-sensor-examples</a></li>
-<li><a href="https://www.reddit.com/r/embedded/comments/vjf8dm/disadvantages_of_using_one_i2c_controller_to/" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/embedded/comments/vjf8dm/disadvantages_of_using_one_i2c_controller_to/</a></li>
-</ul>
-</div>
                         </div>
                     </div>
                     <div class="topic-container" id="unit-2-topic-4">
@@ -1186,24 +956,6 @@ body {
 لتوضيح الوظائف، اعتبر حالة واقعية في نظام مراقبة صناعي. يتصل متحكم Arduino بشاشة OLED عبر SPI لعرض قراءات حساس درجة الحرارة. الخطوط الرئيسية تشمل SCLK للساعة، MOSI لإرسال البيانات، MISO للاستقبال، وCS للاختيار. يبدأ النقل بتفعيل CS، ثم يرسل المتحكم أوامر SPI لتحديث الشاشة، مما يتيح عرضًا فوريًا. هذا التطبيق يظهر كيف تتجاوز سرعة SPI (حوالي 10 ميغاهيرتز هنا) الحدود التقليدية، مما يجعله أداة حيوية في المشاريع التدريبية.</h5>
 <p>في الختام، يربط تعريف SPI ووظائفه بباقي بروتوكولات الوحدة من خلال التركيز على الاتصال الداخلي السريع، مما يمهد لاستكشاف تطبيقات أوسع في الأنظمة الميكاترونيكية.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(Smith, J., 2018). Embedded Systems Communication Protocols. IEEE Press. [كتاب]</span></li>
-<li><span class="academic-ref">(القحطاني، أ.، 2020). بروتوكولات الاتصال في الأنظمة المدمجة. دار النشر الجامعي. [كتاب]</span></li>
-<li><span class="academic-ref">(GeeksforGeeks, 2025). What is Serial Peripheral Interface (SPI)? GeeksforGeeks. [Web]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.keysight.com/used/us/en/knowledge/glossary/oscilloscopes/what-is-spi-the-basics-of-serial-peripheral-interface" target="_blank" rel="noopener noreferrer">https://www.keysight.com/used/us/en/knowledge/glossary/oscilloscopes/what-is-spi-the-basics-of-serial-peripheral-interface</a></li>
-<li><a href="https://support.microsoft.com/ar-sa/topic/%D8%A7%D9%84%D8%AD%D9%82%D9%84-spi-d2f8cf9b-f7e6-4cdd-87d6-e5cbd27e0421" target="_blank" rel="noopener noreferrer">https://support.microsoft.com/ar-sa/topic/%D8%A7%D9%84%D8%AD%D9%82%D9%84-spi-d2f8cf9b-f7e6-4cdd-87d6-e5cbd27e0421</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Serial_Peripheral_Interface</a></li>
-<li><a href="https://ar.wikipedia.org/wiki/%D8%B3%D9%88%D9%86%D9%8A_%D8%A8%D9%8A%D9%83%D8%AA%D8%B4%D8%B1%D8%B2_%D8%A5%D9%8A%D9%85%D9%8A%D8%AC_%D9%88%D8%B1%D9%83%D8%B3" target="_blank" rel="noopener noreferrer">https://ar.wikipedia.org/wiki/%D8%B3%D9%88%D9%86%D9%8A_%D8%A8%D9%8A%D9%83%D8%AA%D8%B4%D8%B1%D8%B2_%D8%A5%D9%8A%D9%85%D9%8A%D8%AC_%D9%88%D8%B1%D9%83%D8%B3</a></li>
-<li><a href="https://www.geeksforgeeks.org/what-is-serial-peripheral-interface-spi/" target="_blank" rel="noopener noreferrer">https://www.geeksforgeeks.org/what-is-serial-peripheral-interface-spi/</a></li>
-<li><a href="https://hbrarabic.com/%D8%A7%D9%84%D9%85%D9%81%D8%A7%D9%87%D9%8A%D9%85-%D8%A7%D9%84%D8%A5%D8%AF%D8%A7%D8%B1%D9%8A%D8%A9/%D9%85%D8%A4%D8%B4%D8%B1-%D8%A3%D8%AF%D8%A7%D8%A1-%D8%A7%D9%84%D8%AC%D8%AF%D9%88%D9%84-%D8%A7%D9%84%D8%B2%D9%85%D9%86%D9%8A/" target="_blank" rel="noopener noreferrer">https://hbrarabic.com/%D8%A7%D9%84%D9%85%D9%81%D8%A7%D9%87%D9%8A%D9%85-%D8%A7%D9%84%D8%A5%D8%AF%D8%A7%D8%B1%D9%8A%D8%A9/%D9%85%D8%A4%D8%B4%D8%B1-%D8%A3%D8%AF%D8%A7%D8%A1-%D8%A7%D9%84%D8%AC%D8%AF%D9%88%D9%84-%D8%A7%D9%84%D8%B2%D9%85%D9%86%D9%8A/</a></li>
-</ul>
-</div>
                         </div>
                         <div class="subtopic-container" id="unit-2-topic-4-subtopic-2">
                             <h4 class="subtopic-title">
@@ -1242,26 +994,6 @@ body {
 في مصنع آلي، يتصل متحكم PIC بالذاكرة الفلاش عبر SPI لتخزين بيانات الإنتاج. عند الحاجة، يقرأ المتحكم البيانات ويرسلها إلى شاشة LCD للعرض. يتم الاتصال بتردد 20 ميغاهيرتز، حيث يرسل أمر القراءة (0x03) متبوعًا بالعنوان، ثم يتلقى 256 بايت في دورة واحدة. هذا السيناريو يظهر كيف يجمع SPI بين التخزين والعرض لتحسين الرؤية التشغيلية.</h5>
 <p>بهذا، يصبح SPI جسرًا حيويًا بين المتحكمات والأجهزة، مما يمهد لاستكشاف بروتوكولات أخرى في الوحدة التالية.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(STMicroelectronics, n.d.). AN2549: Getting started with eUSART. STMicroelectronics. [Web]</span></li>
-<li><span class="academic-ref">(عبد الله، أ.، 2018). أنظمة التحكم الآلي والإلكترونيات. مركز البحوث العلمية. [كتاب]</span></li>
-<li><span class="academic-ref">(السعدي، م.، 2020). بروتوكولات الاتصال في الأنظمة المدمجة والميكاترونيكس. دار الجامعة للنشر. [كتاب]</span></li>
-<li><span class="academic-ref">(Tanenbaum, A. S., &amp; Wetherall, D. J., 2011). Computer Networks (5th ed.). Prentice Hall. [Book]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.wevolver.com/article/spi-protocol" target="_blank" rel="noopener noreferrer">https://www.wevolver.com/article/spi-protocol</a></li>
-<li><a href="https://www.panoxdisplay.com/ar/knowledge/what-is-spi-communication-and-how-does-it-work.html" target="_blank" rel="noopener noreferrer">https://www.panoxdisplay.com/ar/knowledge/what-is-spi-communication-and-how-does-it-work.html</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Serial_Peripheral_Interface</a></li>
-<li><a href="https://www.reddit.com/r/embedded/comments/st0kp7/best_nonvolatile_spi_memory_for_extensive_read/" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/embedded/comments/st0kp7/best_nonvolatile_spi_memory_for_extensive_read/</a></li>
-<li><a href="https://halabtech.com/%D9%81%D9%87%D9%85-%D8%A8%D8%B1%D9%88%D8%AA%D9%88%D9%83%D9%88%D9%84-spi-%D9%88-%D8%B9%D9%84%D8%A7%D9%82%D8%AA%D9%87-%D9%81%D9%8A-%D8%B5%D9%8A%D8%A7%D9%86%D8%A9-%D8%A7%D9%84%D9%87%D9%88%D8%A7%D8%AA/" target="_blank" rel="noopener noreferrer">https://halabtech.com/%D9%81%D9%87%D9%85-%D8%A8%D8%B1%D9%88%D8%AA%D9%88%D9%83%D9%88%D9%84-spi-%D9%88-%D8%B9%D9%84%D8%A7%D9%82%D8%AA%D9%87-%D9%81%D9%8A-%D8%B5%D9%8A%D8%A7%D9%86%D8%A9-%D8%A7%D9%84%D9%87%D9%88%D8%A7%D8%AA/</a></li>
-<li><a href="https://lcamtuf.substack.com/p/mcu-land-part-2-mysteries-of-the" target="_blank" rel="noopener noreferrer">https://lcamtuf.substack.com/p/mcu-land-part-2-mysteries-of-the</a></li>
-<li><a href="https://www.reddit.com/r/raspberrypipico/comments/1olkyac/using_spi_for_micro_sd_card_on_picow_does_it/?tl=ar" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/raspberrypipico/comments/1olkyac/using_spi_for_micro_sd_card_on_picow_does_it/?tl=ar</a></li>
-</ul>
-</div>
                         </div>
                     </div>
                     <div class="topic-container" id="unit-2-topic-5">
@@ -1295,27 +1027,6 @@ body {
 في مصنع لتجميع الإلكترونيات، استخدم CAN لربط 20 وحدة تحكم. عندما حدث تشويش من مولد كهربائي قريب، استمرت الشبكة في العمل بكفاءة، حيث كشفت CRC عن الأخطاء وأعادت الإرسال تلقائيًا. هذا أدى إلى استمرار الإنتاج دون توقف، مما وفر ساعات عمل إضافية. المتدربون يمكنهم محاكاة هذا باستخدام لوحات Arduino مع وحدات MCP2515.</h5>
 <p>من خلال هذه المميزات، يمهد CAN الطريق لفهم بروتوكولات أكثر تعقيدًا مثل LIN أو FlexRay في الوحدة التالية، مع تعزيز المهارات العملية في التصميم الصناعي.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(السعيد، م.، 2018). بروتوكولات الاتصال في الأنظمة المدمجة والصناعية. دار الجامعة الجديدة، القاهرة. [كتاب]</span></li>
-<li><span class="academic-ref">(Tanenbaum, A. S., &amp; Wetherall, D. J., 2011). Computer Networks (5th ed.). Pearson. [كتاب]</span></li>
-<li><span class="academic-ref">(العمري، أ.، 2020). تطبيقات CAN في الميكاترونيكس الصناعية. مجلة الهندسة الكهربائية، جامعة الملك سعود، (45)، 112-130. [مقالة بحثية]</span></li>
-<li><span class="academic-ref">(ISO, 2003). ISO 11898-1: Road vehicles — Controller area network (CAN) — Part 1. International Organization for Standardization. [معيار]</span></li>
-<li><span class="academic-ref">(Bosch, 2012). CAN Specification Version 2.0. Robert Bosch GmbH. [كتاب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://community.st.com/t5/stm32-mcus-products/can-bus-massive-noise-on-the-bus-when-a-power-converter-starts/td-p/682045" target="_blank" rel="noopener noreferrer">https://community.st.com/t5/stm32-mcus-products/can-bus-massive-noise-on-the-bus-when-a-power-converter-starts/td-p/682045</a></li>
-<li><a href="https://electronics.stackexchange.com/questions/751487/should-canbus-transceiver-have-better-noise-immunity-than-rs485" target="_blank" rel="noopener noreferrer">https://electronics.stackexchange.com/questions/751487/should-canbus-transceiver-have-better-noise-immunity-than-rs485</a></li>
-<li><a href="https://www.canva.com/ar_eg/pro/" target="_blank" rel="noopener noreferrer">https://www.canva.com/ar_eg/pro/</a></li>
-<li><a href="https://en.wikipedia.org/wiki/CAN_bus" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/CAN_bus</a></li>
-<li><a href="https://can-am.brp.com/off-road/us/en/models/sxs/sport/maverick-r.html" target="_blank" rel="noopener noreferrer">https://can-am.brp.com/off-road/us/en/models/sxs/sport/maverick-r.html</a></li>
-<li><a href="https://www.geeksforgeeks.org/computer-networks/advantages-and-disadvantages-of-ring-topology/" target="_blank" rel="noopener noreferrer">https://www.geeksforgeeks.org/computer-networks/advantages-and-disadvantages-of-ring-topology/</a></li>
-<li><a href="https://www.keyence.com/ss/products/daq/lab/candata/merit.jsp" target="_blank" rel="noopener noreferrer">https://www.keyence.com/ss/products/daq/lab/candata/merit.jsp</a></li>
-</ul>
-</div>
                         </div>
                         <div class="subtopic-container" id="unit-2-topic-5-subtopic-2">
                             <h4 class="subtopic-title">
@@ -1355,21 +1066,6 @@ body {
 <h5 class="markdown-h5">الخلاصة والربط بالمحور التالي
 يظهر CAN كبروتوكول حيوي يحول الاستخدامات الصناعية إلى أنظمة ذكية وآمنة. من خلال هذه الأمثلة، يرى المتدربون كيف يدعم الميكاترونكس الإنتاجية. هذا يمهد لاستكشاف بروتوكولات أخرى مثل Modbus في الوحدة القادمة، حيث نعمق في الشبكات المتقدمة.</h5>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(ISO، 2015). ISO 11898-1: Road vehicles — Controller area network (CAN) — Part 1. International Organization for Standardization. [معيار]</span></li>
-<li><span class="academic-ref">(بوسش، 1986). Controller Area Network: أساسيات البروتوكول. Robert Bosch GmbH. [كتاب]</span></li>
-<li><span class="academic-ref">(Electromate, n.d.). A Guide to Controller Area Network (CAN) for Industrial Applications. Electromate Inc. [ويب]</span></li>
-<li><span class="academic-ref">(الزعبي، 2018). الاتصالات في الأنظمة المدمجة: تطبيقات صناعية. دار النشر العربية للعلوم. [كتاب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.electromate.com/news/post/a-guide-to-controller-area-network-can-for-industrial-applications" target="_blank" rel="noopener noreferrer">https://www.electromate.com/news/post/a-guide-to-controller-area-network-can-for-industrial-applications</a></li>
-<li><a href="https://sitaltech.com/gbp-how-did-can-bus-revolutionize-the-automotive-industry/" target="_blank" rel="noopener noreferrer">https://sitaltech.com/gbp-how-did-can-bus-revolutionize-the-automotive-industry/</a></li>
-</ul>
-</div>
                         </div>
                     </div>
                     <div class="topic-container" id="unit-2-topic-6">
@@ -1407,23 +1103,6 @@ body {
 في مختبر تدريبي للميكاترونيكس، يمكن للمتدربين بناء شبكة بسيطة: ربط PLC بجهاز حساس درجة حرارة عبر Modbus RTU، ثم توسيعها إلى TCP لمحاكاة شبكة صناعية. يرسلون أوامر قراءة، يحللون الردود، ويختبرون الأخطاء، مما يعزز المهارات العملية.</h5>
 <p>بهذا، يصبح Modbus أداة أساسية تربط بين النظرية والتطبيق، تمهيدًا لاستكشاف بروتوكولات أخرى في الوحدة.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(الشريف، ع. ح.، 2018). هندسة الميكاترونيكس والتحكم الآلي. عمان: دار المعرفة. [كتاب]</span></li>
-<li><span class="academic-ref">(Modbus Organization, n.d.). Modbus Protocol Specification. Modbus.org. [Web]</span></li>
-<li><span class="academic-ref">(القحطاني، م. أ.، 2020). بروتوكولات الاتصال في الأنظمة الصناعية. الرياض: دار الملك عبدالعزيز للنشر. [كتاب]</span></li>
-<li><span class="academic-ref">(Schneider Electric, 2022). Modbus RTU and TCP Implementation Guide. Schneider Electric Technical Documentation. [دليل فني]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.reddit.com/r/PLC/comments/1bx24zg/what_is_modbus_and_how_does_it_work/" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/PLC/comments/1bx24zg/what_is_modbus_and_how_does_it_work/</a></li>
-<li><a href="https://www.trugemtech.com/ar/%D9%85%D8%A7-%D9%87%D9%88-%D8%A7%D9%84%D9%85%D9%88%D8%AF%D8%A8%D9%88%D8%B3-%D9%88%D9%83%D9%8A%D9%81-%D9%8A%D8%B9%D9%85%D9%84%D8%9F/" target="_blank" rel="noopener noreferrer">https://www.trugemtech.com/ar/%D9%85%D8%A7-%D9%87%D9%88-%D8%A7%D9%84%D9%85%D9%88%D8%AF%D8%A8%D9%88%D8%B3-%D9%88%D9%83%D9%8A%D9%81-%D9%8A%D8%B9%D9%85%D9%84%D8%9F/</a></li>
-<li><a href="https://www.reddit.com/r/PLC/comments/z952aa/modbus_tcp_explained/" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/PLC/comments/z952aa/modbus_tcp_explained/</a></li>
-<li><a href="https://www.reddit.com/r/PLC/comments/1bx24zg/what_is_modbus_and_how_does_it_work/?tl=ar" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/PLC/comments/1bx24zg/what_is_modbus_and_how_does_it_work/?tl=ar</a></li>
-</ul>
-</div>
                         </div>
                         <div class="subtopic-container" id="unit-2-topic-6-subtopic-2">
                             <h4 class="subtopic-title">
@@ -1458,24 +1137,6 @@ Modbus يعمل كنموذج سيد-عبد (Master-Slave)، حيث يكون PLC 
 <p>خامسًا، يتكامل مع أنظمة أعلى مثل HMI، مما يوفر واجهات بصرية للمراقبة. في السياق التدريبي، يربط هذا بمهارات التشخيص العملي.</p>
 <p>هذه التطبيقات تربط Modbus بالمحاور التالية حول التحسينات المتقدمة، مما يبني فهمًا شاملاً للاتصالات الصناعية.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(القحطاني، أ. م.، 2020). بروتوكولات الاتصال في الأنظمة الآلية الصناعية. دار النشر الجامعي، الرياض. [كتاب]</span></li>
-<li><span class="academic-ref">(الهذلول، خ. ع.، 2019). تطبيقات الميكاترونيكس في التحكم الصناعي. مجلة الهندسة الكهربائية، جامعة الملك سعود. [مقالة مجلة]</span></li>
-<li><span class="academic-ref">(Smith, J.، 2018). Modbus Protocol Implementation for PLC Systems. Industrial Press. [كتاب]</span></li>
-<li><span class="academic-ref">(Modbus Organization، n.d.). Modbus Application Protocol Specification V1.1b. Modbus.org. [وثيقة ويب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.reddit.com/r/PLC/comments/1fvfmal/best_plc_for_modbus_tcp/" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/PLC/comments/1fvfmal/best_plc_for_modbus_tcp/</a></li>
-<li><a href="https://www.reddit.com/r/PLC/comments/1bx24zg/what_is_modbus_and_how_does_it_work/" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/PLC/comments/1bx24zg/what_is_modbus_and_how_does_it_work/</a></li>
-<li><a href="https://maplesystems.com/connecting-remote-io-to-plcs-over-modbus/?srsltid=AfmBOopUEBh6UCFxxRFl_dgqDSNoIFvGojCKEnq5eIfpp-fHgLi4Q9zb" target="_blank" rel="noopener noreferrer">https://maplesystems.com/connecting-remote-io-to-plcs-over-modbus/?srsltid=AfmBOopUEBh6UCFxxRFl_dgqDSNoIFvGojCKEnq5eIfpp-fHgLi4Q9zb</a></li>
-<li><a href="https://www.reddit.com/r/PLC/comments/1r2u3qo/modbus_tcpip_to_modbus_rtu/?tl=ar" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/PLC/comments/1r2u3qo/modbus_tcpip_to_modbus_rtu/?tl=ar</a></li>
-<li><a href="https://maplesystems.com/software/plc-programming-software/?srsltid=AfmBOopSgHFgZLtdmT2zByCxBJjEJ9DG038Hj0US_Jb7fkWV817vZt8W" target="_blank" rel="noopener noreferrer">https://maplesystems.com/software/plc-programming-software/?srsltid=AfmBOopSgHFgZLtdmT2zByCxBJjEJ9DG038Hj0US_Jb7fkWV817vZt8W</a></li>
-</ul>
-</div>
                         </div>
                     </div>
                     <div class="topic-container" id="unit-2-topic-7">
@@ -1510,22 +1171,6 @@ Profibus، أو Process Field Bus، هو بروتوكول اتصال ميدان�
 <p>في تطبيق عملي، اعتمد مصنع ألماني Profibus لربط 200 حساس في خط تجميع، مما أدى إلى زيادة الإنتاج بنسبة 15% دون أخطاء. هذا يربط المواصفات بالأداء الفعلي.</p>
 <p>للتلخيص، تُشكل مواصفات Profibus أساسًا قويًا للاتصالات الصناعية، ممهدة الطريق لاستكشاف تطبيقات متقدمة في الوحدة التالية.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(السعيد، م. (2018). بروتوكولات الاتصال في الأتمتة الصناعية. دار الجامعة الجديدة. [كتاب]</span></li>
-<li><span class="academic-ref">(عبد الله، أ. (2020). الأنظمة المدمجة والميكاترونكس. منشورات الجامعة الأمريكية في بيروت. [كتاب]</span></li>
-<li><span class="academic-ref">(Siemens AG. (2019). PROFIBUS and PROFINET International Specification. PI Organization. [تقرير فني]</span></li>
-<li><span class="academic-ref">(PPI. (n.d.). Profibus Technical Overview. PROFIBUS &amp; PROFINET International. [موقع إلكتروني]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.profibus.com/products/product-finder/profibus-termination-t1" target="_blank" rel="noopener noreferrer">https://www.profibus.com/products/product-finder/profibus-termination-t1</a></li>
-<li><a href="https://www.reddit.com/r/PLC/comments/1iolzke/what_is_profibus/" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/PLC/comments/1iolzke/what_is_profibus/</a></li>
-<li><a href="https://web-material3.yokogawa.com/GS34P02Q57-01E.pdf" target="_blank" rel="noopener noreferrer">https://web-material3.yokogawa.com/GS34P02Q57-01E.pdf</a></li>
-</ul>
-</div>
                         </div>
                         <div class="subtopic-container" id="unit-2-topic-7-subtopic-2">
                             <h4 class="subtopic-title">
@@ -1560,23 +1205,6 @@ Profibus، أو Process Field Bus، هو بروتوكول اتصال ميدان�
 لنجرب سيناريو بسيطًا: خط إنتاج مصغر للعبائق. ربط 10 أجهزة بـ Profibus باستخدام ماستر PLC من سيمنز. ابدأ بتكوين الشبكة عبر GSD files، ثم اختبر النقل في الوقت الفعلي. إذا حدث خطأ، يعيد البروتوكول التشخيص. هذا يعلم المتدربين التعامل مع الأخطاء العملية، مما يربط النظرية بالمهارة.</h5>
 <p>في الختام، تُظهر هذه الحالات كيف يعزز Profibus الاستقرار في الإنتاج. يمهد ذلك لاستكشاف بروتوكولات أخرى، مع الحفاظ على التركيز على التطبيقات الصناعية.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(عبد الله، أ.، 2018). تطبيقات الميكاترونكس في الإنتاج. جامعة القاهرة. [رسالة ماجستير]</span></li>
-<li><span class="academic-ref">(كلاوس، هـ.، 2021). Profibus in Automotive Production. Springer. [كتاب]</span></li>
-<li><span class="academic-ref">(القحطاني، س.، n.d.). أنظمة الاتصال المدمجة. موقع الجامعة السعودية الإلكتروني. [موقع إلكتروني]</span></li>
-<li><span class="academic-ref">(السعيد، م.، 2020). بروتوكولات الاتصال في الأنظمة الصناعية. دار النهضة العربية. [كتاب]</span></li>
-<li><span class="academic-ref">(سيمنز، 2019). دليل Profibus للتطبيقات الصناعية. سيمنز AG. [كتيب فني]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.reddit.com/r/PLC/comments/ukgjqb/question_iolink_asi_mpbus_profibus_profinet_pros/?tl=ar" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/PLC/comments/ukgjqb/question_iolink_asi_mpbus_profibus_profinet_pros/?tl=ar</a></li>
-<li><a href="https://www.reddit.com/r/PLC/comments/1iolzke/what_is_profibus/" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/PLC/comments/1iolzke/what_is_profibus/</a></li>
-<li><a href="https://amphenolltw.com/news-events/ethernet-vs-profinet-vs-profibus-vs-can-bus.html?srsltid=AfmBOop1WfUQkZOyBX2VqGZNOSxTlLXwZhzcv-AQqqHDUsP3qcShz8Tf" target="_blank" rel="noopener noreferrer">https://amphenolltw.com/news-events/ethernet-vs-profinet-vs-profibus-vs-can-bus.html?srsltid=AfmBOop1WfUQkZOyBX2VqGZNOSxTlLXwZhzcv-AQqqHDUsP3qcShz8Tf</a></li>
-</ul>
-</div>
                         </div>
                     </div>
                     <div class="topic-container" id="unit-2-topic-8">
@@ -1609,25 +1237,6 @@ Profibus، أو Process Field Bus، هو بروتوكول اتصال ميدان�
 <p>لتوضيح التطبيق العملي، اعتبر سيناريو مصنع روبوتات ميكاترونيكية. هنا، يربط Profinet الروبوتات بالنظام المركزي عبر Ethernet، مما يتيح نقل بيانات الملاحة في الوقت الفعلي. إذا حدث عطل في حساس، يقوم البروتوكول بإعادة التوجيه التلقائي، مما يحافظ على التدفق. هذا المثال يبرز كيف يحول Profinet الشبكات من مجرد أدوات إلى عناصر حيوية في الإنتاج الذكي.</p>
 <p>في الختام، تكمن أهمية Profinet في قدرته على بناء شبكات صناعية قوية تعتمد على Ethernet، مما يمهد الطريق لمناقشة تطبيقاته المتقدمة في المحاور التالية. هذا يعزز فهم المتدربين لدوره في تعزيز الابتكار الميكاترونيكي.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(Siemens AG, 2020). PROFINET in Industrial Automation. Siemens Technical Report. [تقرير]</span></li>
-<li><span class="academic-ref">(الزعبي، أ. م.، 2018). بروتوكولات الاتصال الصناعي: تطبيقات في الأنظمة المدمجة. دار النشر العلمي. [كتاب]</span></li>
-<li><span class="academic-ref">(عبد الرحمن، س. ح.، 2019). شبكات الاتصال في الميكاترونكس: دراسة حالات عملية. مجلة الهندسة الصناعية، 45(2)، 120-135. [مقالة مجلة]</span></li>
-<li><span class="academic-ref">(PROFIBUS &amp; PROFINET International, n.d.). PROFINET Benefits. PROFIBUS &amp; PROFINET International Website. [Web]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://profinews.com/2025/10/a-look-at-profinet-in-mechanical-engineering-applications/" target="_blank" rel="noopener noreferrer">https://profinews.com/2025/10/a-look-at-profinet-in-mechanical-engineering-applications/</a></li>
-<li><a href="https://www.amissiontech.com/ar/news/what-types-of-communication-cables-are-there.html" target="_blank" rel="noopener noreferrer">https://www.amissiontech.com/ar/news/what-types-of-communication-cables-are-there.html</a></li>
-<li><a href="https://www.ncsc.gov.bh/ar/cyberwiser/ics.html" target="_blank" rel="noopener noreferrer">https://www.ncsc.gov.bh/ar/cyberwiser/ics.html</a></li>
-<li><a href="https://www.atlascopco.com/ar-eg/compressors/wiki/compressed-air-articles/what-is-industrial-network" target="_blank" rel="noopener noreferrer">https://www.atlascopco.com/ar-eg/compressors/wiki/compressed-air-articles/what-is-industrial-network</a></li>
-<li><a href="https://www.profinet.com/profinet-explained/benefits" target="_blank" rel="noopener noreferrer">https://www.profinet.com/profinet-explained/benefits</a></li>
-<li><a href="https://www.profinet.com/profinet-explained/technology-description" target="_blank" rel="noopener noreferrer">https://www.profinet.com/profinet-explained/technology-description</a></li>
-</ul>
-</div>
                         </div>
                         <div class="subtopic-container" id="unit-2-topic-8-subtopic-2">
                             <h4 class="subtopic-title">
@@ -1666,25 +1275,6 @@ Profinet هو بروتوكول اتصال صناعي مفتوح يعتمد عل�
 لتوضيح، اعتبر سيناريو مصنع للأجهزة الإلكترونية. يتم ربط مسيطر PLC بثلاث آلات تجميع عبر Profinet. أولاً، يُهيأ الشبكة بتعيين عناوين IP فريدة لكل جهاز. ثم، ينقل البروتوكول بيانات السرعة والموضع في الوقت الفعلي، مما يمنع التصادمات. إذا حدث عطل، يقوم النظام بإعادة التوجيه التلقائي. هذا التطبيق يقلل وقت الإعداد إلى دقائق، ويوفر تدريبًا عمليًا للمتدربين في حل المشكلات.</h5>
 <p>في الختام، تعزز مزايا Profinet الكفاءة في الأنظمة الصناعية، مما يمهد لمناقشة بروتوكولات أخرى في الوحدة التالية. يساعد هذا الفهم المتدربين على بناء أنظمة ميكاترونيكية متقدمة.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(القحطاني، م. أ., 2018). بروتوكولات الاتصال الصناعي في الأتمتة. دار النهضة العربية. [كتاب]</span></li>
-<li><span class="academic-ref">(عبد الرحمن، س. ح., 2021). تطبيقات Profinet في الأنظمة المدمجة. مجلة الهندسة الصناعية. [مجلة أكاديمية]</span></li>
-<li><span class="academic-ref">(Fieldbus Foundation, 2019). Industrial Ethernet Protocols: Profinet Applications. Automation.com. [مقالة إلكترونية]</span></li>
-<li><span class="academic-ref">(Siemens AG, 2020). PROFINET System Description. Siemens AG. [كتاب]</span></li>
-<li><span class="academic-ref">(PROFIBUS &amp; PROFINET International, n.d.). Advantages of PROFINET in Industrial Automation. PI Organization. [موقع إلكتروني]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://en.wikipedia.org/wiki/Profinet" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Profinet</a></li>
-<li><a href="https://www.reddit.com/r/PLC/comments/ukgjqb/question_iolink_asi_mpbus_profibus_profinet_pros/" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/PLC/comments/ukgjqb/question_iolink_asi_mpbus_profibus_profinet_pros/</a></li>
-<li><a href="https://ar.vectorque.com/news_nc1" target="_blank" rel="noopener noreferrer">https://ar.vectorque.com/news_nc1</a></li>
-<li><a href="https://www.profinet.com/profinet-explained/benefits" target="_blank" rel="noopener noreferrer">https://www.profinet.com/profinet-explained/benefits</a></li>
-<li><a href="https://www.profinet.com/profinet-explained/technology-description" target="_blank" rel="noopener noreferrer">https://www.profinet.com/profinet-explained/technology-description</a></li>
-</ul>
-</div>
                         </div>
                     </div>
                     <div class="topic-container" id="unit-2-topic-9">
@@ -1729,24 +1319,6 @@ Profinet هو بروتوكول اتصال صناعي مفتوح يعتمد عل�
 في مصنع للأجهزة الإلكترونية، يستخدم نظام زمن حقيقي لنقل بيانات من حساسات الحرارة إلى وحدة التحكم. إذا ارتفعت درجة الحرارة، يرد النظام خلال 10 ميلي ثوانٍ بإيقاف المحرك. هذا يمنع الحرائق ويحافظ على الإنتاج. المتدربون يمارسون محاكاة هذا عبر برمجيات مثل MATLAB لفهم التدفق.</h5>
 <p>في الختام، يربط مفهوم الزمن الحقيقي بين النظرية والتطبيق في الاتصالات الصناعية، ممهدًا لاستكشاف بروتوكولات مثل EtherCAT في المحور التالي.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(القحطاني، م. أ.، 2020). بروتوكولات الاتصال في الأنظمة الصناعية المدمجة. الرياض: دار الجامعة السعودية للنشر. [كتاب]</span></li>
-<li><span class="academic-ref">(الشريف، ع. ح.، 2019). الزمن الحقيقي في شبكات التحكم الصناعي. عمان: منشورات الجامعة الأردنية. [كتاب]</span></li>
-<li><span class="academic-ref">(الفضلي، س. م.، 2022). تطبيقات الميكاترونيكس في التصنيع الحديث. الدوحة: مركز قطر للدراسات الهندسية. [كتاب]</span></li>
-<li><span class="academic-ref">(Tanenbaum, A. S., &amp; Wetherall, D. J.، 2011). Computer Networks (5th ed.). Upper Saddle River, NJ: Prentice Hall. [Book]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.ti.com/technologies/industrial-communication.html" target="_blank" rel="noopener noreferrer">https://www.ti.com/technologies/industrial-communication.html</a></li>
-<li><a href="https://lkhibra.ma/ar/roadmaps/embedded-systems-developer/" target="_blank" rel="noopener noreferrer">https://lkhibra.ma/ar/roadmaps/embedded-systems-developer/</a></li>
-<li><a href="https://www.zebra.com/us/en/industry/manufacturing/use-case/unified-communication.html" target="_blank" rel="noopener noreferrer">https://www.zebra.com/us/en/industry/manufacturing/use-case/unified-communication.html</a></li>
-<li><a href="https://ar.wikipedia.org/wiki/%D8%AD%D9%88%D8%B3%D8%A8%D8%A9_%D9%81%D9%8A_%D8%B2%D9%85%D9%86_%D8%AD%D9%82%D9%8A%D9%82%D9%8A" target="_blank" rel="noopener noreferrer">https://ar.wikipedia.org/wiki/%D8%AD%D9%88%D8%B3%D8%A8%D8%A9_%D9%81%D9%8A_%D8%B2%D9%85%D9%86_%D8%AD%D9%82%D9%8A%D9%82%D9%8A</a></li>
-<li><a href="https://www.sciencedirect.com/science/article/pii/S0195925524000039" target="_blank" rel="noopener noreferrer">https://www.sciencedirect.com/science/article/pii/S0195925524000039</a></li>
-</ul>
-</div>
                         </div>
                         <div class="subtopic-container" id="unit-2-topic-9-subtopic-2">
                             <h4 class="subtopic-title">
@@ -1776,22 +1348,6 @@ EtherCAT، أو Ethernet for Control Automation Technology، هو بروتوكو
 في مصنع لتجميع الإلكترونيات، يُستخدم EtherCAT لربط 50 وحدة روبوتية. يقوم الـ Master بإرسال أوامر التنقل، وتستجيب الوحدات فوراً لترتيب المكونات بدقة 0.01 مم. هذا السيناريو يظهر كيف يقلل البروتوكول من وقت الدورة بنسبة 70% مقارنة بإيثرنت التقليدي، مما يزيد الإنتاجية. المتدربون يمكنهم تجربة ذلك عبر برمجيات محاكاة، لفهم تأثير التأخير على الكفاءة.</h5>
 <p>في الختام، توفر هذه المقدمة أساساً لاستكشاف بروتوكولات أخرى، مع التركيز على دمج EtherCAT في مشاريع ميكاترونيكية حقيقية.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(Beckhoff Automation, 2023). EtherCAT: The Ethernet Fieldbus System for Real-Time Applications. Beckhoff Automation GmbH. [تقرير]</span></li>
-<li><span class="academic-ref">(IPC2U, 2022). Overview of the EtherCAT protocol and devices based on it. IPC2U Knowledge Base. [Web]</span></li>
-<li><span class="academic-ref">(السعيد، أ. م.، 2020). بروتوكولات الاتصال الصناعي في الأنظمة المدمجة. دار النشر العربية للعلوم التقنية. [كتاب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.microchip.com/en-us/products/high-speed-networking-and-video/ethernet/ethercat-technology-solutions" target="_blank" rel="noopener noreferrer">https://www.microchip.com/en-us/products/high-speed-networking-and-video/ethernet/ethercat-technology-solutions</a></li>
-<li><a href="https://www.nxp.com/docs/en/fact-sheet/ETHERCATFS.pdf" target="_blank" rel="noopener noreferrer">https://www.nxp.com/docs/en/fact-sheet/ETHERCATFS.pdf</a></li>
-<li><a href="https://ipc2u.com/articles/knowledge-base/overview-of-the-ethercat-protocol-and-devices-based-on-it/" target="_blank" rel="noopener noreferrer">https://ipc2u.com/articles/knowledge-base/overview-of-the-ethercat-protocol-and-devices-based-on-it/</a></li>
-<li><a href="https://www.industrymiddleeast.com/news/page/3" target="_blank" rel="noopener noreferrer">https://www.industrymiddleeast.com/news/page/3</a></li>
-</ul>
-</div>
                         </div>
                     </div>
                     <div class="topic-container" id="unit-2-topic-10">
@@ -1838,23 +1394,6 @@ EtherCAT، أو Ethernet for Control Automation Technology، هو بروتوكو
 <h5 class="markdown-h5">خلاصة وارتباط بالمحاور التالية
 معايير المقارنة توفر إطاراً منطقياً لتقييم البروتوكولات، مما يمهد لمقارنة محددة في المحور القادم. هذا الفهم يبني أساساً قوياً لتصميم أنظمة ميكاترونيكية فعالة.</h5>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(Smith, J., 2018). Industrial Communication Protocols: Standards and Comparisons. IEEE Press. [كتاب]</span></li>
-<li><span class="academic-ref">(Tanenbaum, A. S., &amp; Wetherall, D. J., 2011). Computer Networks (5th ed.). Pearson. [كتاب]</span></li>
-<li><span class="academic-ref">(عبد الله، س.، n.d.). معايير الأمان في الشبكات الصناعية. موقع الجمعية السعودية للهندسة. [ويب]</span></li>
-<li><span class="academic-ref">(القحطاني، م.، 2019). الأنظمة المدمجة في الميكاترونكس. مجلة الهندسة الصناعية، 45(2)، 120-135. [مقالة مجلة]</span></li>
-<li><span class="academic-ref">(السعيد، أ.، 2020). بروتوكولات الاتصال الصناعية: تصميم وتطبيقات. دار النشر الجامعية. [كتاب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://expanice.com/article/iot-communication-protocols-comparison" target="_blank" rel="noopener noreferrer">https://expanice.com/article/iot-communication-protocols-comparison</a></li>
-<li><a href="https://www.reddit.com/r/embedded/comments/18l9w9l/when_to_use_which_communication_protocol/" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/embedded/comments/18l9w9l/when_to_use_which_communication_protocol/</a></li>
-<li><a href="https://aws.amazon.com/ar/compare/the-difference-between-ipv4-and-ipv6/" target="_blank" rel="noopener noreferrer">https://aws.amazon.com/ar/compare/the-difference-between-ipv4-and-ipv6/</a></li>
-</ul>
-</div>
                         </div>
                         <div class="subtopic-container" id="unit-2-topic-10-subtopic-2">
                             <h4 class="subtopic-title">
@@ -1883,23 +1422,6 @@ EtherCAT، أو Ethernet for Control Automation Technology، هو بروتوكو
 في مصنع لإنتاج اللوحات الإلكترونية، حيث تُراقب 100 جهاز على مسافة 300 متر، اختير Ethernet/IP كبديل. يوفر Ethernet/IP سرعة 100 Mbps، يدعم آلاف الأجهزة، ويغطي مسافات طويلة عبر الألياف البصرية. التكاليف متوسطة، والأمان ممتاز مع دعم IPsec. لكن في حالة الإنتاج، تطلب البنية التحتية المتقدمة، مما أدى إلى تأخير التنفيذ. مقارنة بـ CAN، يقلل Ethernet/IP من التأخيرات بنسبة 50%، لكنه أغلى في الصيانة.</h5>
 <p>من خلال هذه الحالات، يتضح أن الاختيار يعتمد على السياق: CAN للسرعة في السيارات، Modbus للتكلفة المنخفضة في التصنيع البسيط، وProfibus للأمان في الأتمتة المعقدة. هذا التحليل يمهد لفهم كيفية دمج هذه البروتوكولات في مشاريع ميكاترونكس حقيقية، مما يعزز المهارات العملية للمتدربين.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(Johns, D., 2018). Industrial Communication Technology Handbook. Wiley. [Book]</span></li>
-<li><span class="academic-ref">(السيد، م.، 2020). بروتوكولات الاتصال في الأنظمة المدمجة. دار الجامعة الجديدة. [كتاب]</span></li>
-<li><span class="academic-ref">(أحمد، ع.، 2019). الأتمتة الصناعية والاتصالات. منشورات الهندسة. [كتاب]</span></li>
-<li><span class="academic-ref">(Tanenbaum, A. S., &amp; Wetherall, D. J., 2011). Computer Networks. Pearson. [Book]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.automationanywhere.com/ae/rpa/multi-agent-systems" target="_blank" rel="noopener noreferrer">https://www.automationanywhere.com/ae/rpa/multi-agent-systems</a></li>
-<li><a href="https://www.geeksforgeeks.org/computer-networks/advantages-and-disadvantages-of-dedicated-ip-addresses/" target="_blank" rel="noopener noreferrer">https://www.geeksforgeeks.org/computer-networks/advantages-and-disadvantages-of-dedicated-ip-addresses/</a></li>
-<li><a href="https://continuation.passing.style/static/papers/oopsla24.pdf" target="_blank" rel="noopener noreferrer">https://continuation.passing.style/static/papers/oopsla24.pdf</a></li>
-<li><a href="https://www.reddit.com/r/ThePittTVShow/comments/1rnhfq8/parallel_between_ovarian_and_testicular_torsion/?tl=ar" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/ThePittTVShow/comments/1rnhfq8/parallel_between_ovarian_and_testicular_torsion/?tl=ar</a></li>
-</ul>
-</div>
                         </div>
                     </div>
                     <div class="topic-container" id="unit-2-topic-11">
@@ -1947,24 +1469,6 @@ EtherCAT، أو Ethernet for Control Automation Technology، هو بروتوكو
 <p>في الختام، يعزز هذا المفهوم القدرة على بناء أنظمة ميكاترونيكية متينة. يمهد لمناقشة التحديات التقنية في المحاور التالية.</p>
 <p>(عدد الكلمات التقريبي: 750)</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(Smith, J., &amp; Johnson, R., 2019). Protocol Integration in Mechatronic Systems. IEEE Transactions on Industrial Informatics. [مقالة بحثية]</span></li>
-<li><span class="academic-ref">(الخالدي، أ. م.، 2020). تكامل الأنظمة المدمجة في الصناعات الحديثة. دار النشر العلمي. [كتاب]</span></li>
-<li><span class="academic-ref">(عبد الله، س. ح.، 2018). بروتوكولات الاتصال في الروبوتات الصناعية. مجلة الهندسة الكهربائية العربية. [مجلة]</span></li>
-<li><span class="academic-ref">(Averna, n.d.). Robotics and Mechatronics Integration Services. Averna Website. [Web]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.ibm.com/ae-ar/think/topics/integration-testing" target="_blank" rel="noopener noreferrer">https://www.ibm.com/ae-ar/think/topics/integration-testing</a></li>
-<li><a href="https://aws.amazon.com/ar/what-is/application-integration/" target="_blank" rel="noopener noreferrer">https://aws.amazon.com/ar/what-is/application-integration/</a></li>
-<li><a href="https://www.momar.tech/2014/05/networking-protocols.html" target="_blank" rel="noopener noreferrer">https://www.momar.tech/2014/05/networking-protocols.html</a></li>
-<li><a href="https://www.averna.com/en/expertise/robotics-motion" target="_blank" rel="noopener noreferrer">https://www.averna.com/en/expertise/robotics-motion</a></li>
-<li><a href="https://www.lenovo.com/ca/en/glossary/what-is-protocol/?srsltid=AfmBOopKXFf0vZZh1AqOKQqcwwKflrqOM3UafXLdXFCBq5_5CGeWrJtj" target="_blank" rel="noopener noreferrer">https://www.lenovo.com/ca/en/glossary/what-is-protocol/?srsltid=AfmBOopKXFf0vZZh1AqOKQqcwwKflrqOM3UafXLdXFCBq5_5CGeWrJtj</a></li>
-</ul>
-</div>
                         </div>
                         <div class="subtopic-container" id="unit-2-topic-11-subtopic-2">
                             <h4 class="subtopic-title">
@@ -1993,24 +1497,114 @@ EtherCAT، أو Ethernet for Control Automation Technology، هو بروتوكو
 <p>هذه الأمثلة توضح أن تكامل البروتوكولات ليس مجرد تقنية، بل استراتيجية لتحسين الأداء. في السياق التدريبي، يساعد فهمها المتدربين على تصميم أنظمة ميكاترونيكية موثوقة. الخطوة التالية ستكون استكشاف التحديات والحلول المتقدمة.</p>
 <p>(عدد الكلمات التقريبي: 750)</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(Siemens AG, n.d.). Profibus and Profinet international. Siemens. [تقرير فني]</span></li>
-<li><span class="academic-ref">(Tanenbaum, A. S., &amp; Wetherall, D. J., 2011). Computer networks (5th ed.). Pearson. [كتاب]</span></li>
-<li><span class="academic-ref">(القحطاني، خ. ع.، 2018). تطبيقات الأنظمة المدمجة في الصناعات الحديثة. جامعة الملك سعود. [أطروحة دكتوراه]</span></li>
-<li><span class="academic-ref">(السعيد، أ. م.، 2020). بروتوكولات الاتصال في الأتمتة الصناعية والميكاترونيكس. دار النهضة العربية. [كتاب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.microchip.com/en-us/education/case-studies" target="_blank" rel="noopener noreferrer">https://www.microchip.com/en-us/education/case-studies</a></li>
-<li><a href="https://www.momar.tech/2014/05/networking-protocols.html" target="_blank" rel="noopener noreferrer">https://www.momar.tech/2014/05/networking-protocols.html</a></li>
-</ul>
-</div>
                         </div>
                     </div>
                 </div>
+
+                    <div class="unit-sources-container">
+                        <h4 class="sources-title">المراجع</h4>
+                        <ol class="sources-list">
+                    
+
+                                    <li><a href="https://www.advantech.com/en-us/resources/industry-focus/understanding-industrial-communication-protocols-a-comprehensive-guide" target="_blank" rel="noopener noreferrer">advantech.com. (2025). Understanding Industrial Communication Protocols: A Comprehensive Guide</a></li>
+                                
+
+                                    <li><a href="https://www.geeksforgeeks.org/system-design/communication-protocols-in-system-design/" target="_blank" rel="noopener noreferrer">geeksforgeeks.org. (2026). Communication Protocols in System Design - GeeksforGeeks</a></li>
+                                
+
+                                    <li><a href="https://www.gigaspaces.com/data-terms/data-exchange" target="_blank" rel="noopener noreferrer">gigaspaces.com. (2026). What is a Data Exchange | GigaSpaces</a></li>
+                                
+
+                                    <li><a href="https://www.csselectronics.com/pages/can-bus-simple-intro-tutorial" target="_blank" rel="noopener noreferrer">csselectronics.com. (2026). CAN Bus Explained - A Simple Intro 2026</a></li>
+                                
+
+                                    <li><a href="https://www.geeksforgeeks.org/computer-networks/open-systems-interconnection-model-osi/" target="_blank" rel="noopener noreferrer">geeksforgeeks.org. (2026). What is OSI Model | 7 Layers Explained - GeeksforGeeks</a></li>
+                                
+
+                                    <li><a href="https://www.imperva.com/learn/application-security/osi-model/" target="_blank" rel="noopener noreferrer">imperva.com. (2026). What is OSI Model | 7 Layers Explained | Imperva</a></li>
+                                
+
+                                    <li><a href="https://halabtech.com/%D9%81%D9%87%D9%85-%D8%A8%D8%B1%D9%88%D8%AA%D9%88%D9%83%D9%88%D9%84-i2c-%D9%88-%D8%B9%D9%84%D8%A7%D9%82%D8%AA%D9%87-%D9%81%D9%8A-%D8%B5%D9%8A%D8%A7%D9%86%D8%A9-%D8%A7%D9%84%D9%87%D9%88%D8%A7%D8%AA/" target="_blank" rel="noopener noreferrer">ahmadmohmedsaeed. (2025). فهم بروتوكول I2C و علاقته في صيانة الهواتف المحمولة - حلب تك - Halabtech</a></li>
+                                
+
+                                    <li><a href="https://electronics-go.com/articles/i2c-protocol/" target="_blank" rel="noopener noreferrer">Mohammad Hannan. (2026). أساسيات بروتوكول الاتصال I2C</a></li>
+                                
+
+                                    <li><a href="https://www.geeksforgeeks.org/computer-organization-architecture/i2c-communication-protocol/" target="_blank" rel="noopener noreferrer">geeksforgeeks.org. (2025). I2C Communication Protocol - GeeksforGeeks</a></li>
+                                
+
+                                    <li><a href="https://halabtech.com/%D9%81%D9%87%D9%85-%D8%A8%D8%B1%D9%88%D8%AA%D9%88%D9%83%D9%88%D9%84-spi-%D9%88-%D8%B9%D9%84%D8%A7%D9%82%D8%AA%D9%87-%D9%81%D9%8A-%D8%B5%D9%8A%D8%A7%D9%86%D8%A9-%D8%A7%D9%84%D9%87%D9%88%D8%A7%D8%AA/" target="_blank" rel="noopener noreferrer">ahmadmohmedsaeed. (2025). فهم بروتوكول SPI و علاقته في صيانة الهواتف المحمولة - حلب تك - Halabtech</a></li>
+                                
+
+                                    <li><a href="https://www.geeksforgeeks.org/what-is-serial-peripheral-interface-spi/" target="_blank" rel="noopener noreferrer">geeksforgeeks.org. (2025). What is Serial Peripheral Interface (SPI) - GeeksforGeeks</a></li>
+                                
+
+                                    <li><a href="https://hbrarabic.com/%D8%A7%D9%84%D9%85%D9%81%D8%A7%D9%87%D9%8A%D9%85-%D8%A7%D9%84%D8%A5%D8%AF%D8%A7%D8%B1%D9%8A%D8%A9/%D9%85%D8%A4%D8%B4%D8%B1-%D8%A3%D8%AF%D8%A7%D8%A1-%D8%A7%D9%84%D8%AC%D8%AF%D9%88%D9%84-%D8%A7%D9%84%D8%B2%D9%85%D9%86%D9%8A/" target="_blank" rel="noopener noreferrer">hbrarabic.com. (2026). شرح معنى  مؤشر أداء الجدول الزمني  | دليل مصطلحات هارفارد بزنس ريفيو</a></li>
+                                
+
+                                    <li><a href="https://www.electromate.com/news/post/a-guide-to-controller-area-network-can-for-industrial-applications" target="_blank" rel="noopener noreferrer">electromate.com. (2024). A Guide to Controller Area Network (CAN) for Industrial Applications</a></li>
+                                
+
+                                    <li><a href="https://www.ni.com/en/shop/seamlessly-connect-to-third-party-devices-and-supervisory-system/controller-area-network--can--overview.html?srsltid=AfmBOorAkMTzRh5kAGDWqPY3ZZbDsbSJgUMjoQEpInQ0Z5GbdkF3asWr" target="_blank" rel="noopener noreferrer">ni.com. (2026). Controller Area Network (CAN) Protocol Overview</a></li>
+                                
+
+                                    <li><a href="https://www.multitel.com/difference-between-modbus-rtu-vs-tcp/" target="_blank" rel="noopener noreferrer">Neivi Oros. (2025). What is Modbus RTU vs Modbus TCPIP - Multitel</a></li>
+                                
+
+                                    <li><a href="https://www.ni.com/en/shop/seamlessly-connect-to-third-party-devices-and-supervisory-system/the-modbus-protocol-in-depth.html?srsltid=AfmBOooREDaRN8fCWu8IdRqKlqzv2tB8N9uQEJ2t1JSTMOOt3HDjt2V0" target="_blank" rel="noopener noreferrer">ni.com. (2025). What is the Modbus Protocol  How Does It Work</a></li>
+                                
+
+                                    <li><a href="https://scw.ai/news/product/modbus-plc/" target="_blank" rel="noopener noreferrer">scw.ai. (2024). Modbus PLC: An Automated Way of Collecting Factory Data</a></li>
+                                
+
+                                    <li><a href="https://ar.pcm-cable.com/info/what-is-the-difference-between-profinet-cables-94970490.html" target="_blank" rel="noopener noreferrer">ar.pcm-cable.com. (2024). م الفرق بين كابلات PROFINET و بروتوكولات PROFIBUS - معهد</a></li>
+                                
+
+                                    <li><a href="https://resources.l-p.com/glossary/profibus-guide-industrial-fieldbus-basics-automation" target="_blank" rel="noopener noreferrer">resources.l-p.com. (2025). Understanding PROFIBUS (Process Field Bus) for Industrial Networks</a></li>
+                                
+
+                                    <li><a href="https://www.shineindustrygroup.com/everything-about-profibus-cable-and-connector/" target="_blank" rel="noopener noreferrer">shineindustrygroup.com. (2026). PROFIBUS Cable  Connector Guide : Specifications, Types  Installation TipsPROFIBUS Cable  Connector Guide : Specifications, Types  Installation Tips - Shine Industry</a></li>
+                                
+
+                                    <li><a href="https://www.atlascopco.com/ar-eg/compressors/wiki/compressed-air-articles/what-is-industrial-network" target="_blank" rel="noopener noreferrer">Atlas Copco. (2026). ما الشبكة الصناعية - Atlas Copco</a></li>
+                                
+
+                                    <li><a href="https://www.profinet.com/profinet-explained/benefits" target="_blank" rel="noopener noreferrer">profinet.com. (2026). PROFINET Benefits</a></li>
+                                
+
+                                    <li><a href="https://www.prosoft-technology.com/insights/technology-focus/Benefits-of-the-PROFINET-Industrial-Protocol" target="_blank" rel="noopener noreferrer">prosoft-technology.com. (2026). PROFINETs Importance in Industrial Applications</a></li>
+                                
+
+                                    <li><a href="https://electronics-go.com/articles/rtos/" target="_blank" rel="noopener noreferrer">Al-Ali, A. (2026). نظام تشغيل الزمن الحقيقي (RTOS): مكوناته وأنواعه وأمثلة</a></li>
+                                
+
+                                    <li><a href="https://resources.l-p.com/knowledge-center/ethercat-definitive-guide-realtime-industrial-ethernet" target="_blank" rel="noopener noreferrer">resources.l-p.com. (2025). EtherCAT Explained: The Definitive Guide to Real-Time Industrial Ethernet</a></li>
+                                
+
+                                    <li><a href="https://www.sciencedirect.com/science/article/pii/S0195925524000039" target="_blank" rel="noopener noreferrer">sciencedirect.com. (2026). ScienceDirect</a></li>
+                                
+
+                                    <li><a href="https://www.aljazeera.net/tech/2025/3/16/%D9%87%D9%84-%D8%AA%D9%83%D9%88%D9%86-%D8%A7%D9%84%D8%A8%D8%B1%D9%88%D8%AA%D9%88%D9%83%D9%88%D9%84%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D9%81%D8%AA%D9%88%D8%AD%D8%A9-%D9%86%D9%87%D8%A7%D9%8A%D8%A9" target="_blank" rel="noopener noreferrer">أحمد عنتر. (2025). هل تكون البروتوكولات المفتوحة نهاية احتكار فيسبوك وتويتر</a></li>
+                                
+
+                                    <li><a href="https://www.covidence.org/wp-content/uploads/2024/10/A_practical_guide_Protocol_Development_for_Systematic_Reviews.pdf" target="_blank" rel="noopener noreferrer">covidence.org. (2024). No title</a></li>
+                                
+
+                                    <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12580923/" target="_blank" rel="noopener noreferrer">pmc.ncbi.nlm.nih.gov. (2025). Estimating per-protocol effects in external comparator analyses using real-world data - PMC</a></li>
+                                
+
+                                    <li><a href="https://aws.amazon.com/ar/what-is/application-integration/" target="_blank" rel="noopener noreferrer">aws.amazon.com. (2026). ما هو تكامل التطبيقات - شرح تكامل التطبيقات - AWS</a></li>
+                                
+
+                                    <li><a href="https://www.mechatronicscanada.ca/latest-articles/communication-interfaces/" target="_blank" rel="noopener noreferrer">mechatronicscanada.ca. (2024). A Basic Guide to the Types of Communication Interfaces Used in Mechatronic Automation - Mechatronics Canada</a></li>
+                                
+
+                                    <li><a href="https://nimbusdata.com/company/case-studies/" target="_blank" rel="noopener noreferrer">nimbusdata.com. (2026). Case Studies | Nimbus Data</a></li>
+                                
+
+                        </ol>
+                    </div>
+                    
             </section>
             <section class="unit-section" id="unit-3">
                 <div class="unit-header">
@@ -2054,22 +1648,6 @@ EtherCAT، أو Ethernet for Control Automation Technology، هو بروتوكو
 <h5 class="markdown-h5">الخلاصة والربط بالمحور التالي
 في النهاية، الأمان في نقل البيانات يبني جسرًا بين الابتكار والحماية في الميكاترونكس. يساعد في تجنب الكوارث الصغيرة التي تتحول إلى أزمات كبرى. هذا يمهد لفهم الأنواع المحددة من التهديدات في المحور القادم، حيث سنستعرض كيفية الدفاع العملي.</h5>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(السعدي، ف. ح. (2019). حماية البيانات في بيئات التحكم الآلي. مجلة الهندسة الصناعية العربية، 45(2)، 112-130. [مقالة بحثية]</span></li>
-<li><span class="academic-ref">(القحطاني، ع. م. (2020). الأمن السيبراني في الأنظمة الصناعية. دار النشر العلمي. [كتاب]</span></li>
-<li><span class="academic-ref">(Amazon Web Services, n.d.). What is cybersecurity? AWS. [Web]</span></li>
-<li><span class="academic-ref">(NIST, 2018). Framework for improving critical infrastructure cybersecurity. National Institute of Standards and Technology. [تقرير]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.microsoft.com/ar/security/business/security-101/what-is-data-protection" target="_blank" rel="noopener noreferrer">https://www.microsoft.com/ar/security/business/security-101/what-is-data-protection</a></li>
-<li><a href="https://aws.amazon.com/ar/what-is/cybersecurity/" target="_blank" rel="noopener noreferrer">https://aws.amazon.com/ar/what-is/cybersecurity/</a></li>
-<li><a href="https://clearnetwork.com/industrial-cybersecurity-manufacturing-protection/" target="_blank" rel="noopener noreferrer">https://clearnetwork.com/industrial-cybersecurity-manufacturing-protection/</a></li>
-</ul>
-</div>
                         </div>
                         <div class="subtopic-container" id="unit-3-topic-1-subtopic-2">
                             <h4 class="subtopic-title">
@@ -2105,20 +1683,6 @@ EtherCAT، أو Ethernet for Control Automation Technology، هو بروتوكو
 <p>على سبيل المثال تطبيقي، في حادثة Stuxnet عام 2010، استُخدمت هجمات replay وspoofing لتعديل بيانات التحكم في مفاعلات نووية، مما يظهر كيف يمكن لنقل غير آمن أن يهدد بنى تحتية كبيرة. هذا يربط مباشرة بالحاجة لتعزيز الأمان في نقل البيانات نحو المحاور التالية حول الإجراءات الوقائية.</p>
 <p>(عدد الكلمات تقريباً: 750)</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(الجابري، أ. م.، 2020). أمن المعلومات في الأنظمة الصناعية. دار النشر العربي للعلوم. [كتاب]</span></li>
-<li><span class="academic-ref">(Smith, J., &amp; Johnson, R., 2018). Cybersecurity in Industrial Control Systems. IEEE Press. [كتاب]</span></li>
-<li><span class="academic-ref">(OWASP Foundation, n.d.). M9: Insecure Data Storage. OWASP. [Web]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://owasp.org/www-project-mobile-top-10/2023-risks/m9-insecure-data-storage" target="_blank" rel="noopener noreferrer">https://owasp.org/www-project-mobile-top-10/2023-risks/m9-insecure-data-storage</a></li>
-<li><a href="https://lazarusalliance.com/ar/%D9%86%D9%82%D8%A7%D8%B7-%D8%A7%D9%84%D8%B6%D8%B9%D9%81-%D9%81%D9%8A-%D8%A7%D9%84%D9%88%D8%B5%D9%88%D9%84-%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D8%A8%D8%B4%D8%B1%D9%8A-%D9%88%D8%A7%D9%84%D8%A3%D9%85%D9%86-%D8%A7%D9%84%D8%B3%D9%8A%D8%A8%D8%B1%D8%A7%D9%86%D9%8A-%D8%A7%D9%84%D8%AD%D8%AF%D9%8A%D8%AB/" target="_blank" rel="noopener noreferrer">https://lazarusalliance.com/ar/%D9%86%D9%82%D8%A7%D8%B7-%D8%A7%D9%84%D8%B6%D8%B9%D9%81-%D9%81%D9%8A-%D8%A7%D9%84%D9%88%D8%B5%D9%88%D9%84-%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D8%A8%D8%B4%D8%B1%D9%8A-%D9%88%D8%A7%D9%84%D8%A3%D9%85%D9%86-%D8%A7%D9%84%D8%B3%D9%8A%D8%A8%D8%B1%D8%A7%D9%86%D9%8A-%D8%A7%D9%84%D8%AD%D8%AF%D9%8A%D8%AB/</a></li>
-</ul>
-</div>
                         </div>
                     </div>
                     <div class="topic-container" id="unit-3-topic-2">
@@ -2156,24 +1720,6 @@ EtherCAT، أو Ethernet for Control Automation Technology، هو بروتوكو
 لتوضيح التطبيق، اعتبر سيناريو مصنع للإلكترونيات يستخدم شبكة ميكاترونيكية. يبدأ النقل بتشفير البيانات باستخدام AES داخل الشبكة الداخلية، ثم يتم مصادقتها عبر PKI قبل الإرسال إلى السحابة. إذا حاول مهاجم التدخل، يفشل في فك التشفير أو انتحال الهوية. هذا التكامل يجعل النظام مرناً وقابلاً للتوسع، ويُطبق في برمجيات مثل Wireshark لمراقبة الاتصالات.</h5>
 <p>في الختام، تُعد استراتيجيات التشفير والمصادقة أدوات أساسية لبناء بيئات نقل بيانات آمنة، تربطنا بفعاليات متقدمة مثل إدارة المخاطر في الشبكات الصناعية.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(السعدي، ع. ح.، 2019). استراتيجيات حماية البيانات في الشبكات الذكية. مجلة الهندسة الكهربائية، 45(2)، 120-135. [مقالة مجلة]</span></li>
-<li><span class="academic-ref">(Kiteworks, n.d.). Secure File Transfer Standards and Uses. Kiteworks Website. [Web]</span></li>
-<li><span class="academic-ref">(Stallings, W.، 2017). Cryptography and Network Security: Principles and Practice. Pearson. [Book]</span></li>
-<li><span class="academic-ref">(القحطاني، م. أ.، 2020). أمن المعلومات في الأنظمة الصناعية. دار النشر العلمي. [كتاب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.ibm.com/sa-ar/think/insights/data-protection-strategy" target="_blank" rel="noopener noreferrer">https://www.ibm.com/sa-ar/think/insights/data-protection-strategy</a></li>
-<li><a href="https://aws.amazon.com/ar/what-is/data-transfer/" target="_blank" rel="noopener noreferrer">https://aws.amazon.com/ar/what-is/data-transfer/</a></li>
-<li><a href="https://vivatech.com/news/encryption-and-authentication-your-first-line-of-defense-against-data-breaches" target="_blank" rel="noopener noreferrer">https://vivatech.com/news/encryption-and-authentication-your-first-line-of-defense-against-data-breaches</a></li>
-<li><a href="https://www.microsoft.com/ar/security/business/security-101/what-is-data-protection" target="_blank" rel="noopener noreferrer">https://www.microsoft.com/ar/security/business/security-101/what-is-data-protection</a></li>
-<li><a href="https://www.kiteworks.com/secure-file-transfer/file-transfer-standards-uses/" target="_blank" rel="noopener noreferrer">https://www.kiteworks.com/secure-file-transfer/file-transfer-standards-uses/</a></li>
-</ul>
-</div>
                         </div>
                         <div class="subtopic-container" id="unit-3-topic-2-subtopic-2">
                             <h4 class="subtopic-title">
@@ -2209,24 +1755,6 @@ EtherCAT، أو Ethernet for Control Automation Technology، هو بروتوكو
 دعونا ننظر إلى حالة واقعية في مصنع للآلات الدقيقة: المهندسون ينقلون بيانات التحكم من أجهزة الاستشعار إلى وحدات التحكم المركزية عبر Ethernet. يبدأون بتطبيق TLS للتشفير، ثم يستخدمون firewall لمراقبة الاتصالات، وأخيرًا يختبرون النظام ببيانات اصطناعية مُولدة في AWS لمحاكاة هجوم. هذا السيناريو يضمن نقلًا آمنًا، حيث اكتشف الاختبار ثغرة في البروتوكول، مُصلحًا قبل الإطلاق. يتيح هذا النهج للمتدربين تجربة عملية، مع ربطها بالمهارات التالية في الصيانة.</h5>
 <p>بهذا، تتحول التطبيقات إلى أدوات يومية تحمي البيانات، ممهدة لمناقشة التقييم المستمر في الوحدة التالية.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(الشركة العربية للأمن الإلكتروني, 2022). أمان الشبكات في البيئات الصناعية. دار النشر العلمي. [كتاب]</span></li>
-<li><span class="academic-ref">(Amazon Web Services, n.d.). ما هي البيانات الاصطناعية؟ AWS. [ويب]</span></li>
-<li><span class="academic-ref">(Stallings, W., 2017). Cryptography and Network Security: Principles and Practice (7th ed.). Pearson. [كتاب]</span></li>
-<li><span class="academic-ref">(الزعبي، م. ح., 2020). تقنيات التشفير في الميكاترونكس. مجلة الهندسة الصناعية، 15(2)، 45-60. [مقالة علمية]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.wiz.io/academy/compliance/data-security-compliance" target="_blank" rel="noopener noreferrer">https://www.wiz.io/academy/compliance/data-security-compliance</a></li>
-<li><a href="https://4tinternational.com/information-technology/" target="_blank" rel="noopener noreferrer">https://4tinternational.com/information-technology/</a></li>
-<li><a href="https://www.ibm.com/think/topics/data-security" target="_blank" rel="noopener noreferrer">https://www.ibm.com/think/topics/data-security</a></li>
-<li><a href="https://www.reddit.com/r/sysadmin/comments/1mpcepq/what_are_you_all_using_for_secure_large_file_send/" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/sysadmin/comments/1mpcepq/what_are_you_all_using_for_secure_large_file_send/</a></li>
-<li><a href="https://aws.amazon.com/ar/what-is/synthetic-data/" target="_blank" rel="noopener noreferrer">https://aws.amazon.com/ar/what-is/synthetic-data/</a></li>
-</ul>
-</div>
                         </div>
                     </div>
                     <div class="topic-container" id="unit-3-topic-3">
@@ -2267,22 +1795,6 @@ EtherCAT، أو Ethernet for Control Automation Technology، هو بروتوكو
 <p><strong class="markdown-subtitle">#### 3. الهجمات السيبرانية (Cyber Attacks)</strong><br>تشمل الهجمات السيبرانية مجموعة واسعة من الإجراءات الرقمية، مثل DDoS أو البرمجيات الضارة، التي تستهدف الخوادم أو الأجهزة في الشبكات الصناعية. في الميكاترونيكس، قد يستهدف هجوم Ransomware نظام SCADA، مما يشفر البيانات ويطالب بفدية. على سبيل المثال، إذا أصاب فيروس أجهزة التحكم في مصنع إلكترونيات، يمكن أن يوقف الإنتاج كله. تُصنف هذه الهجمات حسب النوع: الدخول غير المصرح (Intrusion) عبر ثغرات البرمجيات، أو الهندسة الاجتماعية لخداع الموظفين. للحماية، يُطبق مبدأ Least Privilege، الذي يحد من الوصول، بالإضافة إلى تحديثات منتظمة. تطبيق عملي: في سيناريو تدريبي، يمكن محاكاة هجوم DDoS على شبكة افتراضية باستخدام أدوات مثل LOIC، ثم شرح كيفية استخدام firewalls لصد الطلبات الزائدة. حالة حقيقية: هجوم Stuxnet عام 2010 على منشآت نووية إيرانية أظهر كيف يمكن للهجمات السيبرانية أن تدمر معدات ميكاترونيكية دون لمس فيزيائي.</p>
 <p>في الختام، يربط فهم هذه التهديدات بين النظرية والتطبيق في الميكاترونيكس، مما يمهد لمناقشة الحلول في المحاور التالية. هذا الوعي يجعل المتدربين أكثر كفاءة في تصميم أنظمة آمنة.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(بن عبد الله، ع.، 2019). التهديدات السيبرانية في البيئات الصناعية. مجلة الهندسة الكهربائية العربية. [كتاب]</span></li>
-<li><span class="academic-ref">(Smith, J., &amp; Al-Mansoori, K., 2018). Cyber Threats in Industrial IoT. IEEE Transactions on Industrial Informatics. [مقالة بحثية]</span></li>
-<li><span class="academic-ref">(Johnson, R., n.d.). Network Security Fundamentals. Industrial Press. [كتاب]</span></li>
-<li><span class="academic-ref">(السيد، م. أ.، 2020). أمان الشبكات في الصناعات الآلية. دار النشر العربية للعلوم. [كتاب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://europe-arabs.com/news/7309" target="_blank" rel="noopener noreferrer">https://europe-arabs.com/news/7309</a></li>
-<li><a href="https://nordlayer.com/learn/threats/eavesdropping/" target="_blank" rel="noopener noreferrer">https://nordlayer.com/learn/threats/eavesdropping/</a></li>
-<li><a href="https://aawsat.com/%D8%AA%D9%83%D9%86%D9%88%D9%84%D9%88%D8%AC%D9%8A%D8%A7/5215193-%D9%85%D9%86-%D8%A7%D9%84%D8%AA%D8%B5%D9%8A%D9%91%D8%AF-%D8%A5%D9%84%D9%89-%D8%A7%D9%84%D8%A7%D8%AE%D8%AA%D8%B1%D8%A7%D9%82%E2%80%A6-%D9%83%D9%8A%D9%81-%D8%AA%D8%AA%D8%BA%D9%8A%D8%B1-%D9%85%D9%84%D8%A7%D9%85%D8%AD-%D8%A7%D9%84%D8%AA%D9%87%D8%AF%D9%8A%D8%AF%D8%A7%D8%AA-%D8%A7%D9%84%D8%B3%D9%8A%D8%A8%D8%B1%D8%A7%D9%86%D9%8A%D8%A9-%D9%81%D9%8A-%D8%A7%D9%84%D8%A8%D9%86%D9%8A%D8%A9-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D9%8A%D8%A9" target="_blank" rel="noopener noreferrer">https://aawsat.com/%D8%AA%D9%83%D9%86%D9%88%D9%84%D9%88%D8%AC%D9%8A%D8%A7/5215193-%D9%85%D9%86-%D8%A7%D9%84%D8%AA%D8%B5%D9%8A%D9%91%D8%AF-%D8%A5%D9%84%D9%89-%D8%A7%D9%84%D8%A7%D8%AE%D8%AA%D8%B1%D8%A7%D9%82%E2%80%A6-%D9%83%D9%8A%D9%81-%D8%AA%D8%AA%D8%BA%D9%8A%D8%B1-%D9%85%D9%84%D8%A7%D9%85%D8%AD-%D8%A7%D9%84%D8%AA%D9%87%D8%AF%D9%8A%D8%AF%D8%A7%D8%AA-%D8%A7%D9%84%D8%B3%D9%8A%D8%A8%D8%B1%D8%A7%D9%86%D9%8A%D8%A9-%D9%81%D9%8A-%D8%A7%D9%84%D8%A8%D9%86%D9%8A%D8%A9-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D9%8A%D8%A9</a></li>
-</ul>
-</div>
                         </div>
                         <div class="subtopic-container" id="unit-3-topic-3-subtopic-2">
                             <h4 class="subtopic-title">
@@ -2311,25 +1823,45 @@ EtherCAT، أو Ethernet for Control Automation Technology، هو بروتوكو
 <p>أهمية هذه الطرق تكمن في قدرتها على تحويل التهديدات من كارثة إلى فرصة لتعزيز الأمان، خاصة في الميكاترونكس حيث يعتمد السلامة على سرعة الاستجابة. 1. تقلل من وقت التوقف: الكشف المبكر يوفر ساعات إنتاج، كما في حالات DDoS التي يمكن إيقافها في دقائق. 2. تحمي الملكية الفكرية: الاستجابة الفعالة تحول دون سرقة تصاميم الآلات. 3. تلبي الامتثال التنظيمي: في الصناعات، تساعد في الالتزام بمعايير مثل ISO 27001، مما يتجنب الغرامات. 4. تعزز الثقة: التعامل السليم يبني سمعة الشركة أمام العملاء.</p>
 <p>في الختام، يربط هذا التعامل بالمراحل التالية في تعزيز التشفير، ليصبح الأمان جزءاً متكاملاً من التصميم الصناعي.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(القحطاني، س. ح.، 2022). طرق كشف التهديدات السيبرانية في الأنظمة الآلية. مجلة الهندسة الصناعية، 15(2)، 45-60. [مقالة مجلة]</span></li>
-<li><span class="academic-ref">(السعيد، أ. م.، 2020). أمان الشبكات الصناعية في عصر الثورة الرقمية. دار النشر العربي. [كتاب]</span></li>
-<li><span class="academic-ref">(IBM, n.d.). What Is Data Security? IBM. [Web]</span></li>
-<li><span class="academic-ref">(Smith, J., &amp; Johnson, R., 2019). Cybersecurity in Industrial Environments. IEEE Press. [كتاب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://objectfirst.com/guides/data-security/data-security-explained-in-details/" target="_blank" rel="noopener noreferrer">https://objectfirst.com/guides/data-security/data-security-explained-in-details/</a></li>
-<li><a href="https://www.ibm.com/think/topics/data-detection-response" target="_blank" rel="noopener noreferrer">https://www.ibm.com/think/topics/data-detection-response</a></li>
-<li><a href="https://www.ibm.com/think/topics/data-security" target="_blank" rel="noopener noreferrer">https://www.ibm.com/think/topics/data-security</a></li>
-</ul>
-</div>
                         </div>
                     </div>
                 </div>
+
+                    <div class="unit-sources-container">
+                        <h4 class="sources-title">المراجع</h4>
+                        <ol class="sources-list">
+                    
+
+                                    <li><a href="https://www.fortinet.com/resources/cyberglossary/data-security" target="_blank" rel="noopener noreferrer">fortinet.com. (2025). Data Security: Definition, Importance, and Types | Fortinet</a></li>
+                                
+
+                                    <li><a href="https://www.greatamericaninsurancegroup.com/content-hub/loss-control/details/file-sharing-security-emerging-risks-and-ways-to-help-mitigate-them" target="_blank" rel="noopener noreferrer">greatamericaninsurancegroup.com. (2026). File-Sharing Security: Emerging Risks and Ways to Help Mitigate Them - Loss Control - Great American Insurance Group</a></li>
+                                
+
+                                    <li><a href="https://aws.amazon.com/ar/what-is/cybersecurity/" target="_blank" rel="noopener noreferrer">aws.amazon.com. (2026). ما هو الأمن السيبراني - شرح الأمن السيبراني - AWS</a></li>
+                                
+
+                                    <li><a href="https://aws.amazon.com/ar/what-is/data-transfer/" target="_blank" rel="noopener noreferrer">aws.amazon.com. (2026). ما المقصود بنقل البيانات - شرح نقل البيانات - AWS</a></li>
+                                
+
+                                    <li><a href="https://vivatech.com/news/encryption-and-authentication-your-first-line-of-defense-against-data-breaches" target="_blank" rel="noopener noreferrer">vivatech.com. (2026). Utilizing encryption and authentication to prevent data breaches</a></li>
+                                
+
+                                    <li><a href="https://www.wiz.io/academy/compliance/data-security-compliance" target="_blank" rel="noopener noreferrer">wiz.io. (2026). Data security compliance: A practical guide for CISOs | Wiz</a></li>
+                                
+
+                                    <li><a href="https://aawsat.com/%D8%AA%D9%83%D9%86%D9%88%D9%84%D9%88%D8%AC%D9%8A%D8%A7/5215193-%D9%85%D9%86-%D8%A7%D9%84%D8%AA%D8%B5%D9%8A%D9%91%D8%AF-%D8%A5%D9%84%D9%89-%D8%A7%D9%84%D8%A7%D8%AE%D8%AA%D8%B1%D8%A7%D9%82%E2%80%A6-%D9%83%D9%8A%D9%81-%D8%AA%D8%AA%D8%BA%D9%8A%D8%B1-%D9%85%D9%84%D8%A7%D9%85%D8%AD-%D8%A7%D9%84%D8%AA%D9%87%D8%AF%D9%8A%D8%AF%D8%A7%D8%AA-%D8%A7%D9%84%D8%B3%D9%8A%D8%A8%D8%B1%D8%A7%D9%86%D9%8A%D8%A9-%D9%81%D9%8A-%D8%A7%D9%84%D8%A8%D9%86%D9%8A%D8%A9-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D9%8A%D8%A9" target="_blank" rel="noopener noreferrer">aawsat.com. (2026). من التصيد إلى الاختراق كيف تتغير ملامح التهديدات السيبرانية في البنية الصناعية السعودية</a></li>
+                                
+
+                                    <li><a href="https://www.crowdstrike.com/en-us/cybersecurity-101/cyberattacks/common-cyberattacks/" target="_blank" rel="noopener noreferrer">crowdstrike.com. (2026). Types of Cyberattacks</a></li>
+                                
+
+                                    <li><a href="https://europe-arabs.com/news/7309" target="_blank" rel="noopener noreferrer">europe-arabs.com. (2026). مخاطر خفية تهدد الأنظمة الرقمية العالمية المترابطة .. انقطاع الكابلات البحرية وتعطل الأقمار الصناعية واضطرابات واسعة في شبكات الاتصالات .. تقرير دولي يدعو لتعزيز المرونة والتأهب</a></li>
+                                
+
+                        </ol>
+                    </div>
+                    
             </section>
             <section class="unit-section" id="unit-4">
                 <div class="unit-header">
@@ -2384,24 +1916,6 @@ EtherCAT، أو Ethernet for Control Automation Technology، هو بروتوكو
 لتوضيح المفهوم، دعونا نأخذ حالة واقعية من صناعة الطاقة الشمسية. في مزرعة شمسية كبيرة، يقوم SCADA بجمع بيانات من آلاف الألواح الشمسية عبر حساسات الإشعاع والجهد. عند انخفاض كفاءة لوح معين بسبب الغبار، يرسل النظام إشارة إلى فريق الصيانة مع خريطة دقيقة للموقع. في الوقت نفسه، يعدل المتحكمات زاوية اللوحات لتعظيم الإنتاج. هذا السيناريو، المستوحى من مشاريع حقيقية في الشرق الأوسط، يظهر كيف يحول SCADA التحديات البيئية إلى فرص، مما يوفر الطاقة ويقلل التكاليف بنسبة ملحوظة.</h5>
 <p>في الختام، يُعد مفهوم SCADA أساسًا لأي تطبيق ميكاترونيكي متقدم، حيث يربط بين الاتصالات والتحكم لتحقيق الاستدامة. هذا الفهم يمهد الطريق لاستكشاف واجهات الإنسان-الآلة في المحاور التالية، مما يعزز قدرات المتدربين على بناء أنظمة موثوقة.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(Petroski, n.d.). Introduction to SCADA Systems. Automation.com. [ويب]</span></li>
-<li><span class="academic-ref">(القحطاني، 2018). أنظمة التحكم الآلي والسكادا في الصناعات الحديثة. دار النشر العلمي. [كتاب]</span></li>
-<li><span class="academic-ref">(الشريف، 2022). تطبيقات SCADA في الهندسة الميكاترونيكية. مجلة الهندسة العربية، 45(2)، 112-130. [مقالة علمية]</span></li>
-<li><span class="academic-ref">(Boyer, 2020). SCADA: Supervisory Control and Data Acquisition. ISA Press. [كتاب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://processsolutions.com/understanding-scada-and-what-it-can-do-for-you/" target="_blank" rel="noopener noreferrer">https://processsolutions.com/understanding-scada-and-what-it-can-do-for-you/</a></li>
-<li><a href="https://egypt4industry.org/ar/%D9%85%D8%A7-%D8%A7%D9%84%D9%81%D8%B1%D9%82-%D8%A8%D9%8A%D9%86-mes-%D9%88-scada/" target="_blank" rel="noopener noreferrer">https://egypt4industry.org/ar/%D9%85%D8%A7-%D8%A7%D9%84%D9%81%D8%B1%D9%82-%D8%A8%D9%8A%D9%86-mes-%D9%88-scada/</a></li>
-<li><a href="https://faculty.ksu.edu.sa/sites/default/files/1211%20CYS%20-%20Lecture%2004%20-%20Part%201-Translate.pptx" target="_blank" rel="noopener noreferrer">https://faculty.ksu.edu.sa/sites/default/files/1211%20CYS%20-%20Lecture%2004%20-%20Part%201-Translate.pptx</a></li>
-<li><a href="https://maplesystems.com/what-is-scada/?srsltid=AfmBOoppRNMl6fxoul8gjejHmIlD4zqKCI1vxdz8fWKK1Buj755wU-0l" target="_blank" rel="noopener noreferrer">https://maplesystems.com/what-is-scada/?srsltid=AfmBOoppRNMl6fxoul8gjejHmIlD4zqKCI1vxdz8fWKK1Buj755wU-0l</a></li>
-<li><a href="https://www.reddit.com/r/SCADA/comments/1ak7bel/what_is_scada_and_what_isnt/" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/SCADA/comments/1ak7bel/what_is_scada_and_what_isnt/</a></li>
-</ul>
-</div>
                         </div>
                         <div class="subtopic-container" id="unit-4-topic-1-subtopic-2">
                             <h4 class="subtopic-title">
@@ -2448,20 +1962,6 @@ EtherCAT، أو Ethernet for Control Automation Technology، هو بروتوكو
 <p>في الختام، تعمل HMI كعنصر حيوي يربط القدرات البشرية بالدقة الآلية، مما يمهد لفهم أعمق لأنظمة SCADA في المحاور التالية حول التكامل التقني.</p>
 <p>(عدد الكلمات التقريبي: 750)</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(Pepperl+Fuchs, n.d.). HMI Solutions for Industrial Applications. Pepperl+Fuchs Website. [ويب]</span></li>
-<li><span class="academic-ref">(الشريف، ع. ح.، 2018). واجهات الإنسان والحاسوب في الهندسة الميكاترونيكية. مجلة التقنية الصناعية، 15(2)، 45-60. [مقالة مجلة]</span></li>
-<li><span class="academic-ref">(Smith, J., &amp; Johnson, R., 2019). Human-Machine Interfaces in Industrial Automation. IEEE Press. [كتاب]</span></li>
-<li><span class="academic-ref">(القحطاني، أ. م.، 2020). أنظمة التحكم الصناعي وSCADA. دار النشر العلمي. [كتاب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.isafe-mobile.com/ar/%D8%A7%D9%84%D8%AD%D9%84/%D8%A7%D9%84%D9%85%D8%B9%D8%B1%D9%81%D8%A9-%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9/%D9%85%D8%B3%D8%B1%D8%AF-%D8%A7%D9%84%D9%85%D8%B5%D8%B7%D9%84%D8%AD%D8%A7%D8%AA/%D9%88%D8%A7%D8%AC%D9%87%D8%A9-%D8%A7%D9%84%D8%A2%D9%84%D8%A9-%D8%A7%D9%84%D8%A8%D8%B4%D8%B1%D9%8A%D8%A9-hmi" target="_blank" rel="noopener noreferrer">https://www.isafe-mobile.com/ar/%D8%A7%D9%84%D8%AD%D9%84/%D8%A7%D9%84%D9%85%D8%B9%D8%B1%D9%81%D8%A9-%D8%A7%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9/%D9%85%D8%B3%D8%B1%D8%AF-%D8%A7%D9%84%D9%85%D8%B5%D8%B7%D9%84%D8%AD%D8%A7%D8%AA/%D9%88%D8%A7%D8%AC%D9%87%D8%A9-%D8%A7%D9%84%D8%A2%D9%84%D8%A9-%D8%A7%D9%84%D8%A8%D8%B4%D8%B1%D9%8A%D8%A9-hmi</a></li>
-</ul>
-</div>
                         </div>
                     </div>
                     <div class="topic-container" id="unit-4-topic-2">
@@ -2512,22 +2012,6 @@ EtherCAT، أو Ethernet for Control Automation Technology، هو بروتوكو
 في خط إنتاج آلي للإلكترونيات، يجمع نظام SCADA بيانات من حساسات الاهتزاز عبر PLCs، ثم يعالجها الخادم للكشف عن عيوب. إذا ارتفعت الحرارة، يرسل HMI تنبيهًا، ويعدل الـ RTU السرعة تلقائيًا. هذا السيناريو يظهر التكامل، حيث يقلل الوقت الاستجابة إلى دقائق.</h5>
 <p>في الختام، تُشكل هذه المكونات أساسًا للانتقال إلى الاستكشاف المتقدم للعمليات في SCADA، مما يعزز قدرات المتدربين في حل المشكلات الهندسية.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(الزعبي، م.، 2015). أنظمة التحكم الصناعي وSCADA. دار الجامعة الجديدة. [كتاب]</span></li>
-<li><span class="academic-ref">(الشريف، ع.، 2018). هندسة الميكاترونيكس: الاتصالات والتحكم. منشورات الملك سعود. [كتاب]</span></li>
-<li><span class="academic-ref">(Stallings, W., n.d.). Network security essentials. Pearson. [كتاب إلكتروني]</span></li>
-<li><span class="academic-ref">(Boyer, S. A., 2009). SCADA: Supervisory control and data acquisition (4th ed.). International Society of Automation. [كتاب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://kahraba4u.com/scada/" target="_blank" rel="noopener noreferrer">https://kahraba4u.com/scada/</a></li>
-<li><a href="https://greenarmor.academy/%D9%85%D8%A7-%D9%87%D9%88-%D9%86%D8%B8%D8%A7%D9%85-scada-%D9%88%D8%A5%D8%B3%D8%AA%D8%AE%D8%AF%D8%A7%D9%85%D8%AA%D9%87-%D9%81%D9%8A-%D9%85%D8%AD%D8%B7%D8%A7%D8%AA-%D8%A7%D9%84%D9%86%D9%81%D8%B7-%D9%88/" target="_blank" rel="noopener noreferrer">https://greenarmor.academy/%D9%85%D8%A7-%D9%87%D9%88-%D9%86%D8%B8%D8%A7%D9%85-scada-%D9%88%D8%A5%D8%B3%D8%AA%D8%AE%D8%AF%D8%A7%D9%85%D8%AA%D9%87-%D9%81%D9%8A-%D9%85%D8%AD%D8%B7%D8%A7%D8%AA-%D8%A7%D9%84%D9%86%D9%81%D8%B7-%D9%88/</a></li>
-<li><a href="https://www.paaet.edu.kw/media/leabdeij/%D8%A3%D9%86%D8%B8%D9%85%D8%A9-%D8%A7%D9%84%D9%85%D8%B1%D8%A7%D9%82%D8%A8%D8%A9-%D9%88%D8%A7%D9%84%D8%AA%D8%AD%D9%83%D9%85-%D9%88%D8%A7%D9%84%D8%AD%D8%B5%D9%88%D9%84-%D8%B9%D9%84%D9%89-%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA-scada.pdf" target="_blank" rel="noopener noreferrer">https://www.paaet.edu.kw/media/leabdeij/%D8%A3%D9%86%D8%B8%D9%85%D8%A9-%D8%A7%D9%84%D9%85%D8%B1%D8%A7%D9%82%D8%A8%D8%A9-%D9%88%D8%A7%D9%84%D8%AA%D8%AD%D9%83%D9%85-%D9%88%D8%A7%D9%84%D8%AD%D8%B5%D9%88%D9%84-%D8%B9%D9%84%D9%89-%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA-scada.pdf</a></li>
-</ul>
-</div>
                         </div>
                         <div class="subtopic-container" id="unit-4-topic-2-subtopic-2">
                             <h4 class="subtopic-title">
@@ -2561,28 +2045,36 @@ EtherCAT، أو Ethernet for Control Automation Technology، هو بروتوكو
 تدعم البرمجيات مثل التطبيقات الويبية الوصول عن بعد إلى التحليلات. على سبيل المثال، أداة ويب توفر تحديثات تلقائية ونسخ احتياطي غير محدود، مما يسمح بفحص الرسوم البيانية دون الحاجة إلى أجهزة محلية. الأجهزة الصغيرة، مثل الوحدات المدمجة، تعالج البيانات محليًا لتقليل الاعتماد على الشبكة. في الاستخدام، يقوم المشغل بإعداد فلاتر للتركيز على متغيرات محددة، ثم يصدر تقارير مخصصة. التنوع في هذه الأدوات يغطي من الأنظمة الكبيرة إلى الحلول المحمولة، مما يناسب الاحتياجات المتنوعة في الميكاترونيكس.</h5>
 <p>في الختام، يعزز تحليل بيانات SCADA القدرة على التحكم الذكي، مما يمهد للمحاور التالية حول التكامل مع تقنيات متقدمة. هذا يجعل المتدربين جاهزين لتطبيق هذه المهارات في مشاريع حقيقية.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(Smith, J., &amp; Johnson, R., 2019). Data Analysis in Industrial Automation. IEEE Press. [كتاب]</span></li>
-<li><span class="academic-ref">(RAFA Systems, n.d.). SCADA Hardware Solutions. RAFA Systems Website. [ويب]</span></li>
-<li><span class="academic-ref">(السعدي، 2020). أنظمة SCADA في الصناعات الحديثة. دار النشر العلمي. [كتاب]</span></li>
-<li><span class="academic-ref">(عبد الله، م.، 2022). تحليل بيانات الأنظمة الآلية لتحسين الأداء. مجلة الهندسة الكهربائية، 45(2)، 120-135. [مقالة بحثية]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://htt.io/learning-center/predictive-maintenance-in-oil-and-gas-using-scada-data-for-asset-optimization" target="_blank" rel="noopener noreferrer">https://htt.io/learning-center/predictive-maintenance-in-oil-and-gas-using-scada-data-for-asset-optimization</a></li>
-<li><a href="https://egypt4industry.org/ar/%D9%86%D8%B8%D8%A7%D9%85-%D8%A7%D9%84%D8%AA%D8%AD%D9%83%D9%85-%D8%A7%D9%84%D8%A5%D8%B4%D8%B1%D8%A7%D9%81%D9%8A-%D9%88%D8%A7%D8%B3%D8%AA%D8%B1%D8%AC%D8%A7%D8%B9-%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86/" target="_blank" rel="noopener noreferrer">https://egypt4industry.org/ar/%D9%86%D8%B8%D8%A7%D9%85-%D8%A7%D9%84%D8%AA%D8%AD%D9%83%D9%85-%D8%A7%D9%84%D8%A5%D8%B4%D8%B1%D8%A7%D9%81%D9%8A-%D9%88%D8%A7%D8%B3%D8%AA%D8%B1%D8%AC%D8%A7%D8%B9-%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86/</a></li>
-<li><a href="https://www.reddit.com/r/MEPEngineering/comments/1se0nb7/anyone_here_actually_using_bmsscada_data_for/" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/MEPEngineering/comments/1se0nb7/anyone_here_actually_using_bmsscada_data_for/</a></li>
-<li><a href="https://www.oilgaswiki.com/2025/09/SCADA.html" target="_blank" rel="noopener noreferrer">https://www.oilgaswiki.com/2025/09/SCADA.html</a></li>
-<li><a href="https://smartenergy.illinois.edu/wp-content/uploads/2022/01/SCADAEEStrategies_PWISmartTip_2022.pdf" target="_blank" rel="noopener noreferrer">https://smartenergy.illinois.edu/wp-content/uploads/2022/01/SCADAEEStrategies_PWISmartTip_2022.pdf</a></li>
-<li><a href="https://megaverseacademy.com/%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D8%A7%D9%85-%D8%A3%D9%86%D8%B8%D9%85%D8%A9-%D8%A7%D9%84%D8%B3%D9%83%D8%A7%D8%AF%D8%A7-%D9%81%D9%8A-%D9%85%D8%B1%D8%A7%D9%82%D8%A8%D8%A9-%D8%A7%D9%84%D8%B9%D9%85%D9%84/" target="_blank" rel="noopener noreferrer">https://megaverseacademy.com/%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D8%A7%D9%85-%D8%A3%D9%86%D8%B8%D9%85%D8%A9-%D8%A7%D9%84%D8%B3%D9%83%D8%A7%D8%AF%D8%A7-%D9%81%D9%8A-%D9%85%D8%B1%D8%A7%D9%82%D8%A8%D8%A9-%D8%A7%D9%84%D8%B9%D9%85%D9%84/</a></li>
-</ul>
-</div>
                         </div>
                     </div>
                 </div>
+
+                    <div class="unit-sources-container">
+                        <h4 class="sources-title">المراجع</h4>
+                        <ol class="sources-list">
+                    
+
+                                    <li><a href="https://www.ptc.com/en/technologies/iiot/industrial-automation/scada?srsltid=AfmBOopaG_yyxf02q4VgfYfJDy4MtJSiaQ2MV-kDmYuLL8-t_nFJtxoB" target="_blank" rel="noopener noreferrer">ptc.com. (2026). What is SCADA Supervisory Control and Data Acquisition | PTC</a></li>
+                                
+
+                                    <li><a href="https://tomarok.com/ar/human-machine-interfaces-hmi-design-technology-and-applications/" target="_blank" rel="noopener noreferrer">tomarok.com. (2026). واجهات الآلة البشرية (HMI): التصميم والتكنولوجيا والتطبيقات - Tomarok Engineering</a></li>
+                                
+
+                                    <li><a href="https://utsi.com/2026/02/15/what-is-scada-a-beginners-guide/" target="_blank" rel="noopener noreferrer">utsi.com. (2024). What Is SCADA Beginner Guide for Industry | UTSI</a></li>
+                                
+
+                                    <li><a href="https://greenarmor.academy/%D9%85%D8%A7-%D9%87%D9%88-%D9%86%D8%B8%D8%A7%D9%85-scada-%D9%88%D8%A5%D8%B3%D8%AA%D8%AE%D8%AF%D8%A7%D9%85%D8%AA%D9%87-%D9%81%D9%8A-%D9%85%D8%AD%D8%B7%D8%A7%D8%AA-%D8%A7%D9%84%D9%86%D9%81%D8%B7-%D9%88/" target="_blank" rel="noopener noreferrer">greenarmor.academy. (2024). ما هو نظام SCADA وإستخدامته في محطات النفط والغاز والطاقة - أكاديمية الدرع الأخضر</a></li>
+                                
+
+                                    <li><a href="https://megaverseacademy.com/%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D8%A7%D9%85-%D8%A3%D9%86%D8%B8%D9%85%D8%A9-%D8%A7%D9%84%D8%B3%D9%83%D8%A7%D8%AF%D8%A7-%D9%81%D9%8A-%D9%85%D8%B1%D8%A7%D9%82%D8%A8%D8%A9-%D8%A7%D9%84%D8%B9%D9%85%D9%84/" target="_blank" rel="noopener noreferrer">megaverseacademy.com. (2025). استخدام أنظمة السكادا في مراقبة العمليات الصناعية – MEGAverse Academy</a></li>
+                                
+
+                                    <li><a href="https://www.techtarget.com/whatis/definition/SCADA-supervisory-control-and-data-acquisition" target="_blank" rel="noopener noreferrer">techtarget.com. (2025). What is SCADA (supervisory control and data acquisition) | Definition from TechTarget</a></li>
+                                
+
+                        </ol>
+                    </div>
+                    
             </section>
             <section class="unit-section" id="unit-5">
                 <div class="unit-header">
@@ -2631,24 +2123,6 @@ EtherCAT، أو Ethernet for Control Automation Technology، هو بروتوكو
 <p>لتوضيح التطبيق، في مشروع روبوت ميكاترونيكي، نستخدم إشارات تناظرية لقراءة موضع المفاصل، ثم نُحولها إلى رقمية للمعالجة في الشبكة. هذا يضمن نقلًا فعالًا، حيث تُقاوم الرقمية الضوضاء أثناء التمديد الكابلي الطويل.</p>
 <p>بهذا الاستعراض، يصبح المتدرب قادرًا على تفسير الإشارات في سياق الشبكات، مما يمهد للمحور التالي حول أدوات الربط.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(القحطاني، م.، 2018). الاتصالات الرقمية في الهندسة الكهربائية. الرياض: دار الفهد للنشر. [كتاب]</span></li>
-<li><span class="academic-ref">(Tanenbaum, A. S., &amp; Wetherall, D. J., 2011). Computer networks (5th ed.). Prentice Hall. [كتاب]</span></li>
-<li><span class="academic-ref">(GeeksforGeeks, 2025). What are the Different Types of Signals? GeeksforGeeks. [Web]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.geeksforgeeks.org/electrical-engineering/what-are-the-different-types-of-signals/" target="_blank" rel="noopener noreferrer">https://www.geeksforgeeks.org/electrical-engineering/what-are-the-different-types-of-signals/</a></li>
-<li><a href="https://www.szrollball.com/ar/-%D9%85%D8%AF%D9%88%D9%86%D8%A9/-108" target="_blank" rel="noopener noreferrer">https://www.szrollball.com/ar/-%D9%85%D8%AF%D9%88%D9%86%D8%A9/-108</a></li>
-<li><a href="https://www.geeksforgeeks.org/computer-networks/difference-between-analog-communication-and-digital-communication/" target="_blank" rel="noopener noreferrer">https://www.geeksforgeeks.org/computer-networks/difference-between-analog-communication-and-digital-communication/</a></li>
-<li><a href="https://www.reddit.com/r/explainlikeimfive/comments/176orwo/eli5_what_is_the_difference_between_analog_and/" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/explainlikeimfive/comments/176orwo/eli5_what_is_the_difference_between_analog_and/</a></li>
-<li><a href="https://my-communication.com/fibreoptics/" target="_blank" rel="noopener noreferrer">https://my-communication.com/fibreoptics/</a></li>
-<li><a href="https://datacapturecontrol.com/articles/data-communication/overview" target="_blank" rel="noopener noreferrer">https://datacapturecontrol.com/articles/data-communication/overview</a></li>
-</ul>
-</div>
                         </div>
                         <div class="subtopic-container" id="unit-5-topic-1-subtopic-2">
                             <h4 class="subtopic-title">
@@ -2684,27 +2158,6 @@ EtherCAT، أو Ethernet for Control Automation Technology، هو بروتوكو
 <h5 class="markdown-h5">خاتمة تربطية
 بهذه الطرق، يصبح تفسير الإشارات مهارة أساسية لبناء شبكات قوية في الميكاترونيكس. هذا المحور يمهد للمناقشة التالية حول تمديد الكوابل، حيث يُطبق التحليل عمليًا في التركيب.</h5>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(القحطاني، م.، 2019). أنظمة الشبكات الصناعية. جامعة الملك سعود. [أطروحة]</span></li>
-<li><span class="academic-ref">(Johnson, R., n.d.). Interpreting Electrical Signals in Data Transmission. Engineering Journal. [مقالة]</span></li>
-<li><span class="academic-ref">(Smith, J., 2018). Signal Processing for Mechatronics. IEEE Press. [كتاب]</span></li>
-<li><span class="academic-ref">(السعيد، أ.، 2020). الاتصالات الرقمية في الهندسة الكهربائية. دار النشر العلمي. [كتاب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://teraquant.com/solutions/voice-audio-quality-testing/signal-analysis-concepts/" target="_blank" rel="noopener noreferrer">https://teraquant.com/solutions/voice-audio-quality-testing/signal-analysis-concepts/</a></li>
-<li><a href="https://www.keysight.com/used/us/en/knowledge/glossary/oscilloscopes/what-is-an-electrical-signal" target="_blank" rel="noopener noreferrer">https://www.keysight.com/used/us/en/knowledge/glossary/oscilloscopes/what-is-an-electrical-signal</a></li>
-<li><a href="https://www.scribd.com/document/479852531/unit-1" target="_blank" rel="noopener noreferrer">https://www.scribd.com/document/479852531/unit-1</a></li>
-<li><a href="https://arabacademy-sy.org/uploads/academy_publication/books/comm-dic.pdf" target="_blank" rel="noopener noreferrer">https://arabacademy-sy.org/uploads/academy_publication/books/comm-dic.pdf</a></li>
-<li><a href="https://ar.cdoepushbutton.com/news/what-do-i-and-o-mean/" target="_blank" rel="noopener noreferrer">https://ar.cdoepushbutton.com/news/what-do-i-and-o-mean/</a></li>
-<li><a href="https://www.homedepot.com/c/ah/how-to-read-electrical-symbols/9ba683603be9fa5395fab901377a76e5" target="_blank" rel="noopener noreferrer">https://www.homedepot.com/c/ah/how-to-read-electrical-symbols/9ba683603be9fa5395fab901377a76e5</a></li>
-<li><a href="https://www.reddit.com/r/AskElectronics/comments/vk3x1f/readinganalyzing_an_unknown_electrical_signal/" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/AskElectronics/comments/vk3x1f/readinganalyzing_an_unknown_electrical_signal/</a></li>
-<li><a href="https://www.reddit.com/r/AskPhysics/comments/qymy66/propagation_of_electrical_signals_through_wire/?tl=ar" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/AskPhysics/comments/qymy66/propagation_of_electrical_signals_through_wire/?tl=ar</a></li>
-</ul>
-</div>
                         </div>
                     </div>
                     <div class="topic-container" id="unit-5-topic-2">
@@ -2744,24 +2197,6 @@ EtherCAT، أو Ethernet for Control Automation Technology، هو بروتوكو
 <p>هذه التمثيلات الرياضية تربط مباشرة بالتطبيقات التالية في الوحدة، مثل تصميم الشبكات، حيث يعتمد نجاح التركيب على حساب دقيق للتردد والسعة والتشويش.</p>
 <p>(حوالي 750 كلمة)</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(Shannon, C. E., 1948). A mathematical theory of communication. Bell System Technical Journal, 27(3), 379-423. [مقالة علمية]</span></li>
-<li><span class="academic-ref">(الشافعي، أ. م.، 2015). أسس الاتصالات الرقمية. دار الجامعة الجديدة، الإسكندرية. [كتاب]</span></li>
-<li><span class="academic-ref">(Proakis, J. G., &amp; Salehi, M., 2008). Digital communications (5th ed.). McGraw-Hill. [كتاب]</span></li>
-<li><span class="academic-ref">(Haykin, S., 2001). Communication systems (4th ed.). John Wiley &amp; Sons. [كتاب]</span></li>
-<li><span class="academic-ref">(القحطاني، ع. ح.، 2018). هندسة الاتصالات في الأنظمة الآلية. منشورات الملك سعود، الرياض. [كتاب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.scribd.com/document/479852531/unit-1" target="_blank" rel="noopener noreferrer">https://www.scribd.com/document/479852531/unit-1</a></li>
-<li><a href="https://terpconnect.umd.edu/~toh/spectrum/SignalsAndNoise.html" target="_blank" rel="noopener noreferrer">https://terpconnect.umd.edu/~toh/spectrum/SignalsAndNoise.html</a></li>
-<li><a href="https://physics.stackexchange.com/questions/785845/mathematical-description-of-random-noise" target="_blank" rel="noopener noreferrer">https://physics.stackexchange.com/questions/785845/mathematical-description-of-random-noise</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Signal-to-noise_ratio" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Signal-to-noise_ratio</a></li>
-</ul>
-</div>
                         </div>
                         <div class="subtopic-container" id="unit-5-topic-2-subtopic-2">
                             <h4 class="subtopic-title">
@@ -2792,25 +2227,6 @@ EtherCAT، أو Ethernet for Control Automation Technology، هو بروتوكو
 فهم هذه العوامل أمر حاسم لأنه يمكن المهندسين الميكاترونيكس من تصميم أنظمة اتصال موثوقة في بيئات قاسية. أولاً، يقلل من التكاليف طويلة الأمد بمنع الأعطال الناتجة عن الحرارة أو التداخل، حيث يمكن أن يؤدي إعادة التصميم المبكر إلى توفير 30% من نفقات الصيانة. ثانيًا، يعزز السلامة في الأنظمة الآلية، مثل الروبوتات التي تعتمد على إشارات دقيقة؛ فالتداخل قد يسبب حركات خاطئة خطيرة. ثالثًا، يدعم الامتثال للمعايير الدولية مثل IEEE 802.3، التي تحدد حدود التوهين لضمان التوافق. رابعًا، في التدريب، يساعد المتدربين على حل مشكلات حقيقية، مثل تحليل توهين في كابل صناعي، مما يبني مهارات عملية. خامسًا، مع التقدم التكنولوجي، يصبح هذا الفهم أساسًا لدمج الـ IoT في الميكاترونيكس، حيث تتعدد الإشارات وتزداد التحديات الفيزيائية. وأخيرًا، يربط هذا المحور بالمرحلة التالية في التمديد العملي للكوابل، حيث يُطبق هذا الفهم في الاختيارات اليومية.</h5>
 <p>في الختام، تكشف الأسس الفيزيائية عن الطبيعة الهشة لنقل البيانات، لكنها توفر أيضًا أدوات لتعزيزها. هذا يمهد لاستكشاف التقنيات العملية في الوحدة القادمة.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(السيد، أ.، 2018). فيزياء الاتصالات الكهربائية. دار النشر العلمي. [كتاب]</span></li>
-<li><span class="academic-ref">(Smith, J., &amp; Johnson, R., 2020). Physical Fundamentals of Data Transmission. IEEE Press. [كتاب]</span></li>
-<li><span class="academic-ref">(الجمال، م.، 2015). تأثيرات البيئة على شبكات الاتصال. مجلة الهندسة العربية، 45(2)، 120-135. [مقالة مجلة]</span></li>
-<li><span class="academic-ref">(IEEE Standards Association, n.d.). IEEE 802.3 Ethernet Standards. IEEE. [معيار]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://en.wikipedia.org/wiki/OSI_model" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/OSI_model</a></li>
-<li><a href="https://www.oilgaswiki.com/2025/09/physical-and-chemical-properties-of-crude-oil.html" target="_blank" rel="noopener noreferrer">https://www.oilgaswiki.com/2025/09/physical-and-chemical-properties-of-crude-oil.html</a></li>
-<li><a href="https://www.asrarachyae.com/%D9%83%D9%8A%D9%81-%D8%AA%D8%B7%D9%8A%D8%B1-%D8%A7%D9%84%D8%B7%D8%A7%D8%A6%D8%B1%D8%A9/" target="_blank" rel="noopener noreferrer">https://www.asrarachyae.com/%D9%83%D9%8A%D9%81-%D8%AA%D8%B7%D9%8A%D8%B1-%D8%A7%D9%84%D8%B7%D8%A7%D8%A6%D8%B1%D8%A9/</a></li>
-<li><a href="https://www.geeksforgeeks.org/computer-networks/types-transmission-media/" target="_blank" rel="noopener noreferrer">https://www.geeksforgeeks.org/computer-networks/types-transmission-media/</a></li>
-<li><a href="https://ns1.almerja.com/more.php?idm=189985" target="_blank" rel="noopener noreferrer">https://ns1.almerja.com/more.php?idm=189985</a></li>
-<li><a href="https://www.reddit.com/r/askscience/comments/v1pw7l/can_heat_affect_electric_signals/" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/askscience/comments/v1pw7l/can_heat_affect_electric_signals/</a></li>
-</ul>
-</div>
                         </div>
                     </div>
                     <div class="topic-container" id="unit-5-topic-3">
@@ -2850,22 +2266,6 @@ EtherCAT، أو Ethernet for Control Automation Technology، هو بروتوكو
 في ورشة تصنيع، نستخدم Switch لربط خمسة حساسات حركة بنقاط نهائية. ثم يوجه Router هذه البيانات إلى خادم مركزي لتحليل الإنتاج. إذا حدث عطل في حساس، يحدد Switch المشكلة عبر logs، مما يوفر وقت الصيانة. هذا السيناريو يظهر كيف يعمل التنوع في تعزيز الكفاءة.</h5>
 <p>بهذا، يصبح فهم أنواع أجهزة الشبكات أساساً للانتقال إلى تمديد الكوابل، حيث نبني على هذه الأجهزة لإنشاء بنى متينة.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(Smith, J., 2019). Computer Networking: A Top-Down Approach. Pearson. [كتاب]</span></li>
-<li><span class="academic-ref">(الزعبي، م.، 2020). أجهزة الشبكات في الهندسة الميكاترونيكية. دار النشر العلمي. [كتاب]</span></li>
-<li><span class="academic-ref">(GeeksforGeeks, 2026). Network Devices. GeeksforGeeks. [Web]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.scribd.com/document/784187829/%D8%A3%D9%86%D9%88%D8%A7%D8%B9-%D8%A7%D9%84%D8%A3%D8%AC%D9%87%D8%B2%D8%A9-%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%D8%A9-%D9%81%D9%8A-%D8%A7%D9%84%D8%B4%D8%A8%D9%83%D8%A7%D8%AA" target="_blank" rel="noopener noreferrer">https://www.scribd.com/document/784187829/%D8%A3%D9%86%D9%88%D8%A7%D8%B9-%D8%A7%D9%84%D8%A3%D8%AC%D9%87%D8%B2%D8%A9-%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%D8%A9-%D9%81%D9%8A-%D8%A7%D9%84%D8%B4%D8%A8%D9%83%D8%A7%D8%AA</a></li>
-<li><a href="https://www.geeksforgeeks.org/computer-networks/network-devices-hub-repeater-bridge-switch-router-gateways/" target="_blank" rel="noopener noreferrer">https://www.geeksforgeeks.org/computer-networks/network-devices-hub-repeater-bridge-switch-router-gateways/</a></li>
-<li><a href="https://www.reddit.com/r/HomeNetworking/comments/11m4slk/router_vs_gateway_vs_switch_vs_access_point/" target="_blank" rel="noopener noreferrer">https://www.reddit.com/r/HomeNetworking/comments/11m4slk/router_vs_gateway_vs_switch_vs_access_point/</a></li>
-<li><a href="https://www.ibm.com/sa-ar/think/topics/networking" target="_blank" rel="noopener noreferrer">https://www.ibm.com/sa-ar/think/topics/networking</a></li>
-</ul>
-</div>
                         </div>
                         <div class="subtopic-container" id="unit-5-topic-3-subtopic-2">
                             <h4 class="subtopic-title">
@@ -2904,23 +2304,6 @@ EtherCAT، أو Ethernet for Control Automation Technology، هو بروتوكو
 تكمن أهمية أجهزة الاتصال في بناء شبكات ميكاترونيكية موثوقة، حيث تقلل التوقفات بنسبة تصل إلى 50%. أولًا، تزيد الكفاءة التشغيلية؛ فالسويتش والراوتر يسرعان الاتصال بين الآلات، مما يحسن الإنتاج في خطوط الأتمتة. ثانيًا، تعزز الأمان؛ الراوتر يمنع الاختراقات، خاصة في أنظمة IoT الصناعية. ثالثًا، تدعم التمدد؛ المكرر والمودم يمتدان الشبكة لتغطية مصانع كبيرة. رابعًا، تقلل التكاليف؛ استخدام هب بسيط في المراحل الأولى يوفر الميزانية قبل الترقية. خامسًا، تتكيف مع الضغوط البيئية؛ تصاميم صناعية مقاومة للحرارة والاهتزاز. في تدريبكم، هذا يساعد في تصميم شبكات حقيقية.</h5>
 <p>خلاصةً، فهم وظائف هذه الأجهزة يمهد لتركيبها عمليًا، مما يربط بالوحدة التالية حول تمديد الكوابل.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(تاننباوم، أ. س. (2011). Computer Networks (5th ed.). Pearson. [كتاب]</span></li>
-<li><span class="academic-ref">(العبيدي، ع. (2020). أجهزة الاتصال في الهندسة الميكاترونيكية. مجلة التقنية الصناعية. [مقالة دورية]</span></li>
-<li><span class="academic-ref">(Cisco Systems. (n.d.). Industrial Networking Devices. Cisco Press. [دليل إلكتروني]</span></li>
-<li><span class="academic-ref">(الشريف، م. (2018). شبكات الحواسيب والأتمتة الصناعية. دار النشر العربي. [كتاب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://mosta3ed.com/?post_type=jobs&amp;p=294015" target="_blank" rel="noopener noreferrer">https://mosta3ed.com/?post_type=jobs&amp;p=294015</a></li>
-<li><a href="https://www.geeksforgeeks.org/computer-networks/what-is-communication-device/" target="_blank" rel="noopener noreferrer">https://www.geeksforgeeks.org/computer-networks/what-is-communication-device/</a></li>
-<li><a href="https://www.motorolasolutions.com/ar_sa/about/careers.html" target="_blank" rel="noopener noreferrer">https://www.motorolasolutions.com/ar_sa/about/careers.html</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Communications_system" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Communications_system</a></li>
-</ul>
-</div>
                         </div>
                     </div>
                     <div class="topic-container" id="unit-5-topic-4">
@@ -2963,22 +2346,6 @@ EtherCAT، أو Ethernet for Control Automation Technology، هو بروتوكو
 في مصنع سيارات يستخدم نظام ميكاترونكس للتحكم في الروبوتات، بدأ التصميم بتقييم 50 حساساً يحتاجون نقل بيانات فوري. اختيرت طوبولوجيا حلقية مع كابلات ألياف بصرية لتغطية 500 متر. أدى التركيب إلى تقليل التأخيرات بنسبة 40%، مما سمح بزيادة الإنتاج اليومي. هذا السيناريو يوضح كيف تحول الخطوات النظرية إلى كفاءة حقيقية، مع التركيز على اختبار الشبكة تحت ظروف التشغيل الفعلية.</h5>
 <p>في الختام، يربط تصميم الشبكة الصناعية بين النظرية والتطبيق، ممهداً لفهم التركيبات المتقدمة في الوحدة القادمة.</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(السعدي، أ.، 2020). تصميم الشبكات الصناعية في الأتمتة. دار الجامعة الجديدة. [كتاب]</span></li>
-<li><span class="academic-ref">(Peterson, L. L., &amp; Davie, B. S., 2012). Computer networks: A systems approach. Morgan Kaufmann. [كتاب]</span></li>
-<li><span class="academic-ref">(Rockwell Automation, n.d.). Industrial network design guides. Rockwell Automation. [ويب]</span></li>
-<li><span class="academic-ref">(القحطاني، م.، 2018). هندسة الاتصالات في الميكاترونكس. منشورات التقنية. [كتاب]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.rockwellautomation.com/en-gb/capabilities/industrial-networks/design-guides.html" target="_blank" rel="noopener noreferrer">https://www.rockwellautomation.com/en-gb/capabilities/industrial-networks/design-guides.html</a></li>
-<li><a href="https://pages.moxa.com/rs/211-ZWW-883/images/The-Engineer&#x27;s-Guide-to-Industrial-Networking-Moxa.pdf" target="_blank" rel="noopener noreferrer">https://pages.moxa.com/rs/211-ZWW-883/images/The-Engineer&#x27;s-Guide-to-Industrial-Networking-Moxa.pdf</a></li>
-<li><a href="https://manara.edu.sy/downloads/files/1654065450_8.pdf" target="_blank" rel="noopener noreferrer">https://manara.edu.sy/downloads/files/1654065450_8.pdf</a></li>
-</ul>
-</div>
                         </div>
                         <div class="subtopic-container" id="unit-5-topic-4-subtopic-2">
                             <h4 class="subtopic-title">
@@ -3024,25 +2391,54 @@ EtherCAT، أو Ethernet for Control Automation Technology، هو بروتوكو
 <p>هذا النهج يربط التركيب بالأهداف العامة للشبكة، ممهدًا لمناقشة الصيانة في المحور التالي.</p>
 <p>(عدد الكلمات تقريبي: 750)</p>
                             </div>
-<div class="subtopic-sources">
-<h5 class="sources-title">المصادر:</h5>
-<p class="sources-group-label">📚 المصادر الأكاديمية:</p>
-<ul class="sources-list sources-list--academic">
-<li><span class="academic-ref">(Tanenbaum, A. S., &amp; Wetherall, D. J. (2011). Computer Networks (5th ed.). Pearson. [كتاب]</span></li>
-<li><span class="academic-ref">(Cisco Systems, Inc. (n.d.). Cabling and Installation Guide for Industrial Networks. Cisco Networking Academy. [Web]</span></li>
-<li><span class="academic-ref">(السعيد، أ. (2020). هندسة الشبكات في الأنظمة الصناعية. دار النشر العلمي. [كتاب]</span></li>
-<li><span class="academic-ref">(القحطاني، م. (2018). دليل تركيب أجهزة الاتصالات للميكاترونكس. مجلة الهندسة الكهربائية، 45(2)، 120-135. [مقالة مجلة]</span></li>
-</ul>
-<p class="sources-group-label">🔗 روابط إضافية:</p>
-<ul class="sources-list sources-list--scraped">
-<li><a href="https://www.scribd.com/document/687581909/METHOD-STATEMENT-Cable-Laying" target="_blank" rel="noopener noreferrer">https://www.scribd.com/document/687581909/METHOD-STATEMENT-Cable-Laying</a></li>
-<li><a href="https://alattar.group/category/%D8%AE%D8%AF%D9%85%D8%A7%D8%AA/" target="_blank" rel="noopener noreferrer">https://alattar.group/category/%D8%AE%D8%AF%D9%85%D8%A7%D8%AA/</a></li>
-<li><a href="https://fixelictric.com/2025/11/10/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%85%D8%AF%D9%8A%D8%AF-%D9%83%D8%A7%D8%A8%D9%84%D8%A7%D8%AA/" target="_blank" rel="noopener noreferrer">https://fixelictric.com/2025/11/10/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%85%D8%AF%D9%8A%D8%AF-%D9%83%D8%A7%D8%A8%D9%84%D8%A7%D8%AA/</a></li>
-</ul>
-</div>
                         </div>
                     </div>
                 </div>
+
+                    <div class="unit-sources-container">
+                        <h4 class="sources-title">المراجع</h4>
+                        <ol class="sources-list">
+                    
+
+                                    <li><a href="https://ar.cdoepushbutton.com/news/what-do-i-and-o-mean/" target="_blank" rel="noopener noreferrer">ar.cdoepushbutton.com. (2025). شرح رموز مفتاح الطاقة: ماذا يعني الحرفان I وO - زر ضغط CDOE</a></li>
+                                
+
+                                    <li><a href="https://www.geeksforgeeks.org/computer-networks/difference-between-analog-communication-and-digital-communication/" target="_blank" rel="noopener noreferrer">geeksforgeeks.org. (2025). Analog and Digital Communication - GeeksforGeeks</a></li>
+                                
+
+                                    <li><a href="https://www.geeksforgeeks.org/electrical-engineering/what-are-the-different-types-of-signals/" target="_blank" rel="noopener noreferrer">geeksforgeeks.org. (2025). What are the Different Types of Signals - GeeksforGeeks</a></li>
+                                
+
+                                    <li><a href="https://ioplus.nl/en/posts/ai-data-centers-as-a-source-of-local-warming-major-implications" target="_blank" rel="noopener noreferrer">Amber. (2026). AI data centers as a source of local warming: major implications</a></li>
+                                
+
+                                    <li><a href="https://www.nature.com/articles/s41597-026-06877-1" target="_blank" rel="noopener noreferrer">nature.com. (2026). Global dataset on heat wave exposure due to the urban heat island effect - Scientific Data</a></li>
+                                
+
+                                    <li><a href="https://www.geeksforgeeks.org/computer-networks/types-transmission-media/" target="_blank" rel="noopener noreferrer">geeksforgeeks.org. (2026). Transmission Media in Computer Networks - GeeksforGeeks</a></li>
+                                
+
+                                    <li><a href="https://www.atlascopco.com/en-us/compressors/wiki/compressed-air-articles/what-is-industrial-network" target="_blank" rel="noopener noreferrer">Atlas Copco. (2026). What is an Industrial Network - Atlas Copco</a></li>
+                                
+
+                                    <li><a href="https://www.geeksforgeeks.org/computer-networks/network-devices-hub-repeater-bridge-switch-router-gateways/" target="_blank" rel="noopener noreferrer">geeksforgeeks.org. (2026). Network Devices - GeeksforGeeks</a></li>
+                                
+
+                                    <li><a href="https://www.ibm.com/sa-ar/think/topics/networking" target="_blank" rel="noopener noreferrer">ibm.com. (2025). ما المقصود بشبكات الكمبيوتر |IBM</a></li>
+                                
+
+                                    <li><a href="https://www.gudacable.com/lv-cable-installation-guide-methods-standards-regional-differences-and-best-practices/" target="_blank" rel="noopener noreferrer">Kent Zachary. (2026). LV Cable Installation Methods: IEC 0.61kV Guide</a></li>
+                                
+
+                                    <li><a href="https://www.penskelogistics.com/insights/logistics-glossary/what-is-network-planning/" target="_blank" rel="noopener noreferrer">penskelogistics.com. (2026). What Is Network Planning</a></li>
+                                
+
+                                    <li><a href="https://www.rockwellautomation.com/en-gb/capabilities/industrial-networks/design-guides.html" target="_blank" rel="noopener noreferrer">rockwellautomation.com. (2023). Industrial Network Design Guides  | Rockwell Automation | UK</a></li>
+                                
+
+                        </ol>
+                    </div>
+                    
             </section>
         </main>
 

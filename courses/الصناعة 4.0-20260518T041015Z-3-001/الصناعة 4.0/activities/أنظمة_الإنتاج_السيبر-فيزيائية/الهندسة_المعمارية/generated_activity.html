@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ورشة تصميم نموذج الأنظمة السيبر-فيزيائية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">ورشة تصميم نموذج الأنظمة السيبر-فيزيائية</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">ينفذ المتدرب ورشة عملية لتصميم نموذج مبدئي يوضح هيكلية وترابط مكونات نظام سيبر-فيزيائي.</p>
+        <ul class="obj-list"><li>يطبق المتدرب مبادئ تصميم النظام السيبر-فيزيائي.</li><li>يُبرمج المتدرب نموذجاً أولياً يوضح التفاعل بين الطبقات المختلفة.</li><li>يحدد المتدرب نقاط الضعف في التكامل البنائي للنظام.</li><li>يطور المتدرب أفكاراً لتحسين المواءمة الديناميكية للنظام.</li><li>يُظهر المتدرب قدرة على اختيار بروتوكولات الاتصال المناسبة.</li><li>يقيم المتدرب أداء النموذج باستخدام معايير زمن الاستجابة والأمان.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>برمجيات تصميم نماذج هندسية (مثل MATLAB/Simulink أو أدوات CAD مخصصة)</li><li>مجموعة مكونات إلكترونية وأجهزة استشعار ومحاكاة برمجية</li><li>حاسوب محمول مع اتصال بالإنترنت</li><li>لوحات تحكم رقمية وأجهزة عرض لعرض النتائج</li><li>أدوات تخطيط ومتابعة زمنية للتنظيم</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التمهيد والتوعية</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المدرب بتقديم شرح تمهيدي عن أهمية التصميم الهندسي للأنظمة السيبر-فيزيائية.</li><li>يعرض المدرب الأمثلة الواقعية من محتوى الوحدة لتجسيد العلاقة بين المكونات.</li><li>يشجع المتدربين على طرح أسئلة لفهم التحديات التصميمية.</li><li>يوضح المدرب أهداف الورشة والخطوات التي سيقوم بها المتدربون.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف وتخطيط التصميم</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>ينقسم المتدربون إلى فرق عمل صغيرة لبحث مكونات النظام السيبر-فيزيائي.</li><li>تُوزع المهام بين أعضاء الفريق لتعريف كل مكون ووظيفته وطرق تواصله مع المكونات الأخرى.</li><li>تُناقش الفرق حول التحديات المحتملة في التكامل البنائي.</li><li>يستخدم المتدربون أدوات رقمية لتوثيق ملاحظاتهم ومخططات أولية.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تصميم النموذج المبدئي</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يبدأ المتدربون في بناء نموذج مبدئي يعكس الهيكلية والربط بين المكونات باستخدام البرمجيات المتاحة.</li><li>يطور كل فريق ثلاثة سيناريوهات للتفاعل بين المكونات تستهدف الوظائف الأساسية.</li><li>يُتمم المتدربون اختيار بروتوكولات الاتصال والطبقات المعمارية الأنسب لكل حالة.</li><li>يوفق المتدربون على نموذج مشترك ينظم تسلسل نقل البيانات وعمليات التحكم.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تقييم النموذج ومحاكاته</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يجري المتدربون محاكاة للنموذج باستخدام المحاكيات لاختبار زمن الاستجابة والتكامل.</li><li>تُسجل المخرجات ويتم مقارنة الأداء مع المعايير المطلوبة.</li><li>تُعقد جلسة مراجعة بين الفرق لتبادل الملاحظات والتحديات التي واجهوها.</li><li>يقوم المدرب بتوجيه تغذية راجعة لتحسين النموذج ومواءمته.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التحدي والتحسين</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يتم تحدي الفرق بوضع سيناريوهات طارئة تشمل تغيرات بيئية أو هجمات أمنية محرجة.</li><li>تعمل الفرق على تعديل النموذج وتعزيز مرونته للتكيف مع الظروف الجديدة.</li><li>تُجري المحاكاة مجددًا لتقييم فعالية الحلول المعدلة.</li><li>تقدم الفرق عروض قصيرة توضح كيف حسّنوا النموذج وتخطوا التحديات.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">الإغلاق والتلخيص</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يشرف المدرب على جلسة تأمل حيث يشارك كل متدرب تجربته ومكتسباته.</li><li>يتم تلخيص المبادئ الهندسية المكتسبة وكيفية تطبيقها مستقبلاً في بيئات الإنتاج.</li><li>يتم توضيح الروابط بين العمارة النظرية والتنفيذ العملي في النظام السيبر-فيزيائي.</li><li>توزيع موارد إضافية للتعلم المستمر والتشجيع على التفكير النقدي في مشاريع قادمة.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">كيف يؤثر اختيار بروتوكولات الاتصال والتكامل الهندسي على استقرار وكفاءة نظام سيبر-فيزيائي في بيئات الإنتاج الحقيقية؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

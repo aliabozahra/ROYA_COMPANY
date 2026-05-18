@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تحدي اختيار منصة إنترنت الأشياء</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Tajawal', sans-serif;
+  background:#ebebeb;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.page {
+  width:794px;
+  min-height:1123px;
+  background:#fff;
+  padding:0 0 56px;
+}
+
+/* Banner */
+.banner {
+  background:#1a3a5c;
+  color:#fff;
+  text-align:center;
+  padding:11px 0 13px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+
+.content { padding:0 44px; }
+
+/* Main box */
+.activity-box {
+  border:1.5px solid #1a3a5c;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+/* Title bar */
+.title-bar {
+  display:flex;
+  align-items:flex-start;
+  background:#eef3f9;
+  border-bottom:1.5px solid #1a3a5c;
+  padding:11px 16px;
+  gap:10px;
+}
+.title-dot {
+  width:10px; height:10px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:5px;
+}
+.title-text {
+  font-size:15px;
+  font-weight:800;
+  color:#1a3a5c;
+  line-height:1.6;
+}
+
+/* Body */
+.body { padding:18px 20px 22px; }
+
+.divider { border-top:1px solid #dde5ef; margin:12px 0; }
+
+/* Section label */
+.sec-label {
+  font-size:13.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.sec-label::before {
+  content:'';
+  display:inline-block;
+  width:3px; height:15px;
+  background:#1a3a5c;
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+/* Objective */
+.obj-intro {
+  font-size:13px;
+  font-weight:700;
+  color:#2d2d2d;
+  margin-bottom:5px;
+  line-height:1.7;
+}
+.obj-list { list-style:none; padding:0; margin-right:6px; }
+.obj-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.obj-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Meta row */
+.meta-row {
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:baseline;
+  margin-bottom:14px;
+}
+.meta-item { display:flex; align-items:baseline; gap:5px; }
+.meta-arr { color:#1a3a5c; font-size:9px; }
+.meta-lbl { font-size:13px; font-weight:700; color:#1a3a5c; }
+.meta-val { font-size:13px; color:#333; }
+
+/* Tools */
+.tools-list { list-style:none; padding:0; }
+.tools-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:16px;
+  position:relative;
+  margin-bottom:1px;
+}
+.tools-list li::before {
+  content:'◄';
+  position:absolute;
+  right:0; top:3px;
+  color:#1a3a5c;
+  font-size:8px;
+}
+
+/* Phases */
+.phase-block { margin-bottom:12px; }
+.phase-block:last-child { margin-bottom:0; }
+
+.phase-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:5px;
+}
+.phase-icon {
+  width:7px; height:7px;
+  background:#1a3a5c;
+  border-radius:50%;
+  flex-shrink:0;
+}
+.phase-title {
+  font-size:13px;
+  font-weight:700;
+  color:#1a3a5c;
+}
+
+.sub-list { list-style:none; padding:0; margin-right:18px; }
+.sub-list li {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+  padding-right:14px;
+  position:relative;
+  margin-bottom:1px;
+}
+.sub-list li::before {
+  content:'›';
+  position:absolute;
+  right:0; top:0;
+  color:#1a3a5c;
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Reflection */
+.reflection-box {
+  border:1px solid #1a3a5c;
+  border-radius:4px;
+  padding:11px 14px;
+  background:#eef3f9;
+}
+.reflection-label {
+  font-size:12.5px;
+  font-weight:700;
+  color:#1a3a5c;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.reflection-label::before {
+  content:'؟';
+  font-size:17px;
+  color:#1a3a5c;
+  font-weight:800;
+  line-height:1;
+}
+.reflection-text {
+  font-size:13px;
+  color:#333;
+  line-height:1.9;
+}
+
+@media print {
+  body { background:#fff; padding:0; }
+  .page { width:100%; min-height:unset; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">أنشطة وتمارين للموضوع</div>
+
+  <div class="content">
+  <div class="activity-box">
+
+    <div class="title-bar">
+      <span class="title-dot"></span>
+      <span class="title-text">تحدي اختيار منصة إنترنت الأشياء</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objective -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الهدف</div>
+        <p class="obj-intro">يهدف هذا النشاط إلى تعزيز مهارات تقييم واختيار منصات إنترنت الأشياء الملائمة لحالة صناعية محددة بناءً على معايير إدارة الأجهزة والبيانات.</p>
+        <ul class="obj-list"><li>يُطَبّق المتدربون معايير تقييم منصات IoT تناسب سيناريوهات صناعية.</li><li>يُبرر المتدربون اختياراتهم استناداً إلى إدارة البيانات والأجهزة.</li><li>يُطور المتدربون مهارات اتخاذ القرار الجماعي في بيئة تنافسية.</li><li>يُحسن المتدربون القدرة على التفكير الاستراتيجي في مجال الصناعة 4.0.</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Zaman + Uslub -->
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الزمن :</span>
+          <span class="meta-val">90 دقيقة</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-arr">◄</span>
+          <span class="meta-lbl">الأسلوب :</span>
+          <span class="meta-val">تطبيقي</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">الأدوات</div>
+        <ul class="tools-list"><li>أوراق معلومات منصة AWS IoT، Azure IoT، IoTBind</li><li>لوحات تحكم تفاعلية محاكاة</li><li>بطاقات تحديات وأدوار المجموعات</li><li>أجهزة عرض أو سبورة ذكية</li></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Execution phases -->
+      <div class="section" style="margin-bottom:12px;">
+        <div class="sec-label">إجراءات تنفيذ النشاط</div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">تمهيد وإعداد</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يرحب المدرب بالمشاركين ويشرح الهدف من التحدي وأهميته في الصناعة 4.0.</li><li>يعرض المدرب ملخصاً موجزاً عن منصات IoT الثلاث (AWS، Azure، IoTBind) مع توضيح خصائص كل منصة.</li><li>يقسم المشاركون إلى مجموعات تنافسية بمزيج متوازن من الخبرات.</li><li>يوضح المدرب قواعد التحدي وجدول الزمن وأدوات العمل لكل مجموعة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">استكشاف وتحليل المنصات</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تقوم كل مجموعة بالدراسة المعمقة لوثائق وميزات المنصات المقدمة، مع التركيز على إدارة الأجهزة والبيانات.</li><li>تستخدم المجموعات لوحات التحكم التفاعلية لمحاكاة ربط الأجهزة وجمع البيانات في سيناريو صناعي محدد.</li><li>تُناقش المجموعات نقاط القوة والضعف لكل منصة في سياق الحالة العملية.</li><li>يُعدّ كل فريق تقريراً يوضح تقييمه ومبرراته لاختيار أو استبعاد منصات معينة.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التحدي التنافسي لاتخاذ القرار</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>تقدم كل مجموعة تقريرها وتبريراتها أمام بقية الفرق والمدرب.</li><li>تُفتح جلسة نقاش تنافسية مع طرح أسئلة واستفسارات بين الفرق لتحفيز تبادل الأفكار.</li><li>يصوّت المشاركون والمدرب لاختيار أفضل منصة تبعاً لمعايير التقييم المقدمة.</li><li>يُشارك المدرب تعليقات توجيهية حول مخرجات كل مجموعة، مع إبراز نقاط التفكير الاستراتيجي.</li>
+            </ul>
+
+        </div>
+        
+        <div class="phase-block">
+
+            <div class="phase-header">
+                <span class="phase-icon"></span>
+                <span class="phase-title">التقييم والتغذية الراجعة</span>
+            </div>
+
+            <ul class="sub-list">
+                <li>يوفر المدرب ملخصاً شاملاً للدروس المستفادة حول أهمية كل منصة ودورها في الصناعة 4.0.</li><li>يُناقش أثر اختيار المنصة على إدارة الأجهزة والبيانات في المشاريع الصناعية.</li><li>يُطلب من المتدربين كتابة تعهدات شخصية لتعزيز مهاراتهم في اختيار حلول IoT مستقبلياً.</li><li>ينهي المدرب النشاط بتوجيه سؤال مفتوح ومحفز للتفكير المستقبلي.</li>
+            </ul>
+
+        </div>
+        
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Reflection -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="sec-label">السؤال النظري بعد النشاط</div>
+        <div class="reflection-box">
+          <div class="reflection-label">سؤال للتأمل</div>
+          <p class="reflection-text">بعد تجربتك في التحدي، كيف يمكنك تقييم أثر إدارة الأجهزة والبيانات عبر منصات IoT المختلفة على نجاح مشاريع الصناعة 4.0؟</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

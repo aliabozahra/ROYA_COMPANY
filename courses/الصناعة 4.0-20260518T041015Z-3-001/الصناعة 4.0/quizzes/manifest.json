@@ -1,0 +1,509 @@
+[
+  {
+    "name": "أصحاب_المصلحة",
+    "items": [
+      {
+        "name": "الجمعيات_المهنية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الجهة_التنظيمية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الحكومات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "المؤسسات_التعليمية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "المنظمات_غير_الربحية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الموردين",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "محللو_السوق",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "منظمات_التصنيع",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "أنظمة_الإنتاج_السيبر_فيزيائية",
+    "items": [
+      {
+        "name": "التعريف",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الخصائص",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الدعم_والتدريب_للقوى_العاملة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الفوائد_والتطبيقات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الهندسة_المعمارية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "إدارة_البيانات",
+    "items": [
+      {
+        "name": "تخزينها",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تصورها",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "جمع_البيانات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "الأمن_السيبراني",
+    "items": [
+      {
+        "name": "الأمان_المتكامل",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "التشفير",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "التصريح",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "تحليل_المخاطر",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "التخصيص",
+    "items": [
+      {
+        "name": "التخصيص_الشامل_للعملاء",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الروبوتات_التعاونية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "توحيد_الذكاء_البشري_والحوسبة_الإدراكية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "دور_المصمم_البشري",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "التقنيات_الناشئة",
+    "items": [
+      {
+        "name": "Blockchain",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الحوسبة_الإدراكية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الذكاء_الاصطناعي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الواقع_الافتراضي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الواقع_المعزز",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "طباعة_ثلاثية_الأبعاد",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "واجهات_المستخدم_الصوتية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "الحوسبة_السحابية",
+    "items": [
+      {
+        "name": "الأنواع_البرمجيات_كخدمة_Software_as_a_Service_SaaS_،_والبنية_التحتية_كخدمة_Infra",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "فوائد_الحوسبة_السحابية_لإنترنت_الأشياء",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "العمليات_والحوكمة",
+    "items": [
+      {
+        "name": "إدارة_التحسين_الذاتي",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "العملاء",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "سلاسل_التوريد",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "القوة_العاملة",
+    "items": [
+      {
+        "name": "إدارة_التغيير",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "إعادة_هيكلة_المؤسسات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "التدريب",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "العلاقة_بين_البطالة_التكنولوجية_والتعليم",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "توزيع_العمل",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "فجوة_المهارات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "وظائف_جديدة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "بروتوكولات_الاتصال_اللاسلكية",
+    "items": [
+      {
+        "name": "Bluetooth",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "Light_Fidelity_LiFi",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "Low_Energy_Wireless",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "LPWAN",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "LTE_A",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "NFC",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "RFID",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "Thread",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "WiFi_Direct",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "Z_Wave",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "Zigbee",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "تحليلات_البيانات",
+    "items": [
+      {
+        "name": "البيانات_الضخمة_تدفقية،_مكانية،_زمنية،_توصيفية،_تنبؤية،_وتحليلات_قاضية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "التعريف",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "توحيد_التقنيات",
+    "items": [
+      {
+        "name": "تقنيات_الأتمتة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "نقاط_التكامل",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "واجهات_التطبيق",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "عوامل_الدفع_للثورة_الصناعية_الرابعة_وخصائص_المصنع_الذكي",
+    "items": [
+      {
+        "name": "التكنولوجيا_الناشئة_مجالات_التأثير_للثورات_الصناعية_المهارات،_القوى_العاملة،_إدا",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "جوانب_العصور_الصناعية_الحركة_الاجتماعية،_وسائل_النقل،_الطاقة،_الأعمال_التجارية،_",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "خصائص_المصنع_الذكي_القابلية_للتوسعة،_المرونة،_التوصيلية،_الكفاءة،_الاستقلالية،_ا",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "معايير_السلامة_الوظيفية",
+    "items": [
+      {
+        "name": "IEC_61508_الأجهزة_الكهربائية_والإلكترونية_والإلكترونيات_القابلة_للبرمجة",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "IEC_61511_العمليات_الصناعية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "IEC_62061_الآلات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "IEC_62280،_EN_50159،_IEC_61784_الشبكات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "IEC_62443_الأمان",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "ISO_10218_الروبوتات_الصناعية",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "ميزات_إنترنت_الأشياء_IoT",
+    "items": [
+      {
+        "name": "الاتصالات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الحساسات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "الذكاء_الاصطناعي_AI",
+        "files": [
+          "generated_quiz.html"
+        ]
+      },
+      {
+        "name": "المنصات",
+        "files": [
+          "generated_quiz.html"
+        ]
+      }
+    ]
+  }
+]
